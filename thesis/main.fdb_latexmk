@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1710176330 "main.aux" "main.bbl" "main" 1710177087 0
+["bibtex main"] 1710177792 "main.aux" "main.bbl" "main" 1710177809 0
   "./literatura.bib" 1703007979 2240 f1f7063165d7423500053525cc4bf175 ""
   "C:/Users/palre/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1710177083 8390 0ca4cce871d1b87b4bb2201fb374ab62 "pdflatex"
+  "main.aux" 1710177806 8575 3fc1ec10f445729f6639633f27ebb4db "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1710177080 "c:/Users/palre/projects/microfrontends-diploma-thesis/thesis/main.tex" "main.pdf" "main" 1710177087 0
+["pdflatex"] 1710177802 "c:/Users/palre/projects/microfrontends-diploma-thesis/thesis/main.tex" "main.pdf" "main" 1710177809 0
   "C:/Users/palre/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1710174746 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/palre/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1703008073 31952 d84f2bcd7f7b55e722cda7f7b2a5e9c5 ""
   "C:/Users/palre/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1703008056 40136 cf5aa1fb47f3f1f6b304e6e7c14b90d0 ""
@@ -96,7 +96,7 @@
   "C:/Users/palre/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1686255640 10214 75bcd28386d4b4b9f28b2aff3cea7b24 ""
   "C:/Users/palre/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/palre/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Users/palre/projects/microfrontends-diploma-thesis/thesis/main.tex" 1710177078 7563 fd7f6cb7e3e40b158bde2eac88a53262 ""
+  "c:/Users/palre/projects/microfrontends-diploma-thesis/thesis/main.tex" 1710177801 7690 c5475ba1e47660fa434f3a972dc62420 ""
   "chapters/Analysis.tex" 1705052428 2437 d21c14a8ae92eed0a8bc8a8141dd1a4a ""
   "chapters/Conclusion.tex" 1705053968 987 f9a4aee308b68fbf07ba99a839ce832f ""
   "chapters/Design.tex" 1705053237 3412 267d783db2cb526d4d80162e17d8ef2a ""
@@ -107,12 +107,12 @@
   "images/FMFI_logo_BP.png" 1710175279 64586 99273be744e43808c9bd895dcec19739 ""
   "images/zadanie-en.pdf" 1704995168 324685 122ad74ff74722886bb59662990ccff1 ""
   "images/zadanie.pdf" 1704995156 345024 f3fa0efc4c1cc33eb852cd2abfb7adab ""
-  "main.aux" 1710177083 8390 0ca4cce871d1b87b4bb2201fb374ab62 "pdflatex"
-  "main.bbl" 1710176331 402 f76c8f5e80badaf419d75eef8190a4dc "bibtex main"
-  "main.lof" 1710177083 140 104a8a462b27a2267fd07b368245cdd0 "pdflatex"
-  "main.lot" 1710177083 140 104a8a462b27a2267fd07b368245cdd0 "pdflatex"
-  "main.out" 1710177083 8685 9d49564bf4fee591c2b2961828030259 "pdflatex"
-  "main.toc" 1710177083 4453 572aa8d75b64117f310a15544df88399 "pdflatex"
+  "main.aux" 1710177806 8575 3fc1ec10f445729f6639633f27ebb4db "pdflatex"
+  "main.bbl" 1710177793 402 f76c8f5e80badaf419d75eef8190a4dc "bibtex main"
+  "main.lof" 1710177806 140 104a8a462b27a2267fd07b368245cdd0 "pdflatex"
+  "main.lot" 1710177806 140 104a8a462b27a2267fd07b368245cdd0 "pdflatex"
+  "main.out" 1710177806 8685 9d49564bf4fee591c2b2961828030259 "pdflatex"
+  "main.toc" 1710177806 4453 572aa8d75b64117f310a15544df88399 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

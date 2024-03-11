@@ -50,8 +50,8 @@
 \def\mfkonzultant{Ing. Juraj Marák}  
 
 \def\mfmiestocas{Bratislava, \mfrok}
-\def\mfuniverzita{Comenius University in Bratislava}
-\def\mffakulta{Faculty of Mathematics, Physics and Informatics}
+\def\mfuniverzita{COMENIUS UNIVERSITY IN BRATISLAVA}
+\def\mffakulta{FACULTY OF MATHEMATICS PHYSICS AND INFORMATICS}
 \def\mftypprace{Diploma thesis}
 
 \def\mfodbor{Computer Science}
@@ -67,8 +67,8 @@
 \noindent
 \begin{minipage}{\textwidth}
     \begin{center}
-        \mfuniverzita\\
-        \mffakulta
+      \textbf{\mfuniverzita\\
+      \mffakulta}
     \end{center}
 \end{minipage}
 
@@ -99,8 +99,8 @@
 \noindent
 \begin{minipage}{\textwidth}
     \begin{center}
-        \mfuniverzita \\
-        \mffakulta
+      \textbf{\mfuniverzita\\
+      \mffakulta}
     \end{center}
 \end{minipage}
 
@@ -155,23 +155,22 @@ Consultant: & \mfkonzultant \\
 %   Poďakovanie - nepovinné
 % -------------------
 \newpage
-\pagestyle{plain}
-~
-
-\vfill
-{\bf Acknowledgments:} Tu môžete poďakovať školiteľovi, prípadne
+\thispagestyle{empty}
+\chapter*{Acknowledgement}\label{chap:thank_you}
+Tu môžete poďakovať školiteľovi, prípadne
 ďalším osobám, ktoré vám s prácou nejako pomohli, poradili,
 poskytli dáta a podobne.
 
+\vfill\eject 
 % --- Koniec poďakovania
 
 % -------------------
 %   Abstrakt - Slovensky
 % -------------------
+
 \newpage 
-\section*{Abstrakt}
-
-
+\thispagestyle{empty}
+\chapter*{Abstrakt}\label{chap:abstract_sk}
 Slovenský abstrakt v rozsahu 100-500 slov, jeden odstavec. Abstrakt
 stručne sumarizuje výsledky práce. Mal by byť pochopiteľný pre bežného
 informatika. Nemal by teda využívať skratky, termíny alebo označenie
@@ -185,14 +184,12 @@ zavedené v práci, okrem tých, ktoré sú všeobecne známe.
 % --- Abstrakt - Anglicky 
 % -------------------
 \newpage 
-\section*{Abstract}
-
+\thispagestyle{empty}
+\chapter*{Abstract}\label{chap:abstract_en}
 Abstract in the English language (translation of the abstract in the
 Slovak language).
 
-
 \paragraph*{Keywords:} 
-
 % --- Koniec Abstrakt - Anglicky
 
 % -------------------

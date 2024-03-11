@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.19)  11 MAR 2024 18:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.19)  11 MAR 2024 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -365,7 +365,7 @@ Package pdftex.def Info: images/FMFI_logo_BP.png  used on input line 110.
  [3] [4
 
 ]
-<images/zadanie.pdf, id=241, 597.50731pt x 845.04607pt>
+<images/zadanie.pdf, id=242, 597.50731pt x 845.04607pt>
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf>
 Package pdftex.def Info: images/zadanie.pdf  used on input line 149.
@@ -374,7 +374,7 @@ File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf>
 Package pdftex.def Info: images/zadanie.pdf  used on input line 149.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
-<images/zadanie.pdf, id=244, page=1, 597.50731pt x 845.04607pt>
+<images/zadanie.pdf, id=245, page=1, 597.50731pt x 845.04607pt>
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf, page 1>
 Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 149.
@@ -402,7 +402,7 @@ File: images/zadanie.pdf Graphic file (type pdf)
 Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 149.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
  [2 <./images/zadanie.pdf>]
-<images/zadanie-en.pdf, id=281, 597.50731pt x 845.04607pt>
+<images/zadanie-en.pdf, id=282, 597.50731pt x 845.04607pt>
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf>
 Package pdftex.def Info: images/zadanie-en.pdf  used on input line 150.
@@ -411,7 +411,7 @@ File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf>
 Package pdftex.def Info: images/zadanie-en.pdf  used on input line 150.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
-<images/zadanie-en.pdf, id=284, page=1, 597.50731pt x 845.04607pt>
+<images/zadanie-en.pdf, id=285, page=1, 597.50731pt x 845.04607pt>
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf, page 1>
 Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 150.
@@ -442,26 +442,32 @@ Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 150.
 pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.171 \newpage
-               [4] [5] [6] (main.toc [7
+l.159 \chapter
+              *{Acknowledgement}\label{chap:thank_you} [4
 
-])
+] [5] [6
+
+] [7] [8
+
+] [9] [10
+
+] (main.toc [11])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [8] (main.lof)
+ [12] (main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [9
+ [13
 
-] [10
+] [14
 
 ] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [11] [12
+ [15] [16
 
 ] (chapters/Introduction.tex
 Chapter 1.
@@ -508,17 +514,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9D49564BF4FEE591C2B2961828030259;8685.
  ) 
 Here is how much of TeX's memory you used:
- 12037 strings out of 475248
- 187288 string characters out of 5757812
+ 12045 strings out of 475248
+ 187382 string characters out of 5757812
  1929785 words of memory out of 5000000
- 33291 multiletter control sequences out of 15000+600000
+ 33294 multiletter control sequences out of 15000+600000
  568484 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,79p,547b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk>
-Output written on main.pdf (34 pages, 906960 bytes).
+ <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
+Output written on main.pdf (38 pages, 912983 bytes).
 PDF statistics:
- 873 PDF objects out of 1000 (max. 8388607)
- 95 named destinations out of 1000 (max. 500000)
+ 905 PDF objects out of 1000 (max. 8388607)
+ 100 named destinations out of 1000 (max. 500000)
  478 words of extra memory for PDF output out of 10000 (max. 10000000)
 
