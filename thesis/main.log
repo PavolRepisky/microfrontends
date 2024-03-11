@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.19)  12 JAN 2024 11:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.19)  11 MAR 2024 18:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -255,24 +255,24 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -336,104 +336,113 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-Package hyperref Info: Link coloring OFF on input line 69.
+Package hyperref Info: Link coloring OFF on input line 63.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 73.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 73.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 73.
+<images/FMFI_logo_BP.png, id=219, 284.7438pt x 284.7438pt>
+File: images/FMFI_logo_BP.png Graphic file (type png)
+<use images/FMFI_logo_BP.png>
+Package pdftex.def Info: images/FMFI_logo_BP.png  used on input line 78.
+(pdftex.def)             Requested size: 176.40439pt x 176.40898pt.
  [1
 
 
-{C:/Users/palre/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2
+{C:/Users/palre/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/FMFI_logo_BP.png>] [2
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 119.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 119.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 119.
+File: images/FMFI_logo_BP.png Graphic file (type png)
+<use images/FMFI_logo_BP.png>
+Package pdftex.def Info: images/FMFI_logo_BP.png  used on input line 110.
+(pdftex.def)             Requested size: 176.40439pt x 176.40898pt.
  [3] [4
 
 ]
-<images/zadanie.pdf, id=239, 597.50731pt x 845.04607pt>
+<images/zadanie.pdf, id=241, 597.50731pt x 845.04607pt>
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf>
-Package pdftex.def Info: images/zadanie.pdf  used on input line 146.
+Package pdftex.def Info: images/zadanie.pdf  used on input line 149.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf>
-Package pdftex.def Info: images/zadanie.pdf  used on input line 146.
+Package pdftex.def Info: images/zadanie.pdf  used on input line 149.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
-<images/zadanie.pdf, id=242, page=1, 597.50731pt x 845.04607pt>
+<images/zadanie.pdf, id=244, page=1, 597.50731pt x 845.04607pt>
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf, page 1>
-Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 146.
+Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 149.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf, page 1>
-Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 146.
+Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 149.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf, page 1>
-Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 146.
+Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 149.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf, page 1>
-Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 146.
+Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 149.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.146 \includepdf{images/zadanie.pdf}
+l.149 \includepdf{images/zadanie.pdf}
                                      
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf, page 1>
-Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 146.
+Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 149.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
  [2 <./images/zadanie.pdf>]
-<images/zadanie-en.pdf, id=279, 597.50731pt x 845.04607pt>
+<images/zadanie-en.pdf, id=281, 597.50731pt x 845.04607pt>
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf>
-Package pdftex.def Info: images/zadanie-en.pdf  used on input line 147.
+Package pdftex.def Info: images/zadanie-en.pdf  used on input line 150.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf>
-Package pdftex.def Info: images/zadanie-en.pdf  used on input line 147.
+Package pdftex.def Info: images/zadanie-en.pdf  used on input line 150.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
-<images/zadanie-en.pdf, id=282, page=1, 597.50731pt x 845.04607pt>
+<images/zadanie-en.pdf, id=284, page=1, 597.50731pt x 845.04607pt>
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf, page 1>
-Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 147.
+Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 150.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf, page 1>
-Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 147.
+Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 150.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf, page 1>
-Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 147.
+Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 150.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf, page 1>
-Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 147.
+Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 150.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.147 \includepdf{images/zadanie-en.pdf}
+l.150 \includepdf{images/zadanie-en.pdf}
                                         
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf, page 1>
-Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 147.
+Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 150.
 (pdftex.def)             Requested size: 597.53319pt x 845.08269pt.
  [3 <./images/zadanie-en.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.168 \newpage
+l.171 \newpage
                [4] [5] [6] (main.toc [7
 
 ])
@@ -499,17 +508,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9D49564BF4FEE591C2B2961828030259;8685.
  ) 
 Here is how much of TeX's memory you used:
- 12028 strings out of 475248
- 186984 string characters out of 5757812
+ 12037 strings out of 475248
+ 187288 string characters out of 5757812
  1929785 words of memory out of 5000000
- 33279 multiletter control sequences out of 15000+600000
- 570512 words of font info for 58 fonts, out of 8000000 for 9000
+ 33291 multiletter control sequences out of 15000+600000
+ 568484 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,79p,547b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2074.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk>
-Output written on main.pdf (34 pages, 882121 bytes).
+ <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\palre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk>
+Output written on main.pdf (34 pages, 906960 bytes).
 PDF statistics:
- 931 PDF objects out of 1000 (max. 8388607)
+ 873 PDF objects out of 1000 (max. 8388607)
  95 named destinations out of 1000 (max. 500000)
- 473 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 478 words of extra memory for PDF output out of 10000 (max. 10000000)
 

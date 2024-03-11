@@ -36,102 +36,105 @@
 % vyzeralo rovnako ako tlacena verzia
 \usepackage[hidelinks,breaklinks]{hyperref}
 
-
 % -------------------
 % --- Definicia zakladnych pojmov
 % --- Vyplnte podla vasho zadania, rok ma byt rok odovzdania
 % -------------------
 \def\mfrok{2024}
-\def\mfnazov{Analysis, Design and Implementation of Micro-frontend Architecture}
+\def\mftitle{Analysis, Design and Implementation of Micro-frontend Architecture}
 \def\mftyp{Bachelor Thesis}
-\def\mfautor{Bc. Pavol Repiský}
+\def\mfauthor{Bc. Pavol Repiský}
 \def\mfskolitel{RNDr. Ľubor Šešera, PhD.}
 
 %ak mate konzultanta, odkomentujte aj jeho meno na titulnom liste
 \def\mfkonzultant{Ing. Juraj Marák}  
 
-\def\mfmiesto{Bratislava, \mfrok}
+\def\mfmiestocas{Bratislava, \mfrok}
+\def\mfuniverzita{Comenius University in Bratislava}
+\def\mffakulta{Faculty of Mathematics, Physics and Informatics}
+\def\mftypprace{Diploma thesis}
 
-% študenti BIN a DAV odkomentujú príslušnú dvojicu riadkov
 \def\mfodbor{Computer Science}
 \def\program{Applied Computer Science}
-% pre BIN:
-%\def\mfodbor{Computer Science and Biology} 
-%\def\program{ Bioinformatics }
-% pre DAV:
-%\def\mfodbor{Computer Science and Mathematics} 
-%\def\program{ Data Science }
 
 % Ak je školiteľ z FMFI, uvádzate katedru školiteľa, zrejme by mala byť aj na zadaní z AIS2
-% Ak máte externého školiteľa, uvádzajte Katedru informatiky 
-\def\mfpracovisko{ Department of Computer Science }
+\def\mfpracovisko{Department of Computer Science}
 
 \begin{document}     
 \frontmatter
 \pagestyle{empty}
 
-% -------------------
-% --- Obalka ------
-% -------------------
+\noindent
+\begin{minipage}{\textwidth}
+    \begin{center}
+        \mfuniverzita\\
+        \mffakulta
+    \end{center}
+\end{minipage}
 
+\vfill
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.4\textwidth]{images/FMFI_logo_BP.png}
+		\label{img:logo}
+	\end{center}
+\end{figure}
 \begin{center}
-  \sc\large
-  Comenius University in Bratislava\\
-  Faculty of Mathematics, Physics and Informatics
-
-\vfill
-
-{\LARGE\mfnazov}\\
-\mftyp
+		\textbf{\MakeUppercase{\Large\mftitle}}\\
+    \mftypprace
 \end{center}
-
 \vfill
-
-{\sc\large 
-\noindent \mfrok\\
-\mfautor
-}
-
+\mfrok \hfill
+\mfauthor
+%\eject 
 \cleardoublepage
 % --- koniec obalky ----
+
+
 
 % -------------------
 % --- Titulný list
 % -------------------
-
+\thispagestyle{empty}
 \noindent
+\begin{minipage}{\textwidth}
+    \begin{center}
+        \mfuniverzita \\
+        \mffakulta
+    \end{center}
+\end{minipage}
+
+\vfill
+\begin{figure}[!hbt]
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{images/FMFI_logo_BP.png}
+        \label{img:logo_dark}
+    \end{center}
+\end{figure}
 
 \begin{center}
-\sc  
-\large
-  Comenius University in Bratislava\\
-  Faculty of Mathematics, Physics and Informatics
-
-\vfill
-
-{\LARGE\mfnazov}\\
-\mftyp
+	\textbf{\MakeUppercase{\Large\mftitle}}\\
+	\mftypprace
 \end{center}
-
 \vfill
 
-\noindent
-\begin{tabular}{ll}
-Study Programme: & \program \\
-Field of Study: & \mfodbor \\
+
+\begin{tabular}{l l}
+Study program: & \program \\
+Branch of study: & \mfodbor \\
 Department: & \mfpracovisko \\
 Supervisor: & \mfskolitel \\
 Consultant: & \mfkonzultant \\
 \end{tabular}
 
 \vfill
-
-
-\noindent \mfmiesto\\
-\mfautor
-
+\noindent
+\mfmiestocas \hfill
+\mfauthor
+%\eject 
 \cleardoublepage
 % --- Koniec titulnej strany
+
 
 
 % -------------------
