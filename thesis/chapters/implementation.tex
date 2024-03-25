@@ -1,21 +1,46 @@
 \chapter{Implementation}
 \label{chap:Implementation}
+Provide a description outlining the purpose and content of this chapter, detailing the topics being discussed herein.
 
 \section{Overview}
-Provide an overview of the software, system, or algorithm being implemented.
-Clearly state the objectives and goals of the implementation.
+\begin{itemize}
+   \item Describe the application implementation process.
+   \item Highlight key considerations and the overall approach to implementing micro-frontends.
+\end{itemize}
 
-\section{Technology Stack}
-Detail the tools, programming languages, and frameworks used in the implementation. Include information about the hardware and software requirements.
+\section{Styling \& Sharing}
+\begin{itemize}
+   \item Describe the challenge posed by CSS in a micro-fronted architecture, where styles are global, inherit, and cascade without the support of a module system, namespacing, or encapsulation.
+   \item Highlight the necessity of ensuring that each micro frontend doesn't conflict with others regarding CSS properties.
+   \item Explain the approach taken to address these challenges, emphasizing the need for consistency in the graphical user interface (GUI) across all micro frontends.
+   \item Discuss the implementation of a shared UI component library as a solution to promote consistency and streamline development efforts.
+   \item Describe how was static assets sharing managent.
+\end{itemize}
 
-\section{Implementation Details}
-Provide a detailed account of the actual implementation. Break down the implementation into sub-sections based on functionalities or modules. Include code snippets where necessary, focusing on critical or complex parts.
+\section{Routing}
+\begin{itemize}
+   \item How was the routing issue resolved
+   \item Which technologies are utilized for both internal and external routing
+\end{itemize}
 
-\section{User Interface}
-Describe the user interface design and implementation. Include screenshots or mockups to illustrate the user experience.
+\section{Cross-application communication}
+\begin{itemize}
+   \item Discuss when micro-frontends must communicate with each other.
+   \item Explain the techniques utilized for communication.
+   \item Discuss how was tight coupling avoided.
+\end{itemize}
 
-\section{Performance Evaluation}
-Evaluate the performance of the implemented system or algorithm. Include relevant metrics and benchmarks. Compare the performance against any existing solutions or standards.
+\section{Versoning \& Infrastructure}
+\begin{itemize}
+   \item Discuss the type of repository employed (Mono-repo/Multi-repos) and reasons behind its selection.
+   \item Enumerate all automated workflows which were utilized.
+   \item Highlight any additional tools employed
+   \item Describe the deployment process
+\end{itemize}
 
-\section{Limitations and Challenges}
-Acknowledge any limitations in the implementation.Discuss challenges faced during the development process and how they were addressed.
+\section{Testing}
+\begin{itemize}
+   \item Detail the types of tests utilized.
+   \item  Explain the testing process, including any automation implemented.
+   \item List the testing tools utilized.
+\end{itemize}

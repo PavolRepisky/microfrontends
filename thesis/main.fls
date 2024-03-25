@@ -223,10 +223,11 @@ INPUT chapters\Introduction.tex
 INPUT C:\Users\palre\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1728.tfm
 INPUT chapters\LiteratureReview.tex
 INPUT C:\Users\palre\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecsl1200.tfm
-INPUT chapters\TheoreticalFramework.tex
-INPUT chapters\Analysis.tex
+INPUT C:\Users\palre\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
 INPUT C:\Users\palre\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1440.tfm
 INPUT C:\Users\palre\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx1440.tfm
+INPUT chapters\TheoreticalFramework.tex
+INPUT chapters\Analysis.tex
 INPUT chapters\Design.tex
 INPUT chapters\Implementation.tex
 INPUT chapters\Conclusion.tex
@@ -241,6 +242,8 @@ INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ect
 INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk
 INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
 INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
+INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
+INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecsl1200.pk
 INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecsl1200.pk
 INPUT C:\Users\palre\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk
