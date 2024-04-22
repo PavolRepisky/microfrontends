@@ -2,10 +2,32 @@
   \newcommand{\singleletter}[1]{#1} \newcommand{\switchargs}[2]{#2#1}
 \begin{thebibliography}{1}
 
-\bibitem{Oetiker2000}
-Tobias Oetiker, Hubert Partl, Irene Hyna, and Elisabeth Schlegl.
-\newblock {\em Nie príliš stručný úvod do systému {LaTeX2e}}.
-\newblock 2002.
-\newblock Preklad Ján Buša ml. a st.
+\bibitem{AjaxDocs}
+Ajax.
+\newblock {\em MDN Web Docs}.
+
+\bibitem{IframeDocs}
+<iframe>: The inline frame element.
+\newblock {\em MDN Web Docs}.
+
+\bibitem{MFApplication}
+Swati~Megha Andrei~Pavlenko, Nursultan~Askarbekuly and Manuel Mazzara.
+\newblock Micro-frontends: application of microservices to web front-ends.
+\newblock 05 2020.
+
+\bibitem{MFInAction}
+Michael Geers.
+\newblock {\em Micro Frontends in Action}.
+\newblock Manning, 2020.
+
+\bibitem{MFFowler}
+Cam Jackson.
+\newblock Micro frontends.
+\newblock 06 2019.
+
+\bibitem{MFPatterns}
+okmttdhr.
+\newblock Micro frontends patterns.
+\newblock {\em dev.to}, 2020.
 
 \end{thebibliography}

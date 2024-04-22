@@ -12,32 +12,42 @@
 \contentsline {chapter}{\numberline {3}Theoretical Framework}{5}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Analysis}{7}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Micro-Frontends in a Nutshell}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Implementation Approaches}{7}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Edge-side composition}{7}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Server-side template composition}{7}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Build-time integration}{7}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Run-time integration via iframes}{7}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Run-time integration via JavaScript}{8}{subsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.2.6}Run-time integration via WebComponents}{8}{subsection.4.2.6}%
-\contentsline {section}{\numberline {4.3}Strengths}{8}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Drawbacks}{8}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Success stories}{8}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Design}{9}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction}{9}{section.5.1}%
-\contentsline {section}{\numberline {5.2}System Architecture}{9}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Functional Requirements}{9}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Nonfunctional Requirements}{9}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Tech Stack}{9}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Components}{9}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Graphical User Interface}{10}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Implementation}{11}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Overview}{11}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Styling \& Sharing}{11}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Routing}{11}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Cross-application communication}{12}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Versoning \& Infrastructure}{12}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Testing}{12}{section.6.6}%
-\contentsline {chapter}{\numberline {7}Conclusion}{13}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Implementation Results}{13}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Practical Implications}{13}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Recommendations for Future Work}{13}{section.7.3}%
+\contentsline {section}{\numberline {4.2}Composition Approaches}{7}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Composition via links}{7}{subsection.4.2.1}%
+\contentsline {subsubsection}{Advantages}{8}{section*.9}%
+\contentsline {subsubsection}{Disadvantages}{8}{section*.10}%
+\contentsline {subsection}{\numberline {4.2.2}Composition via iframes}{8}{subsection.4.2.2}%
+\contentsline {subsubsection}{Advantages}{8}{section*.11}%
+\contentsline {subsubsection}{Disadvantages}{8}{section*.12}%
+\contentsline {subsubsection}{Suitability}{9}{section*.13}%
+\contentsline {subsection}{\numberline {4.2.3}Composition via Ajax}{9}{subsection.4.2.3}%
+\contentsline {subsubsection}{Advantages}{10}{section*.14}%
+\contentsline {subsubsection}{Disadvantages}{10}{section*.15}%
+\contentsline {subsubsection}{Suitability}{10}{section*.16}%
+\contentsline {subsection}{\numberline {4.2.4}Server-side composition}{10}{subsection.4.2.4}%
+\contentsline {subsubsection}{Advantages}{11}{section*.17}%
+\contentsline {subsubsection}{Disadvantages}{11}{section*.18}%
+\contentsline {subsubsection}{Suitability}{12}{section*.19}%
+\contentsline {subsection}{\numberline {4.2.5}Composition via Web Components}{12}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}Strengths}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Drawbacks}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Success stories}{12}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Design}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}System Architecture}{13}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Functional Requirements}{13}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Nonfunctional Requirements}{13}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Tech Stack}{13}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Components}{13}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Graphical User Interface}{14}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Implementation}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Overview}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Styling \& Sharing}{15}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Routing}{15}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Cross-application communication}{16}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Versoning \& Infrastructure}{16}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Testing}{16}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Conclusion}{17}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Implementation Results}{17}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Practical Implications}{17}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Recommendations for Future Work}{17}{section.7.3}%

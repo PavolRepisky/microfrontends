@@ -1,0 +1,70 @@
+\section{Composition Approaches}
+When considering the architecture of a micro-frontends application, there are several options to choose from. Some are as straightforward as employing a link, while others could fill a whole book. However, there is not a one-size-fits-all solution, it is all about finding the optimal balance for each project. This section presents the five primary approaches, outlining their advantages, disadvantages, and use cases, ranging from the most straightforward to more complex ones.
+
+\subsection{Composition via links}
+This architecture composes different pages and features via hyperlinks. Each feature consists of a standalone page interconnected through hyperlinks. URLs serve as the contractual interface between teams, with each team specifying their URL patterns, typically in JSON format, and updating links as necessary. A common scenario involves a standalone cart checkout application being linked from various applications. \cite{MFInAction}\cite{MFPatterns}\newline
+[Code sample here]
+
+\subsubsection{Advantages}
+The composition via links approach to microfrontends ensures their complete independence from one another, eliminating direct communication between them. Instead, they interact solely through hyperlinks. This design choice provides a significant advantage: any errors occurring within one microfrontend are isolated, preventing them from affecting others in the system. Additionally, this approach simplifies project setup, requiring no additional tools or mechanisms beyond sharing URL patterns. \cite{MFInAction}\cite{MFPatterns}
+
+\subsubsection{Disadvantages}
+One major drawback of this approach is the lack of an option to seamlessly combine different microfrontends into a unified view. Users are required to navigate between them by clicking on respective hyperlinks, which can lead to a fragmented user experience. Additionally, common elements such as headers must be individually implemented and maintained in each microfrontend, resulting in duplication of effort and potential inconsistencies across the application. \cite{MFInAction}\cite{MFPatterns}
+
+\subsection{Composition via iframes}
+Iframes are a well-established technique in web development. Essentially, an iframe is an HTML element that represents a nested browsing context, allowing the embedding of another HTML page into the current one. Compared to composition via links, the transition to iframes requires minimal changes—all that's needed is to include an iframe tag and specify the URL. Thus, teams only need to share URL patterns with each other. \cite{IframeDocs} \newline
+[Code sample here]
+
+\subsubsection{Advantages}
+Iframes offer the same loose coupling and robustness as link composition. They are straightforward to set up and provide strong isolation against scripts and styles leaking out. Additionally, they are universally supported by all browsers by default. \cite{MFApplication}\cite{MFInAction}\cite{MFFowler}
+
+\subsubsection{Disadvantages}
+However, the main advantage of iframes also presents a significant disadvantage. It is impossible to share common dependencies across different iframes, leading to larger file sizes and longer download times. Communication between iframes is restricted to the iframe API, which is cumbersome and inflexible. These limitations make tasks such as routing, managing history, and implementing deep-linking quite challenging. \\\\
+Another drawback is that the outer document must precisely know the height of the iframe to prevent scrollbars and whitespace, which can be particularly tricky in responsive designs. While there are JavaScript libraries available to address this, iframes remain performance-heavy. Using numerous iframes on the same page can significantly degrade page speed. Furthermore, iframes are detrimental to accessibility and search engine optimization (SEO), as each iframe is considered a separate page by search engines. \cite{MFInAction}\cite{MFApplication}\cite{MFFowler}
+
+\subsubsection{Suitability}
+Despite the numerous disadvantages associated with iframes, they can be a suitable choice in specific scenarios. For instance, consider the Spotify desktop application, which incorporates iframes for certain parts of its functionality. In this context, concerns about responsiveness, SEO, and accessibility are not much of an issue.\\\\
+In conclusion, iframes are not ideal for websites where performance, SEO, or accessibility are crucial factors. However, they can be a suitable option for internal tools due to their simple setup. \cite{MFInAction}
+
+\subsection{Composition via Ajax}
+Asynchronous JavaScript and XML (AJAX) is a technique that enables fetching content from a server through asynchronous HTTP requests. It leverages the retrieved content to update specific parts of a webpage without requiring a full page reload (AjaxDocs).\cite{AjaxDocs} \\\\
+When considering microfrontends, the transition from traditional approaches isn't overly complex. Each microfrontend must be exposed as a fragment endpoint and subsequently fetched via an Ajax call, then dynamically inserted into an existing element within the document. \\\\
+However, this approach introduces unique challenges. Notably, CSS conflicts may arise, particularly if two microfrontends utilize the same class names, leading to undesired overrides. To mitigate such conflicts, it's imperative to namespace all CSS selectors. Various tools, such as SASS, CSS Modules, or PostCSS, facilitate this process automatically.\\\\
+Additionally, JavaScript isolation is crucial. A commonly employed technique involves encapsulating scripts within Immediately Invoked Function Expressions (IIFE), thereby confining the code's scope to the anonymous function. In instances where global variables are necessary, they can be declared explicitly or managed through namespacing. \cite{MFInAction}
+
+\subsubsection{Advantages}
+With all microfrontends integrated into the same Document Object Model (DOM), they are no longer treated as separate pages, as was the case with iframes. Consequently, concerns such as setting precise heights become obsolete. Furthermore, SEO (Search Engine Optimization) and accessibility are no longer issues since they operate within the context of the final assembled page. \\\\
+This approach also facilitates the implementation of fallback mechanisms in case JavaScript fails, such as providing a link to a standalone page. Moreover, it supports flexible error handling strategies in the event of fetch failures. \cite{MFInAction}
+
+\subsubsection{Disadvantages}
+Asynchronous loading, while powerful, can introduce delays in content rendering, resulting in parts of the page appearing later, thereby potentially degrading the user experience. Additionally, a notable concern within this architecture is the lack of isolation between microfrontends, which is a crucial aspect of microfrontends. \\\\
+Interactions that trigger AJAX calls may suffer from latency issues, particularly in scenarios with poor network connectivity. Furthermore, this approach do not inherently provide lifecycle methods, unless implemeted manually. \cite{MFInAction}
+
+\subsubsection{Suitability}
+This approach is well-established, robust, and easy to implement. It's particularly well-suited for websites where the markup is primarily generated on the server side. However, for pages that demand extensive interactivity or rely heavily on managing local state, client-side approaches may prove to be more suitable alternatives.
+
+\subsection{Server-side composition}
+Server-side composition is typically orchestrated by a service positioned between the browser and application server. This service is responsible for assembling the view by aggregating various microfrontends and constructing the final page before delivering it to the browser. There are two primary approaches to accomplish this:\\\\
+\textbf{Server-side Includes (SSI)}: 
+In this approach, a server-side view template is created, incorporating SSI include directives. These directives specify URLs from which content should be fetched and included in the final page. The web server replaces these directives with the actual content from the referenced URLs before sending the page to the client.\\\\
+\textbf{Edge-Side Includes (ESI)}:
+ESI is a specification that standardizes the process of assembling markup. Similar to SSI, ESI involves including directives within the server-side view template. However, ESI typically requires the involvement of content delivery network providers like Akamai or proxy servers such as Varnish. The web server replaces ESI directives with content from the referenced URLs before transmitting the page to the client.\\\\
+\textbf{Other Approaches}:
+Various libraries and frameworks exist, which simplifies the server-side composition. Two notable examples include:
+\begin{itemize}
+   \item Tailor: A Node.js library developed by Zalando
+   \item Podium: Built upon Tailor by Finn.no, Podium extends its capabilities and provides additional features. \cite{MFInAction}
+\end{itemize}
+
+\subsubsection{Advantages}
+One of the most significant advantages is the excellent first load performance, as the page is pre-assembled on the server, thereby minimizing stress on the user's device. This approach strongly supports progressive enhancement, allowing for additional interactivity to be seamlessly incorporated via client-side JavaScript. Moreover, this technique has been in existence for a considerable period, benefiting from extensive testing, documentation, and refinement. Consequently, it is recognized for its reliability, ease of maintenance, and positive impact on search engine ranking. \cite{MFInAction}
+
+
+\subsubsection{Disadvantages}
+For larger server-rendered pages, browsers may spend considerable time downloading markup instead of prioritizing necessary assets. Moreover, technical isolation is lacking, necessitating the use of prefixes and namespacing to prevent conflicts. Pure server-side solution may notbe optimal for highly interactive applications, requiring combination with other techniques. \cite{MFInAction}
+
+\subsubsection{Suitability}
+This approach is ideal for pages prioritizing performance and search engine ranking, as it excels in reliability and functionality even in the absence of JavaScript. However, it may not be optimal for pages requiring instantaneous responses to user input, as it may not offer the level of interactivity needed in such scenarios. \cite{MFInAction}
+
+\subsection{Composition via Web Components}
+...

@@ -5,46 +5,54 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: literatura.bib
-Warning--empty publisher in Oetiker2000
-You've used 1 entry,
+Warning--I didn't find a database entry for "Oetiker2000"
+Warning--to sort, need author or key in IframeDocs
+Warning--to sort, need author or key in AjaxDocs
+Warning--empty author in AjaxDocs
+Warning--empty year in AjaxDocs
+Warning--empty author in IframeDocs
+Warning--empty year in IframeDocs
+Warning--empty journal in MFApplication
+Warning--empty journal in MFFowler
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            504 strings with 4290 characters,
-and the built_in function-call counts, 345 in all, are:
-= -- 27
-> -- 23
+            529 strings with 4563 characters,
+and the built_in function-call counts, 1217 in all, are:
+= -- 110
+> -- 36
 < -- 0
-+ -- 9
-- -- 8
-* -- 25
-:= -- 66
-add.period$ -- 4
-call.type$ -- 1
-change.case$ -- 6
++ -- 16
+- -- 10
+* -- 68
+:= -- 210
+add.period$ -- 16
+call.type$ -- 6
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 12
-empty$ -- 23
-format.name$ -- 8
-if$ -- 65
+cite$ -- 14
+duplicate$ -- 62
+empty$ -- 110
+format.name$ -- 10
+if$ -- 245
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 2
-newline$ -- 10
-num.names$ -- 2
-pop$ -- 11
+int.to.str$ -- 6
+missing$ -- 7
+newline$ -- 32
+num.names$ -- 8
+pop$ -- 37
 preamble$ -- 2
-purify$ -- 6
+purify$ -- 17
 quote$ -- 0
-skip$ -- 5
+skip$ -- 39
 stack$ -- 0
-substring$ -- 5
-swap$ -- 1
+substring$ -- 30
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2
-warning$ -- 1
-while$ -- 2
-width$ -- 2
-write$ -- 14
-(There was 1 warning)
+type$ -- 22
+warning$ -- 8
+while$ -- 8
+width$ -- 7
+write$ -- 55
+(There were 9 warnings)
