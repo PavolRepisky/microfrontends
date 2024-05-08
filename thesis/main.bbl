@@ -1,6 +1,6 @@
 \newcommand{\noopsort}[1]{} \newcommand{\printfirst}[2]{#1}
   \newcommand{\singleletter}[1]{#1} \newcommand{\switchargs}[2]{#2#1}
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{AjaxDocs}
 Ajax.
@@ -10,12 +10,21 @@ Ajax.
 <iframe>: The inline frame element.
 \newblock {\em MDN Web Docs}.
 
+\bibitem{TechnologyRadar}
+Micro frontends.
+\newblock {\em ThoughtWorks Technology Radar}, 5 2020.
+
 \bibitem{MFApplication}
 Swati~Megha Andrei~Pavlenko, Nursultan~Askarbekuly and Manuel Mazzara.
 \newblock Micro-frontends: application of microservices to web front-ends.
 \newblock 05 2020.
 
-\bibitem{MFInAction}
+\bibitem{Microservices}
+Martin Fowler and James Lewis.
+\newblock Microservices.
+\newblock 03 2014.
+
+\bibitem{MicrofrontendsInAction}
 Michael Geers.
 \newblock {\em Micro Frontends in Action}.
 \newblock Manning, 2020.
@@ -25,9 +34,21 @@ Cam Jackson.
 \newblock Micro frontends.
 \newblock 06 2019.
 
+\bibitem{MicrofrontendsStudy}
+Anna Montelius.
+\newblock An exploratory study of micro frontends.
+\newblock 2021.
+
 \bibitem{MFPatterns}
 okmttdhr.
 \newblock Micro frontends patterns.
 \newblock {\em dev.to}, 2020.
+
+\bibitem{WebDevFuture}
+Nilesh Savani.
+\newblock The future of web development: An in-depth analysis of micro-frontend
+  approaches.
+\newblock {\em International Journal of Computer Trends and Technology}, pages
+  65--69, 11 2023.
 
 \end{thebibliography}

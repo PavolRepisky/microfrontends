@@ -6,53 +6,57 @@ The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: literatura.bib
 Warning--I didn't find a database entry for "Oetiker2000"
+Warning--to sort, need author or key in TechnologyRadar
 Warning--to sort, need author or key in IframeDocs
 Warning--to sort, need author or key in AjaxDocs
 Warning--empty author in AjaxDocs
 Warning--empty year in AjaxDocs
 Warning--empty author in IframeDocs
 Warning--empty year in IframeDocs
+Warning--empty author in TechnologyRadar
 Warning--empty journal in MFApplication
+Warning--empty journal in Microservices
 Warning--empty journal in MFFowler
-You've used 6 entries,
+Warning--empty journal in MicrofrontendsStudy
+You've used 10 entries,
             2118 wiz_defined-function locations,
-            529 strings with 4563 characters,
-and the built_in function-call counts, 1217 in all, are:
-= -- 110
-> -- 36
-< -- 0
-+ -- 16
-- -- 10
-* -- 68
-:= -- 210
-add.period$ -- 16
-call.type$ -- 6
-change.case$ -- 22
+            552 strings with 5002 characters,
+and the built_in function-call counts, 2175 in all, are:
+= -- 203
+> -- 64
+< -- 1
++ -- 30
+- -- 18
+* -- 121
+:= -- 367
+add.period$ -- 27
+call.type$ -- 10
+change.case$ -- 38
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 62
-empty$ -- 110
-format.name$ -- 10
-if$ -- 245
+cite$ -- 22
+duplicate$ -- 110
+empty$ -- 191
+format.name$ -- 18
+if$ -- 448
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 7
-newline$ -- 32
-num.names$ -- 8
-pop$ -- 37
+int.to.str$ -- 10
+missing$ -- 11
+newline$ -- 51
+num.names$ -- 14
+pop$ -- 58
 preamble$ -- 2
-purify$ -- 17
+purify$ -- 29
 quote$ -- 0
-skip$ -- 39
+skip$ -- 76
 stack$ -- 0
-substring$ -- 30
-swap$ -- 4
-text.length$ -- 0
+substring$ -- 72
+swap$ -- 13
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 22
-warning$ -- 8
-while$ -- 8
-width$ -- 7
-write$ -- 55
-(There were 9 warnings)
+type$ -- 38
+warning$ -- 12
+while$ -- 16
+width$ -- 12
+write$ -- 92
+(There were 13 warnings)
