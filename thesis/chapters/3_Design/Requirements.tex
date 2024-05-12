@@ -1,0 +1,46 @@
+\section{Requirements}
+The requirements for the application are categorized by priority as follows:
+\begin{itemize}
+   \item (M) Must: Crucial for the system's operation.
+   \item (S) Should: Highly recommended, though not mandatory.
+   \item (C) Could: Optional for implementation.
+\end{itemize}
+
+\subsection{Functional Requirements}
+Here is a comprehensive list of all functional requirements for the application.\\\\
+\textbf{Project Management}
+\begin{itemize}
+   \item Users can create, update, and delete projects. (M)
+   \item Projects are displayed in an easy-to-comprehend manner. (M)
+   \item Users can plan projects by specifying start and end dates. (S)
+   \item Project states can be set by users. (S)
+   \item Projects can be viewed on a timeline. (C)
+\end{itemize}
+\  \\
+\textbf{Task Management}
+\begin{itemize}
+   \item Users can create, update, and delete tasks. (M)
+   \item The task listing page presents all tasks along with their respective information. (M)
+   \item Users can link tasks to projects. (M)
+   \item Task states can be set by users. (S)
+   \item Tasks can be viewed on a kanban board. (C)
+\end{itemize}
+\  \\
+\textbf{Collaboration Features}
+\begin{itemize}
+   \item Project owners can invite other users to join projects via email. (S)
+   \item Project owners can remove project members. (S)
+\end{itemize}
+\  \\
+\textbf{Dashboard}
+\begin{itemize}
+   \item A dashboard-like page contains information about new members, active tasks, and active projects. (M)
+\end{itemize}
+
+\subsection{Functional Requirements}
+Here is a comprehensive list of all non-functional requirements for the application.
+\begin{itemize}
+   \item The application must be divided into several microfrontends. (M)
+   \item Each microfrontendis isolated from others to prevent cascading failures. (M)
+   \item The microfrontends comunicate via custom events. (M)
+\end{itemize}
