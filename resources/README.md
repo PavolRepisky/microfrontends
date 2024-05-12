@@ -1,5 +1,4 @@
-# Literature
-References to literature utilized for research.
+### List of Research Resources
 
 | ID | PDF | Source | Report |
 | ------ | ------ | ------ | ------ |
@@ -9,3 +8,4 @@ References to literature utilized for research.
 | 4 | [Microservices](4/Microservices.pdf) | https://martinfowler.com/articles/microservices.html | [Report](4/Report.pdf) |
 | 5 | [Micro-frontends](5/Micro-frontends.pdf) | https://micro-frontends.org/ | [Report](5/Report.pdf) |
 | 6 | [Micro Frontends](6/Micro%20Frontends.pdf) | https://martinfowler.com/articles/micro-frontends.html | [Report](6/Report.pdf) |
+| 7 | Micro Frontends in Action | https://www.manning.com/books/micro-frontends-in-action | - |
