@@ -7,5 +7,11 @@ Micro-frontends represent the next evolutionary step in web-application architec
 ### Goal
 This thesis aims to comprehensively review existing literature on designing and developing web applications using micro-frontend architecture. Emphasis will be placed on comparing approaches in terms of reusability, extendibility, resource sharing, and application state management. The objective is to identify the most suitable approaches for enterprise application development. Subsequently, the thesis will involve designing and implementing a prototypical micro-frontend application based on the selected approach from the comparative analysis.
 
+### Contents
+- [Resources & reports](./resources)
+- [Thesis](./thesis)
+- [Design](./design)
+- [Implementation](./implementation)
+
 ### Website (WIP):
 https://micro-frontends.framer.website
