@@ -15,3 +15,6 @@ This thesis aims to comprehensively review existing literature on designing and 
 
 ### Website (WIP):
 https://micro-frontends.framer.website
+
+### Presentation:
+https://docs.google.com/presentation/d/17PqF-2-_JIHKzUQ-9nOnO_eVL6FtfDSjbbfeHa9YEEk/edit?usp=sharing
