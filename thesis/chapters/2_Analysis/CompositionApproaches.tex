@@ -94,4 +94,19 @@ For larger server-rendered pages, browsers may spend considerable time downloadi
 This approach is ideal for pages prioritizing performance and search engine ranking, as it excels in reliability and functionality even in the absence of JavaScript. However, it may not be optimal for pages requiring instantaneous responses to user input, as it may not offer the level of interactivity needed in such scenarios. \cite{MicrofrontendsInAction}
 
 \subsection{Composition via Web Components}
-...
+Web components encompass a collection of JavaScript APIs that enable the creation of custom, reusable, and encapsulated HTML elements. This suite of technologies comprises four main components:\\
+\textbf{Custom Elements}\
+Custom Elements represent an extension of HTML elements, empowering developers to define their own custom HTML elements with unique behavior and functionality. They provide callbacks, which can be used to interact with the external environment.\\
+\textbf{Shadow DOM}\
+Shadow DOM provides encapsulation by hiding the implementation details of a custom element from the rest of the document, enabling the creation of self-contained components. This is achieved by attaching an encapsulated shadow DOM tree to an element, rendering it separately from the main document DOM.\\
+\textbf{HTML Templates}\
+HTML Templates enable the definition of markup templates that can be reused and instantiated multiple times within a document without rendering until activated.
+
+\subsubsection{Advantages}
+Web Components are widely implemented web standard, they offer string isolation by default making the applications more robust. Web Components can be used across different frameworks and libraries. They provide lazy loading and code splitting by default enhacing performance. They provide a way to encapsulate complex functionality into reusable building blocks.
+
+\subsubsection{Disadvantages}
+One common criticism of Web Components is their reliance on JavaScript for functionality. They are not fully supported in all older browsers, polyfilling can extend support for custom elements, integrating Shadow DOM is notably more challenging. Additionally, Web Components lack built-in state management mechanisms, complicating integration with existing solutions. Lastly, their SEO friendliness is often questioned, presenting a potential drawback for web visibility and indexing.
+
+\subsubsection{Suitability}
+Web components excel in constructing interactive, app-like applications that require seamless integration of user interfaces developed by different teams onto a single screen. Additionally, they serve as an ideal choice when supporting multitenant environments is required. However, for applications prioritizing SEO or requiring compatibility with legacy browsers, web components may not be the most suitable option.
