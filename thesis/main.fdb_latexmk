@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1715583157 "main.aux" "main.bbl" "main" 1715583768 0
-  "./literatura.bib" 1715536350 4754 331d9d223082639eaf9f67c9a39ecd7e ""
+["bibtex main"] 1715761241 "main.aux" "main.bbl" "main" 1715761244 0
+  "./literatura.bib" 1715761131 4754 2b0191b59b571499f144a1b6716c8fa2 ""
   "C:/Users/palre/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1715583766 9320 214ff20ff2327a26f22c299b9911ea55 "pdflatex"
+  "main.aux" 1715761243 9398 c24c392095fe9989a4c52a021136fa5b "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1715583763 "c:/Users/palre/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1715583768 0
+["pdflatex"] 1715761241 "c:/Users/palre/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1715761244 0
   "C:/Users/palre/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1713901518 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/palre/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1703008073 31952 d84f2bcd7f7b55e722cda7f7b2a5e9c5 ""
   "C:/Users/palre/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1703008056 40136 b865fbd0090288567a77c4fc1538c70a ""
@@ -112,13 +112,13 @@
   "C:/Users/palre/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
   "c:/Users/palre/projects/microfrontends/thesis/main.tex" 1715536350 7688 604ba1e433bbaefe5e3c5a49db16de17 ""
   "chapters/1_Introduction/Aim.tex" 1715536350 745 1e0a16116492af381efab897f085d6a2 ""
-  "chapters/1_Introduction/BackgroundAndMotivation.tex" 1715536350 2107 62709874f355fed34868a23cf3aa03a6 ""
+  "chapters/1_Introduction/BackgroundAndMotivation.tex" 1715761176 2127 9f2db1b6f9ec98e215e1868bfd11e53f ""
   "chapters/1_Introduction/Introduction.tex" 1715536350 414 8aa927523a00aed2c664a9a60ef9fe80 ""
   "chapters/1_Introduction/ScopeAndLimitations.tex" 1715536350 1162 6a7e2be598c6d42fec381daf6969c4ff ""
   "chapters/2_Analysis/Analysis.tex" 1715536350 553 251154517612f9f1f87b759288332b6a ""
   "chapters/2_Analysis/CompositionApproaches.tex" 1715583763 14091 2b2192b4f2c46c3d306c2a019f39e843 ""
   "chapters/2_Analysis/MicroFrontendsInDetail.tex" 1715536350 396 d54b54f87ce778ca99fdcaad3920cde7 ""
-  "chapters/2_Analysis/WebApplicationArchitectures.tex" 1715536350 6045 4ca4a45637036d9cafffaacd7e9915cb ""
+  "chapters/2_Analysis/WebApplicationArchitectures.tex" 1715761240 6066 fa6adacfa9421760374d745b03488454 ""
   "chapters/3_Design/ApplicationIntroduction.tex" 1715536350 869 e077332b51cf2ca2ab23656d90aa7c80 ""
   "chapters/3_Design/Decomposition.tex" 1715536350 72 27e3955150bb24f0f805bf607ab2247e ""
   "chapters/3_Design/Design.tex" 1715536350 997 bee90e6523f18f0f004a990688c4d41d ""
@@ -131,13 +131,13 @@
   "images/FMFI_logo_BP.png" 1715536350 64586 992b442992ee3b6c8fc03d9eb9dbbf0d ""
   "images/zadanie-en.pdf" 1715536350 324685 9be79f034c5aa2c05683c1624e40680a ""
   "images/zadanie.pdf" 1715536350 345024 0576f76f69abd0960b226200ad534a2a ""
-  "main.aux" 1715583766 9320 214ff20ff2327a26f22c299b9911ea55 "pdflatex"
-  "main.bbl" 1715583158 1407 1fc07abef086a5be3081213b8c65bee3 "bibtex main"
-  "main.lof" 1715583766 100 4353d675f6b597e3aa3d5147c8369dec "pdflatex"
-  "main.lot" 1715583766 100 4353d675f6b597e3aa3d5147c8369dec "pdflatex"
-  "main.out" 1715583766 6347 00722ec4226b62b0c8d9c80ca348ea85 "pdflatex"
+  "main.aux" 1715761243 9398 c24c392095fe9989a4c52a021136fa5b "pdflatex"
+  "main.bbl" 1715761241 1666 7a4d5cca8a55dddb41400d16477adbc4 "bibtex main"
+  "main.lof" 1715761243 100 4353d675f6b597e3aa3d5147c8369dec "pdflatex"
+  "main.lot" 1715761243 100 4353d675f6b597e3aa3d5147c8369dec "pdflatex"
+  "main.out" 1715761243 6347 00722ec4226b62b0c8d9c80ca348ea85 "pdflatex"
   "main.tex" 1715536350 7688 604ba1e433bbaefe5e3c5a49db16de17 ""
-  "main.toc" 1715583766 4427 2ce3c1e2118337bfcfd5ec2989a8d498 "pdflatex"
+  "main.toc" 1715761243 4427 2ce3c1e2118337bfcfd5ec2989a8d498 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
