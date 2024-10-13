@@ -1,1 +1,14 @@
 \section{Tech Stack}
+In this section, we discuss the technologies that will be utilized in the development of the project.
+
+\subsection{Angular}
+The primary framework for the application development will be Angular 18, the latest version of Angular available at the time of writing. Angular is a powerful, platform-agnostic web development framework created by Google that enables developers to build scalable, maintainable, and performant single-page applications (SPAs). It comes with built-in tools for handling routing, form validation, state management, and more. In this project, Angular will be used to develop both the application shell and the microfrontends, leveraging its modular architecture. The choice of Angular stems from its wide adoption in enterprise applications, providing robust support and a mature ecosystem. Additionally, Angular Router will handle routing between microfrontends, while HttpClient will manage the loading of microfrontend bundles from their respective servers.
+
+\subsection{TypeScript}
+TypeScript will be the primary programming language for the project, as it is the standard language used in Angular development. TypeScript is a superset of JavaScript that adds static types, enabling developers to catch errors at compile time rather than at runtime. This helps reduce bugs and makes the code more reliable and easier to maintain. The additional type safety and tooling support offered by TypeScript make it a popular choice in the enterprise landscape, and this is one of the key reasons why it was chosen for the project.
+
+\subsection{Web Components}
+Web Components will be leveraged in this project to ensure that each microfrontend operates independently and can be integrated seamlessly into the application shell. Web Components are a set of standardized APIs that allow developers to create reusable, encapsulated HTML elements. In this project, each microfrontend will be exposed as a custom element, ensuring interoperability between microfrontends. To avoid CSS conflicts and ensure style encapsulation, the Shadow DOM will be used for each Web Component. While Web Components are not fully supported by all browsers, polyfills will be employed where necessary to ensure compatibility.
+
+\subsection{Browser Events}
+To facilitate communication between the various microfrontends and the application shell, standard browser events will be utilized. Browser events provide a lightweight and efficient way to send and receive messages between different parts of the application, ensuring that microfrontends remain decoupled but can still share essential data when needed. This event-driven approach will serve as the primary method for cross-microfrontend communication, ensuring a flexible and scalable architecture.

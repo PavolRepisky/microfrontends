@@ -38,21 +38,32 @@
 \contentsline {section}{\numberline {3.1}Application introduction}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Requirements}{13}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Functional Requirements}{14}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Functional Requirements}{15}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Decomposition}{15}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Microfrontends}{15}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Teams}{15}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}System Architecture}{15}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Tech Stack}{15}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Graphical User Interface}{15}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Implementation}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Overview}{17}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Styling \& Sharing}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Routing}{17}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Cross-application communication}{18}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Versoning \& Infrastructure}{18}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Testing}{18}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Conclusion}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Implementation Results}{19}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Practical Implications}{19}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Recommendations for Future Work}{19}{section.5.3}%
+\contentsline {subsection}{\numberline {3.2.2}Non-functional Requirements}{15}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}System Architecture}{15}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Application Shell}{16}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Users Microfrontend}{16}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Projects Microfrontend}{16}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Tasks Microfrontend}{16}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Dashboard Microfrontend}{17}{subsection.3.3.5}%
+\contentsline {section}{\numberline {3.4}Tech Stack}{17}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Angular}{17}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}TypeScript}{17}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Web Components}{18}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Browser Events}{18}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Graphical User Interface}{18}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Application Shell}{18}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Users Microfrontend}{19}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Projects Microfrontend}{19}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Tasks Microfrontend}{20}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Dashboard Microfrontend}{21}{subsection.3.5.5}%
+\contentsline {chapter}{\numberline {4}Implementation}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Overview}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Styling \& Sharing}{23}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Routing}{23}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Cross-application communication}{24}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Versoning \& Infrastructure}{24}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Testing}{24}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Conclusion}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Implementation Results}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Practical Implications}{25}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Recommendations for Future Work}{25}{section.5.3}%

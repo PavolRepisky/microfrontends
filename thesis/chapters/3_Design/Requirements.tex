@@ -8,39 +8,49 @@ The requirements for the application are categorized by priority as follows:
 
 \subsection{Functional Requirements}
 Here is a comprehensive list of all functional requirements for the application.\\\\
+\textbf{User Management}
+\begin{itemize}
+   \item Users can create, update, and delete other users. (M)
+   \item Users are displayed in a list view. (M)
+   \item Users can set and update the following attributes for a user: name, email, phone number, role, status, bio. (M)
+   \item Users can be filtered by: name, email, phone number and role. (S)
+\end{itemize}
 \textbf{Project Management}
 \begin{itemize}
    \item Users can create, update, and delete projects. (M)
-   \item Projects are displayed in an easy-to-comprehend manner. (M)
-   \item Users can plan projects by specifying start and end dates. (S)
-   \item Project states can be set by users. (S)
-   \item Projects can be viewed on a timeline. (C)
+   \item Projects are displayed in a list view. (M)
+   \item Users can set and update the following project attributes: name, company, status, summary. (M)
+   \item Users can be linked to projects as members. (M)
+   \item Projects can be filtered by: name, company, status, and members (S)
 \end{itemize}
 \  \\
 \textbf{Task Management}
 \begin{itemize}
    \item Users can create, update, and delete tasks. (M)
-   \item The task listing page presents all tasks along with their respective information. (M)
+   \item Tasks are displayed on a Kanban board. (M)
+   \item Users can set and update the following task attributes: title, status, tags, due date, priority, and description. (M)
+   \item Users can be linked to tasks as assignees. (M)
    \item Users can link tasks to projects. (M)
-   \item Task states can be set by users. (S)
-   \item Tasks can be viewed on a kanban board. (C)
-\end{itemize}
-\  \\
-\textbf{Collaboration Features}
-\begin{itemize}
-   \item Project owners can invite other users to join projects via email. (S)
-   \item Project owners can remove project members. (S)
+   \item Tasks can be filtered by: title, project, and assignees. (S)
 \end{itemize}
 \  \\
 \textbf{Dashboard}
 \begin{itemize}
-   \item A dashboard-like page contains information about new members, active tasks, and active projects. (M)
+   \item User's active, new, and completed project statistics are displayed on the dashboard. (M)
+   \item User's active, new, and completed task statistics are displayed on the dashboard. (M)
+   \item The dashboard contains widgets for the user's projects and tasks. (M)
+   \item The dashboard includes a widget of new users. (M)
+   \item The dashboard displays a task completion graph. (C)
+\end{itemize}
+\textbf{Settings}
+\begin{itemize}
+   \item Users can switch between light and dark themes. (C)
+   \item Users can switch between Slovak and English languages. (C)
 \end{itemize}
 
-\subsection{Functional Requirements}
-Here is a comprehensive list of all non-functional requirements for the application.
+\subsection{Non-functional Requirements}
+Here is a comprehensive list of all non-functional requirements for the application:
 \begin{itemize}
-   \item The application must be divided into several microfrontends. (M)
-   \item Each microfrontendis isolated from others to prevent cascading failures. (M)
-   \item The microfrontends comunicate via custom events. (M)
+   \item The application is divided into several microfrontends. (M)
+   \item Each microfrontend is isolated from the others to prevent cascading failures. (M)
 \end{itemize}
