@@ -1,7 +1,7 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ThemeService } from '../src/app/theme.service';
+import { ThemeService } from '../theme.service';
 
 interface NavItem {
   icon: string;
