@@ -18,7 +18,7 @@
         class="d-flex align-items-center nav-link text-reset text-decoration-none"
       >
         <i class="bi" [ngClass]="item.icon"></i>
-        <span class="ms-2">{{ item.label }}</span>
+        <span class="ms-2">{{ item.label | translate }}</span>
       </a>
     </li>
     }
@@ -32,7 +32,7 @@
       class="d-flex align-items-center py-1 px-3 text-decoration-none text-reset rounded mt-3 cursor-pointer"
     >
       <i class="bi bi-gear fs"></i>
-      <span class="ms-2">Settings</span>
+      <span class="ms-2">{{ "navigation.settings" | translate }}</span>
     </a>
   </div>
 </aside>
@@ -51,7 +51,7 @@
           class="modal-title fs-5 fw-semibold text-body"
           id="settingsModalLabel"
         >
-          Settings
+          {{ "settings.title" | translate }}
         </h1>
         <button
           type="button"
@@ -63,7 +63,9 @@
 
       <div class="modal-body">
         <div class="mb-3 border p-3 rounded">
-          <p class="mb-2 fw-semibold">Theme</p>
+          <p class="mb-2 fw-semibold">
+            {{ "settings.theme.label" | translate }}
+          </p>
           <div class="form-check">
             <input
               class="form-check-input"
@@ -74,7 +76,9 @@
               [checked]="theme === 'light'"
               (change)="setTheme('light')"
             />
-            <label class="form-check-label" for="lightTheme">Light</label>
+            <label class="form-check-label" for="lightTheme">
+              {{ "settings.theme.light" | translate }}
+            </label>
           </div>
           <div class="form-check">
             <input
@@ -86,12 +90,16 @@
               [checked]="theme === 'dark'"
               (change)="setTheme('dark')"
             />
-            <label class="form-check-label" for="darkTheme">Dark</label>
+            <label class="form-check-label" for="darkTheme">
+              {{ "settings.theme.dark" | translate }}
+            </label>
           </div>
         </div>
 
         <div class="border p-3 rounded">
-          <p class="mb-2 fw-semibold">Language</p>
+          <p class="mb-2 fw-semibold">
+            {{ "settings.language.label" | translate }}
+          </p>
           <div class="form-check">
             <input
               class="form-check-input"
@@ -99,9 +107,12 @@
               name="language"
               id="english"
               value="english"
-              checked
+              [checked]="language === 'en'"
+              (change)="setLanguage('en')"
             />
-            <label class="form-check-label" for="english">English</label>
+            <label class="form-check-label" for="english">
+              {{ "settings.language.en" | translate }}</label
+            >
           </div>
           <div class="form-check">
             <input
@@ -110,15 +121,19 @@
               name="language"
               id="slovak"
               value="slovak"
+              [checked]="language === 'sk'"
+              (change)="setLanguage('sk')"
             />
-            <label class="form-check-label" for="slovak">Slovak</label>
+            <label class="form-check-label" for="slovak">
+              {{ "settings.language.sk" | translate }}
+            </label>
           </div>
         </div>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
+          {{ "settings.close" | translate }}
         </button>
       </div>
     </div>

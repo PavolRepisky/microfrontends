@@ -1,0 +1,23 @@
+{
+  "navigation": {
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "tasks": "Tasks",
+    "users": "Users",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": {
+      "label": "Theme",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "language": {
+      "label": "Language",
+      "sk": "Slovak",
+      "en": "English"
+    },
+    "close": "Close"
+  }
+}

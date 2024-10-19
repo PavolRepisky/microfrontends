@@ -1,0 +1,23 @@
+{
+  "navigation": {
+    "dashboard": "Prehľad",
+    "projects": "Projekty",
+    "tasks": "Úlohy",
+    "users": "Používatelia",
+    "settings": "Nastavenia"
+  },
+  "settings": {
+    "title": "Nastavenia",
+    "theme": {
+      "label": "Režim",
+      "light": "Svetlý",
+      "dark": "Tmavý"
+    },
+    "language": {
+      "label": "Jazyk",
+      "sk": "Slovenčina",
+      "en": "Angličtina"
+    },
+    "close": "Zatvoriť"
+  }
+}
