@@ -1,13 +1,13 @@
 <aside
-  class="d-flex flex-column flex-shrink-0 p-3 h-100 bg-white border-end"
-  style="width: 280px"
+  class="d-flex flex-column flex-shrink-0 p-3 h-100 border-end"
+  style="width: 320px"
 >
   <a
     routerLink="/"
-    class="d-flex align-items-center pb-1 mb-3 link-dark text-decoration-none border-bottom"
+    class="d-flex align-items-center p-1 mb-3 text-reset text-decoration-none border-bottom"
   >
-    <i class="bi bi-boxes fs-2"></i>
-    <span class="fs-5 ms-2 fw-semibold">{{ title }}</span>
+    <i class="bi bi-boxes fs-3"></i>
+    <span class="fs-5 ms-3 fw-semibold">{{ title }}</span>
   </a>
 
   <ul class="nav nav-pills flex-column mb-auto gap-2">
@@ -15,8 +15,7 @@
     <li>
       <a
         [routerLink]="item.url"
-        class="d-flex align-items-center nav-link hover-link"
-        [ngClass]="{ active: item.active, 'link-dark': !item.active }"
+        class="d-flex align-items-center nav-link text-reset text-decoration-none"
       >
         <i class="bi" [ngClass]="item.icon"></i>
         <span class="ms-2">{{ item.label }}</span>
@@ -27,10 +26,10 @@
 
   <div class="border-top">
     <a
+      href="#settingsModal"
       role="button"
       data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-      class="d-flex py-2 px-3 align-items-center nav-link link-dark rounded hover-link mt-3 cursor-pointer"
+      class="d-flex align-items-center py-1 px-3 text-decoration-none text-reset rounded mt-3 cursor-pointer"
     >
       <i class="bi bi-gear fs"></i>
       <span class="ms-2">Settings</span>
@@ -40,15 +39,18 @@
 
 <div
   class="modal fade"
-  id="exampleModal"
+  id="settingsModal"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="settingsModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 fw-semibold" id="exampleModalLabel">
+        <h1
+          class="modal-title fs-5 fw-semibold text-body"
+          id="settingsModalLabel"
+        >
           Settings
         </h1>
         <button
@@ -69,7 +71,8 @@
               name="theme"
               id="lightTheme"
               value="light"
-              checked
+              [checked]="theme === 'light'"
+              (change)="setTheme('light')"
             />
             <label class="form-check-label" for="lightTheme">Light</label>
           </div>
@@ -80,6 +83,8 @@
               name="theme"
               id="darkTheme"
               value="dark"
+              [checked]="theme === 'dark'"
+              (change)="setTheme('dark')"
             />
             <label class="form-check-label" for="darkTheme">Dark</label>
           </div>
