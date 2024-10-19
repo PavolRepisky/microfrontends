@@ -1,0 +1,121 @@
+<aside
+  class="d-flex flex-column flex-shrink-0 p-3 h-100 bg-white border-end"
+  style="width: 280px"
+>
+  <a
+    routerLink="/"
+    class="d-flex align-items-center pb-1 mb-3 link-dark text-decoration-none border-bottom"
+  >
+    <i class="bi bi-boxes fs-2"></i>
+    <span class="fs-5 ms-2 fw-semibold">{{ title }}</span>
+  </a>
+
+  <ul class="nav nav-pills flex-column mb-auto gap-2">
+    @for (item of navItems; track item) {
+    <li>
+      <a
+        [routerLink]="item.url"
+        class="d-flex align-items-center nav-link hover-link"
+        [ngClass]="{ active: item.active, 'link-dark': !item.active }"
+      >
+        <i class="bi" [ngClass]="item.icon"></i>
+        <span class="ms-2">{{ item.label }}</span>
+      </a>
+    </li>
+    }
+  </ul>
+
+  <div class="border-top">
+    <a
+      role="button"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      class="d-flex py-2 px-3 align-items-center nav-link link-dark rounded hover-link mt-3 cursor-pointer"
+    >
+      <i class="bi bi-gear fs"></i>
+      <span class="ms-2">Settings</span>
+    </a>
+  </div>
+</aside>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 fw-semibold" id="exampleModalLabel">
+          Settings
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="mb-3 border p-3 rounded">
+          <p class="mb-2 fw-semibold">Theme</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="theme"
+              id="lightTheme"
+              value="light"
+              checked
+            />
+            <label class="form-check-label" for="lightTheme">Light</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="theme"
+              id="darkTheme"
+              value="dark"
+            />
+            <label class="form-check-label" for="darkTheme">Dark</label>
+          </div>
+        </div>
+
+        <div class="border p-3 rounded">
+          <p class="mb-2 fw-semibold">Language</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="language"
+              id="english"
+              value="english"
+              checked
+            />
+            <label class="form-check-label" for="english">English</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="language"
+              id="slovak"
+              value="slovak"
+            />
+            <label class="form-check-label" for="slovak">Slovak</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
