@@ -89,7 +89,7 @@
                 "input": "projects/application-shell/public"
               }
             ],
-            "styles": ["projects/application-shell/src/styles.scss"],
+            "styles": [],
             "scripts": []
           }
         }
@@ -112,9 +112,7 @@
             "outputPath": "dist/user-management",
             "index": "projects/user-management/src/index.html",
             "browser": "projects/user-management/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/user-management/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -124,9 +122,13 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "projects/user-management/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -170,10 +172,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "projects/user-management/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -182,9 +181,7 @@
                 "input": "projects/user-management/public"
               }
             ],
-            "styles": [
-              "projects/user-management/src/styles.scss"
-            ],
+            "styles": [],
             "scripts": []
           }
         }
