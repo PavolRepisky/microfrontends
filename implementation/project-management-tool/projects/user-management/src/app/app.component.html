@@ -1,1 +1,52 @@
-<h1>{{ "topbar.title" | translate }}</h1>
+<div class="container p-3 d-flex flex-column gap-3">
+  <header class="d-flex justify-content-between align-items-center">
+    <div>
+      <h1 class="fw-semibold mb-1">{{ "title" | translate }}</h1>
+      <p class="text-body-secondary">{{ "subtitle" | translate }}</p>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary d-flex align-items-center gap-2"
+      [disabled]="isLoading()"
+      (click)="openUserForm()"
+    >
+      <i class="bi bi-plus"></i>
+      <span>{{ "action" | translate }}</span>
+    </button>
+  </header>
+
+  <user-role-filter
+    [users]="allUsers()"
+    [currentRole]="selectedRole()"
+    [disabled]="isLoading()"
+    (onRoleSelect)="onRoleSelect($event)"
+  ></user-role-filter>
+
+  <div class="d-flex justify-content-between">
+    <div class="form-group search-box position-relative">
+      <span
+        class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3"
+      ></span>
+      <input
+        type="text"
+        class="form-control ps-5"
+        placeholder="{{ 'globals.search' | translate }}"
+        [ngModel]="searchTerm()"
+        (ngModelChange)="onSearchChange($event)"
+      />
+    </div>
+
+    <button type="button" class="btn btn-secondary align-middle">
+      <i class="bi bi-filter"></i>
+      {{ "filters" | translate }}
+    </button>
+  </div>
+
+  <user-user-table
+    [users]="users()"
+    [loading]="isLoading()"
+    (onEdit)="openUserForm($event)"
+    (onView)="openUserForm($event)"
+    (onDelete)="openDeleteConfirmation($event)"
+  ></user-user-table>
+</div>

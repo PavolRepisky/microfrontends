@@ -1,0 +1,151 @@
+<div class="table-responsive">
+  <table class="table border rounded">
+    <thead>
+      <tr>
+        <th scope="col">{{ "userTable.headers.name" | translate }}</th>
+        <th scope="col">{{ "userTable.headers.phone" | translate }}</th>
+        <th scope="col">{{ "userTable.headers.role" | translate }}</th>
+        <th scope="col">{{ "userTable.headers.status" | translate }}</th>
+        <th scope="col">{{ "userTable.headers.bio" | translate }}</th>
+        <th scope="col" class="text-end">
+          {{ "userTable.headers.action" | translate }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (loading) {
+      <tr>
+        <td colspan="6" class="text-center p-4">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">{{
+              "common.loading" | translate
+            }}</span>
+          </div>
+        </td>
+      </tr>
+      } @else if (paginatedUsers().length === 0) {
+      <tr>
+        <td colspan="6" class="text-center p-4">
+          {{ "userTable.noUsers" | translate }}
+        </td>
+      </tr>
+      } @else { @for (user of paginatedUsers(); track user.id) {
+      <tr>
+        <td>
+          <div class="d-flex align-items-center gap-2">
+            <div class="col-auto">
+              <i class="bi bi-person-circle fs-1" aria-hidden="true"></i>
+            </div>
+            <div class="col">
+              <div class="d-flex flex-column">
+                <span class="fw-medium"
+                  >{{ user.firstName }} {{ user.lastName }}</span
+                >
+                <span class="text-body-secondary small">{{ user.email }}</span>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="align-middle">{{ user.phone }}</td>
+        <td class="align-middle">
+          <span class="badge rounded-pill text-bg-warning">{{
+            "roles." + user.role | translate
+          }}</span>
+        </td>
+        <td class="align-middle">
+          <span
+            [ngClass]="{ 'text-body-tertiary': user.status === 'inactive' }"
+          >
+            {{ "statuses." + user.status | translate }}
+          </span>
+        </td>
+        <td class="bio-cell align-middle text-truncate">{{ user.bio }}</td>
+        <td class="align-middle text-end">
+          <div class="dropdown">
+            <button
+              class="btn btn-link text-reset text-decoration-none"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              [attr.aria-label]="'userTable.actions.menuLabel' | translate"
+            >
+              <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end p-0">
+              <li>
+                <button
+                  class="dropdown-item"
+                  type="button"
+                  (click)="onView.emit(user)"
+                >
+                  <i class="bi bi-eye me-2" aria-hidden="true"></i>
+                  {{ "userTable.actions.view" | translate }}
+                </button>
+              </li>
+              <li>
+                <button
+                  class="dropdown-item"
+                  type="button"
+                  (click)="onEdit.emit(user)"
+                >
+                  <i class="bi bi-pencil me-2" aria-hidden="true"></i>
+                  {{ "userTable.actions.edit" | translate }}
+                </button>
+              </li>
+              <li>
+                <button
+                  class="dropdown-item text-danger"
+                  type="button"
+                  (click)="onDelete.emit(user)"
+                >
+                  <i class="bi bi-trash me-2" aria-hidden="true"></i>
+                  {{ "userTable.actions.delete" | translate }}
+                </button>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      } }
+    </tbody>
+  </table>
+</div>
+
+<nav *ngIf="totalPages() > 1">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="currentPage$() === 1">
+      <a
+        class="page-link"
+        href="#"
+        [attr.aria-label]="'userTable.pagination.previous' | translate"
+        (click)="setPage($event, currentPage$() - 1)"
+      >
+        <i class="bi bi-chevron-left" aria-hidden="true"></i>
+      </a>
+    </li>
+
+    @for (page of pageNumbers(); track page) {
+    <li class="page-item" [class.active]="page === currentPage$()">
+      <a
+        class="page-link"
+        href="#"
+        [attr.aria-current]="page === currentPage$() ? 'page' : null"
+        (click)="setPage($event, page)"
+      >
+        {{ page }}
+      </a>
+    </li>
+    }
+
+    <li class="page-item" [class.disabled]="currentPage$() === totalPages()">
+      <a
+        class="page-link"
+        href="#"
+        [attr.aria-label]="'userTable.pagination.next' | translate"
+        (click)="setPage($event, currentPage$() + 1)"
+      >
+        <i class="bi bi-chevron-right" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,28 @@
+<nav>
+  <ul class="nav nav-tabs">
+    @for (tab of roleTabs(); track tab.role) {
+    <li class="nav-item">
+      <a
+        class="nav-link text-reset d-flex align-items-center gap-2"
+        [class.active]="tab.isActive"
+        [class.fw-semibold]="tab.isActive"
+        [class.disabled]="disabled"
+        href="#"
+        [attr.aria-current]="tab.isActive ? 'page' : null"
+        [attr.aria-label]="'roleFilter.ariaLabel.' + tab.role | translate"
+        (click)="onRoleClick($event, tab.role)"
+      >
+        <span>{{ tab.label | translate }}</span>
+        <span
+          class="badge rounded-pill text-bg-secondary"
+          [attr.aria-label]="
+            'roleFilter.countLabel' | translate : { count: tab.count }
+          "
+        >
+          {{ tab.count }}
+        </span>
+      </a>
+    </li>
+    }
+  </ul>
+</nav>

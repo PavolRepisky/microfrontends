@@ -1,0 +1,25 @@
+.table.border {
+  border-radius: 10px;
+  overflow: hidden;
+  border-collapse: separate;
+}
+
+.table td,
+.table th {
+  padding: 0.9rem 1.5rem;
+}
+
+.table tbody tr:last-child {
+  border-bottom: 0px solid #fff;
+}
+
+.table .bio-cell {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table .email-field {
+  font-size: 0.95rem;
+}
