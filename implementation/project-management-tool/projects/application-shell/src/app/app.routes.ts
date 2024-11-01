@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { PlaceholderComponent } from './placeholder/placeholder.component';
+import { MfePlaceholderComponent } from './components/mfe-placeholder/mfe-placeholder.component';
 
 export const routes: Routes = [
-  { path: '', component: PlaceholderComponent },
-  { path: 'projects', component: PlaceholderComponent },
-  { path: 'tasks', component: PlaceholderComponent },
-  { path: 'users', component: PlaceholderComponent },
+  { path: '', component: MfePlaceholderComponent },
+  { path: 'projects', component: MfePlaceholderComponent },
+  { path: 'tasks', component: MfePlaceholderComponent },
+  { path: 'users', component: MfePlaceholderComponent },
 ];

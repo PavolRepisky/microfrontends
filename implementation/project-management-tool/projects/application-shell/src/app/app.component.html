@@ -1,5 +1,5 @@
 <div class="d-flex h-100 text-body">
-  <app-navigation></app-navigation>
+  <app-navigation (onOpenSettings)="openSettings($event)"></app-navigation>
   <div class="flex-grow-1">
     <router-outlet></router-outlet>
   </div>

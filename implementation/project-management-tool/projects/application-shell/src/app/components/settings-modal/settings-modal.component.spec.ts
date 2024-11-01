@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaceholderComponent } from './placeholder.component';
+import { SettingsModalComponent } from './settings-modal.component';
 
-describe('PlaceholderComponent', () => {
-  let component: PlaceholderComponent;
-  let fixture: ComponentFixture<PlaceholderComponent>;
+describe('SettingsModalComponent', () => {
+  let component: SettingsModalComponent;
+  let fixture: ComponentFixture<SettingsModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PlaceholderComponent]
+      imports: [SettingsModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PlaceholderComponent);
+    fixture = TestBed.createComponent(SettingsModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

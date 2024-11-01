@@ -19,5 +19,8 @@
       "en": "English"
     },
     "close": "Close"
+  },
+  "globals": {
+    "cancel": "Cancel"
   }
 }

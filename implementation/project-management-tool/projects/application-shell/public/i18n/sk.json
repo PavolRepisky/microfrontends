@@ -19,5 +19,8 @@
       "en": "Angličtina"
     },
     "close": "Zatvoriť"
+  },
+  "globals": {
+    "cancel": "Zrušiť"
   }
 }
