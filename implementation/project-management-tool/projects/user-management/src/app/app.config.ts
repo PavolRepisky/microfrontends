@@ -16,7 +16,11 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { BsModalService } from 'ngx-bootstrap/modal';
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './i18n/', '.json');
+  return new TranslateHttpLoader(
+    http,
+    'http://localhost:3000/translations/',
+    ''
+  );
 }
 
 export const appConfig: ApplicationConfig = {

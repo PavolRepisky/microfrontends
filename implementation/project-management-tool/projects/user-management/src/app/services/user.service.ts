@@ -8,7 +8,7 @@ import { User } from '../models/user.type';
   providedIn: 'root',
 })
 export class UserService {
-  private readonly API_URL = './data/users.json';
+  private readonly API_URL = 'http://localhost:3000/users';
   private users$ = new Observable<User[]>();
 
   constructor(private readonly httpClient: HttpClient) {

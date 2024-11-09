@@ -6,5 +6,5 @@ export type User = {
   email: string;
   role: string;
   status: string;
-  bio: string;
+  bio?: string;
 };

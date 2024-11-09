@@ -5,6 +5,7 @@ import {
   Output,
   computed,
   signal,
+  HostBinding,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -31,6 +32,10 @@ export class UserTableComponent {
 
   private readonly users$ = signal<User[]>([]);
   currentPage$ = signal(1);
+
+  @HostBinding('class.d-none')
+  @HostBinding('class.d-md-table-row')
+  shouldHideBio = false;
 
   protected readonly paginatedUsers = computed(() => {
     const startIndex = (this.currentPage$() - 1) * ITEMS_PER_PAGE;
