@@ -1,0 +1,57 @@
+\subsection{Composition via Ajax}
+Asynchronous JavaScript and XML (AJAX) is a technique that enables fetching content from a server through asynchronous HTTP requests. It then uses the retrieved content to update parts of the website without requiring a full-page reload \cite{AjaxDocs}. To use AJAX as an approach for microfrontends, each team must first expose their microfrontend on a specific endpoint. Next, we create a corresponding empty element in the host application and specify the URL in a data attribute from which the content should be downloaded. Finally, JavaScript code is needed to locate the element, retrieve the URL, fetch the content from the endpoint, and append it to the DOM.\\
+
+\noindent
+Compared to composition via iframes, accessibility and SEO are no longer issues. However, this approach introduces additional challenges, such as CSS conflicts if two microfrontends use the same class names, which can lead to unintended overrides. To avoid this, all CSS selectors should be namespaced. Numerous tools, such as SASS, CSS Modules, or PostCSS, can handle this automatically. A similar issue can occur with scripts; in that case, we can encapsulate scripts within Immediately Invoked Function Expressions (IIFE) to limit the scope to the anonymous function and again namespace global variables. \cite{MicrofrontendsInAction} The composition-related code would look something like this.
+\begin{verbatim}
+<!-- Initial element with an id and data-url attribute within the
+catalog page -->
+<div id="product/123" data-url="http://localhost:3001/products/123">
+</div>
+               
+<!-- Appending the content of the microfrontend inside the 
+empty element -->
+<script>
+   const productElm = document.getElementById("product/123");
+   const url = productElm.getAttribute("data-url");
+
+   window
+      .fetch(url)
+      .then(res => res.text())
+      .then(html => {
+         productElm.innerHTML = html;
+      });
+</script>
+\end{verbatim}
+
+\subsubsection{Advantages}
+Since all the microfrontends are included in the same Document Object Model (DOM), they are no longer treated as separate pages, as was the case with iframes. This eliminates the SEO and accessibility issues associated with iframe-based composition. Additionally, there are no issues with responsiveness, as the microfrontends will be loaded as standard HTML elements, which can be styled as needed. This approach also provides greater flexibility for error handling; if the fetch request fails, for example, a direct link to the standalone page can be provided. \cite{MicrofrontendsInAction}
+
+\subsubsection{Disadvantages}
+One obvious disadvantage is the delay before the page is fully loaded. Since microfrontends must be downloaded, parts of the page may appear a bit later, which can worsen the user experience. Another significant issue is the lack of isolation between microfrontends. Lastly, all lifecycle methods for the scripts must be implemented from scratch. \cite{MicrofrontendsInAction}
+
+\subsubsection{Suitability}
+This approach is well-established, robust, and easy to implement. It is particularly well-suited for websites where markup is primarily generated on the server side. However, for pages that require a higher degree of interactivity or rely heavily on managing local state, other client-side approaches may be more suitable. \cite{MicrofrontendsInAction}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|l|}
+     \hline
+        \textbf{Aspect} & \textbf{Score} \\
+     \hline
+        Extensibility & 4/5 \\
+     \hline
+        Reusability & 4/5 \\
+     \hline
+        Simplicity & 3/5 \\
+     \hline
+        Performance & 3/5 \\
+     \hline
+        Resource sharing & 3/5 \\
+     \hline
+        Developer experience & 3/5 \\
+     \hline
+  \end{tabular}
+  \caption{Characteristics assessment of composition via Ajax}
+  \label{table:links-composition}
+\end{table}

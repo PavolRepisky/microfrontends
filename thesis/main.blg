@@ -18,45 +18,45 @@ Warning--empty journal in MFApplication
 Warning--empty journal in Microservices
 Warning--empty journal in MFFowler
 Warning--empty journal in MicrofrontendsStudy
-You've used 11 entries,
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            559 strings with 5214 characters,
-and the built_in function-call counts, 2481 in all, are:
-= -- 233
-> -- 77
+            564 strings with 5304 characters,
+and the built_in function-call counts, 2696 in all, are:
+= -- 252
+> -- 84
 < -- 1
-+ -- 35
-- -- 22
-* -- 142
-:= -- 420
-add.period$ -- 30
-call.type$ -- 11
-change.case$ -- 43
++ -- 38
+- -- 24
+* -- 150
+:= -- 458
+add.period$ -- 33
+call.type$ -- 12
+change.case$ -- 46
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 121
-empty$ -- 216
-format.name$ -- 22
-if$ -- 511
+cite$ -- 24
+duplicate$ -- 133
+empty$ -- 238
+format.name$ -- 24
+if$ -- 557
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 12
-newline$ -- 56
-num.names$ -- 16
-pop$ -- 61
+int.to.str$ -- 12
+missing$ -- 14
+newline$ -- 61
+num.names$ -- 18
+pop$ -- 69
 preamble$ -- 2
-purify$ -- 33
+purify$ -- 36
 quote$ -- 0
-skip$ -- 84
+skip$ -- 90
 stack$ -- 0
-substring$ -- 95
-swap$ -- 14
+substring$ -- 100
+swap$ -- 15
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
+type$ -- 44
 warning$ -- 12
-while$ -- 19
-width$ -- 13
-write$ -- 103
+while$ -- 21
+width$ -- 14
+write$ -- 113
 (There were 13 warnings)

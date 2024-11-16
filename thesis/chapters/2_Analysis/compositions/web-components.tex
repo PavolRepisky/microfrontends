@@ -1,0 +1,88 @@
+\subsection{Composition via Web-components}
+A relatively new approach that is starting to arise, thanks to new HTML standards, is composition via web-components, which is somewhat of a variation on AJAX composition. Web-components consist of three main technologies that can be combined to create custom, reusable elements with encapsulated functionality, preventing any conflicts in code or styles when reused across applications. These core technologies are as follows.\\
+
+\noindent
+\textbf{Custom Elements}\\
+Custom Elements extend HTML, allowing developers to define their own custom HTML elements with unique behavior and functionality. They provide callbacks that enable interaction with the external environment, essentially serving as wrappers for microfrontends.\\
+
+\noindent
+\textbf{Shadow DOM}\\
+The Shadow DOM provides encapsulation by hiding a custom element's implementation details from the rest of the document, allowing for the creation of self-contained components. This is achieved by attaching an encapsulated shadow DOM tree to an element, rendering it separately from the main document DOM.\\
+
+\noindent
+\textbf{HTML Templates}\\
+HTML Templates allow for the definition of markup templates that can be reused and instantiated multiple times within a document. These templates are not rendered until they are explicitly activated. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}\\
+
+\noindent
+To create a product custom element, we would extend HTML elemnt class like follows.
+\begin{verbatim}
+<!-- Definition of the custom element -->
+class ProductComponent extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+    }
+    
+    connectedCallback() {
+        this.render();
+    }
+    
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>
+                h3 {
+                margin: 0 0 10px 0;
+                font-size: 1.2em;
+                }
+                p {
+                margin: 0 0 5px 0;
+                color: #555;
+                }
+            </style>
+            <div>
+                <h3>Product A</h3>
+                <p>Description for Product A</p>
+                <strong>$10</strong>
+            </div>
+        `;
+    }
+}
+
+<!-- Registration of the custom element -->
+customElements.define('product-component', ProductComponent);
+
+<!-- Usage of the custom element -->
+<product-component></product-component>
+\end{verbatim}
+
+\subsubsection{Advantages}
+Web-components are a widely implemented web standard that offer strong isolation managed by the browser, making applications more robust. Web Components can be used across different frameworks and libraries, such as Angular and React. They inherently support lazy loading and code splitting, enhancing performance. Additionally, Web Components enable the encapsulation of complex functionality into reusable building blocks and provide a convenient way for components to communicate with one another. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}
+
+\subsubsection{Disadvantages}
+One common criticism of Web-components is their reliance on JavaScript for functionality. They are not fully supported in all older browsers; while polyfilling can extend support for custom elements, integrating the shadow DOM is notably more challenging, and polyfills significantly increase the bundle size. Additionally, Web-components lack built-in state management mechanisms, complicating integration with existing solutions. Finally, handling search engine optimization can also be challenging. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}
+
+\subsubsection{Suitability}
+Web-components are an excellent choice for multitenant environments and are well-suited for building interactive, app-like applications. However, for applications that prioritize SEO or require compatibility with legacy browsers, Web Components may not be the most suitable option. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|}
+       \hline
+          \textbf{Aspect} & \textbf{Score} \\
+       \hline
+          Extensibility & 4/5 \\
+       \hline
+          Reusability & 4/5 \\
+       \hline
+          Simplicity & 4/5 \\
+       \hline
+          Performance & 4/5 \\
+       \hline
+          Resource sharing & 3/5 \\
+       \hline
+          Developer experience & 4/5 \\
+       \hline
+    \end{tabular}
+    \caption{Characteristics assessment of composition via Web-components}
+    \label{table:links-composition}
+ \end{table}

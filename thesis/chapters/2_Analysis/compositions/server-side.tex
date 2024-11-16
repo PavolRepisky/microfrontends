@@ -1,0 +1,64 @@
+\subsection{Server-side composition}
+Server-side composition is typically managed by a service positioned between the browser and the application servers, often using tools like Nginx. This service assembles the view by aggregating various microfrontends and constructing the final page before delivering it to the browser. There are two primary approaches to achieving this.\\
+
+\noindent
+\textbf{Server-side Includes (SSI)}\\
+n this approach, a server-side view template is created using Server-Side Includes (SSI) directives. These directives specify URLs from which content should be fetched and included in the final page. The web server replaces these directives with the actual content from the referenced URLs before sending the page to the client. Additionally, fallback content can be defined in case the include fails. So the SSI directive used to compose the microfrontends would look something like the following.
+\begin{verbatim}
+<!-- Fallback element, which will be displayed in case the include
+fails -->
+<!--# block name="product_fallback" -->
+   <a href="http://localhost:3001/products/123">View Product #123</a>
+<!--# endblock -->
+
+<!-- Using SSI directive, which will be replaced by the microfrontend
+content -->
+<!--#include virtual="/products/123" stub="product_fallback" -->
+\end{verbatim}
+
+\noindent
+\textbf{Edge-Side Includes (ESI)}\\
+Edge Side Includes (ESI) is a specification that standardizes the process of assembling markup. Similar to Server-Side Includes (SSI), ESI uses directives within the server-side view template to include content. However, ESI typically involves content delivery network (CDN) providers like Akamai or proxy servers such as Varnish. The server replaces ESI directives with content from the referenced URLs before delivering the page to the client. An ESI directive look as follows:
+\begin{verbatim}
+<esi:include src="http://localhost:3001/tasks/123"  />
+\end{verbatim}
+
+\noindent
+\textbf{Other Approaches}\\
+Various libraries and frameworks simplify server-side composition. Two notable examples include
+\begin{itemize}
+   \item Tailor: A Node.js library developed by Zalando
+   \item Podium: Built upon Tailor by Finn.no, Podium extends its capabilities and provides additional features. \cite{MicrofrontendsInAction}
+\end{itemize}
+
+\subsubsection{Advantages}
+Server-side composition is proven, robust, and reliable technique. It offers excellent first-load performance, as the page is pre-assembled on the server, providing a positive impact on search engine ranking. Maintenance is straightforward, and interactive functionality can be added via client-side JavaScript. It also well-tested and well-documented. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}
+
+\subsubsection{Disadvantages}
+For larger server-rendered pages, browsers may spend considerable time downloading markup rather than prioritizing essential assets. Additionally, technical isolation is limited, requiring the use of prefixes and namespacing to prevent conflicts. The local development experience is also more complex. \cite{MicrofrontendsInAction}
+
+\subsubsection{Suitability}
+This approach is ideal for pages that prioritize performance and search engine ranking, as it remains reliable and fully functional even without JavaScript. However, it may not be optimal for pages requiring a high level of interactivity. It is also well-suited for B2B applications with numerous modules that are reused across different views. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}
+
+\begin{table}[h]
+   \centering
+   \begin{tabular}{|l|l|}
+      \hline
+         \textbf{Aspect} & \textbf{Score} \\
+      \hline
+         Extensibility & 4/5 \\
+      \hline
+         Reusability & 4/5 \\
+      \hline
+         Simplicity & 2/5 \\
+      \hline
+         Performance & 5/5 \\
+      \hline
+         Resource sharing & 4/5 \\
+      \hline
+         Developer experience & 3/5 \\
+      \hline
+   \end{tabular}
+   \caption{Characteristics assessment of server-side composition}
+   \label{table:links-composition}
+ \end{table}
