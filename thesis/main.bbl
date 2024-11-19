@@ -19,6 +19,12 @@ Swati~Megha Andrei~Pavlenko, Nursultan~Askarbekuly and Manuel Mazzara.
 \newblock Micro-frontends: application of microservices to web front-ends.
 \newblock 05 2020.
 
+\bibitem{Monolith2}
+Grzegorz Blinowski, Anna Ojdowska, and Adam Przybyłek.
+\newblock Monolithic vs. microservice architecture: A performance and
+  scalability evaluation.
+\newblock {\em IEEE Access}, 10, 2022.
+
 \bibitem{Microservices}
 Martin Fowler and James Lewis.
 \newblock Microservices.
@@ -48,6 +54,13 @@ Anna Montelius.
 okmttdhr.
 \newblock Micro frontends patterns.
 \newblock {\em dev.to}, 2020.
+
+\bibitem{Monolith1}
+Nada Salaheddin and Nuredin Ahmed.
+\newblock Microservices vs. monolithic architectures [the differential
+  structure between two architectures].
+\newblock {\em MINAR International Journal of Applied Sciences and Technology},
+  4:484--490, 10 2022.
 
 \bibitem{WebDevFuture}
 Nilesh Savani.
