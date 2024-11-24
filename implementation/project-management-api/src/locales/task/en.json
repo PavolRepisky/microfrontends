@@ -1,0 +1,76 @@
+{
+  "title": "Tasks",
+  "subtitle": "Manage all tasks here",
+  "action": "New Task",
+  "filters": "Filters",
+  "kanban": {
+    "headers": {
+      "backlog": "Backlog",
+      "inProgress": "In-Progress",
+      "underReview": "Under Review",
+      "done": "Done",
+      "blocked": "Blocked"
+    }
+  },
+  "globals": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "search": "Search"
+  },
+  "task": {
+    "status": {
+      "backlog": "Backlog",
+      "inProgress": "In-Progress",
+      "toReview": "Under Review",
+      "done": "Done"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "tag": {
+      "feature": "Feature",
+      "bug": "Bug",
+      "test": "Test",
+      "research": "Research",
+      "enhancement": "Enhancement"
+    },
+    "action": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "taskOffcanvas": {
+    "title": "Task details",
+    "form": {
+      "field": {
+        "required": "Field is required"
+      },
+      "title": {
+        "label": "Title",
+        "placeholder": "Enter title"
+      },
+      "status": {
+        "label": "Status",
+        "placeholder": "Select a status"
+      },
+      "priority": {
+        "label": "Priority",
+        "placeholder": "Select a priority"
+      },
+      "tag": {
+        "label": "Tag",
+        "placeholder": "Select a tag"
+      },
+      "dueDate": {
+        "label": "Due date",
+        "placeholder": "Pick a due date"
+      },
+      "create": "Create",
+      "update": "Update",
+      "saving": "Saving..."
+    }
+  }
+}
