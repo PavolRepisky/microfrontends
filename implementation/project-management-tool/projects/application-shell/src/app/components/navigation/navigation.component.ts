@@ -3,8 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { SettingsModalComponent } from '../settings-modal/settings-modal.component';
-import { NavItem } from '../../models/nav-item.type';
-import { User } from '../../../../../user-management/src/app/models/user.type';
+import { NavItem } from '../../types/nav-item.type';
 
 @Component({
   selector: 'app-navigation',

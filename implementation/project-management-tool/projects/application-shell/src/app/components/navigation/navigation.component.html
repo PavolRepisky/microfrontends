@@ -1,10 +1,10 @@
 <aside
-  class="d-flex flex-column flex-shrink-0 p-3 h-100 border-end"
-  style="width: 320px"
+  class="d-flex flex-column flex-shrink-0 p-3 border-end position-fixed start-0 top-0 bottom-0 overflow-auto"
+  style="width: 260px"
 >
   <a
     routerLink="/"
-    class="d-flex align-items-center p-1 mb-3 text-reset text-decoration-none border-bottom"
+    class="d-flex align-items-center p-1 mb-3 text-reset text-decoration-none border-bottom position-sticky top-0 bg-white"
   >
     <i class="bi bi-boxes fs-3"></i>
     <span class="fs-5 ms-3 fw-semibold">{{ title }}</span>
@@ -24,7 +24,7 @@
     }
   </ul>
 
-  <div class="border-top">
+  <div class="border-top position-sticky bottom-0 bg-white">
     <a
       role="button"
       class="d-flex align-items-center py-1 px-3 text-decoration-none text-reset rounded mt-3 cursor-pointer"
