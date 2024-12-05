@@ -1,0 +1,20 @@
+<div class="kanban-board d-flex align-items-start gap-3 h-100" cdkDropListGroup>
+  @for (column of columns; track column.id) {
+  <div class="kanban-column flex-grow-1">
+    <task-kanban-column
+      [status]="column.id"
+      [title]="column.title | translate"
+      [icon]="column.icon"
+      [color]="column.color"
+      [tasks]="getColumnTasks(column.id)"
+      [id]="column.id"
+      (onDrop)="onDrop($event)"
+      (onCreate)="onCreate.emit($event)"
+      (onView)="onView.emit($event)"
+      (onEdit)="onEdit.emit($event)"
+      (onDelete)="onDelete.emit($event)"
+      class="d-block h-100"
+    />
+  </div>
+  }
+</div>

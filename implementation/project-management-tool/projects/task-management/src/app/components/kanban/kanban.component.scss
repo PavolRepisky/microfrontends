@@ -1,0 +1,30 @@
+// components/kanban/kanban.component.scss
+.kanban-board {
+  min-height: 400px;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+
+    &:hover {
+      background: #bbb;
+    }
+  }
+}
+
+.kanban-column {
+  min-width: 300px;
+  max-width: 400px;
+}

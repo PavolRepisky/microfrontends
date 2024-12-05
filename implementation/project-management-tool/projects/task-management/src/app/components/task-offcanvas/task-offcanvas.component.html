@@ -1,0 +1,142 @@
+<div>
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title fw-medium">
+      {{ "taskOffcanvas.title" | translate }}
+    </h4>
+    <button
+      (click)="activeOffcanvas.dismiss()"
+      class="btn-close"
+      type="button"
+    ></button>
+  </div>
+
+  <div class="offcanvas-body overflow-auto">
+    <form (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+      <div class="mb-3">
+        <label class="form-label">{{
+          "taskOffcanvas.form.title.label" | translate
+        }}</label>
+        <input
+          [class.is-invalid]="isFieldInvalid('title')"
+          class="form-control"
+          formControlName="title"
+          placeholder="{{ 'taskOffcanvas.form.title.placeholder' | translate }}"
+          type="text"
+        />
+        @if (taskForm.get('title')?.errors?.['required']) {
+        <p class="invalid-feedback">
+          {{ "taskOffcanvas.form.field.required" | translate }}
+        </p>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{
+          "taskOffcanvas.form.status.label" | translate
+        }}</label>
+        <select
+          [class.is-invalid]="isFieldInvalid('status')"
+          class="form-select"
+          formControlName="status"
+        >
+          <option value="">
+            {{ "taskOffcanvas.form.status.placeholder" | translate }}
+          </option>
+          <option value="backlog">
+            {{ "task.status.backlog" | translate }}
+          </option>
+          <option value="inProgress">
+            {{ "task.status.inProgress" | translate }}
+          </option>
+          <option value="toReview">
+            {{ "task.status.toReview" | translate }}
+          </option>
+          <option value="done">{{ "task.status.done" | translate }}</option>
+        </select>
+        @if (taskForm.get('status')?.errors?.['required']) {
+        <p class="invalid-feedback">
+          {{ "taskOffcanvas.form.field.required" | translate }}
+        </p>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{
+          "taskOffcanvas.form.priority.label" | translate
+        }}</label>
+        <select
+          [class.is-invalid]="isFieldInvalid('priority')"
+          class="form-select"
+          formControlName="priority"
+        >
+          <option value="">
+            {{ "taskOffcanvas.form.priority.placeholder" | translate }}
+          </option>
+          <option value="low">
+            {{ "task.priority.low" | translate }}
+          </option>
+          <option value="medium">
+            {{ "task.priority.medium" | translate }}
+          </option>
+          <option value="high">
+            {{ "task.priority.high" | translate }}
+          </option>
+        </select>
+        @if (taskForm.get('priority')?.errors?.['required']) {
+        <p class="invalid-feedback">
+          {{ "taskOffcanvas.form.field.required" | translate }}
+        </p>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{
+          "taskOffcanvas.form.tag.label" | translate
+        }}</label>
+        <select
+          [class.is-invalid]="isFieldInvalid('tag')"
+          class="form-select"
+          formControlName="tag"
+        >
+          <option value="">
+            {{ "taskOffcanvas.form.tag.placeholder" | translate }}
+          </option>
+          <option value="feature">
+            {{ "task.tag.feature" | translate }}
+          </option>
+          <option value="bug">
+            {{ "task.tag.bug" | translate }}
+          </option>
+          <option value="test">
+            {{ "task.tag.test" | translate }}
+          </option>
+          <option value="research">
+            {{ "task.tag.research" | translate }}
+          </option>
+          <option value="enhancement">
+            {{ "task.tag.enhancement" | translate }}
+          </option>
+        </select>
+        @if (taskForm.get('tag')?.errors?.['required']) {
+        <p class="invalid-feedback">
+          {{ "taskOffcanvas.form.field.required" | translate }}
+        </p>
+        }
+      </div>
+
+      <div class="d-grid gap-2">
+        <button
+          [disabled]="taskForm.invalid || isSubmitting"
+          class="btn btn-primary"
+          type="submit"
+        >
+          {{
+            "taskOffcanvas.form." +
+              (isSubmitting ? "saving" : isEdit ? "update" : "create")
+              | translate
+          }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

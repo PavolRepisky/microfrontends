@@ -1,0 +1,95 @@
+<div
+  class="task-card p-3 mb-2 bg-white rounded border shadow-sm position-relative"
+  cdkDrag
+  [cdkDragData]="task"
+  (cdkDragStarted)="onDragStart($event)"
+>
+  <div class="d-flex justify-content-between align-items-start mb-0">
+    <h4 class="h6 mb-0 text-truncate">{{ task.title }}</h4>
+    <div class="d-flex align-items-center">
+      <small class="text-muted me-2">#{{ task.id }}</small>
+      <div class="dropdown task-dots">
+        <button
+          class="btn btn-link btn-sm p-0 text-muted"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end p-0 z-100">
+          <li>
+            <button
+              class="dropdown-item"
+              type="button"
+              (click)="onView.emit(task)"
+            >
+              <i class="bi bi-eye me-2" aria-hidden="true"></i>
+              {{ "task.action.view" | translate }}
+            </button>
+          </li>
+          <li>
+            <button
+              class="dropdown-item"
+              type="button"
+              (click)="onEdit.emit(task)"
+            >
+              <i class="bi bi-pencil me-2" aria-hidden="true"></i>
+              {{ "task.action.edit" | translate }}
+            </button>
+          </li>
+          <li>
+            <button
+              class="dropdown-item text-danger"
+              type="button"
+              (click)="onDelete.emit(task)"
+            >
+              <i class="bi bi-trash me-2" aria-hidden="true"></i>
+              {{ "task.action.delete" | translate }}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-metadata d-flex flex-wrap gap-2 align-items-center">
+    <span [class]="'badge bg-' + tagColor"
+      ><i class="bi bi-tag-fill"></i>
+      {{ "task.tag." + task.tag | translate }}
+    </span>
+    <span [class]="'badge bg-' + priorityColor">
+      {{ "task.priority." + task.priority | translate }}
+    </span>
+  </div>
+
+  <div
+    class="task-footer d-flex justify-content-between align-items-center mt-3"
+  >
+    <div class="assignees d-flex gap-1">
+      @for (assignee of task.assignees; track assignee.id) {
+      <span
+        class="badge bg-light d-inline-flex align-items-center text-dark justify-content-center fw-semibold assignee"
+      >
+        {{ assignee.lastName[0] + assignee.firstName[0] }}
+      </span>
+      }
+    </div>
+
+    <small class="text-muted">
+      <i class="bi bi-calendar3 me-1"></i>
+      {{ task.dueDate || "task.noDueDate" | translate }}
+    </small>
+  </div>
+
+  <div *cdkDragPreview [class]="'task-card p-3 bg-white rounded shadow-lg'">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <h4 class="h6 mb-0">{{ task.title }}</h4>
+      <small class="text-muted ms-2">#{{ task.id }}</small>
+    </div>
+  </div>
+
+  <div *cdkDragPlaceholder class="task-placeholder">
+    <div class="placeholder-content"></div>
+  </div>
+</div>
