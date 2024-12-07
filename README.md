@@ -18,7 +18,7 @@ This thesis aims to comprehensively review existing literature on designing and 
 
 ### Website:
 
-[https://microfrontends.framer.website](https://microfrontends.framer.website)
+[microfrontends.framer.website](https://microfrontends.framer.website)
 
 ### Presentation:
 
