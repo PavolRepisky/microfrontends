@@ -57,12 +57,13 @@
 \contentsline {subsection}{\numberline {3.5.5}Dashboard Microfrontend}{27}{subsection.3.5.5}%
 \contentsline {chapter}{\numberline {4}Implementation}{29}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Overview}{29}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Styling \& Sharing}{29}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Routing}{29}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Cross-application communication}{30}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Versoning \& Infrastructure}{30}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Testing}{30}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Conclusion}{31}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Implementation Results}{31}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Practical Implications}{31}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Recommendations for Future Work}{31}{section.5.3}%
+\contentsline {section}{\numberline {4.2}Communication}{32}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Routing}{33}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Styling}{34}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Resource sharing}{34}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Infrastructure}{34}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Testing}{34}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Conclusion}{35}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Implementation Results}{35}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Practical Implications}{35}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Recommendations for Future Work}{35}{section.5.3}%

@@ -1,0 +1,29 @@
+\section{Communication}
+There are two types of inter-application communication occurring. \\
+
+\noindent
+\textbf{Applicaition-shell to microfrontend}\\
+The first type is communication from the application shell to a microfrontend. This type of communication occurs when we need to pass some attributes to the microfrontend, such as the current route or language. It also occurs when an attribute has changed to a new value, and the microfrontend needs to be rendered. Since the microfrontends are built as custom elements, we can pass any number of attributes as needed. However, there must be proper handling implemented in the microfrontend. Therefore, the application-shell teams and microfrontend teams must define a contract beforehand, describing which types of attributes can be passed between them.\\\\
+To pass an attribute, we simply specify it in the HTML as follows:
+\begin{verbatim}
+   <user-management language='en'></user-management>
+\end{verbatim}
+In the microfrontend's entry component, we would then write:
+\begin{verbatim}
+   @Input() language: string;
+\end{verbatim}
+And handle it as needed. \\
+
+\noindent
+\textbf{Microfrontend to microfrontend}\\
+The second type of communication involves communication between microfrontends or from a microfrontend to the application shell. This type of communication is handled via browser Custom Events. A custom event can be created and dispatched like this:
+\begin{verbatim}
+   const customEvent = new CustomEvent(eventName, { data: ... });
+   window.dispatchEvent(customEvent);
+\end{verbatim}
+It can be listened to as follows:
+\begin{verbatim}
+   window.addEventListener(eventName, (event) => {
+      console.log('Custom event received:', event.data);
+  });
+\end{verbatim}

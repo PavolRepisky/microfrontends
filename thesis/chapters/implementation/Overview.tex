@@ -1,0 +1,112 @@
+\section{Overview}
+The core of the application consists of four Angular applications within the same workspace. The first application developed was the application-shell. The process started by generating an empty Angular workspace via the command line:
+\begin{verbatim}
+   ng new project-management-tool --create-application=false
+\end{verbatim}
+This was followed by generating the application-shell itself:
+\begin{verbatim}
+   ng generate application application-shell
+\end{verbatim}
+Afterwards, Bootstrap was installed and configured in the standard way, along with @ngx/translate, a library for internationalization support. Interfaces were then designed using placeholder components for microfrontends. Support for theme (light, dark) and language (Slovak, English) switching was added, with preferences saved in local storage. The application-shell was developed as a standard Angular application. \\\\
+
+\noindent
+Microfrontends were generated in the same way, but with the use of the --prefix option, such as:
+\begin{verbatim}
+   ng generate application user-management –prefix=user
+\end{verbatim}
+Microfrontends were further developed similarly to the application-shell. However, they differ in how the application is bootstrapped. Depending on the environment, the application is bootstrapped differently. For local standalone microfrontend development, the application is bootstrapped in the standard way using the main AppComponent. However, for the embedded version inside the application-shell, a special entry component is used instead. This component is registered as a custom element rather than being directly bootstrapped. The entry component acts as a wrapper for the application and handles all attributes received from the application shell. The code for this part looks as follows:
+\begin{verbatim}
+   const CUSTOM_ELEMENT_NAME = 'user-management';
+
+   async function initializeApp(): Promise<void> {
+      try {
+         if (!customElements.get(CUSTOM_ELEMENT_NAME)) {
+            if (document.querySelector('user-root')) {
+            await bootstrapApplication(AppComponent, appConfig);
+            } else {
+            const app = await createApplication(appConfig);
+
+            const customElement = createCustomElement(EntryComponent, {
+               injector: app.injector,
+            });
+
+            customElements.define(CUSTOM_ELEMENT_NAME, customElement);
+            }
+         }
+      } catch (error) {
+         console.error('Failed to initialize application:', error);
+      }
+   }
+
+   initializeApp();
+\end{verbatim}
+
+\noindent
+However, when Angular applications are built, they consist of multiple JavaScript files. Therefore, bundling them into a single JavaScript file is necessary. For this purpose, Webpack is used with the following configuration:
+\begin{verbatim}
+   const path = require("path");
+   const fs = require("fs");
+   const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+   
+   const deleteFiles = (files) => {
+     files.forEach((file) => {
+       try {
+         if (fs.existsSync(file)) {
+           fs.unlinkSync(file);
+           console.log(`Deleted: ${file}`);
+         }
+       } catch (err) {
+         console.error(`Error deleting ${file}:`, err);
+       }
+     });
+   };
+   
+   const inputFiles = [
+     path.resolve(__dirname, "../../dist/user-management/browser/polyfills.js"),
+     path.resolve(__dirname, "../../dist/user-management/browser/styles.css"),
+     path.resolve(__dirname, "../../dist/user-management/browser/main.js"),
+     path.resolve(__dirname, "../../dist/user-management/browser/scripts.js"),
+   ];
+   
+   module.exports = {
+     entry: {
+       "bundle.js": inputFiles,
+     },
+     output: {
+       filename: "[name]",
+       path: path.resolve(__dirname, "../../dist/user-management/browser"),
+     },
+     module: {
+       rules: [
+         {
+           test: /\.css$/i,
+           use: ["style-loader", "css-loader"],
+         },
+       ],
+     },
+     plugins: [new CleanWebpackPlugin()],
+     infrastructureLogging: {
+       level: "info",
+     },
+     plugins: [
+       {
+         apply: (compiler) => {
+           compiler.hooks.done.tap("DeleteInputFilesPlugin", () => {
+             console.log("Cleaning up input files...");
+             deleteFiles(inputFiles);
+           });
+         },
+       },
+     ],
+   };
+\end{verbatim}
+
+\noindent
+The microfrontends are then statically served using http-server, each on a different port via the command line, for example:
+\begin{verbatim}
+   npx http-server dist/user-management/browser -p 4201
+\end{verbatim}
+To load them in the application-shell, a script is appended to the DOM tree upon route request using lazy loading. The URL points to the respective microfrontend's JavaScript file. For the user-management microfrontend, the URL would be:
+\begin{verbatim}
+   http://localhost:4201/bundle.js
+\end{verbatim}
