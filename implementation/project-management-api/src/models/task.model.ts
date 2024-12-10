@@ -3,16 +3,10 @@ export type Task = {
   title: string;
   description: string;
   status: string;
+  assignees: number[];
   priority?: string;
   tag?: string;
   dueDate?: string;
-  assignees: Assignee[];
-};
-
-export type Assignee = {
-  id: number;
-  firstName: string;
-  lastName: string;
 };
 
 let tasks: Task[] = [
@@ -25,23 +19,7 @@ let tasks: Task[] = [
     priority: "medium",
     tag: "feature",
     dueDate: "20-10-2024",
-    assignees: [
-      {
-        id: 1,
-        firstName: "Lucas",
-        lastName: "Dawson",
-      },
-      {
-        id: 2,
-        firstName: "Ava",
-        lastName: "Collins",
-      },
-      {
-        id: 3,
-        firstName: "Mason",
-        lastName: "Turner",
-      },
-    ],
+    assignees: [1, 2, 3],
   },
   {
     id: 2,
@@ -50,13 +28,7 @@ let tasks: Task[] = [
     status: "backlog",
     priority: "high",
     tag: "bug",
-    assignees: [
-      {
-        id: 1,
-        firstName: "Isabella",
-        lastName: "Hughes",
-      },
-    ],
+    assignees: [1],
   },
   {
     id: 3,
@@ -66,18 +38,7 @@ let tasks: Task[] = [
     priority: "low",
     tag: "enhancement",
     dueDate: "01-12-2024",
-    assignees: [
-      {
-        id: 1,
-        firstName: "Jackson",
-        lastName: "Reed",
-      },
-      {
-        id: 2,
-        firstName: "Emma",
-        lastName: "Blake",
-      },
-    ],
+    assignees: [1, 2],
   },
   {
     id: 4,
@@ -88,38 +49,7 @@ let tasks: Task[] = [
     priority: "medium",
     tag: "feature",
     dueDate: "05-11-2024",
-    assignees: [
-      {
-        id: 1,
-        firstName: "Lucas",
-        lastName: "Dawson",
-      },
-      {
-        id: 2,
-        firstName: "Ava",
-        lastName: "Collins",
-      },
-      {
-        id: 3,
-        firstName: "Mason",
-        lastName: "Turner",
-      },
-      {
-        id: 4,
-        firstName: "Isabella",
-        lastName: "Hughes",
-      },
-      {
-        id: 5,
-        firstName: "Jackson",
-        lastName: "Reed",
-      },
-      {
-        id: 6,
-        firstName: "Emma",
-        lastName: "Blake",
-      },
-    ],
+    assignees: [1, 2, 3, 4, 5, 6],
   },
   {
     id: 5,
@@ -130,18 +60,7 @@ let tasks: Task[] = [
     priority: "high",
     tag: "test",
     dueDate: "15-10-2024",
-    assignees: [
-      {
-        id: 7,
-        firstName: "Aiden",
-        lastName: "Carter",
-      },
-      {
-        id: 8,
-        firstName: "Sophia",
-        lastName: "Brooks",
-      },
-    ],
+    assignees: [7, 8],
   },
   {
     id: 6,
@@ -151,33 +70,7 @@ let tasks: Task[] = [
     priority: "medium",
     tag: "feature",
     dueDate: "02-11-2024",
-    assignees: [
-      {
-        id: 3,
-        firstName: "Mason",
-        lastName: "Turner",
-      },
-      {
-        id: 7,
-        firstName: "Aiden",
-        lastName: "Carter",
-      },
-      {
-        id: 8,
-        firstName: "Sophia",
-        lastName: "Brooks",
-      },
-      {
-        id: 9,
-        firstName: "Ethan",
-        lastName: "Foster",
-      },
-      {
-        id: 10,
-        firstName: "Olivia",
-        lastName: "Bennett",
-      },
-    ],
+    assignees: [3, 7, 8, 9, 10],
   },
   {
     id: 7,
@@ -188,13 +81,7 @@ let tasks: Task[] = [
     priority: "high",
     tag: "research",
     dueDate: "04-09-2024",
-    assignees: [
-      {
-        id: 4,
-        firstName: "Isabella",
-        lastName: "Hughes",
-      },
-    ],
+    assignees: [4],
   },
   {
     id: 8,
@@ -204,18 +91,7 @@ let tasks: Task[] = [
     priority: "high",
     tag: "feature",
     dueDate: "17-08-2024",
-    assignees: [
-      {
-        id: 2,
-        firstName: "Emma",
-        lastName: "Blake",
-      },
-      {
-        id: 7,
-        firstName: "Aiden",
-        lastName: "Carter",
-      },
-    ],
+    assignees: [2, 7],
   },
   {
     id: 9,
@@ -225,28 +101,7 @@ let tasks: Task[] = [
     priority: "high",
     tag: "feature",
     dueDate: "22-07-2024",
-    assignees: [
-      {
-        id: 1,
-        firstName: "Lucas",
-        lastName: "Dawson",
-      },
-      {
-        id: 2,
-        firstName: "Ava",
-        lastName: "Collins",
-      },
-      {
-        id: 10,
-        firstName: "Olivia",
-        lastName: "Bennett",
-      },
-      {
-        id: 8,
-        firstName: "Sophia",
-        lastName: "Brooks",
-      },
-    ],
+    assignees: [1, 2, 10, 8],
   },
 ];
 

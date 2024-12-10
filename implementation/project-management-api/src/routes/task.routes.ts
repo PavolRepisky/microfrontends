@@ -7,24 +7,47 @@ import {
   updateTask,
 } from "../models/task.model";
 import { createI18nInstance } from "../i18n";
+import { getAllUsers, User } from "../models/user.model";
 
 const router = express.Router();
 const taskI18n = createI18nInstance("task");
 
+const getAssignees = (taskAssigneeIds: number[], users: User[]) => {
+  return users
+    .filter((user) => taskAssigneeIds.includes(user.id))
+    .map((user) => ({
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    }));
+};
+
 // GET all tasks
 router.get("/", (req: Request, res: Response) => {
   const tasks = getAllTasks();
-  res.json(tasks);
+  const users = getAllUsers();
+
+  const tasksWithAssignees = tasks.map((task) => ({
+    ...task,
+    assignees: getAssignees(task.assignees, users),
+  }));
+
+  res.json(tasksWithAssignees);
 });
 
 // GET task by ID
 router.get("/:id", (req: Request, res: Response) => {
   const task = getTaskById(Number(req.params.id));
+
   if (!task) {
     res.status(404).json({ message: "Task not found" });
     return;
   }
-  res.json(task);
+
+  const users = getAllUsers();
+  const assignees = getAssignees(task.assignees, users);
+
+  res.json({ ...task, assignees });
 });
 
 // POST create new task
@@ -32,16 +55,20 @@ router.post("/", (req: Request, res: Response) => {
   const { title, description, status, priority, tag, dueDate, assignees } =
     req.body;
 
-  const newUser = createTask({
+  const newTask = createTask({
     title,
     description,
     status,
     priority,
     tag,
-    dueDate,
-    assignees,
+    dueDate: dueDate,
+    assignees: assignees || [],
   });
-  res.status(201).json(newUser);
+
+  const users = getAllUsers();
+  const mappedAssignees = getAssignees(newTask.assignees, users);
+
+  res.status(201).json({...newTask, assignees: mappedAssignees});
 });
 
 // PUT update task by ID
@@ -51,7 +78,11 @@ router.patch("/:id", (req: Request, res: Response) => {
     res.status(404).json({ message: "Task not found" });
     return;
   }
-  res.json(updatedTask);
+
+  const users = getAllUsers();
+  const assignees = getAssignees(updatedTask.assignees, users);
+
+  res.json({...updatedTask, assignees});
 });
 
 // DELETE task by ID
