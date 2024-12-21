@@ -3,12 +3,15 @@
     <button
       type="button"
       class="btn w-100 ps-3 pt-2 text-start"
-      (click)="onCreate.emit({ status: this.status })"
+      (click)="onCreate.emit({ status: this.column.id })"
     >
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center gap-2">
-          <i [class]="'bi ' + icon + ' text-' + color" aria-hidden="true"></i>
-          <h3 class="h6 mb-0">{{ title }}</h3>
+          <i
+            [class]="'bi ' + this.column.icon + ' text-' + this.column.color"
+            aria-hidden="true"
+          ></i>
+          <h3 class="h6 mb-0">{{ this.column.title | translate }}</h3>
           <span class="badge bg-secondary rounded-pill">
             {{ tasks.length }}
           </span>
@@ -23,7 +26,7 @@
     class="tasks-container flex-grow-1 p-2 bg-light border rounded-bottom"
     cdkDropList
     [cdkDropListData]="tasks"
-    [id]="status"
+    [id]="this.column.id"
     (cdkDropListDropped)="onTaskDrop($event)"
   >
     @if (tasks.length === 0) {
@@ -33,6 +36,7 @@
     } @for (task of tasks; track task.id) {
     <task-kanban-task
       [task]="task"
+      [users]="users"
       (onView)="onView.emit($event)"
       (onEdit)="onEdit.emit($event)"
       (onDelete)="onDelete.emit($event)"

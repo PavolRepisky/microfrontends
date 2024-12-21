@@ -14,8 +14,9 @@ import {
   transferArrayItem,
   DragDropModule,
 } from '@angular/cdk/drag-drop';
-import { DropEvent, KanbanColumn, KanbanStatus } from '../../types/kanban.type';
+import { KanbanColumn, KanbanStatus } from '../../types/kanban.type';
 import { TranslateModule } from '@ngx-translate/core';
+import { User } from '../../types/user.type';
 
 @Component({
   selector: 'task-kanban',
@@ -25,19 +26,20 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './kanban.component.scss',
 })
 export class KanbanComponent {
+  private allTasks = signal<Task[]>([]);
+
   @Input({ required: true }) set tasks(value: Task[]) {
-    this.tasksSignal.set(value);
+    this.allTasks.set(value);
   }
+  @Input() users: User[] = [];
 
   @Output() onCreate = new EventEmitter<Partial<Task>>();
   @Output() onEdit = new EventEmitter<Task>();
   @Output() onView = new EventEmitter<Task>();
   @Output() onDelete = new EventEmitter<Task>();
-  @Output() onStatusChange = new EventEmitter<DropEvent>();
+  @Output() onDrop = new EventEmitter<Task>();
 
-  private readonly tasksSignal = signal<Task[]>([]);
-
-  readonly columns: KanbanColumn[] = [
+  columns: KanbanColumn[] = [
     {
       id: 'backlog',
       title: 'task.status.backlog',
@@ -64,7 +66,7 @@ export class KanbanComponent {
     },
   ];
 
-  readonly tasksByStatus = computed(() => {
+  tasksByStatus = computed(() => {
     const grouped: Record<KanbanStatus, Task[]> = {
       backlog: [],
       inProgress: [],
@@ -72,7 +74,7 @@ export class KanbanComponent {
       done: [],
     };
 
-    for (const task of this.tasksSignal()) {
+    for (const task of this.allTasks()) {
       if (task.status in grouped) {
         grouped[task.status as KanbanStatus].push(task);
       }
@@ -81,7 +83,7 @@ export class KanbanComponent {
     return grouped;
   });
 
-  onDrop(event: CdkDragDrop<Task[]>) {
+  onTaskDrop(event: CdkDragDrop<Task[]>) {
     const { container, previousContainer, currentIndex, previousIndex } = event;
     const newStatus = container.id as KanbanStatus;
     const previousStatus = previousContainer.id as KanbanStatus;
@@ -98,12 +100,16 @@ export class KanbanComponent {
 
       const task = container.data[currentIndex];
 
-      this.onStatusChange.emit({
-        task,
-        previousStatus,
-        newStatus,
-        newIndex: currentIndex,
-      });
+      task.status = newStatus;
+
+      this.onDrop.emit(task);
+
+      // this.onStatusChange.emit({
+      //   task,
+      //   previousStatus,
+      //   newStatus,
+      //   newIndex: currentIndex,
+      // });
     }
   }
 

@@ -68,7 +68,15 @@
       },
       "dueDate": {
         "label": "Due date",
-        "placeholder": "Pick a due date"
+        "placeholder": "Select a due date"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Enter description"
+      },
+      "assignees": {
+        "label": "Assignees",
+        "placeholder": "Select assignees"
       },
       "create": "Create",
       "update": "Update",

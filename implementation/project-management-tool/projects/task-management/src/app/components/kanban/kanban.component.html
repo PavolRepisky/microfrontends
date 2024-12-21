@@ -2,13 +2,10 @@
   @for (column of columns; track column.id) {
   <div class="kanban-column flex-grow-1">
     <task-kanban-column
-      [status]="column.id"
-      [title]="column.title | translate"
-      [icon]="column.icon"
-      [color]="column.color"
+      [column]="column"
       [tasks]="getColumnTasks(column.id)"
-      [id]="column.id"
-      (onDrop)="onDrop($event)"
+      [users]="users"
+      (onDrop)="onTaskDrop($event)"
       (onCreate)="onCreate.emit($event)"
       (onView)="onView.emit($event)"
       (onEdit)="onEdit.emit($event)"

@@ -236,18 +236,18 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "none"
+              "outputHashing": "none",
+              "fileReplacements": [
+                {
+                  "replace": "projects/task-management/src/environments/environment.ts",
+                  "with": "projects/task-management/src/environments/environment.embed.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "fileReplacements": [
-                {
-                  "replace": "projects/task-management/src/environments/environment.ts",
-                  "with": "projects/task-management/src/environments/environment.development.ts"
-                }
-              ]
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"

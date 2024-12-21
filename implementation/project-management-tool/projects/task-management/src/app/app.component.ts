@@ -10,10 +10,9 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { TaskOffcanvasComponent } from './components/task-offcanvas/task-offcanvas.component';
 import { TaskService } from './services/task.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { catchError, EMPTY, finalize } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { UserService } from './services/user.service';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { User } from './types/user.type';
 
 @Component({
   selector: 'task-root',
@@ -23,35 +22,19 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  private readonly taskService = inject(TaskService);
+  private readonly userService = inject(UserService);
   private readonly modalService = inject(NgbModal);
   private readonly offcanvasService = inject(NgbOffcanvas);
-  private readonly taskService = inject(TaskService);
-  private readonly destroyRef = inject(DestroyRef);
 
   tasks = signal<Task[]>([]);
-  isLoading = signal<boolean>(false);
-  error = signal<string | null>(null);
+  users = signal<User[]>([]);
 
   ngOnInit(): void {
-    this.loadTasks();
-  }
+    this.getTasks();
+    this.getUsers();
 
-  loadTasks(): void {
-    this.isLoading.set(true);
-    this.error.set(null);
-
-    this.taskService
-      .all()
-      .pipe(finalize(() => this.isLoading.set(false)))
-      .subscribe({
-        next: (tasks) => {
-          this.tasks.set(tasks);
-        },
-        error: (error: HttpErrorResponse) => {
-          console.error('Error loading tasks:', error);
-          this.error.set('Failed to load tasks. Please try again.');
-        },
-      });
+    console.log(this.tasks());
   }
 
   openTaskOffcanvas(task?: Partial<Task>): void {
@@ -60,53 +43,22 @@ export class AppComponent implements OnInit {
       { position: 'end' }
     );
 
-    if (task) {
-      offcanvasRef.componentInstance.setTask(task);
-    }
+    offcanvasRef.componentInstance.setUsers(this.users());
+    if (task) offcanvasRef.componentInstance.setTask(task);
 
     offcanvasRef.closed.subscribe((formData?: Task) => {
-      if (formData) {
-        const offcanvasInstance = offcanvasRef.componentInstance;
-        offcanvasInstance.setSubmitting(true);
+      if (!formData) return;
 
-        const request = formData.id
-          ? this.taskService.update(formData)
-          : this.taskService.create(formData);
+      formData.id ? this.updateTask(formData) : this.createTask(formData);
 
-        request
-          .pipe(
-            finalize(() => {
-              offcanvasInstance.setSubmitting(false);
-            })
-          )
-          .subscribe({
-            next: () => {
-              this.loadTasks();
-              offcanvasRef.dismiss();
-            },
-            error: (error: HttpErrorResponse) => {
-              console.error('Error saving task:', error);
-
-              if (!offcanvasRef.componentInstance) {
-                this.openTaskOffcanvas(formData);
-              }
-              const errorMessage =
-                error?.error?.message ||
-                'Failed to save task. Please try again.';
-              this.error.set(errorMessage);
-            },
-          });
-      }
+      offcanvasRef.dismiss();
     });
   }
 
   openDeleteConfirmation(task: Task): void {
     const modalRef: NgbModalRef = this.modalService.open(
       ConfirmationModalComponent,
-      {
-        centered: true,
-        backdrop: 'static',
-      }
+      { centered: true, backdrop: 'static' }
     );
 
     modalRef.componentInstance.title = 'taskDeleteModal.title';
@@ -114,31 +66,31 @@ export class AppComponent implements OnInit {
     modalRef.componentInstance.taskData = task;
 
     modalRef.closed.subscribe((result: boolean) => {
-      if (result) {
-        this.isLoading.set(true);
-        this.error.set(null);
-        this.deleteTask(task.id);
-      }
+      if (result) this.deleteTask(task.id);
     });
   }
 
-  deleteTask(taskId: number): void {
-    this.isLoading.set(true);
-    this.error.set(null);
+  getTasks(): void {
+    this.taskService.getTasks().subscribe((tasks: Task[]) => {
+      this.tasks.set(tasks);
+    });
+  }
 
-    this.taskService
-      .delete(taskId)
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        finalize(() => this.isLoading.set(false)),
-        catchError((error: HttpErrorResponse) => {
-          console.error('Error deleting task:', error);
-          this.error.set('Failed to delete task. Please try again.');
-          return EMPTY;
-        })
-      )
-      .subscribe(() => {
-        this.loadTasks();
-      });
+  createTask(task: Omit<Task, 'id'>): void {
+    this.taskService.createTask(task).subscribe(() => this.getTasks());
+  }
+
+  updateTask(task: Task): void {
+    this.taskService.updateTask(task).subscribe(() => this.getTasks());
+  }
+
+  deleteTask(taskId: number): void {
+    this.taskService.deleteTask(taskId).subscribe(() => this.getTasks());
+  }
+
+  getUsers(): void {
+    this.userService
+      .getUsers()
+      .subscribe((users: User[]) => this.users.set(users));
   }
 }

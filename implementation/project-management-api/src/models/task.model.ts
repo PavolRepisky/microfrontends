@@ -1,9 +1,9 @@
 export type Task = {
   id: number;
   title: string;
-  description: string;
   status: string;
   assignees: number[];
+  description?: string;
   priority?: string;
   tag?: string;
   dueDate?: string;
@@ -18,7 +18,7 @@ let tasks: Task[] = [
     status: "backlog",
     priority: "medium",
     tag: "feature",
-    dueDate: "20-10-2024",
+    dueDate: "10/20/2024",
     assignees: [1, 2, 3],
   },
   {
@@ -37,7 +37,7 @@ let tasks: Task[] = [
     status: "inProgress",
     priority: "low",
     tag: "enhancement",
-    dueDate: "01-12-2024",
+    dueDate: "12/01/2024",
     assignees: [1, 2],
   },
   {
@@ -48,7 +48,7 @@ let tasks: Task[] = [
     status: "inProgress",
     priority: "medium",
     tag: "feature",
-    dueDate: "05-11-2024",
+    dueDate: "11/05/2024",
     assignees: [1, 2, 3, 4, 5, 6],
   },
   {
@@ -59,7 +59,7 @@ let tasks: Task[] = [
     status: "toReview",
     priority: "high",
     tag: "test",
-    dueDate: "15-10-2024",
+    dueDate: "10/15/2024",
     assignees: [7, 8],
   },
   {
@@ -69,7 +69,7 @@ let tasks: Task[] = [
     status: "toReview",
     priority: "medium",
     tag: "feature",
-    dueDate: "02-11-2024",
+    dueDate: "11/02/2024",
     assignees: [3, 7, 8, 9, 10],
   },
   {
@@ -80,7 +80,7 @@ let tasks: Task[] = [
     status: "done",
     priority: "high",
     tag: "research",
-    dueDate: "04-09-2024",
+    dueDate: "09/04/2024",
     assignees: [4],
   },
   {
@@ -90,7 +90,7 @@ let tasks: Task[] = [
     status: "done",
     priority: "high",
     tag: "feature",
-    dueDate: "17-08-2024",
+    dueDate: "08/17/2024",
     assignees: [2, 7],
   },
   {
@@ -100,18 +100,18 @@ let tasks: Task[] = [
     status: "done",
     priority: "high",
     tag: "feature",
-    dueDate: "22-07-2024",
+    dueDate: "07/22/2024",
     assignees: [1, 2, 10, 8],
   },
 ];
 
 export const getAllTasks = (): Task[] => tasks;
 
-export const getTaskById = (id: number): Task | undefined =>
-  tasks.find((task) => task.id === id);
+export const getTaskById = (id: number): Task | null =>
+  tasks.find((task) => task.id === id) || null;
 
 export const createTask = (task: Omit<Task, "id">): Task => {
-  const newTask = { id: tasks.length + 1, ...task };
+  const newTask = { ...task, id: tasks.length + 1 };
   tasks.push(newTask);
   return newTask;
 };
@@ -121,13 +121,20 @@ export const updateTask = (
   updatedData: Partial<Task>
 ): Task | null => {
   const taskIndex = tasks.findIndex((task) => task.id === id);
-  if (taskIndex === -1) return null;
+  if (taskIndex === -1) {
+    return null;
+  }
+
   tasks[taskIndex] = { ...tasks[taskIndex], ...updatedData };
   return tasks[taskIndex];
 };
 
-export const deleteTask = (id: number): boolean => {
-  const initialLength = tasks.length;
-  tasks = tasks.filter((task) => task.id !== id);
-  return tasks.length < initialLength;
+export const deleteTask = (id: number): Task | null => {
+  const task = tasks.find((task) => task.id === id);
+
+  if (task) {
+    tasks = tasks.filter((task) => task.id !== id);
+    return task;
+  }
+  return null;
 };

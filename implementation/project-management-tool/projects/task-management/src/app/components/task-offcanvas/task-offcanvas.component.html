@@ -42,16 +42,11 @@
           <option value="">
             {{ "taskOffcanvas.form.status.placeholder" | translate }}
           </option>
-          <option value="backlog">
-            {{ "task.status.backlog" | translate }}
+          @for(status of statuses; track $index) {
+          <option [value]="status.name">
+            {{ "task.status." + status.name | translate }}
           </option>
-          <option value="inProgress">
-            {{ "task.status.inProgress" | translate }}
-          </option>
-          <option value="toReview">
-            {{ "task.status.toReview" | translate }}
-          </option>
-          <option value="done">{{ "task.status.done" | translate }}</option>
+          }
         </select>
         @if (taskForm.get('status')?.errors?.['required']) {
         <p class="invalid-feedback">
@@ -72,21 +67,12 @@
           <option value="">
             {{ "taskOffcanvas.form.priority.placeholder" | translate }}
           </option>
-          <option value="low">
-            {{ "task.priority.low" | translate }}
+          @for (priority of priorities; track priority.name) {
+          <option [value]="priority.name">
+            {{ "task.priority." + priority.name | translate }}
           </option>
-          <option value="medium">
-            {{ "task.priority.medium" | translate }}
-          </option>
-          <option value="high">
-            {{ "task.priority.high" | translate }}
-          </option>
+          }
         </select>
-        @if (taskForm.get('priority')?.errors?.['required']) {
-        <p class="invalid-feedback">
-          {{ "taskOffcanvas.form.field.required" | translate }}
-        </p>
-        }
       </div>
 
       <div class="mb-3">
@@ -101,39 +87,81 @@
           <option value="">
             {{ "taskOffcanvas.form.tag.placeholder" | translate }}
           </option>
-          <option value="feature">
-            {{ "task.tag.feature" | translate }}
+          @for(tag of tags; track tag.name){
+          <option [value]="tag.name">
+            {{ "task.tag." + tag.name | translate }}
           </option>
-          <option value="bug">
-            {{ "task.tag.bug" | translate }}
-          </option>
-          <option value="test">
-            {{ "task.tag.test" | translate }}
-          </option>
-          <option value="research">
-            {{ "task.tag.research" | translate }}
-          </option>
-          <option value="enhancement">
-            {{ "task.tag.enhancement" | translate }}
-          </option>
+          }
         </select>
-        @if (taskForm.get('tag')?.errors?.['required']) {
-        <p class="invalid-feedback">
-          {{ "taskOffcanvas.form.field.required" | translate }}
-        </p>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{
+          "taskOffcanvas.form.dueDate.label" | translate
+        }}</label>
+        <input
+          [class.is-invalid]="isFieldInvalid('dueDate')"
+          class="form-control"
+          formControlName="dueDate"
+          type="date"
+        />
+      </div>
+
+      <div class="mb-3">
+        @for (assignee of selectedAssignees; track assignee.id) {
+        <span class="badge bg-primary me-2 mb-2">
+          {{ assignee.firstName + " " + assignee.lastName }}
+          <button
+            type="button"
+            class="btn-close btn-close-white ms-1"
+            style="font-size: 0.55em"
+            (click)="removeAssignee(assignee)"
+          ></button>
+        </span>
         }
+
+        <select
+          [class.is-invalid]="isFieldInvalid('assignees')"
+          class="form-select"
+          (change)="addAssignee($event)"
+        >
+          <option value="">
+            {{ "taskOffcanvas.form.assignees.placeholder" | translate }}
+          </option>
+          @for (user of availableUsers(); track user.id) {
+          <option [value]="user.id">
+            {{ user.firstName + " " + user.lastName }}
+          </option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{
+          "taskOffcanvas.form.description.label" | translate
+        }}</label>
+        <textarea
+          [class.is-invalid]="isFieldInvalid('description')"
+          class="form-control"
+          formControlName="description"
+          placeholder="{{
+            'taskOffcanvas.form.description.placeholder' | translate
+          }}"
+          rows="3"
+        ></textarea>
       </div>
 
       <div class="d-grid gap-2">
         <button
-          [disabled]="taskForm.invalid || isSubmitting"
+          [disabled]="taskForm.invalid"
           class="btn btn-primary"
           type="submit"
         >
           {{
-            "taskOffcanvas.form." +
-              (isSubmitting ? "saving" : isEdit ? "update" : "create")
-              | translate
+            (isEditing
+              ? "taskOffcanvas.form.update"
+              : "taskOffcanvas.form.create"
+            ) | translate
           }}
         </button>
       </div>

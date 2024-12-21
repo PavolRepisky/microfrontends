@@ -8,7 +8,6 @@
     <button
       type="button"
       class="btn btn-primary d-inline-flex align-items-center shadow-sm"
-      [disabled]="isLoading()"
       (click)="openTaskOffcanvas()"
     >
       <i class="bi bi-plus me-2" aria-hidden="true"></i>
@@ -16,11 +15,15 @@
     </button>
   </header>
 
-  <task-kanban
-    [tasks]="tasks()"
-    (onCreate)="openTaskOffcanvas($event)"
-    (onEdit)="openTaskOffcanvas($event)"
-    (onView)="openTaskOffcanvas($event)"
-    (onDelete)="openDeleteConfirmation($event)"
-  ></task-kanban>
+  <div>
+    <task-kanban
+      [tasks]="tasks()"
+      [users]="users()"
+      (onCreate)="openTaskOffcanvas($event)"
+      (onEdit)="openTaskOffcanvas($event)"
+      (onView)="openTaskOffcanvas($event)"
+      (onDelete)="openDeleteConfirmation($event)"
+      (onDrop)="updateTask($event)"
+    ></task-kanban>
+  </div>
 </main>

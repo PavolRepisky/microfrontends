@@ -5,8 +5,6 @@
 .task-card {
   cursor: move;
   background: white;
-  position: relative;
-  z-index: 1;
   user-select: none;
   -webkit-user-drag: none;
 
@@ -40,4 +38,9 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
+  background: #dee2e6 !important;
+}
+
+.dropdown-toggle-no-caret::after {
+  display: none !important;
 }

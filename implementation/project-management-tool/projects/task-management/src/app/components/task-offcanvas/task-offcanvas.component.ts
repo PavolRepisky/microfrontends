@@ -6,9 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { NgbActiveOffcanvas } from '@ng-bootstrap/ng-bootstrap';
-import { Task } from '../../types/task.type';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
+import { tags, priorities, Task, statuses } from '../../types/task.type';
+import { User } from '../../types/user.type';
 
 @Component({
   selector: 'task-offcanvas',
@@ -18,21 +19,28 @@ import { CommonModule } from '@angular/common';
   styleUrl: './task-offcanvas.component.scss',
 })
 export class TaskOffcanvasComponent {
-  private fb = inject(FormBuilder);
+  private formBuilder = inject(FormBuilder);
   activeOffcanvas = inject(NgbActiveOffcanvas);
 
   taskForm: FormGroup;
-  isEdit = false;
-  isSubmitting = false;
+  isEditing = false;
+  users: User[] = [];
+  selectedAssignees: User[] = [];
+
+  tags = tags;
+  priorities = priorities;
+  statuses = statuses;
 
   constructor() {
-    this.taskForm = this.fb.group({
+    this.taskForm = this.formBuilder.group({
       id: [null],
       title: ['', Validators.required],
       status: ['', Validators.required],
       priority: [''],
       tag: [''],
       dueDate: [''],
+      description: [''],
+      assignees: [[]],
     });
   }
 
@@ -43,7 +51,6 @@ export class TaskOffcanvasComponent {
 
   onSubmit() {
     if (this.taskForm.valid) {
-      this.isSubmitting = true;
       const taskData = this.taskForm.value;
       this.activeOffcanvas.close(taskData);
     } else {
@@ -51,12 +58,61 @@ export class TaskOffcanvasComponent {
     }
   }
 
-  setTask(task: Partial<Task>) {
-    this.isEdit = true;
-    this.taskForm.patchValue(task);
+  availableUsers = () => {
+    return this.users.filter(
+      (user) =>
+        !this.selectedAssignees.some(
+          (selectedUser) => selectedUser.id === user.id
+        )
+    );
+  };
+
+  addAssignee(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    const userId = Number(select.value);
+
+    if (!userId) return;
+
+    const user = this.users.find((u) => u.id === userId);
+    if (user) {
+      this.selectedAssignees.push(user);
+      this.taskForm.patchValue({
+        assignees: [...this.selectedAssignees].map((u) => u.id),
+      });
+      select.value = '';
+    }
   }
 
-  setSubmitting(value: boolean) {
-    this.isSubmitting = value;
+  removeAssignee(assignee: User): void {
+    this.selectedAssignees = this.selectedAssignees.filter(
+      (u) => u.id !== assignee.id
+    );
+    this.taskForm.patchValue({
+      assignees: [...this.selectedAssignees].map((u) => u.id),
+    });
+  }
+
+  setTask(task: Partial<Task>) {
+    this.isEditing = true;
+    const taskToSet = { ...task };
+
+    if (task.assignees?.length) {
+      const assigneeUsers = this.users.filter((user) =>
+        task.assignees?.includes(user.id)
+      );
+      this.selectedAssignees = assigneeUsers;
+      taskToSet.assignees = assigneeUsers.map((u) => u.id);
+    }
+
+    if (taskToSet.dueDate) {
+      const date = new Date(taskToSet.dueDate);
+      taskToSet.dueDate = date.toISOString().split('T')[0];
+    }
+
+    this.taskForm.patchValue(taskToSet);
+  }
+
+  setUsers(users: User[]) {
+    this.users = users;
   }
 }

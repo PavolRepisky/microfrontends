@@ -1,12 +1,9 @@
-// components/kanban/kanban.component.scss
 .kanban-board {
-  min-height: 400px;
   overflow-x: auto;
   padding-bottom: 1rem;
 
-  // Custom scrollbar
   &::-webkit-scrollbar {
-    height: 8px;
+    height: 10px;
   }
 
   &::-webkit-scrollbar-track {
@@ -25,6 +22,6 @@
 }
 
 .kanban-column {
-  min-width: 300px;
+  min-width: 285px;
   max-width: 400px;
 }

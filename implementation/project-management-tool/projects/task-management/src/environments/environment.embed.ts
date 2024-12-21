@@ -1,4 +1,5 @@
 export const environment = {
-  production: false,
+  embedded: true,
   apiUrl: 'http://localhost:3000',
+  customElementName: 'task-management',
 };

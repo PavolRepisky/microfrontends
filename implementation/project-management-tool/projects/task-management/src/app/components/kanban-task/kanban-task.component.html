@@ -8,39 +8,36 @@
     <h4 class="h6 mb-0 text-truncate">{{ task.title }}</h4>
     <div class="d-flex align-items-center">
       <small class="text-muted me-2">#{{ task.id }}</small>
-      <div class="dropdown task-dots">
+      <div
+        ngbDropdown
+        #taskDropdown="ngbDropdown"
+        class="task-dots"
+        [autoClose]="true"
+      >
         <button
-          class="btn btn-link btn-sm p-0 text-muted"
+          class="btn btn-link btn-sm p-0 text-muted dropdown-toggle-no-caret"
           type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+          ngbDropdownToggle
         >
           <i class="bi bi-three-dots-vertical"></i>
         </button>
-        <ul class="dropdown-menu dropdown-menu-end p-0 z-100">
+        <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end p-0">
           <li>
-            <button
-              class="dropdown-item"
-              type="button"
-              (click)="onView.emit(task)"
-            >
+            <button ngbDropdownItem type="button" (click)="onView.emit(task)">
               <i class="bi bi-eye me-2" aria-hidden="true"></i>
               {{ "task.action.view" | translate }}
             </button>
           </li>
           <li>
-            <button
-              class="dropdown-item"
-              type="button"
-              (click)="onEdit.emit(task)"
-            >
+            <button ngbDropdownItem type="button" (click)="onEdit.emit(task)">
               <i class="bi bi-pencil me-2" aria-hidden="true"></i>
               {{ "task.action.edit" | translate }}
             </button>
           </li>
           <li>
             <button
-              class="dropdown-item text-danger"
+              ngbDropdownItem
+              class="text-danger"
               type="button"
               (click)="onDelete.emit(task)"
             >
@@ -54,24 +51,33 @@
   </div>
 
   <div class="task-metadata d-flex flex-wrap gap-2 align-items-center">
+    @if (task.tag) {
     <span [class]="'badge bg-' + tagColor"
       ><i class="bi bi-tag-fill"></i>
       {{ "task.tag." + task.tag | translate }}
     </span>
+    } @if (task.priority) {
     <span [class]="'badge bg-' + priorityColor">
       {{ "task.priority." + task.priority | translate }}
     </span>
+    }
   </div>
 
   <div
     class="task-footer d-flex justify-content-between align-items-center mt-3"
   >
     <div class="assignees d-flex gap-1">
-      @for (assignee of task.assignees; track assignee.id) {
+      @for (assignedUser of assignedUsers.slice(0, 3); track assignedUser.id) {
       <span
-        class="badge bg-light d-inline-flex align-items-center text-dark justify-content-center fw-semibold assignee"
+        class="badge d-inline-flex text-body align-items-center justify-content-center fw-semibold assignee"
       >
-        {{ assignee.lastName[0] + assignee.firstName[0] }}
+        {{ assignedUser.firstName[0] + assignedUser.lastName[0] }}
+      </span>
+      } @if (assignedUsers.length > 3) {
+      <span
+        class="d-inline-flex text-body align-items-center justify-content-center fw-semibold assignee"
+      >
+        {{ "+" + (assignedUsers.length - 3) }}
       </span>
       }
     </div>
