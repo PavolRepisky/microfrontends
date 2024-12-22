@@ -144,7 +144,13 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "none"
+              "outputHashing": "none",
+              "fileReplacements": [
+                {
+                  "replace": "projects/user-management/src/environments/environment.ts",
+                  "with": "projects/user-management/src/environments/environment.embed.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,

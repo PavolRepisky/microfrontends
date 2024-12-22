@@ -33,8 +33,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.getTasks();
     this.getUsers();
-
-    console.log(this.tasks());
   }
 
   openTaskOffcanvas(task?: Partial<Task>): void {

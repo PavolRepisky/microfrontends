@@ -1,24 +1,16 @@
 <nav>
   <ul class="nav nav-tabs">
-    @for (tab of roleTabs(); track tab.role) {
+    @for (tab of roleTabs(); track tab.name) {
     <li class="nav-item">
       <a
         class="nav-link text-reset d-flex align-items-center gap-2"
-        [class.active]="tab.isActive"
-        [class.fw-semibold]="tab.isActive"
-        [class.disabled]="disabled"
+        [class.active]="tab.active"
+        [class.fw-semibold]="tab.active"
+        (click)="selectRole($event, tab.role)"
         href="#"
-        [attr.aria-current]="tab.isActive ? 'page' : null"
-        [attr.aria-label]="'roleFilter.ariaLabel.' + tab.role | translate"
-        (click)="onRoleClick($event, tab.role)"
       >
-        <span>{{ tab.label | translate }}</span>
-        <span
-          class="badge rounded-pill text-bg-secondary"
-          [attr.aria-label]="
-            'roleFilter.countLabel' | translate : { count: tab.count }
-          "
-        >
+        <span>{{ "roleFilter.tabs." + tab.name | translate }}</span>
+        <span class="badge text-bg-secondary">
           {{ tab.count }}
         </span>
       </a>

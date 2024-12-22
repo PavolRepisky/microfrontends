@@ -1,14 +1,5 @@
-import {
-  Component,
-  inject,
-  OnInit,
-  signal,
-  DestroyRef,
-  computed,
-} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit, signal, computed } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   NgbModal,
   NgbModalRef,
@@ -16,22 +7,18 @@ import {
   NgbOffcanvasRef,
 } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { EMPTY, catchError, finalize } from 'rxjs';
-
 import { UserService } from './services/user.service';
-import { User } from './models/user.type';
+import { User } from './types/user.type';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { RoleFilterComponent } from './components/role-filter/role-filter.component';
-import { UserFormComponent } from './components/user-form/user-form.component';
+import { UserOffcanvasComponent } from './components/user-offcanvas/user-offcanvas.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
-import { Role } from './models/role.type';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'user-root',
   standalone: true,
   imports: [
-    RouterOutlet,
     TranslateModule,
     UserTableComponent,
     RoleFilterComponent,
@@ -42,142 +29,79 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  private readonly userService = inject(UserService);
   private readonly modalService = inject(NgbModal);
   private readonly offcanvasService = inject(NgbOffcanvas);
-  private readonly userService = inject(UserService);
-  private readonly destroyRef = inject(DestroyRef);
 
-  readonly allUsers = signal<User[]>([]);
-  readonly selectedRole = signal<Role>('');
-  readonly searchTerm = signal<string>('');
-
-  isLoading = signal<boolean>(false);
-
-  protected readonly users = computed(() => {
-    const role = this.selectedRole();
-    const search = this.searchTerm().toLowerCase().trim();
-    let filteredUsers = this.allUsers();
-
-    if (role !== '') {
-      filteredUsers = filteredUsers.filter((user) => user.role === role);
-    }
-
-    if (search) {
-      filteredUsers = filteredUsers.filter((user) =>
-        Object.values(user).some(
-          (value) => value && value.toString().toLowerCase().includes(search)
-        )
-      );
-    }
-
-    return filteredUsers;
-  });
+  users = signal<User[]>([]);
+  filteredUsers = signal<User[]>([]);
+  selectedRole = signal<string | null>(null);
 
   ngOnInit(): void {
-    this.loadUsers();
+    this.getUsers();
   }
 
-  onRoleSelect(role: Role): void {
+  selectRole(role: string | null): void {
     this.selectedRole.set(role);
+    this.filterUsers();
   }
 
-  onSearchChange(term: string): void {
-    this.searchTerm.set(term);
-  }
-
-  openUserForm(user?: User): void {
+  openUserOffcanvas(user?: Partial<User>): void {
     const offcanvasRef: NgbOffcanvasRef = this.offcanvasService.open(
-      UserFormComponent,
-      {
-        position: 'end',
-        backdrop: true,
-        keyboard: false,
-      }
+      UserOffcanvasComponent,
+      { position: 'end' }
     );
 
-    if (user) {
-      offcanvasRef.componentInstance.setUser(user);
-    }
+    if (user) offcanvasRef.componentInstance.setUser(user);
 
-    offcanvasRef.closed
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        catchError((error) => {
-          console.error('Error in offcanvas operation:', error);
-          return EMPTY;
-        })
-      )
-      .subscribe((formUser: User | undefined) => {
-        if (!formUser) return;
+    offcanvasRef.closed.subscribe((formData?: User) => {
+      if (!formData) return;
 
-        const operation =
-          formUser.id !== null
-            ? this.userService.updateUser(formUser)
-            : this.userService.createUser(formUser);
+      formData.id ? this.updateUser(formData) : this.createUser(formData);
 
-        operation
-          .pipe(
-            takeUntilDestroyed(this.destroyRef),
-            catchError((error) => {
-              console.error(
-                `Error ${formUser.id ? 'updating' : 'creating'} user:`,
-                error
-              );
-              return EMPTY;
-            })
-          )
-          .subscribe((updatedUsers) => this.allUsers.set(updatedUsers));
-      });
+      offcanvasRef.dismiss();
+    });
   }
 
-  loadUsers(): void {
-    this.isLoading.set(true);
+  openDeleteConfirmation(user: User): void {
+    const modalRef: NgbModalRef = this.modalService.open(
+      ConfirmationModalComponent,
+      { centered: true, backdrop: 'static' }
+    );
 
-    this.userService
-      .getUsers()
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        finalize(() => this.isLoading.set(false)),
-        catchError((error) => {
-          console.error('Error loading users:', error);
-          return EMPTY;
-        })
-      )
-      .subscribe((users) => this.allUsers.set(users));
+    modalRef.componentInstance.title = 'userDeleteModal.title';
+    modalRef.componentInstance.message = 'userDeleteModal.message';
+    modalRef.componentInstance.userData = user;
+
+    modalRef.closed.subscribe((result: boolean) => {
+      if (result) this.deleteUser(user.id);
+    });
   }
 
-  async openDeleteConfirmation(user: User): Promise<void> {
-    try {
-      const modalRef: NgbModalRef = this.modalService.open(
-        ConfirmationModalComponent,
-        {
-          centered: true,
-          backdrop: 'static',
-        }
-      );
-
-      modalRef.componentInstance.title = 'confirmationModal.title';
-      modalRef.componentInstance.message = 'confirmationModal.message';
-      modalRef.componentInstance.userData = user;
-
-      const confirmed = await modalRef.result;
-
-      if (confirmed && user.id) {
-        this.deleteUser(user.id);
-      }
-    } catch {}
+  filterUsers(): void {
+    this.filteredUsers.set(
+      this.users().filter(
+        (u) => this.selectedRole() === null || u.role === this.selectedRole()
+      )
+    );
   }
 
-  deleteUser(userId: number): void {
-    this.userService
-      .deleteUser(userId)
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        catchError((error) => {
-          console.error('Error deleting user:', error);
-          return EMPTY;
-        })
-      )
-      .subscribe((updatedUsers) => this.allUsers.set(updatedUsers));
+  getUsers(): void {
+    this.userService.getUsers().subscribe((users: User[]) => {
+      this.users.set(users);
+      this.filterUsers();
+    });
+  }
+
+  createUser(user: Omit<User, 'id'>): void {
+    this.userService.createUser(user).subscribe(() => this.getUsers());
+  }
+
+  updateUser(user: User): void {
+    this.userService.updateUser(user).subscribe(() => this.getUsers());
+  }
+
+  deleteUser(taskId: number): void {
+    this.userService.deleteUser(taskId).subscribe(() => this.getUsers());
   }
 }

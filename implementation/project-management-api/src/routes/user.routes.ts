@@ -20,6 +20,7 @@ router.get("/", (req: Request, res: Response) => {
 // GET user by ID
 router.get("/:id", (req: Request, res: Response) => {
   const user = getUserById(Number(req.params.id));
+
   if (!user) {
     res.status(404).json({ message: "User not found" });
     return;
@@ -40,35 +41,37 @@ router.post("/", (req: Request, res: Response) => {
     status,
     bio,
   });
+
   res.status(201).json(newUser);
 });
 
 // PUT update user by ID
-router.patch("/:id", (req: Request, res: Response) => {
+router.put("/:id", (req: Request, res: Response) => {
   const updatedUser = updateUser(Number(req.params.id), req.body);
   if (!updatedUser) {
     res.status(404).json({ message: "User not found" });
     return;
   }
+
   res.json(updatedUser);
 });
 
 // DELETE user by ID
 router.delete("/:id", (req: Request, res: Response) => {
-  const success = deleteUser(Number(req.params.id));
-  if (!success) {
+  const user = deleteUser(Number(req.params.id));
+  if (!user) {
     res.status(404).json({ message: "User not found" });
   }
-  res.status(204).end();
+
+  res.json(user);
 });
 
 // GET user translations in given language
 router.get("/translations/:lang", (req: Request, res: Response) => {
   const { lang } = req.params;
 
-  console.log(userI18n.getLocales());
   if (!userI18n.getLocales().includes(lang)) {
-    res.status(404).json({ message: "Language not supported" });
+    res.status(404).json({ message: "Language is not supported" });
     return;
   }
 

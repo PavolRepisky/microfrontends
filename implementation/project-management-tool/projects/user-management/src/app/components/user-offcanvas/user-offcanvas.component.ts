@@ -7,26 +7,28 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { User } from '../../models/user.type';
+import { User } from '../../types/user.type';
 import { TranslateModule } from '@ngx-translate/core';
+import { roles } from '../../types/role.type';
 
 @Component({
-  selector: 'user-user-form',
+  selector: 'user-offcanvas',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, TranslateModule],
-  templateUrl: './user-form.component.html',
-  styleUrl: './user-form.component.scss',
+  templateUrl: './user-offcanvas.component.html',
+  styleUrl: './user-offcanvas.component.scss',
 })
-export class UserFormComponent {
-  private fb = inject(FormBuilder);
+export class UserOffcanvasComponent {
+  private formBuilder = inject(FormBuilder);
   activeOffcanvas = inject(NgbActiveOffcanvas);
 
   userForm: FormGroup;
-  isEdit = false;
-  isSubmitting = false;
+  isEditing = false;
+
+  roles = roles;
 
   constructor() {
-    this.userForm = this.fb.group({
+    this.userForm = this.formBuilder.group({
       id: [null],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -45,7 +47,6 @@ export class UserFormComponent {
 
   onSubmit() {
     if (this.userForm.valid) {
-      this.isSubmitting = true;
       const userData = this.userForm.value;
       this.activeOffcanvas.close(userData);
     } else {
@@ -54,7 +55,7 @@ export class UserFormComponent {
   }
 
   setUser(user: User) {
-    this.isEdit = true;
+    this.isEditing = true;
     this.userForm.patchValue(user);
   }
 }

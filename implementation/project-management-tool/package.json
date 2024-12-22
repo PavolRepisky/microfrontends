@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "user": "npx http-server dist/user-management/browser -p 4201",
+    "task": "npx http-server dist/task-management/browser -p 4202"
   },
   "private": true,
   "dependencies": {

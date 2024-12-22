@@ -8,13 +8,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { User } from '../../models/user.type';
-import { Role } from '../../models/role.type';
-
-interface RoleDefinition {
-  label: string;
-  role: Role;
-}
+import { User } from '../../types/user.type';
+import { tabs } from '../../types/role.type';
 
 @Component({
   selector: 'user-role-filter',
@@ -24,50 +19,31 @@ interface RoleDefinition {
   styleUrl: './role-filter.component.scss',
 })
 export class RoleFilterComponent {
-  private static readonly ROLES: readonly RoleDefinition[] = [
-    { label: 'roleFilter.tabs.all', role: '' },
-    { label: 'roleFilter.tabs.admins', role: 'admin' },
-    { label: 'roleFilter.tabs.projectManagers', role: 'projectManager' },
-    { label: 'roleFilter.tabs.developers', role: 'developer' },
-    { label: 'roleFilter.tabs.designers', role: 'designer' },
-    { label: 'roleFilter.tabs.testers', role: 'tester' },
-  ] as const;
-
-  @Input({ required: true }) set users(value: User[]) {
-    this.users$.set(value);
+  @Input() users: User[] = [];
+  @Input() set selectedRole(role: string | null) {
+    this.role.set(role);
   }
 
-  @Input() set currentRole(value: Role) {
-    this.currentRole$.set(value);
-  }
+  @Output() onSelect = new EventEmitter<string | null>();
+  private readonly role = signal<string | null>(null);
 
-  @Input() disabled = false;
-
-  @Output() onRoleSelect = new EventEmitter<Role>();
-
-  private readonly users$ = signal<User[]>([]);
-  private readonly currentRole$ = signal<Role>('');
-
-  protected readonly roleTabs = computed(() =>
-    RoleFilterComponent.ROLES.map(({ label, role }) => ({
-      label,
-      role,
-      count: this.getUserCountForRole(role),
-      isActive: role === this.currentRole$(),
+  roleTabs = computed(() =>
+    tabs.map((tab) => ({
+      name: tab.name,
+      role: tab.role,
+      count: this.getUserCountForRole(tab.role),
+      active: tab.role === this.role(),
     }))
   );
 
-  private getUserCountForRole(role: Role): number {
-    const users = this.users$();
-    return role === ''
-      ? users.length
-      : users.filter((user) => user.role === role).length;
+  private getUserCountForRole(role: string | null): number {
+    return !role
+      ? this.users.length
+      : this.users.filter((user) => user.role === role).length;
   }
 
-  onRoleClick(event: Event, role: Role): void {
+  selectRole(event: Event, role: string | null): void {
     event.preventDefault();
-    if (!this.disabled) {
-      this.onRoleSelect.emit(role);
-    }
+    this.onSelect.emit(role);
   }
 }

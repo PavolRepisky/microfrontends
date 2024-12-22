@@ -1,9 +1,10 @@
 <div>
   <div class="offcanvas-header">
-    <h4 class="offcanvas-title">{{ isEdit ? "Edit" : "Create" }} User</h4>
+    <h4 class="offcanvas-title fw-medium">
+      {{ "userOffcanvas.title" | translate }}
+    </h4>
     <button
       (click)="activeOffcanvas.dismiss()"
-      aria-label="Close"
       class="btn-close"
       type="button"
     ></button>
@@ -13,110 +14,112 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
       <div class="mb-3">
         <label class="form-label">{{
-          "userForm.firstName.label" | translate
+          "userOffcanvas.form.firstName.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('firstName')"
           class="form-control"
           formControlName="firstName"
-          placeholder="{{ 'userForm.firstName.placeholder' | translate }}"
+          placeholder="{{
+            'userOffcanvas.form.firstName.placeholder' | translate
+          }}"
           type="text"
         />
         @if (userForm.get('firstName')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userForm.firstName.required" | translate }}
+          {{ "taskOffcanvas.form.field.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userForm.lastName.label" | translate
+          "userOffcanvas.form.lastName.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('lastName')"
           class="form-control"
           formControlName="lastName"
-          placeholder="{{ 'userForm.lastName.placeholder' | translate }}"
+          placeholder="{{
+            'userOffcanvas.form.lastName.placeholder' | translate
+          }}"
           type="text"
         />
         @if (userForm.get('lastName')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userForm.lastName.required" | translate }}
+          {{ "userOffcanvas.form.field.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userForm.email.label" | translate
+          "userOffcanvas.form.email.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('email')"
           class="form-control"
           formControlName="email"
-          placeholder="{{ 'userForm.email.placeholder' | translate }}"
+          placeholder="{{ 'userOffcanvas.form.email.placeholder' | translate }}"
           type="email"
         />
         @if (userForm.get('email')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userForm.email.required" | translate }}
+          {{ "userOffcanvas.form.field.required" | translate }}
         </p>
         } @if (userForm.get('email')?.errors?.['email']) {
         <p class="invalid-feedback">
-          {{ "userForm.email.invalid" | translate }}
+          {{ "userOffcanvas.form.field.invalid" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userForm.phone.label" | translate
+          "userOffcanvas.form.phone.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('phone')"
           class="form-control"
           formControlName="phone"
-          placeholder="{{ 'userForm.phone.placeholder' | translate }}"
+          placeholder="{{ 'userOffcanvas.form.phone.placeholder' | translate }}"
           type="tel"
         />
         @if (userForm.get('phone')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userForm.phone.required" | translate }}
+          {{ "userOffcanvas.form.field.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userForm.role.label" | translate
+          "userOffcanvas.form.role.label" | translate
         }}</label>
         <select
           [class.is-invalid]="isFieldInvalid('role')"
           class="form-select"
           formControlName="role"
         >
-          <option value="">
-            {{ "userForm.role.placeholder" | translate }}
+          <option value="" selected>
+            {{ "userOffcanvas.form.role.placeholder" | translate }}
           </option>
-          <option value="admin">{{ "roles.admin" | translate }}</option>
-          <option value="projectManager">
-            {{ "roles.projectManager" | translate }}
+          @for(role of roles; track $index) {
+          <option [value]="role.name">
+            {{ "user.role." + role.name | translate }}
           </option>
-          <option value="developer">{{ "roles.developer" | translate }}</option>
-          <option value="designer">{{ "roles.designer" | translate }}</option>
-          <option value="tester">{{ "roles.tester" | translate }}</option>
+          }
         </select>
         @if (userForm.get('role')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userForm.role.required" | translate }}
+          {{ "userOffcanvas.form.field.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userForm.status.label" | translate
+          "userOffcanvas.form.status.label" | translate
         }}</label>
         <select
           [class.is-invalid]="isFieldInvalid('status')"
@@ -124,40 +127,46 @@
           formControlName="status"
         >
           <option value="" selected>
-            {{ "userForm.status.placeholder" | translate }}
+            {{ "userOffcanvas.form.status.placeholder" | translate }}
           </option>
           <option value="active">
-            {{ "statuses.active" | translate }}
+            {{ "user.status.active" | translate }}
           </option>
           <option value="inactive">
-            {{ "statuses.inactive" | translate }}
+            {{ "user.status.inactive" | translate }}
           </option>
-          <option value="invited">{{ "statuses.invited" | translate }}</option>
         </select>
         @if (userForm.get('status')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userForm.status.required" | translate }}
+          {{ "userOffcanvas.form.field.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
-        <label class="form-label">{{ "userForm.bio.label" | translate }}</label>
+        <label class="form-label">{{
+          "userOffcanvas.form.bio.label" | translate
+        }}</label>
         <textarea
           [class.is-invalid]="isFieldInvalid('bio')"
           class="form-control"
           formControlName="bio"
-          placeholder="{{ 'userForm.bio.placeholder' | translate }}"
+          placeholder="{{ 'userOffcanvas.form.bio.placeholder' | translate }}"
         ></textarea>
       </div>
 
       <div class="d-grid gap-2">
         <button
-          [disabled]="userForm.invalid || isSubmitting"
+          [disabled]="userForm.invalid"
           class="btn btn-primary"
           type="submit"
         >
-          {{ isSubmitting ? "Saving..." : isEdit ? "Update" : "Create" }}
+          {{
+            (isEditing
+              ? "userOffcanvas.form.update"
+              : "userOffcanvas.form.create"
+            ) | translate
+          }}
         </button>
       </div>
     </form>

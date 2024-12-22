@@ -87,7 +87,7 @@ let users: User[] = [
     phone: "(925) 7818 5440",
     email: "sophia.brooks@example.com",
     role: "designer",
-    status: "invited",
+    status: "active",
     bio: "A visionary graphic designer with a passion for creativity.",
   },
   {
@@ -114,8 +114,8 @@ let users: User[] = [
 
 export const getAllUsers = (): User[] => users;
 
-export const getUserById = (id: number): User | undefined =>
-  users.find((user) => user.id === id);
+export const getUserById = (id: number): User | null =>
+  users.find((user) => user.id === id) || null;
 
 export const createUser = (user: Omit<User, "id">): User => {
   const newUser = { id: Date.now(), ...user };
@@ -128,13 +128,20 @@ export const updateUser = (
   updatedData: Partial<User>
 ): User | null => {
   const userIndex = users.findIndex((user) => user.id === id);
-  if (userIndex === -1) return null;
+  if (userIndex === -1) {
+    return null;
+  }
+
   users[userIndex] = { ...users[userIndex], ...updatedData };
   return users[userIndex];
 };
 
-export const deleteUser = (id: number): boolean => {
-  const initialLength = users.length;
-  users = users.filter((user) => user.id !== id);
-  return users.length < initialLength;
+export const deleteUser = (id: number): User | null => {
+  const user = users.find((user) => user.id === id);
+
+  if (user) {
+    users = users.filter((task) => task.id !== id);
+    return user;
+  }
+  return null;
 };

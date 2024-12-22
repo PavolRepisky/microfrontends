@@ -13,13 +13,25 @@
   border-bottom: 0px solid #fff;
 }
 
-.table .bio-cell {
-  max-width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+.table-responsive {
+  overflow-x: auto;
+  padding-bottom: 1rem;
 
-.table .email-field {
-  font-size: 0.95rem;
+  &::-webkit-scrollbar {
+    height: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+
+    &:hover {
+      background: #bbb;
+    }
+  }
 }

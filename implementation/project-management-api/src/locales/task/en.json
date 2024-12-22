@@ -48,7 +48,7 @@
     "title": "Task details",
     "form": {
       "field": {
-        "required": "Field is required"
+        "required": "The field is required"
       },
       "title": {
         "label": "Title",
@@ -79,8 +79,7 @@
         "placeholder": "Select assignees"
       },
       "create": "Create",
-      "update": "Update",
-      "saving": "Saving..."
+      "update": "Update"
     }
   },
   "taskDeleteModal": {

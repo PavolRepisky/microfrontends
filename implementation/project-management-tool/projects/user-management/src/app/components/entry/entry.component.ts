@@ -1,7 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppComponent } from '../../app.component';
 
-// TODO: use ShadowDOM View Encapsulation
 @Component({
   selector: 'user-entry',
   standalone: true,

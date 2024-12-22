@@ -1,102 +1,72 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { tap, catchError, shareReplay, map } from 'rxjs/operators';
-import { User } from '../models/user.type';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, Observable, of } from 'rxjs';
+import { User } from '../types/user.type';
+import { environment } from '../../environments/environment';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class UserService {
-  private readonly API_URL = 'http://localhost:3000/users';
-  private users$ = new Observable<User[]>();
+  private readonly usersUrl = `${environment.apiUrl}/users`;
 
-  constructor(private readonly httpClient: HttpClient) {
-    this.initializeUsers();
-  }
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
-  private initializeUsers(): void {
-    this.users$ = this.httpClient
-      .get<User[]>(this.API_URL)
-      .pipe(shareReplay(1), catchError(this.handleError));
-  }
+  constructor(private http: HttpClient) {}
 
+  /** GET: fetch all users */
   getUsers(): Observable<User[]> {
-    return this.users$;
+    return this.http
+      .get<User[]>(this.usersUrl)
+      .pipe(catchError(this.handleError<User[]>('getAllUsers', [])));
   }
 
-  getUser(userId: number): Observable<User | undefined> {
-    return this.users$.pipe(
-      map((users) => users.find((user) => user.id === userId)),
-      catchError(this.handleError)
-    );
+  /** GET: fetch user by id. Return `null` when id not found */
+  getUser(id: number): Observable<User> {
+    const url = `${this.usersUrl}/${id}`;
+    return this.http
+      .get<User>(url)
+      .pipe(catchError(this.handleError<User>(`getUser id=${id}`)));
   }
 
-  createUser(user: Omit<User, 'id'>): Observable<User[]> {
-    return this.users$.pipe(
-      map((users) => {
-        const newUser = { ...user, id: this.generateUniqueId(users) };
-        const updatedUsers = [...users, newUser];
-        this.updateUsersStream(updatedUsers);
-        return updatedUsers;
-      }),
-      catchError(this.handleError)
-    );
+  /** POST: create a new user */
+  createUser(user: Omit<User, 'id'>): Observable<User> {
+    return this.http
+      .post<User>(this.usersUrl, user, this.httpOptions)
+      .pipe(catchError(this.handleError<User>('createUser')));
   }
 
-  updateUser(updatedUser: User): Observable<User[]> {
-    return this.users$.pipe(
-      map((users) => {
-        const index = users.findIndex((user) => user.id === updatedUser.id);
-        if (index === -1) {
-          throw new Error(`User with id: ${updatedUser.id} not found`);
-        }
-
-        const updatedUsers = [...users];
-        updatedUsers[index] = { ...users[index], ...updatedUser };
-        this.updateUsersStream(updatedUsers);
-        return updatedUsers;
-      }),
-      catchError(this.handleError)
-    );
+  /** PUT: update the user */
+  updateUser(user: User): Observable<User> {
+    const url = `${this.usersUrl}/${user.id}`;
+    return this.http
+      .put<User>(url, user, this.httpOptions)
+      .pipe(catchError(this.handleError<any>(`updateUser id=${user.id}`)));
   }
 
-  deleteUser(userId: number): Observable<User[]> {
-    return this.users$.pipe(
-      map((users) => {
-        const updatedUsers = users.filter((user) => user.id !== userId);
-        if (updatedUsers.length === users.length) {
-          throw new Error(`User with id: ${userId} not found`);
-        }
+  /** DELETE: delete the user */
+  deleteUser(id: number): Observable<User> {
+    const url = `${this.usersUrl}/${id}`;
 
-        this.updateUsersStream(updatedUsers);
-        return updatedUsers;
-      }),
-      catchError(this.handleError)
-    );
+    return this.http
+      .delete<User>(url, this.httpOptions)
+      .pipe(catchError(this.handleError<User>(`deleteUser id=${id}`)));
   }
 
-  resetToOriginal(): Observable<User[]> {
-    this.initializeUsers();
-    return this.users$;
-  }
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   *
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
 
-  private generateUniqueId(users: User[]): number {
-    const maxId = users.reduce((max, user) => Math.max(max, user.id), 0);
-    return maxId + 1;
-  }
-
-  private updateUsersStream(users: User[]): void {
-    this.users$ = of(users).pipe(shareReplay(1));
-  }
-
-  private handleError(error: HttpErrorResponse | Error): Observable<never> {
-    const errorMessage =
-      error instanceof HttpErrorResponse
-        ? `Server error: ${error.message}`
-        : error.message;
-
-    console.error('UserService Error:', errorMessage);
-    return throwError(() => new Error(errorMessage));
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 }
