@@ -4,5 +4,4 @@ export interface KanbanColumn {
   id: KanbanStatus;
   title: string;
   icon: string;
-  color: string;
 }

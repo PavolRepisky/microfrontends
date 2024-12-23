@@ -4,7 +4,6 @@
 
 .task-card {
   cursor: move;
-  background: white;
   user-select: none;
   -webkit-user-drag: none;
 
@@ -14,8 +13,7 @@
 }
 
 .task-placeholder {
-  background: #f8f9fa;
-  border: 2px dashed #dee2e6;
+  border: 2px dashed #b9bdc2;
   border-radius: 0.25rem;
   height: 100%;
   min-height: 120px;
@@ -35,10 +33,9 @@
 .assignee {
   font-size: 0.75rem;
   font-weight: "normal";
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: #dee2e6 !important;
 }
 
 .dropdown-toggle-no-caret::after {

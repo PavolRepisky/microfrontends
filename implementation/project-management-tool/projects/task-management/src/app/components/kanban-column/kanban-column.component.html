@@ -1,5 +1,7 @@
 <div class="kanban-column h-100 d-flex flex-column">
-  <div class="column-header rounded-top bg-light border border-bottom-0">
+  <div
+    class="column-header rounded-top bg-body-secondary border border-bottom-0"
+  >
     <button
       type="button"
       class="btn w-100 ps-3 pt-2 text-start"
@@ -7,23 +9,20 @@
     >
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center gap-2">
-          <i
-            [class]="'bi ' + this.column.icon + ' text-' + this.column.color"
-            aria-hidden="true"
-          ></i>
+          <i class="text-secondary" [class]="'bi ' + this.column.icon"></i>
           <h3 class="h6 mb-0">{{ this.column.title | translate }}</h3>
-          <span class="badge bg-secondary rounded-pill">
+          <span class="badge bg-secondary">
             {{ tasks.length }}
           </span>
         </div>
 
-        <i class="bi bi-plus-lg" aria-hidden="true"></i>
+        <i class="bi bi-plus-lg"></i>
       </div>
     </button>
   </div>
 
   <div
-    class="tasks-container flex-grow-1 p-2 bg-light border rounded-bottom"
+    class="flex-grow-1 p-2 bg-body-tertiary border rounded-bottom"
     cdkDropList
     [cdkDropListData]="tasks"
     [id]="this.column.id"

@@ -1,5 +1,5 @@
 <div
-  class="task-card p-3 mb-2 bg-white rounded border shadow-sm position-relative"
+  class="task-card p-3 mb-2 bg-body-tertiary rounded border shadow-sm position-relative"
   cdkDrag
   [cdkDragData]="task"
   (cdkDragStarted)="onDragStart($event)"
@@ -69,13 +69,13 @@
     <div class="assignees d-flex gap-1">
       @for (assignedUser of assignedUsers.slice(0, 3); track assignedUser.id) {
       <span
-        class="badge d-inline-flex text-body align-items-center justify-content-center fw-semibold assignee"
+        class="badge d-inline-flex text-body align-items-center justify-content-center fw-semibold assignee border"
       >
         {{ assignedUser.firstName[0] + assignedUser.lastName[0] }}
       </span>
       } @if (assignedUsers.length > 3) {
       <span
-        class="d-inline-flex text-body align-items-center justify-content-center fw-semibold assignee"
+        class="d-inline-flex text-body align-items-center justify-content-center fw-semibold assignee border"
       >
         {{ "+" + (assignedUsers.length - 3) }}
       </span>
@@ -88,7 +88,7 @@
     </small>
   </div>
 
-  <div *cdkDragPreview [class]="'task-card p-3 bg-white rounded shadow-lg'">
+  <div *cdkDragPreview class="task-card p-3 rounded bg-body-tertiary shadow-lg">
     <div class="d-flex justify-content-between align-items-start mb-2">
       <h4 class="h6 mb-0">{{ task.title }}</h4>
       <small class="text-muted ms-2">#{{ task.id }}</small>

@@ -44,25 +44,21 @@ export class KanbanComponent {
       id: 'backlog',
       title: 'task.status.backlog',
       icon: 'bi-collection-fill',
-      color: 'secondary',
     },
     {
       id: 'inProgress',
       title: 'task.status.inProgress',
       icon: 'bi-hourglass-split',
-      color: 'secondary',
     },
     {
       id: 'toReview',
       title: 'task.status.toReview',
       icon: 'bi-eye-fill',
-      color: 'secondary',
     },
     {
       id: 'done',
       title: 'task.status.done',
       icon: 'bi-check-circle-fill',
-      color: 'secondary',
     },
   ];
 

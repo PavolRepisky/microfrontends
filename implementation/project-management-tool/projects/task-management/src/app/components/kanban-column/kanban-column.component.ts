@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 import { Task } from '../../types/task.type';
-import { KanbanColumn, KanbanStatus } from '../../types/kanban.type';
+import { KanbanColumn } from '../../types/kanban.type';
 import { KanbanTaskComponent } from '../kanban-task/kanban-task.component';
 import { User } from '../../types/user.type';
 
