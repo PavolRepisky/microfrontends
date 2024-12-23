@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     this.initializeSettings();
   }
 
-  private initializeSettings() {
+  initializeSettings() {
     this.setLanguage(this.currentLanguage);
     this.setTheme(this.currentTheme);
   }

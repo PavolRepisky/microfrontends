@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate } from '@angular/router';
-import { MicrofrontendRegistryService } from './microfrontend-registry.service';
+import { MicrofrontendRegistryService } from '../services/microfrontend-registry.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoadMicrofrontendGuard implements CanActivate {

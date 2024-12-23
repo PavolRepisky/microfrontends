@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { UserManagementHostComponent } from './user-management-host.component';
-import { LoadMicrofrontendGuard } from '../../services/load-microfrontend.guard';
+import { LoadMicrofrontendGuard } from '../../guards/load-microfrontend.guard';
 
 export const USER_MANAGEMENT_ROUTES: Routes = [
   {
