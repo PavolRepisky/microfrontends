@@ -7,6 +7,7 @@ export type User = {
   role: string;
   status: string;
   bio?: string;
+  createdAt: string;
 };
 
 let users: User[] = [
@@ -19,6 +20,7 @@ let users: User[] = [
     role: "admin",
     status: "active",
     bio: "Platform administrator with over five years of experience.",
+    createdAt: getDaysAgoDate(200),
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ let users: User[] = [
     role: "tester",
     status: "active",
     bio: "A meticulous software tester with a passion for quality assurance.",
+    createdAt: getDaysAgoDate(155),
   },
   {
     id: 3,
@@ -39,6 +42,7 @@ let users: User[] = [
     role: "projectManager",
     status: "active",
     bio: "A dedicated project manager with a talent for leadership and organization.",
+    createdAt: getDaysAgoDate(125),
   },
   {
     id: 4,
@@ -49,6 +53,7 @@ let users: User[] = [
     role: "developer",
     status: "inactive",
     bio: "A passionate software developer specializing in front-end technologies.",
+    createdAt: getDaysAgoDate(115),
   },
   {
     id: 5,
@@ -59,6 +64,7 @@ let users: User[] = [
     role: "developer",
     status: "active",
     bio: "A creative front-end developer with a keen eye for design.",
+    createdAt: getDaysAgoDate(100),
   },
   {
     id: 6,
@@ -69,6 +75,7 @@ let users: User[] = [
     role: "tester",
     status: "active",
     bio: "A detail-oriented software tester dedicated to improving product quality.",
+    createdAt: getDaysAgoDate(90),
   },
   {
     id: 7,
@@ -79,6 +86,7 @@ let users: User[] = [
     role: "designer",
     status: "active",
     bio: "A UX/UI designer who believes in the power of user-centered design.",
+    createdAt: getDaysAgoDate(29),
   },
   {
     id: 8,
@@ -89,6 +97,7 @@ let users: User[] = [
     role: "designer",
     status: "active",
     bio: "A visionary graphic designer with a passion for creativity.",
+    createdAt: getDaysAgoDate(25),
   },
   {
     id: 9,
@@ -99,6 +108,7 @@ let users: User[] = [
     role: "developer",
     status: "active",
     bio: "A dedicated back-end developer with expertise in cloud infrastructure.",
+    createdAt: getDaysAgoDate(19),
   },
   {
     id: 10,
@@ -109,6 +119,7 @@ let users: User[] = [
     role: "projectManager",
     status: "active",
     bio: "A results-driven project manager with over six years of experience.",
+    createdAt: getDaysAgoDate(5),
   },
 ];
 
@@ -145,3 +156,9 @@ export const deleteUser = (id: number): User | null => {
   }
   return null;
 };
+
+function getDaysAgoDate(daysAgo: number): string {
+  const now = new Date();
+  const date = new Date(now.getTime() - daysAgo * 24 * 60 * 60 * 1000);
+  return date.toLocaleDateString();
+}

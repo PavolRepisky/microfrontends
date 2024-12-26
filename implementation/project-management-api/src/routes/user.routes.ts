@@ -40,6 +40,7 @@ router.post("/", (req: Request, res: Response) => {
     role,
     status,
     bio,
+    createdAt: new Date().toLocaleDateString(),
   });
 
   res.status(201).json(newUser);

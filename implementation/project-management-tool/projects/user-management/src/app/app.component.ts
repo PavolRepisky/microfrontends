@@ -1,4 +1,11 @@
-import { Component, inject, OnInit, signal, computed } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+  signal,
+  Input,
+  computed,
+} from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import {
   NgbModal,
@@ -14,6 +21,8 @@ import { RoleFilterComponent } from './components/role-filter/role-filter.compon
 import { UserOffcanvasComponent } from './components/user-offcanvas/user-offcanvas.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { CommonModule } from '@angular/common';
+import { NewUsersListComponent } from './components/new-users-list/new-users-list.component';
+import { EventService } from './services/event.service';
 
 @Component({
   selector: 'user-root',
@@ -24,6 +33,7 @@ import { CommonModule } from '@angular/common';
     RoleFilterComponent,
     FormsModule,
     CommonModule,
+    NewUsersListComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -32,18 +42,27 @@ export class AppComponent implements OnInit {
   private readonly userService = inject(UserService);
   private readonly modalService = inject(NgbModal);
   private readonly offcanvasService = inject(NgbOffcanvas);
+  private readonly eventService = inject(EventService);
+
+  @Input() compact = true;
 
   users = signal<User[]>([]);
   filteredUsers = signal<User[]>([]);
   selectedRole = signal<string | null>(null);
+  selectedUser = signal<number | null>(null);
 
   ngOnInit(): void {
     this.getUsers();
+    this.eventService.on('user-selected', this.selectUser.bind(this));
   }
 
   selectRole(role: string | null): void {
     this.selectedRole.set(role);
     this.filterUsers();
+  }
+
+  selectUser(data: { userId: number }): void {
+    this.selectedUser.set(data.userId);
   }
 
   openUserOffcanvas(user?: Partial<User>): void {
@@ -86,6 +105,13 @@ export class AppComponent implements OnInit {
     );
   }
 
+  recentUsers = computed(() => {
+    const oneMonthAgo = new Date();
+    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+    return this.users().filter((u) => new Date(u.createdAt) >= oneMonthAgo);
+  });
+
   getUsers(): void {
     this.userService.getUsers().subscribe((users: User[]) => {
       this.users.set(users);
@@ -103,5 +129,9 @@ export class AppComponent implements OnInit {
 
   deleteUser(taskId: number): void {
     this.userService.deleteUser(taskId).subscribe(() => this.getUsers());
+  }
+
+  emitUser(user: User) {
+    this.eventService.emit('user-selected', { userId: user.id });
   }
 }
