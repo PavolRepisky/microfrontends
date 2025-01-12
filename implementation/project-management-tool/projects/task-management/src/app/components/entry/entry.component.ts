@@ -1,11 +1,12 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { AppComponent } from '../../app.component';
 
-// TODO: use ShadowDOM View Encapsulation
 @Component({
   selector: 'task-entry',
   standalone: true,
   imports: [AppComponent],
-  template: '<task-root></task-root>',
+  template: '<task-root [compact]="compact"></task-root>',
 })
-export class EntryComponent {}
+export class EntryComponent {
+  @Input() compact: boolean = false;
+}

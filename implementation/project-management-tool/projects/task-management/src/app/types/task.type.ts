@@ -3,10 +3,11 @@ export interface Task {
   title: string;
   status: string;
   assignees: number[];
+  description?: string;
   priority?: string;
   tag?: string;
   dueDate?: string;
-  description?: string;
+  createdAt: string;
 }
 
 export interface Assignee {

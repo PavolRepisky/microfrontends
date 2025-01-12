@@ -1,4 +1,11 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  Input,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { Task } from './types/task.type';
 import { TranslateModule } from '@ngx-translate/core';
 import { KanbanComponent } from './components/kanban/kanban.component';
@@ -13,11 +20,13 @@ import { TaskService } from './services/task.service';
 import { UserService } from './services/user.service';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { User } from './types/user.type';
+import { NewTasksWidgetComponent } from './components/new-tasks-widget/new-tasks-widget.component';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'task-root',
   standalone: true,
-  imports: [TranslateModule, KanbanComponent],
+  imports: [TranslateModule, KanbanComponent, NewTasksWidgetComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -27,8 +36,11 @@ export class AppComponent implements OnInit {
   private readonly modalService = inject(NgbModal);
   private readonly offcanvasService = inject(NgbOffcanvas);
 
+  @Input() compact = true;
+
   tasks = signal<Task[]>([]);
   users = signal<User[]>([]);
+  embedded = environment.embedded;
 
   ngOnInit(): void {
     this.getTasks();

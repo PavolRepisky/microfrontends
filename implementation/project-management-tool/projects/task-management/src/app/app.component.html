@@ -1,3 +1,8 @@
+@if (compact) {
+<div [class]="!embedded ? 'p-3 h-100' : ''">
+  <new-tasks-widget [tasks]="tasks()"></new-tasks-widget>
+</div>
+} @else {
 <main class="container h-100 py-3">
   <header class="d-flex justify-content-between align-items-center mb-3">
     <div>
@@ -27,3 +32,4 @@
     ></task-kanban>
   </div>
 </main>
+}

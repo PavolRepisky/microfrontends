@@ -1,28 +1,25 @@
-.kanban-board {
+.tasks-container {
   overflow-x: auto;
   padding-bottom: 1rem;
-
   &::-webkit-scrollbar {
     height: 15px;
   }
-
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
   }
-
   &::-webkit-scrollbar-thumb {
     cursor: pointer;
     background: #ccc;
     border-radius: 4px;
-
     &:hover {
       background: #bbb;
     }
   }
 }
-
-.kanban-column {
-  min-width: 285px;
-  max-width: 400px;
+.tasks-container .card {
+  cursor: pointer;
+}
+.tasks-container .card:last-child {
+  margin-bottom: 0 !important;
 }
