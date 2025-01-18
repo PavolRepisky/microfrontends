@@ -1,0 +1,17 @@
+<div class="dashboard-container h-100 d-flex flex-column">
+  <header class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h2 class="fw-semibold mb-1">{{ "dashboard.title" | translate }}</h2>
+      <p class="text-muted mb-0">{{ "dashboard.subtitle" | translate }}</p>
+    </div>
+  </header>
+
+  <div class="row flex-grow-1">
+    <div class="col-md-6">
+      <task-management compact="true"></task-management>
+    </div>
+    <div class="col-md-6">
+      <user-management compact="true"></user-management>
+    </div>
+  </div>
+</div>

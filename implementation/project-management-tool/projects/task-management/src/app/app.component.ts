@@ -1,11 +1,4 @@
-import {
-  Component,
-  computed,
-  inject,
-  Input,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { Task } from './types/task.type';
 import { TranslateModule } from '@ngx-translate/core';
 import { KanbanComponent } from './components/kanban/kanban.component';

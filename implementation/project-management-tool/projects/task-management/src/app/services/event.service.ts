@@ -23,7 +23,7 @@ export class EventService {
   emitTaskSelected(taskId: number) {
     this.emit(Events.TASK_SELECTED, { taskId: taskId });
   }
-  emitTaskUnSelected() {
+  emitTaskUnselected() {
     this.emit(Events.TASK_UNSELECTED, undefined);
   }
 
@@ -39,8 +39,6 @@ export class EventService {
   private on(eventName: string, callback: (data: any) => void) {
     const windowListener = (event: CustomEvent) => callback(event.detail);
     window.addEventListener(eventName, windowListener as EventListener);
-
-    console.log(eventName);
 
     return () => {
       window.removeEventListener(eventName, windowListener as EventListener);

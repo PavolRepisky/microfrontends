@@ -22,5 +22,9 @@
   },
   "globals": {
     "cancel": "Cancel"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "View and manage all your key insights in one place"
   }
 }

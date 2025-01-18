@@ -8,4 +8,5 @@ export type User = {
   status: string;
   bio?: string;
   createdAt: string;
+  tasks: number[];
 };

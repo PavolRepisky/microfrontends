@@ -7,6 +7,7 @@ export type Task = {
   priority?: string;
   tag?: string;
   dueDate?: string;
+  createdAt: string;
 };
 
 let tasks: Task[] = [
@@ -18,8 +19,9 @@ let tasks: Task[] = [
     status: "backlog",
     priority: "medium",
     tag: "feature",
-    dueDate: "10/20/2024",
+    dueDate: getDaysAgoDate(-5),
     assignees: [1, 2, 3],
+    createdAt: getDaysAgoDate(0),
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ let tasks: Task[] = [
     priority: "high",
     tag: "bug",
     assignees: [1],
+    createdAt: getDaysAgoDate(20),
   },
   {
     id: 3,
@@ -37,8 +40,9 @@ let tasks: Task[] = [
     status: "inProgress",
     priority: "low",
     tag: "enhancement",
-    dueDate: "12/01/2024",
+    dueDate: getDaysAgoDate(-20),
     assignees: [1, 2],
+    createdAt: getDaysAgoDate(10),
   },
   {
     id: 4,
@@ -48,8 +52,9 @@ let tasks: Task[] = [
     status: "inProgress",
     priority: "medium",
     tag: "feature",
-    dueDate: "11/05/2024",
+    dueDate: getDaysAgoDate(-5),
     assignees: [1, 2, 3, 4, 5, 6],
+    createdAt: getDaysAgoDate(2),
   },
   {
     id: 5,
@@ -59,8 +64,9 @@ let tasks: Task[] = [
     status: "toReview",
     priority: "high",
     tag: "test",
-    dueDate: "10/15/2024",
+    dueDate: getDaysAgoDate(-5),
     assignees: [7, 8],
+    createdAt: getDaysAgoDate(4),
   },
   {
     id: 6,
@@ -69,8 +75,9 @@ let tasks: Task[] = [
     status: "toReview",
     priority: "medium",
     tag: "feature",
-    dueDate: "11/02/2024",
+    dueDate: getDaysAgoDate(0),
     assignees: [3, 7, 8, 9, 10],
+    createdAt: getDaysAgoDate(14),
   },
   {
     id: 7,
@@ -80,8 +87,9 @@ let tasks: Task[] = [
     status: "done",
     priority: "high",
     tag: "research",
-    dueDate: "09/04/2024",
+    dueDate: getDaysAgoDate(2),
     assignees: [4],
+    createdAt: getDaysAgoDate(64),
   },
   {
     id: 8,
@@ -90,8 +98,9 @@ let tasks: Task[] = [
     status: "done",
     priority: "high",
     tag: "feature",
-    dueDate: "08/17/2024",
+    dueDate: getDaysAgoDate(-31),
     assignees: [2, 7],
+    createdAt: getDaysAgoDate(5),
   },
   {
     id: 9,
@@ -100,8 +109,9 @@ let tasks: Task[] = [
     status: "done",
     priority: "high",
     tag: "feature",
-    dueDate: "07/22/2024",
+    dueDate: getDaysAgoDate(-10),
     assignees: [1, 2, 10, 8],
+    createdAt: getDaysAgoDate(23),
   },
 ];
 
@@ -138,3 +148,9 @@ export const deleteTask = (id: number): Task | null => {
   }
   return null;
 };
+
+function getDaysAgoDate(daysAgo: number): string {
+  const now = new Date();
+  const date = new Date(now.getTime() - daysAgo * 24 * 60 * 60 * 1000);
+  return date.toLocaleDateString();
+}

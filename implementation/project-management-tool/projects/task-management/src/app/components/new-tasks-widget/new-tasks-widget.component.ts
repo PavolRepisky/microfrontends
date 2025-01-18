@@ -2,6 +2,7 @@ import { Component, computed, Input, OnInit, signal } from '@angular/core';
 import { Task } from '../../types/task.type';
 import { EventService } from '../../services/event.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { N } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'new-tasks-widget',
@@ -22,14 +23,16 @@ export class NewTasksWidgetComponent implements OnInit {
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
-    this.eventService.onTaskSelected((data) =>
-      this.selectedTaskId.set(data.taskId)
-    );
+    this.eventService.onTaskSelected((data) => {
+      this.selectedTaskId.set(data.taskId);
+      this.selectedUserId.set(null);
+    });
     this.eventService.onTaskUnselected(() => this.selectedTaskId.set(null));
 
-    this.eventService.onUserSelected((data) =>
-      this.selectedUserId.set(data.userId)
-    );
+    this.eventService.onUserSelected((data) => {
+      this.selectedUserId.set(data.userId);
+      this.selectedTaskId.set(null);
+    });
     this.eventService.onUserUnselected(() => this.selectedUserId.set(null));
   }
 
@@ -52,7 +55,7 @@ export class NewTasksWidgetComponent implements OnInit {
 
   onTaskToggle(task: Task): void {
     if (this.selectedTaskId() === task.id) {
-      this.eventService.emitTaskUnSelected();
+      this.eventService.emitTaskUnselected();
     } else {
       this.eventService.emitTaskSelected(task.id);
     }

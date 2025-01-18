@@ -1,33 +1,47 @@
 import { Injectable } from '@angular/core';
+import { Events } from '../types/event.types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventService {
-  private eventListeners: Map<string, Set<(data: any) => void>> = new Map();
+  // Events Listeners
+  onTaskSelected(callback: (data: { taskId: number }) => void) {
+    return this.on(Events.TASK_SELECTED, callback);
+  }
+  onTaskUnselected(callback: () => void) {
+    return this.on(Events.TASK_UNSELECTED, callback);
+  }
+  onUserSelected(callback: (data: { userId: number }) => void) {
+    return this.on(Events.USER_SELECTED, callback);
+  }
+  onUserUnselected(callback: () => void) {
+    return this.on(Events.USER_UNSELECTED, callback);
+  }
 
-  emit(eventName: string, data: any) {
+  // Event Emitters
+  emitUserSelected(userId: number) {
+    this.emit(Events.USER_SELECTED, { userId: userId });
+  }
+  emitUserUnselected() {
+    this.emit(Events.USER_UNSELECTED, undefined);
+  }
+
+  private emit(eventName: string, data: any) {
     const customEvent = new CustomEvent(eventName, {
       detail: data,
       bubbles: true,
-      composed: true, // Allows event to cross shadow DOM boundaries
+      composed: true,
     });
 
     window.dispatchEvent(customEvent);
   }
 
-  on(eventName: string, callback: (data: any) => void) {
-    if (!this.eventListeners.has(eventName)) {
-      this.eventListeners.set(eventName, new Set());
-    }
-    this.eventListeners.get(eventName)?.add(callback);
-
+  private on(eventName: string, callback: (data: any) => void) {
     const windowListener = (event: CustomEvent) => callback(event.detail);
     window.addEventListener(eventName, windowListener as EventListener);
 
-    // Return cleanup function
     return () => {
-      this.eventListeners.get(eventName)?.delete(callback);
       window.removeEventListener(eventName, windowListener as EventListener);
     };
   }

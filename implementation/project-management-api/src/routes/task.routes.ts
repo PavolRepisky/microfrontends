@@ -41,6 +41,7 @@ router.post("/", (req: Request, res: Response) => {
     tag,
     dueDate: dueDate,
     assignees: assignees || [],
+    createdAt: new Date().toLocaleDateString(),
   });
 
   res.status(201).json(newTask);

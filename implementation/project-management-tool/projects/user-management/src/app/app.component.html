@@ -1,10 +1,6 @@
 @if (compact) {
-<div class="p-3 h-100">
-  <new-users-list
-    [users]="recentUsers()"
-    [selectedUser]="selectedUser()"
-    (onSelect)="emitUser($event)"
-  ></new-users-list>
+<div [class]="!embeded ? 'p-3' : ''" class="h-100">
+  <new-users-widget [users]="users()"></new-users-widget>
 </div>
 } @else {
 <main class="container h-100 py-3">

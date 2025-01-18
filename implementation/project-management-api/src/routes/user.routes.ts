@@ -5,15 +5,17 @@ import {
   createUser,
   updateUser,
   deleteUser,
+  User,
 } from "../models/user.model";
 import { createI18nInstance } from "../i18n";
+import { getAllTasks } from "../models/task.model";
 
 const router = express.Router();
 const userI18n = createI18nInstance("user");
 
 // GET all users
 router.get("/", (req: Request, res: Response) => {
-  const users = getAllUsers();
+  const users = getAllUsers().map((user) => enrichUserWithTasks(user));
   res.json(users);
 });
 
@@ -25,7 +27,7 @@ router.get("/:id", (req: Request, res: Response) => {
     res.status(404).json({ message: "User not found" });
     return;
   }
-  res.json(user);
+  res.json(enrichUserWithTasks(user));
 });
 
 // POST create new user
@@ -43,7 +45,7 @@ router.post("/", (req: Request, res: Response) => {
     createdAt: new Date().toLocaleDateString(),
   });
 
-  res.status(201).json(newUser);
+  res.status(201).json(enrichUserWithTasks(newUser));
 });
 
 // PUT update user by ID
@@ -54,7 +56,7 @@ router.put("/:id", (req: Request, res: Response) => {
     return;
   }
 
-  res.json(updatedUser);
+  res.json(enrichUserWithTasks(updatedUser));
 });
 
 // DELETE user by ID
@@ -62,9 +64,10 @@ router.delete("/:id", (req: Request, res: Response) => {
   const user = deleteUser(Number(req.params.id));
   if (!user) {
     res.status(404).json({ message: "User not found" });
+    return;
   }
 
-  res.json(user);
+  res.json(enrichUserWithTasks(user));
 });
 
 // GET user translations in given language
@@ -79,5 +82,14 @@ router.get("/translations/:lang", (req: Request, res: Response) => {
   userI18n.setLocale(lang);
   res.json(userI18n.getCatalog(lang));
 });
+
+function enrichUserWithTasks(user: User) {
+  return {
+    ...user,
+    tasks: getAllTasks()
+      .filter((t) => t.assignees.includes(user.id))
+      .map((t) => t.id),
+  };
+}
 
 export default router;
