@@ -1,11 +1,12 @@
-<div class="border rounded pb-3 h-100 d-flex flex-column">
+<div class="widget border rounded pb-3 shadow-sm">
   <div class="border-bottom">
     <h4 class="px-3 py-2 mb-0">{{ "newTasksWidget.title" | translate }}</h4>
   </div>
-  <div class="tasks-container overflow-auto flex-grow-1 px-3 pt-3 pb-0">
+
+  <div class="tasks-container">
     @for (task of filtredTasks(); track task.id) {
     <div
-      class="card px-3 py-2 mb-2"
+      class="card px-3 py-2"
       [class]="task.id === selectedTaskId() ? 'bg-success-subtle' : ''"
       (click)="onTaskToggle(task)"
     >
@@ -13,10 +14,7 @@
         <div class="col w-100">
           <div class="d-flex flex-column">
             <span class="fw-medium">{{ task.title }}</span>
-            <span
-              class="text-body-secondary small d-block text-truncate overflow-hidden"
-              style="max-width: 100%"
-            >
+            <span class="text-body-secondary small d-block text-truncate">
               {{ task.description }}
             </span>
           </div>

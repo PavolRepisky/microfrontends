@@ -15,11 +15,17 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
 import { User } from './types/user.type';
 import { NewTasksWidgetComponent } from './components/new-tasks-widget/new-tasks-widget.component';
 import { environment } from '../environments/environment';
+import { TasksChartWidgetComponent } from './components/tasks-chart-widget/tasks-chart-widget.component';
 
 @Component({
   selector: 'task-root',
   standalone: true,
-  imports: [TranslateModule, KanbanComponent, NewTasksWidgetComponent],
+  imports: [
+    TranslateModule,
+    KanbanComponent,
+    NewTasksWidgetComponent,
+    TasksChartWidgetComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

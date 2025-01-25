@@ -2,7 +2,6 @@ import { Component, computed, Input, OnInit, signal } from '@angular/core';
 import { Task } from '../../types/task.type';
 import { EventService } from '../../services/event.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { N } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'new-tasks-widget',

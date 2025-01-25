@@ -1,11 +1,12 @@
 import { Component, computed, Input, signal } from '@angular/core';
 import { User } from '../../types/user.type';
 import { EventService } from '../../services/event.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'new-users-widget',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './new-users-widget.component.html',
   styleUrl: './new-users-widget.component.scss',
 })

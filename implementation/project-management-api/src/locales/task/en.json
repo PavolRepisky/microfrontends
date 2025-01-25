@@ -88,5 +88,8 @@
   },
   "newTasksWidget": {
     "title": "New tasks"
+  },
+  "tasksChartWidget": {
+    "title": "Tasks completion"
   }
 }

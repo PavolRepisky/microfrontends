@@ -1,9 +1,9 @@
-<div class="border rounded pb-3 h-100 d-flex flex-column">
+<div class="widget border rounded pb-3 shadow-sm">
   <div class="border-bottom">
-    <h4 class="px-3 py-2 mb-0">New Users</h4>
+    <h4 class="px-3 py-2 mb-0">{{ "newUsersWidget.title" | translate }}</h4>
   </div>
 
-  <div class="users-container overflow-auto flex-grow-1 px-3 pt-3 pb-0">
+  <div class="users-container">
     @for (user of filtredUsers(); track user.id) {
     <div
       class="card px-3 py-1 mb-2"
