@@ -11,7 +11,7 @@ The Shadow DOM provides encapsulation by hiding a custom element's implementatio
 
 \noindent
 \textbf{HTML Templates}\\
-HTML Templates allow for the definition of markup templates that can be reused and instantiated multiple times within a document. These templates are not rendered until they are explicitly activated. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}\\
+HTML Templates allow for the definition of markup templates that can be reused and instantiated multiple times within a document. These templates are not rendered until they are explicitly activated. \cite{Geers}\cite{Mezzalira}\\
 
 \noindent
 To create a product custom element, we would extend HTML elemnt class like follows.
@@ -56,13 +56,13 @@ customElements.define('product-component', ProductComponent);
 \end{verbatim}
 
 \subsubsection{Advantages}
-Web-components are a widely implemented web standard that offer strong isolation managed by the browser, making applications more robust. Web Components can be used across different frameworks and libraries, such as Angular and React. They inherently support lazy loading and code splitting, enhancing performance. Additionally, Web Components enable the encapsulation of complex functionality into reusable building blocks and provide a convenient way for components to communicate with one another. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}
+Web-components are a widely implemented web standard that offer strong isolation managed by the browser, making applications more robust. Web Components can be used across different frameworks and libraries, such as Angular and React. They inherently support lazy loading and code splitting, enhancing performance. Additionally, Web Components enable the encapsulation of complex functionality into reusable building blocks and provide a convenient way for components to communicate with one another. \cite{Geers}\cite{Mezzalira}
 
 \subsubsection{Disadvantages}
-One common criticism of Web-components is their reliance on JavaScript for functionality. They are not fully supported in all older browsers; while polyfilling can extend support for custom elements, integrating the shadow DOM is notably more challenging, and polyfills significantly increase the bundle size. Additionally, Web-components lack built-in state management mechanisms, complicating integration with existing solutions. Finally, handling search engine optimization can also be challenging. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}
+One common criticism of Web-components is their reliance on JavaScript for functionality. They are not fully supported in all older browsers; while polyfilling can extend support for custom elements, integrating the shadow DOM is notably more challenging, and polyfills significantly increase the bundle size. Additionally, Web-components lack built-in state management mechanisms, complicating integration with existing solutions. Finally, handling search engine optimization can also be challenging. \cite{Geers}\cite{Mezzalira}
 
 \subsubsection{Suitability}
-Web-components are an excellent choice for multitenant environments and are well-suited for building interactive, app-like applications. However, for applications that prioritize SEO or require compatibility with legacy browsers, Web Components may not be the most suitable option. \cite{MicrofrontendsInAction}\cite{BuildingMicrofrontends}
+Web-components are an excellent choice for multitenant environments and are well-suited for building interactive, app-like applications. However, for applications that prioritize SEO or require compatibility with legacy browsers, Web Components may not be the most suitable option. \cite{Geers}\cite{Mezzalira}
 
 \begin{table}[h]
     \centering
