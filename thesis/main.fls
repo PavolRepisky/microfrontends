@@ -234,12 +234,12 @@ INPUT .\main.lot
 INPUT .\main.lot
 INPUT main.lot
 OUTPUT main.lot
-INPUT chapters\1_Introduction\Introduction.tex
-INPUT chapters\1_Introduction\BackgroundAndMotivation.tex
+INPUT chapters\introduction\Introduction.tex
+INPUT chapters\introduction\BackgroundAndMotivation.tex
 INPUT C:\Users\palo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1728.tfm
-INPUT chapters\1_Introduction\Aim.tex
-INPUT chapters\1_Introduction\ScopeAndLimitations.tex
-INPUT chapters\analysis\analysis.tex
+INPUT chapters\introduction\Aim.tex
+INPUT chapters\introduction\ScopeAndLimitations.tex
+INPUT chapters\analysis\Analysis.tex
 INPUT C:\Users\palo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecsl1200.tfm
 INPUT chapters\analysis\architectures\Architectures.tex
 INPUT chapters\analysis\architectures\Monolith.tex
