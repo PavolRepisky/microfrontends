@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.13)  3 FEB 2025 22:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.13)  4 FEB 2025 16:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -529,9 +529,24 @@ l.161 \chapter
 
 ] [5] [6
 
-] [7] [8
+]
+Overfull \hbox (12.25475pt too wide) in paragraph at lines 173--174
+\T1/cmr/m/n/12 tendom a porovnáva ich na zák-lade as-pek-tov, ako sú roz²írite©nos´, opä-tovná pouºite©nos´,
+ []
 
-] [9] [10
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
+
+ []
+
+[7] [8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+ []
+
+[9] [10
 
 ] (main.toc [11])
 \tf@toc=\write4
@@ -903,9 +918,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  75i,17n,79p,1517b,604s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on main.pdf (57 pages, 1427151 bytes).
+Output written on main.pdf (57 pages, 1430177 bytes).
 PDF statistics:
- 1219 PDF objects out of 1440 (max. 8388607)
+ 1222 PDF objects out of 1440 (max. 8388607)
  156 named destinations out of 1000 (max. 500000)
  503 words of extra memory for PDF output out of 10000 (max. 10000000)
 
