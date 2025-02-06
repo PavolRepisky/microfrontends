@@ -2,24 +2,9 @@
   \newcommand{\singleletter}[1]{#1} \newcommand{\switchargs}[2]{#2#1}
 \begin{thebibliography}{10}
 
-\bibitem{Savani}
-N.~Savani, ``The future of web development: An in-depth analysis of
-  micro-frontend approaches,'' {\em International Journal of Computer Trends
-  and Technology}, pp.~65--69, 2023.
-
-\bibitem{Montelius}
-A.~Montelius, ``An exploratory study of micro frontends,'' Master's thesis,
-  Linköping University, Software and Systems, 2021.
-
-\bibitem{Fowler}
-M.~Fowler and J.~Lewis, ``Microservices.''
-  \url{https://martinfowler.com/articles/microservices.html}, 2014.
-\newblock Accessed: 2024-04-04.
-
-\bibitem{Radar}
-``Thoughtworks 'technology radar: Micro frontends'.''
-  \url{https://www.thoughtworks.com/radar/techniques/micro-frontends}, 2016.
-\newblock Accessed: 2024-09-10.
+\bibitem{Mezzalira}
+L.~Mezzalira, {\em Building Micro-Frontends}.
+\newblock O'Reilly Media, Inc., 2021.
 
 \bibitem{Geers}
 M.~Geers, {\em Micro Frontends in Action}.
@@ -29,6 +14,36 @@ M.~Geers, {\em Micro Frontends in Action}.
 A.~Pavlenko, N.~Askarbekuly, S.~Megha, and M.~Mazzara, ``Micro-frontends:
   application of microservices to web front-ends,'' {\em Journalof Internet
   Services and Information Security}, vol.~10, pp.~49--66, 2020.
+
+\bibitem{Richardson}
+C.~Richardson, {\em Microservices Patterns: With examples in Java}.
+\newblock Manning Publications, 2018.
+
+\bibitem{Newman}
+S.~Newman, {\em Building Microservices}.
+\newblock O'Reilly Media, Inc., 2021.
+
+\bibitem{Peltonen}
+S.~Peltonen, L.~Mezzalira, and D.~Taibi, ``Motivations, benefits, and issues
+  for adopting micro-frontends: A multivocal literature review,'' {\em
+  Information and Software Technology}, vol.~136, p.~106571, 2021.
+
+\bibitem{Montelius}
+A.~Montelius, ``An exploratory study of micro frontends,'' Master's thesis,
+  Linköping University, Software and Systems, 2021.
+
+\bibitem{Jackson}
+C.~Jackson, ``Micro frontends.''
+  \url{https://martinfowler.com/articles/micro-frontends.html}, 2019.
+\newblock Accessed: 2024-05-12.
+
+\bibitem{Angular}
+``Angular.'' \url{https://angular.dev/}, 2025.
+\newblock Accessed: 2025-02-01.
+
+\bibitem{React}
+``React.'' \url{https://react.dev/}, 2025.
+\newblock Accessed: 2025-01-28.
 
 \bibitem{Salaheddin}
 N.~Salaheddin and N.~Ahmed, ``Microservices vs. monolithic architectures (the
@@ -40,24 +55,15 @@ G.~Blinowski, A.~Ojdowska, and A.~Przybyłek, ``Monolithic vs. microservice
   architecture: A performance and scalability evaluation,'' {\em IEEE Access},
   vol.~10, pp.~20357--20374, 2022.
 
-\bibitem{Mezzalira}
-L.~Mezzalira, {\em Building Micro-Frontends}.
-\newblock O'Reilly Media, Inc., 2021.
-
-\bibitem{Peltonen}
-S.~Peltonen, L.~Mezzalira, and D.~Taibi, ``Motivations, benefits, and issues
-  for adopting micro-frontends: A multivocal literature review,'' {\em
-  Information and Software Technology}, vol.~136, p.~106571, 2021.
+\bibitem{Fowler}
+M.~Fowler and J.~Lewis, ``Microservices.''
+  \url{https://martinfowler.com/articles/microservices.html}, 2014.
+\newblock Accessed: 2024-04-04.
 
 \bibitem{iFrame}
 ``<iframe>: The inline frame element.''
   \url{https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe}, 2024.
 \newblock Accessed: 2024-11-30.
-
-\bibitem{Jackson}
-C.~Jackson, ``Micro frontends.''
-  \url{https://martinfowler.com/articles/micro-frontends.html}, 2019.
-\newblock Accessed: 2024-05-12.
 
 \bibitem{Ajax}
 ``Ajax.'' \url{https://developer.mozilla.org/en-US/docs/Glossary/AJAX}, 2024.

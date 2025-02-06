@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1738680711.41247 "main.aux" "main.bbl" "main" 1738681563.07097 0
-  "./literatura.bib" 1738449369 3838 7ea18d03cb6fff80aa90cbc61f980300 ""
+["bibtex main"] 1738859510.16924 "main.aux" "main.bbl" "main" 1738859879.99096 0
+  "./literatura.bib" 1738858331 4239 71b1c0f6444d438439f4a230f2b0b4f6 ""
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main.aux" 1738681562 13252 caf2d61bdf1c688667c1261367a0de3a "pdflatex"
+  "main.aux" 1738859879 13440 a07805999235a8a52235f3fae87757b8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1738681560.41435 "c:/Users/palo/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1738681563.07166 0
+["pdflatex"] 1738859876.89638 "c:/Users/palo/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1738859879.99182 0
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1728824697 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1728824501 31952 5dfa28c7442e85d234b780e6eac18052 ""
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1728824494 40136 92f44c40ed8bd93d00ac22163eee334b ""
@@ -114,7 +114,7 @@
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1700599895 10214 547fd4d29642cb7c80bf54b49d447f01 ""
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/palo/projects/microfrontends/thesis/main.tex" 1738681140 10161 d84c755248e82add0b0930df4b11b73e ""
+  "c:/Users/palo/projects/microfrontends/thesis/main.tex" 1738856649 10117 213f936fac7de7227462ccfd040661a1 ""
   "chapters/Conclusion.tex" 1728824055 771 02c800700f1ee96740f095c05f02f65c ""
   "chapters/analysis/Analysis.tex" 1733658689 558 0fc6f725d2a2c9937ab7ba8437f72d35 ""
   "chapters/analysis/architectures/Architectures.tex" 1733658562 200 3d03771c0aa3d119183f44b4dd3ae762 ""
@@ -142,10 +142,10 @@
   "chapters/implementation/Routing.tex" 1733658503 1290 0f6d24e8f42379895674704c3c452c91 ""
   "chapters/implementation/Styling.tex" 1733647255 742 4b070274efe54d1bf1a79ee4cd4f6256 ""
   "chapters/implementation/Testing.tex" 1733647341 216 3f4b549821973a18ce07a49c5ab0c217 ""
-  "chapters/introduction/Aim.tex" 1738433000 745 1e0a16116492af381efab897f085d6a2 ""
-  "chapters/introduction/BackgroundAndMotivation.tex" 1738448684 2072 208846a4cd78a265dc028cd392980cbc ""
-  "chapters/introduction/Introduction.tex" 1738681557 400 21b2dada13b4d89a30e1dbe03f63b26e ""
-  "chapters/introduction/ScopeAndLimitations.tex" 1738433000 1162 6a7e2be598c6d42fec381daf6969c4ff ""
+  "chapters/introduction/Aim.tex" 1738859604 682 eae9f36b0903a4a3e37e94482feffdf4 ""
+  "chapters/introduction/BackgroundAndMotivation.tex" 1738859618 1918 dd62d8b9a4b43870bbff4f8c66141c22 ""
+  "chapters/introduction/Introduction.tex" 1738859876 478 77f7f159a5b15de49e26f67d14a1e0a3 ""
+  "chapters/introduction/ScopeAndLimitations.tex" 1738789407 726 267bebc7cb9dae2833f9f6ee70fc8af5 ""
   "images/FMFI_logo_BP.png" 1728824055 64586 992b442992ee3b6c8fc03d9eb9dbbf0d ""
   "images/wireframes/dashboard.png" 1728844847 164681 332f95bea006354913865f19dd3a5f9f ""
   "images/wireframes/projects.png" 1728844847 129324 986f21111fce04a4f5aa57e6722ed7b7 ""
@@ -154,13 +154,13 @@
   "images/wireframes/users.png" 1728844847 132824 c0bd1ac20bad1aadd7e1d719e83baae7 ""
   "images/zadanie-en.pdf" 1728824055 324685 9be79f034c5aa2c05683c1624e40680a ""
   "images/zadanie.pdf" 1728824055 345024 0576f76f69abd0960b226200ad534a2a ""
-  "main.aux" 1738681562 13252 caf2d61bdf1c688667c1261367a0de3a "pdflatex"
-  "main.bbl" 1738680711 2527 f08e4fa9ed826ec933eb3882f528c440 "bibtex main"
-  "main.lof" 1738681562 625 b9ff40b63d47e1754ed0614ad4f6f0fe "pdflatex"
-  "main.lot" 1738681562 733 a4a937d955d424ef636a2a2497744284 "pdflatex"
-  "main.out" 1738681562 7822 0b26fc60ceb54b8b4557d34462ed3367 "pdflatex"
-  "main.tex" 1738681140 10161 d84c755248e82add0b0930df4b11b73e ""
-  "main.toc" 1738681562 5374 22e68d4f7ebd34ee63efd5f1b2648055 "pdflatex"
+  "main.aux" 1738859879 13440 a07805999235a8a52235f3fae87757b8 "pdflatex"
+  "main.bbl" 1738859510 2568 ac8861a6680e1d8b2bf401e1e4491d41 "bibtex main"
+  "main.lof" 1738859879 625 b9ff40b63d47e1754ed0614ad4f6f0fe "pdflatex"
+  "main.lot" 1738859879 733 a4a937d955d424ef636a2a2497744284 "pdflatex"
+  "main.out" 1738859879 7822 0b26fc60ceb54b8b4557d34462ed3367 "pdflatex"
+  "main.tex" 1738856649 10117 213f936fac7de7227462ccfd040661a1 ""
+  "main.toc" 1738859879 5374 22e68d4f7ebd34ee63efd5f1b2648055 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
