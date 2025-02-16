@@ -1,10 +1,11 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Characteristics assessment of link-based composition}}{10}{table.2.1}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Characteristics assessment of composition via iframes}}{12}{table.2.2}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Characteristics assessment of composition via Ajax}}{14}{table.2.3}%
-\contentsline {table}{\numberline {2.4}{\ignorespaces Characteristics assessment of server-side composition}}{15}{table.2.4}%
-\contentsline {table}{\numberline {2.5}{\ignorespaces Characteristics assessment of composition via Web-components}}{18}{table.2.5}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Characteristics assessment of link-based composition}}{14}{table.3.1}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Characteristics assessment of composition via iframes}}{16}{table.3.2}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Characteristics assessment of composition via Ajax}}{18}{table.3.3}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Characteristics assessment of server-side composition}}{19}{table.3.4}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Characteristics assessment of composition via Web-components}}{22}{table.3.5}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

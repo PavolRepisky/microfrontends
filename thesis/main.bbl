@@ -12,14 +12,14 @@ M.~Geers, {\em Micro Frontends in Action}.
 
 \bibitem{Pavlenko}
 A.~Pavlenko, N.~Askarbekuly, S.~Megha, and M.~Mazzara, ``Micro-frontends:
-  application of microservices to web front-ends,'' {\em Journalof Internet
+  application of microservices to web front-ends,'' {\em Journal of Internet
   Services and Information Security}, vol.~10, pp.~49--66, 2020.
 
-\bibitem{Richardson}
+\bibitem{RichardsonPatterns}
 C.~Richardson, {\em Microservices Patterns: With examples in Java}.
 \newblock Manning Publications, 2018.
 
-\bibitem{Newman}
+\bibitem{NewmanBuildingMicroservices}
 S.~Newman, {\em Building Microservices}.
 \newblock O'Reilly Media, Inc., 2021.
 
@@ -38,12 +38,61 @@ C.~Jackson, ``Micro frontends.''
 \newblock Accessed: 2024-05-12.
 
 \bibitem{Angular}
-``Angular.'' \url{https://angular.dev/}, 2025.
+Google, ``Angular - the modern web developer's platform.''
+  \url{https://angular.dev/}, 2025.
 \newblock Accessed: 2025-02-01.
 
 \bibitem{React}
-``React.'' \url{https://react.dev/}, 2025.
-\newblock Accessed: 2025-01-28.
+Meta, ``React - a javascript library for building user interfaces.''
+  \url{https://react.dev}, 2024.
+\newblock Accessed: 2024-02-09.
+
+\bibitem{Amazon}
+Amazon, ``Amazon official website.'' \url{https://www.amazon.com}, 2024.
+\newblock Accessed: 2024-02-09.
+
+\bibitem{Brigham}
+R.~Brigham and C.~Liquori, ``Devops at amazon: A look at our tools and
+  processes.'' Presentation at AWS re:Invent, 2015.
+\newblock Accessed: 2024-02-09.
+
+\bibitem{Netflix}
+Netflix, ``Netflix official website.'' \url{https://www.netflix.com}, 2024.
+\newblock Accessed: 2024-02-09.
+
+\bibitem{Spotify}
+Spotify, ``Spotify official website.'' \url{https://www.spotify.com}, 2024.
+\newblock Accessed: 2024-02-09.
+
+\bibitem{Uber}
+Uber, ``Uber official website.'' \url{https://www.uber.com}, 2024.
+\newblock Accessed: 2024-02-09.
+
+\bibitem{Kwiecień}
+A.~Kwiecień, ``10 companies that implemented the microservice architecture and
+  paved the way for others.''
+  \url{https://www.cloudflight.io/en/blog/10-companies-that-implemented-the-microservice-architecture-and-paved-the-way-for-others/},
+  2019.
+\newblock Accessed: 2024-01-18.
+
+\bibitem{Fowler}
+M.~Fowler and J.~Lewis, ``Microservices.''
+  \url{https://martinfowler.com/articles/microservices.html}, 2014.
+\newblock Accessed: 2024-04-04.
+
+\bibitem{RichardsonWeb}
+C.~Richardson, ``Microservices.io,'' 2024.
+\newblock Accessed: 2024-03-15.
+
+\bibitem{ThoughtWorksRadar}
+``Thoughtworks 'technology radar: Micro frontends'.''
+  \url{https://www.thoughtworks.com/radar/techniques/micro-frontends}, 2016.
+\newblock Accessed: 2024-09-10.
+
+\bibitem{GeersWeb}
+M.~Geers, ``Micro-frontends - extending the microservices idea to frontend
+  development.'' \url{https://micro-frontends.org}, 2017.
+\newblock Accessed: 2024-08-26.
 
 \bibitem{Salaheddin}
 N.~Salaheddin and N.~Ahmed, ``Microservices vs. monolithic architectures (the
@@ -54,11 +103,6 @@ N.~Salaheddin and N.~Ahmed, ``Microservices vs. monolithic architectures (the
 G.~Blinowski, A.~Ojdowska, and A.~Przybyłek, ``Monolithic vs. microservice
   architecture: A performance and scalability evaluation,'' {\em IEEE Access},
   vol.~10, pp.~20357--20374, 2022.
-
-\bibitem{Fowler}
-M.~Fowler and J.~Lewis, ``Microservices.''
-  \url{https://martinfowler.com/articles/microservices.html}, 2014.
-\newblock Accessed: 2024-04-04.
 
 \bibitem{iFrame}
 ``<iframe>: The inline frame element.''
