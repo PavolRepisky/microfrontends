@@ -2,7 +2,7 @@
   \newcommand{\singleletter}[1]{#1} \newcommand{\switchargs}[2]{#2#1}
 \begin{thebibliography}{10}
 
-\bibitem{Mezzalira}
+\bibitem{MezzaliraBuildingMf}
 L.~Mezzalira, {\em Building Micro-Frontends}.
 \newblock O'Reilly Media, Inc., 2021.
 
@@ -19,7 +19,7 @@ A.~Pavlenko, N.~Askarbekuly, S.~Megha, and M.~Mazzara, ``Micro-frontends:
 C.~Richardson, {\em Microservices Patterns: With examples in Java}.
 \newblock Manning Publications, 2018.
 
-\bibitem{NewmanBuildingMicroservices}
+\bibitem{NewmanBuildingMs}
 S.~Newman, {\em Building Microservices}.
 \newblock O'Reilly Media, Inc., 2021.
 
@@ -93,6 +93,12 @@ C.~Richardson, ``Microservices.io,'' 2024.
 M.~Geers, ``Micro-frontends - extending the microservices idea to frontend
   development.'' \url{https://micro-frontends.org}, 2017.
 \newblock Accessed: 2024-08-26.
+
+\bibitem{BroadcastChannelAPI}
+``Broadcast channel api.''
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API},
+  2025.
+\newblock Accessed: 2025-02-17.
 
 \bibitem{Salaheddin}
 N.~Salaheddin and N.~Ahmed, ``Microservices vs. monolithic architectures (the

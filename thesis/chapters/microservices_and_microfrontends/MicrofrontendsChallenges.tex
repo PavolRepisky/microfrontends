@@ -1,1 +1,44 @@
 \section{Microfrontends Challenges}
+This section presents inevitable challenges that need to be addressed when building microfrontends applications.
+
+\subsection{Communication}
+In an ideal world, we would want microfrontends to not communicate with each other at all. However, in real-world applications, that is not the case, especially when multiple microfrontends are on the same page. In traditional architectures, such as Single Page Applications, components communicate via direct parent-to-child data binding (e.g., props), child-to-parent callbacks, or shared state management solutions. However, this type of direct communication is not possible between microfrontends, as they are decoupled and independent. \\
+
+\noindent
+There are several options for handling communication, with the most suitable one depending on the project type and chosen composition approach. Here are the most commonly mentioned ones. The first option is to inject an event bus, to which all microfrontends can send and receive events. To inject the event bus, we need the microfrontend container to instantiate it and inject it into all of the page's microfrontends \cite{MezzaliraBuildingMf}. The second option is a variation of the previous one, where we utilize Custom Events \cite{MezzaliraBuildingMf}\cite{Geers}. Most browsers now also support the new \emph{Broadcast Channel API} \cite{BroadcastChannelAPI}, which allows the creation of an event bus that spans across browser windows, tabs, and iframes \cite{Geers}. Lastly, there are less flexible and secure options, such as communication via query strings \cite{MezzaliraBuildingMf} or utilizing web storage.
+
+\subsection{Routing}
+As microfrontends should be independent, isolated, and developed without prior knowledge of how they will be deployed, the next challenge is how to handle application routing, including the management of the currently active microfrontend. The solution will again depend on the chosen composition approach. \\
+
+\noindent
+As Mezzalira \cite{MezzaliraBuildingMf} describes it, in the case of server-side composition, all the logic to build and serve the application happens on the server; therefore, routing must also be handled here. When a user requests a page, the server retrieves and combines different microfrontends to generate the final page. Since every request goes back to the server, it must be able to keep up with all the requests and scale well. This scaling issue can be improved by storing copies of the pages on a CDN; however, this will not work for dynamic or personalized data. When using edge-side composition, the composition happens at the CDN level. CDN knows which microfrontends to combine to serve the page based on the current URL. This is done through a technique called transclusion, where different microfrontends are stitched together. These two types of routing are best for applications that need to change views based solely on the current URL and for teams with strong backend skills \cite{MezzaliraBuildingMf}. \\
+
+\noindent
+Finally, there is the possibility of using client-side routing. In this case, the application shell will handle all routing and load different microfrontends based on the user state (such as whether the user is authenticated or not) and the current URL. This is a perfect approach for more complex routing based on different factors beyond just the URL and for teams with stronger frontend skills \cite{MezzaliraBuildingMf}. Additionally, the approaches can also be combined, such as CDN and origin or client-side and CDN \cite{MezzaliraBuildingMf}.
+
+\subsection{Static Assets Serving}
+Static asset serving can also present a challenge in microfrontends due to each microfrontend having its own autonomous deployment. One issue arises from potential namespace conflicts, where multiple microfrontends may use the same filenames, leading to unintended overwrites or collisions. This can be avoided by strict naming conventions. Another issue is security concerns, such as Cross-Origin Resource Sharing (CORS) issues, which require careful configuration of asset access policies. Finally, microfrontends deployed on different domains or environments may face difficulties in locating and serving static files. \\
+
+\noindent
+Potential solutions include a predefined deployment structure, where all static files are placed in specific directories, or creating a system-wide shared function that dynamically returns the resource location based on the context and state of the system \cite{Pavlenko}. Also each microfrontend can request its assets via an HTTP request independently, or in the case of small assets, they can be bundled inside the microfrontend itself.
+
+\subsection{Reusability}
+Microfrontends introduce a lot of code redundancy, as many components must be implemented in multiple microfrontends repeatedly. This can be somewhat mitigated by using shared dependencies. However, this introduces another issue: without proper handling, each microfrontend might bundle the same dependency, increasing the overall bundle size and load time. Additionally, if microfrontends use different technologies or versions, inconsistencies across the libraries may occur. Some libraries provide solutions to the first issue, such as Webpack's Module Federation, which offers shared dependency management even for different dependency versions. However, there are currently no no universal solutions, and each project must be assessed individually.
+
+\subsection{Styling Consistency and Isolation}
+Since all microfrontends are developed by an autonomous team, the user interface (UI) and user experience (UX) can differ significantly in each one of them. Therefore, there needs to be a common design system to ensure UI and UX consistency across all microfrontends. As mentioned in Peltonen's study \cite{Peltonen}, one possible approach is to use a shared CSS stylesheet. However, this would mean that all applications depend on a single common resource, which goes against the principle of loose coupling. Another option is to use a common component library, but if the microfrontends are developed using different technologies, the library must be available for in of them. A more universal solution is to use a common style guide, such as Bootstrap or Material Design, which helps maintain a consistent, though not identical, look and feel across the entire application. \\
+
+\noindent
+Another styling challenge that needs to be addressed is style isolation within each microfrontend to prevent styles from one microfrontend overriding styles in another. This issue is particularly relevant for microfrontends composed on the client-side since server-side microfrontends are composed before reaching the browser and can be better isolated. There are two main solutions to this problem. The first involves using unique class naming conventions, such as prefixing class names with the microfrontend's name. Alternatively, there are libraries that handle this automatically. The second solution is utilizing the Shadow DOM, particularly when using web-components for composition.
+
+\subsection{Project Organization}
+A monolithic system can be easily stored in a single repository inside a Version Control System (VCS), but with microfrontends, it becomes more complex. Generally, there are three types of repositories that can be utilized: mono-repository, multi-repository, and multi-repository with the git-repo tool \cite{Pavlenko}. \\
+
+\noindent
+As Pavlenko \cite{Pavlenko} puts it, the simplest way is to use a mono-repository and place all microfrontends in a single repository, structured into folders. The problem with this approach is that each developer must download the entire codebase, even if they are only working on one microfrontend. This can be quite large in the case of complex projects. Additionally, branch checkouts and synchronizations can take a lot of time.
+
+\noindent
+The second approach is to have separate repositories for each microfrontend and potentially also for common parts. Microfrontends would then be published as packages in a private package registry and linked to the project via it. However, this increases the complexity of developer tools and maintenance \cite{Pavlenko}.\\
+
+\noindent
+The last approach is to again have multiple repositories, but manage them via the git-repo tool. The developer provides a configuration file to the tool, which describes which repositories should be downloaded and how they should be structured. The tool then performs the necessary actions. With this approach, developers can download only the necessary parts of the codebase, and the issue of slow checkouts is also removed, as synchronization happens only between the chosen repositories. Additionally, it does not require a package registry. However, the complexity is still higher than in the case of a mono-repository \cite{Pavlenko}.

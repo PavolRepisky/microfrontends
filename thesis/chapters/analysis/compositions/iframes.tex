@@ -2,7 +2,7 @@
 Iframes are an old yet still widely used technique in web development. Essentially, an iframe is an inline HTML element that represents a nested browsing context, allowing one HTML page to be embedded within another. Each embedded context has its own document and supports independent URL navigation \cite{iFrame}. Compared to link-based composition, iframes allow multiple pages to be combined into a single unified view while maintaining the same loose coupling and robustness. \\
 
 \noindent
-Iframes can communicate with the host page through the postMessage() method and are supported across all browsers \cite{Geers}\cite{Jackson}\cite{Mezzalira}\cite{Pavlenko}. Adding an iframe is as simple as including an HTML tag, and its behavior can be customized with additional attributes. This time, to compose the microfrontends, we would use the iframe element. The difference is that the linked microfrontend would be displayed directly within the application that linked it.
+Iframes can communicate with the host page through the postMessage() method and are supported across all browsers \cite{Geers}\cite{Jackson}\cite{MezzaliraBuildingMf}\cite{Pavlenko}. Adding an iframe is as simple as including an HTML tag, and its behavior can be customized with additional attributes. This time, to compose the microfrontends, we would use the iframe element. The difference is that the linked microfrontend would be displayed directly within the application that linked it.
 \begin{verbatim}
 <!-- Using an iframe to include a specific product directly within the 
 catalog page -->
@@ -10,13 +10,13 @@ catalog page -->
 \end{verbatim}
 
 \subsubsection{Advantages}
-The biggest advantages of using iframes are their excellent robustness and isolation in terms of styling and scripts not interfering with each other. Iframes are also very easy to set up and work with, and as already mentioned, are fully supported by all major browsers. \cite{Geers}\cite{Jackson}\cite{Mezzalira}\cite{Pavlenko}
+The biggest advantages of using iframes are their excellent robustness and isolation in terms of styling and scripts not interfering with each other. Iframes are also very easy to set up and work with, and as already mentioned, are fully supported by all major browsers. \cite{Geers}\cite{Jackson}\cite{MezzaliraBuildingMf}\cite{Pavlenko}
 
 \subsubsection{Disadvantages}
-However, the main advantage of iframes also comes with a cost. It is impossible to share common dependencies across different iframes, leading to larger file sizes and longer download times. Communication between iframes is restricted to the iframe API, which is cumbersome and inflexible. These limitations make tasks such as routing and history management challenging. Additionally, the host application must know the height of the iframe in advance to prevent scrollbars and whitespace, which can be particularly tricky in responsive designs. Using numerous iframes on the same page can significantly degrade application performance. Lastly, iframes perform poorly in terms of search engine optimization (SEO) and accessibility. \cite{Geers}\cite{Jackson}\cite{Mezzalira}\cite{Pavlenko}
+However, the main advantage of iframes also comes with a cost. It is impossible to share common dependencies across different iframes, leading to larger file sizes and longer download times. Communication between iframes is restricted to the iframe API, which is cumbersome and inflexible. These limitations make tasks such as routing and history management challenging. Additionally, the host application must know the height of the iframe in advance to prevent scrollbars and whitespace, which can be particularly tricky in responsive designs. Using numerous iframes on the same page can significantly degrade application performance. Lastly, iframes perform poorly in terms of search engine optimization (SEO) and accessibility. \cite{Geers}\cite{Jackson}\cite{MezzaliraBuildingMf}\cite{Pavlenko}
 
 \subsubsection{Suitability}
-Despite the numerous disadvantages, iframes can still be the most suitable choice in some cases. Iframes shine when there is not much communication between micro-frontends and the encapsulation of our system using a sandbox for every micro-frontend is crucial. The best use cases for iframes are in desktop, B2B, and internal applications. They should be avoided if performance, SEO, accessibility, or responsiveness are crucial factors.\cite{Geers}\cite{Mezzalira}
+Despite the numerous disadvantages, iframes can still be the most suitable choice in some cases. Iframes shine when there is not much communication between micro-frontends and the encapsulation of our system using a sandbox for every micro-frontend is crucial. The best use cases for iframes are in desktop, B2B, and internal applications. They should be avoided if performance, SEO, accessibility, or responsiveness are crucial factors.\cite{Geers}\cite{MezzaliraBuildingMf}
 
 \begin{table}[h]
   \centering

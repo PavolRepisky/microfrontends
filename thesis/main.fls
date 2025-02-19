@@ -247,7 +247,7 @@ INPUT chapters\microservices_and_microfrontends\MicroservicesPrinciples.tex
 INPUT C:\Users\palo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1440.tfm
 INPUT C:\Users\palo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx1440.tfm
 INPUT chapters\microservices_and_microfrontends\MicrofrontendsChallenges.tex
-INPUT chapters\microservices_and_microfrontends\AdvantagesDisadvantages.tex
+INPUT chapters\microservices_and_microfrontends\AdvantagesAndDisadvantages.tex
 INPUT chapters\microservices_and_microfrontends\Examples.tex
 INPUT chapters\analysis\Analysis.tex
 INPUT chapters\analysis\architectures\Architectures.tex
