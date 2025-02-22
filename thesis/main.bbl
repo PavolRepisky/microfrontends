@@ -100,6 +100,33 @@ M.~Geers, ``Micro-frontends - extending the microservices idea to frontend
   2025.
 \newblock Accessed: 2025-02-17.
 
+\bibitem{IKEA}
+IKEA, ``Ikea official website.'' \url{https://www.ikea.com/}, 2024.
+\newblock Accessed: 2024-02-07.
+
+\bibitem{StenbergIkea}
+J.~Stenberg, ``Experiences using micro frontends at ikea.''
+  \url{https://www.infoq.com/news/2018/08/experiences-micro-frontends/}, 2018.
+\newblock Accessed: 2024-08-24.
+
+\bibitem{Zalando}
+Zalando, ``Zalando official website.'' \url{https://www.zalando.com/}, 2024.
+\newblock Accessed: 2024-02-11.
+
+\bibitem{TailorJs}
+Zalando, ``Tailor.js: A streaming layout service for front-end microservices.''
+  \url{https://github.com/zalando/tailor}, 2022.
+\newblock Accessed: 2024-08-15.
+
+\bibitem{SAP}
+SAP, ``Sap official website.'' \url{https://www.sap.com/}, 2024.
+\newblock Accessed: 2024-04-11.
+
+\bibitem{Luigi}
+SAP, ``Luigi: The enterprise-ready micro frontend framework.''
+  \url{https://luigi-project.io/}, 2024.
+\newblock Accessed: 2024-04-11.
+
 \bibitem{Salaheddin}
 N.~Salaheddin and N.~Ahmed, ``Microservices vs. monolithic architectures (the
   differential structure between two architectures),'' {\em MINAR International

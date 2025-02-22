@@ -1,0 +1,23 @@
+\section{Microfrontends in Practice}
+This section presents a list of well-known medium and large companies that have adopted microfrontends as their main system for scaling their business further. \\
+
+\subsection{Amazon}
+The first noteworthy example is \textbf{Amazon} \cite{Amazon}. Although Amazon does not often publicly share its internal architecture, according to Geers \cite{Geers}, several Amazon employees have reported that the e-commerce site has been using this architecture for quite some time. Amazon supposedly employs a UI composition technique that assembles different parts of the page before it is displayed to the customer. \\
+
+\subsection{IKEA}
+Another well-known e-commerce platform is \textbf{IKEA} \cite{IKEA}. IKEA's principal engineer, Gustaf Nilsson Kotte, shares in an interview \cite{StenbergIkea} that they started experiencing the same problems with the frontend monolith as they had with the backend monolith. This led them to adopt the microfrontend architecture. They decided to use the Edge Side Includes (ESI) composition approach and introduced the concept of pages and fragments. Pages can contain ESI references to fragments. The fragments are self-contained, meaning they include everything they need, such as CSS and JavaScript, and are reused across multiple pages. Teams are responsible for a set of pages and fragments. \\
+
+\subsection{Zalando}
+The European fashion e-commerce platform \textbf{Zalando} \cite{Zalando} has also adopted microfrontends. Zalando even open-sourced its microfrontend framework, ``Tailor.js'' \cite{TailorJs}, which was later replaced by the Interface framework. Compared to Tailor.js, the Interface framework is based on similar concepts but is more focused on components and GraphQL instead of fragments \cite{MezzaliraBuildingMf}.\\
+
+\subsection{Spotify}
+An example of an unsuccessful adoption is \textbf{Spotify} \cite{Spotify}. As Mezzalira \cite{MezzaliraBuildingMf} describes, their desktop application initially used iframes to compose the UI, communicating via a ``bridge'' for the low-level implementation made with C++. Spotify also attempted to use this approach when developing the web version of the Spotify player but abandoned it due to poor performance. Since then, they have reverted to a single-page application (SPA) architecture.\\
+
+\subsection{SAP}
+Next on the list is \textbf{SAP} \cite{SAP}. SAP initially utilized iframes and eventually released its own microfrontend framework, ``Luigi'' \cite{Luigi}, designed for creating enterprise applications that integrate with SAP systems. It supports modern enterprise frontend frameworks such as Angular, React, Vue, and SAP's own SAPUI \cite{MezzaliraBuildingMf}. \\
+
+\subsection{DAZN}
+The last on the list is \textbf{DAZN}, a sports streaming platform. DAZN has migrated its monolithic frontend to a microfrontend architecture \cite{Geers}. The company focused on supporting not only the web but also multiple smart TVs and gaming consoles \cite{MezzaliraBuildingMf}. They chose a client-side approach to composition. As Mezzalira \cite{MezzaliraBuildingMf} describes, the platform uses a combination of SPAs and components orchestrated by a client-side agent called ``Bootstrap''. They have shared their experiences with microfrontends extensively and eventually even published a book on the topic \cite{MezzaliraBuildingMf}. \\
+
+\noindent
+These are just a few of the most significant examples, but there are many more. And more and more companies are beginning to adopt this architecture.

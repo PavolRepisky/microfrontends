@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.13)  19 FEB 2025 21:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.13)  22 FEB 2025 08:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -425,7 +425,7 @@ Package hyperref Info: Link coloring OFF on input line 65.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<images/FMFI_logo_BP.png, id=299, 284.7438pt x 284.7438pt>
+<images/FMFI_logo_BP.png, id=323, 284.7438pt x 284.7438pt>
 File: images/FMFI_logo_BP.png Graphic file (type png)
 <use images/FMFI_logo_BP.png>
 Package pdftex.def Info: images/FMFI_logo_BP.png  used on input line 80.
@@ -441,7 +441,7 @@ Package pdftex.def Info: images/FMFI_logo_BP.png  used on input line 112.
  [2
 
 ]
-<images/zadanie.pdf, id=314, 597.50731pt x 845.04607pt>
+<images/zadanie.pdf, id=338, 597.50731pt x 845.04607pt>
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf>
 Package pdftex.def Info: images/zadanie.pdf  used on input line 151.
@@ -450,7 +450,7 @@ File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf>
 Package pdftex.def Info: images/zadanie.pdf  used on input line 151.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
-<images/zadanie.pdf, id=317, page=1, 597.50731pt x 845.04607pt>
+<images/zadanie.pdf, id=341, page=1, 597.50731pt x 845.04607pt>
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf, page 1>
 Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 151.
@@ -481,7 +481,7 @@ Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 151.
 
 
  <./images/zadanie.pdf>]
-<images/zadanie-en.pdf, id=354, 597.50731pt x 845.04607pt>
+<images/zadanie-en.pdf, id=378, 597.50731pt x 845.04607pt>
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf>
 Package pdftex.def Info: images/zadanie-en.pdf  used on input line 152.
@@ -490,7 +490,7 @@ File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf>
 Package pdftex.def Info: images/zadanie-en.pdf  used on input line 152.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
-<images/zadanie-en.pdf, id=357, page=1, 597.50731pt x 845.04607pt>
+<images/zadanie-en.pdf, id=381, page=1, 597.50731pt x 845.04607pt>
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf, page 1>
 Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 152.
@@ -641,7 +641,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-) (chapters/microservices_and_microfrontends/Examples.tex [10])) (chapters/analysis/Analysis.tex [11]
+) (chapters/microservices_and_microfrontends/MicrofrontendsInPractice.tex [10]
+Underfull \hbox (badness 10000) in paragraph at lines 2--3
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+)) (chapters/analysis/Analysis.tex [12]
 Chapter 3.
 (chapters/analysis/architectures/Architectures.tex (chapters/analysis/architectures/Monolith.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
@@ -658,7 +693,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
 
-[12
+[13
 
 ]) (chapters/analysis/architectures/Spa.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
@@ -670,7 +705,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-[13]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
@@ -690,7 +725,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
 
-[14])) (chapters/analysis/microfrontends/Microfrontends.tex
+[15])) (chapters/analysis/microfrontends/Microfrontends.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -700,41 +735,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 20--25
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--25
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--32
-
- []
-
 [16]
+Underfull \hbox (badness 10000) in paragraph at lines 20--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--32
+
+ []
+
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
-) (chapters/analysis/compositions/Compositions.tex [17] (chapters/analysis/compositions/Link-Based.tex
+) (chapters/analysis/compositions/Compositions.tex [18] (chapters/analysis/compositions/Link-Based.tex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5.
  (C:\Users\palo\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [18]) (chapters/analysis/compositions/Iframes.tex
+) [19]) (chapters/analysis/compositions/Iframes.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-[19]
+[20]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -743,7 +778,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-[20] [21]
+[21] [22]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -752,12 +787,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-[22] [23]) (chapters/analysis/compositions/Web-components.tex
+[23] [24]) (chapters/analysis/compositions/Web-components.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-[24]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 4--7
 
  []
@@ -772,16 +807,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--15
 
  []
 
-[25] [26]))) (chapters/design/Design.tex [27]
+[26] [27]))) (chapters/design/Design.tex [28]
 Chapter 4.
-(chapters/design/Application-Introduction.tex) (chapters/design/Requirements.tex [28
+(chapters/design/Application-Introduction.tex) (chapters/design/Requirements.tex [29
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 10--13
 
  []
 
-[29]) (chapters/design/System-Architecture.tex
+[30]) (chapters/design/System-Architecture.tex
 Overfull \hbox (3.04555pt too wide) in paragraph at lines 2--3
 \T1/cmr/m/n/12 pen-dently de-vel-oped, and de-ployed mi-crofron-tends. The ap-pli-ca-tion is en-tirely frontend-
  []
@@ -791,8 +826,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
-[30]) (chapters/design/Tech-Stack.tex [31] [32]) (chapters/design/GUI.tex
-<images/wireframes/shell.png, id=831, 1927.2pt x 1084.05pt>
+[31]) (chapters/design/Tech-Stack.tex [32] [33]) (chapters/design/GUI.tex
+<images/wireframes/shell.png, id=887, 1927.2pt x 1084.05pt>
 File: images/wireframes/shell.png Graphic file (type png)
 <use images/wireframes/shell.png>
 Package pdftex.def Info: images/wireframes/shell.png  used on input line 5.
@@ -801,7 +836,7 @@ Package pdftex.def Info: images/wireframes/shell.png  used on input line 5.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/wireframes/users.png, id=832, 1927.2pt x 1084.05pt>
+<images/wireframes/users.png, id=888, 1927.2pt x 1084.05pt>
 File: images/wireframes/users.png Graphic file (type png)
 <use images/wireframes/users.png>
 Package pdftex.def Info: images/wireframes/users.png  used on input line 13.
@@ -809,8 +844,8 @@ Package pdftex.def Info: images/wireframes/users.png  used on input line 13.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[33]
-<images/wireframes/projects.png, id=837, 1927.2pt x 1084.05pt>
+[34]
+<images/wireframes/projects.png, id=893, 1927.2pt x 1084.05pt>
 File: images/wireframes/projects.png Graphic file (type png)
 <use images/wireframes/projects.png>
 Package pdftex.def Info: images/wireframes/projects.png  used on input line 21.
@@ -819,8 +854,8 @@ Package pdftex.def Info: images/wireframes/projects.png  used on input line 21.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[34 <./images/wireframes/shell.png>]
-<images/wireframes/tasks.png, id=843, 1927.2pt x 1084.05pt>
+[35 <./images/wireframes/shell.png>]
+<images/wireframes/tasks.png, id=899, 1927.2pt x 1084.05pt>
 File: images/wireframes/tasks.png Graphic file (type png)
 <use images/wireframes/tasks.png>
 Package pdftex.def Info: images/wireframes/tasks.png  used on input line 29.
@@ -829,7 +864,7 @@ Package pdftex.def Info: images/wireframes/tasks.png  used on input line 29.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/wireframes/dashboard.png, id=844, 1927.2pt x 1084.05pt>
+<images/wireframes/dashboard.png, id=900, 1927.2pt x 1084.05pt>
 File: images/wireframes/dashboard.png Graphic file (type png)
 <use images/wireframes/dashboard.png>
 Package pdftex.def Info: images/wireframes/dashboard.png  used on input line 37.
@@ -837,7 +872,7 @@ Package pdftex.def Info: images/wireframes/dashboard.png  used on input line 37.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-)) (chapters/implementation/Implementation.tex [35 <./images/wireframes/users.png>] [36 <./images/wireframes/projects.png>] [37 <./images/wireframes/tasks.png> <./images/wireframes/dashboard.png>]
+)) (chapters/implementation/Implementation.tex [36 <./images/wireframes/users.png>] [37 <./images/wireframes/projects.png>] [38 <./images/wireframes/tasks.png> <./images/wireframes/dashboard.png>]
 Chapter 5.
 (chapters/implementation/Overview.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
@@ -849,9 +884,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[38
+[39
 
-] [39]
+] [40]
 Overfull \hbox (52.86166pt too wide) in paragraph at lines 102--102
 []     \T1/cmtt/m/n/12 path.resolve(__dirname, "../../dist/user-management/browser/polyfills.js"),[] 
  []
@@ -876,7 +911,7 @@ Overfull \hbox (21.9942pt too wide) in paragraph at lines 102--102
 []       \T1/cmtt/m/n/12 path: path.resolve(__dirname, "../../dist/user-management/browser"),[] 
  []
 
-[40]) (chapters/implementation/Communication.tex
+[41]) (chapters/implementation/Communication.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -891,7 +926,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
-[41]) (chapters/implementation/Routing.tex
+[42]) (chapters/implementation/Routing.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -901,19 +936,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-) (chapters/implementation/Styling.tex [42]) (chapters/implementation/Resource-Sharing.tex) (chapters/implementation/Infrastructure.tex) (chapters/implementation/Testing.tex)) (chapters/Conclusion.tex [43]
+) (chapters/implementation/Styling.tex [43]) (chapters/implementation/Resource-Sharing.tex) (chapters/implementation/Infrastructure.tex) (chapters/implementation/Testing.tex)) (chapters/Conclusion.tex [44]
 Chapter 6.
 
-LaTeX Warning: Citation `Oetiker2000' on page 44 undefined on input line 17.
+LaTeX Warning: Citation `Oetiker2000' on page 45 undefined on input line 17.
 
-) [44
+) [45
 
 ] (main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
 []\T1/cmr/m/n/12 C. Jack-son, ``Mi-cro fron-tends.'' []$\T1/cmtt/m/n/12 https : / / martinfowler . com / articles /
  []
 
-[45
+[46
 
 
 
@@ -938,11 +973,16 @@ Underfull \hbox (badness 3199) in paragraph at lines 88--91
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 114--117
+Underfull \hbox (badness 2119) in paragraph at lines 126--129
+[]\T1/cmr/m/n/12 SAP, ``Luigi: The enterprise-ready mi-cro fron-tend frame-work.'' []$\T1/cmtt/m/n/12 https : / /
+ []
+
+[47]
+Underfull \hbox (badness 1360) in paragraph at lines 141--144
 []\T1/cmr/m/n/12 ``<iframe>: The in-line frame el-e-ment.'' []$\T1/cmtt/m/n/12 https : / / developer . mozilla . org /
  []
 
-) [46] (main.aux)
+) [48] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -955,20 +995,20 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8D9C14F02EB7E4D11BF24013269A3A74;11498.
+(rerunfilecheck)             Checksum: C78942027C9D145BE77C2A81C17B75CA;11947.
  ) 
 Here is how much of TeX's memory you used:
- 13394 strings out of 474486
- 212411 string characters out of 5744226
+ 13420 strings out of 474486
+ 212797 string characters out of 5744226
  1939542 words of memory out of 5000000
- 35177 multiletter control sequences out of 15000+600000
+ 35189 multiletter control sequences out of 15000+600000
  572895 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,79p,1517b,604s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on main.pdf (58 pages, 1488539 bytes).
+Output written on main.pdf (60 pages, 1504535 bytes).
 PDF statistics:
- 1447 PDF objects out of 1728 (max. 8388607)
- 191 named destinations out of 1000 (max. 500000)
- 663 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1523 PDF objects out of 1728 (max. 8388607)
+ 205 named destinations out of 1000 (max. 500000)
+ 711 words of extra memory for PDF output out of 10000 (max. 10000000)
 
