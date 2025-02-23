@@ -6,36 +6,36 @@ The style file: ieeetr.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: literatura.bib
 Warning--I didn't find a database entry for "Oetiker2000"
-You've used 31 entries,
+You've used 36 entries,
             1876 wiz_defined-function locations,
-            655 strings with 7542 characters,
-and the built_in function-call counts, 5008 in all, are:
-= -- 515
-> -- 148
+            684 strings with 8274 characters,
+and the built_in function-call counts, 5668 in all, are:
+= -- 584
+> -- 165
 < -- 0
-+ -- 68
-- -- 37
-* -- 224
-:= -- 707
-add.period$ -- 57
-call.type$ -- 31
-change.case$ -- 27
++ -- 77
+- -- 41
+* -- 248
+:= -- 799
+add.period$ -- 67
+call.type$ -- 36
+change.case$ -- 32
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 204
-empty$ -- 605
-format.name$ -- 37
-if$ -- 1288
+cite$ -- 36
+duplicate$ -- 224
+empty$ -- 695
+format.name$ -- 41
+if$ -- 1461
 int.to.chr$ -- 0
-int.to.str$ -- 31
+int.to.str$ -- 36
 missing$ -- 12
-newline$ -- 123
-num.names$ -- 27
-pop$ -- 172
+newline$ -- 143
+num.names$ -- 31
+pop$ -- 203
 preamble$ -- 2
 purify$ -- 0
 quote$ -- 0
-skip$ -- 137
+skip$ -- 152
 stack$ -- 0
 substring$ -- 108
 swap$ -- 46
@@ -44,7 +44,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 35
-width$ -- 33
-write$ -- 303
+while$ -- 39
+width$ -- 38
+write$ -- 352
 (There was 1 warning)

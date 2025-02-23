@@ -1,0 +1,26 @@
+\section{Custom Events}
+Unlike built-in events like \texttt{click} or \texttt{keydown}, custom events do not natively exist in the browser but are created and dispatched manually via JavaScript. Custom events allow developers to define their own event names and pass any custom data \cite{MDNCustomEvent}. The \texttt{CustomEvent} constructor is used to create such events, to which we pass an event name and an optional object where we can specify the data we want to send and the properties of the event, such as following.
+\begin{itemize}
+    \item \texttt{bubbles: true} - Allows the event to propagate upward to the parent element. This is set to \texttt{false} in custom events by default. The propagation can be stopped using \texttt{stopPropagation()} method.
+    \item \texttt{cancelable: true} - Allows the event to be canceled via \texttt{preventDefault()} method.
+    \item \texttt{composed: true} - Allows the event to propagate from the shadow DOM to the real DOM. In this case, the \texttt{bubbles} property must be set to \texttt{true} \cite{JamesCustomEvent}.
+\end{itemize}
+Putting it all together, we would create a custom event as follows.
+\begin{verbatim}
+let myEvent = new CustomEvent("my-event", {
+  detail: {key: "value"},
+  bubbles: true,
+  cancelable: true,
+  composed: false,
+});
+\end{verbatim}
+The event can then be dispatched on a specific element using \texttt{dispatchEvent()} method.
+\begin{verbatim}
+document.dispatchEvent(myEvent);
+\end{verbatim}
+We can listen for the event using \texttt{addEventListener()} method.
+\begin{verbatim}
+document.addEventListener("my-event", function (e) {
+  console.log("My event value:", e.detail.key);
+});
+\end{verbatim}

@@ -127,6 +127,33 @@ SAP, ``Luigi: The enterprise-ready micro frontend framework.''
   \url{https://luigi-project.io/}, 2024.
 \newblock Accessed: 2024-04-11.
 
+\bibitem{DAZN}
+DAZN, ``Dazn: Live and on demand sports streaming.''
+  \url{https://www.dazn.com/}, 2025.
+\newblock Accessed: 2025-01-05.
+
+\bibitem{MDNWebComponents}
+``Web components.''
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/Web_components}, 2025.
+\newblock Accessed: 2025-02-22.
+
+\bibitem{EisenbergWebComponents}
+R.~Eisenberg, ``About web components.''
+  \url{https://eisenbergeffect.medium.com/about-web-components-7b2a3ed67a78},
+  2023.
+\newblock Accessed: 2025-02-20.
+
+\bibitem{MDNCustomEvent}
+M.~W. Docs, ``Customevent.''
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent}, 2025.
+\newblock Accessed: 2025-02-23.
+
+\bibitem{JamesCustomEvent}
+J.~James, ``Custom events in javascript: A complete guide.''
+  \url{https://blog.logrocket.com/custom-events-in-javascript-a-complete-guide/},
+  2021.
+\newblock Accessed: 2025-01-15.
+
 \bibitem{Salaheddin}
 N.~Salaheddin and N.~Ahmed, ``Microservices vs. monolithic architectures (the
   differential structure between two architectures),'' {\em MINAR International

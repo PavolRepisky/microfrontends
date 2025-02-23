@@ -1,0 +1,70 @@
+\section{Web Components}
+Web Components are a set of web platform APIs that allow developers to create reusable, encapsulated, and customizable HTML elements \cite{MDNWebComponents}. They are now supported by most major browsers and work across different frameworks and libraries \cite{EisenbergWebComponents}. We will now discuss the three main technologies that make up Web Components.
+
+\subsection{HTML Templates}
+HTML templates are a new addition to the HTML language. They allow us to define reusable HTML structures that are not immediately rendered in the document. Instead, they remain inactive until they are cloned via JavaScript \cite{MDNWebComponents}. To create such a structure, we utilize the \texttt{<template>} element.
+\begin{verbatim}
+<template id="my-template">
+  <p>Some content goes here...</p>
+</template>
+\end{verbatim}
+Then, we can clone the template and add it to the DOM via JavaScript.
+\begin{verbatim}
+let template = document.getElementById("my-template");
+let clone = template.content.cloneNode(true);
+document.body.appendChild(clone);
+\end{verbatim}
+A \texttt{<slot>} element can be used inside the template as a placeholder for content passed from the outside. If no content is provided, a default fallback value can be specified. Templates and slots can then be used inside a custom element as the basis of its structure \cite{MDNWebComponents}. 
+
+\subsection{Custom elements}
+Custom elements are a set of JavaScript APIs for creating custom HTML elements with specific behavior \cite{MDNWebComponents}. To register a custom elements we use \texttt{customElements} global object and it's method \texttt{define} to which we pass hyphenated tag name and a class which inherit from \texttt{HTMLElement} class \cite{EisenbergWebComponents}.
+\begin{verbatim}
+customElements.define(
+  "my-element", 
+  class MyElement extends HTMLElement {}
+);
+\end{verbatim}
+Lifecycle hooks can then be leverage inside the class to adjust its behavior such as:
+\begin{itemize}
+  \item \texttt{connectedCallback()} - this lifecycle hook is fired when the element is connected to the DOM,
+  \item \texttt{disconnectedCallback()} - this lifecycle hook is fired when the element is disconnected from the DOM,
+  \item \texttt{attributeChangedCallback(name, oldValue, newValue)} - this lifecycle hook is fired whenever one of the observed attributes is changed \cite{EisenbergWebComponents}.
+\end{itemize}
+To define the content of a custom element, we assign an HTML string to its \texttt{innerHTML} property. The element can then be used inside HTML document as any other element.
+\begin{verbatim}
+<my-element attribute="value"><my-element>
+\end{verbatim}
+
+\subsection{Custom Elements}
+Custom elements are a set of JavaScript APIs for creating custom HTML elements with specific behavior \cite{MDNWebComponents}. To register a custom element, we use the \texttt{customElements} global object and its method \texttt{define}, to which we pass a hyphenated tag name and a class that inherits from the \texttt{HTMLElement} class.
+\begin{verbatim}
+customElements.define(
+  "my-element", 
+  class MyElement extends HTMLElement {}
+);
+\end{verbatim}
+Lifecycle hooks can then be leveraged inside the class to adjust its behavior, such as:
+\begin{itemize}
+  \item \texttt{connectedCallback()} - this lifecycle hook is fired when the element is connected to the DOM,
+  \item \texttt{disconnectedCallback()} - this lifecycle hook is fired when the element is disconnected from the DOM,
+  \item \texttt{attributeChangedCallback(name, oldValue, newValue)} - this lifecycle hook is fired whenever one of the observed attributes is changed.
+\end{itemize}
+To define the content of a custom element, we assign an HTML string to its \texttt{innerHTML} property. The element can then be used inside an HTML document like any other element.
+\begin{verbatim}
+<my-element attribute="value"></my-element>
+\end{verbatim}
+
+\subsection{Shadow DOM}
+Lastly Shadow DOM is a set of JavaScript APIs that enables us to attach an encapsulated ``shadow'' DOM subtree to an element, which is then rendered separately from the main document DOM \cite{MDNWebComponents}. The styles and scripts placed inside it do not leak out and affect the surrounding DOM, nor do outside styles and scripts leak into it. This way, we do not have to worry about collisions with other parts of the document \cite{EisenbergWebComponents}. To use Shadow DOM inside a custom element, we must first attach it by calling \texttt{attachShadow(options)} and specifying the mode (\texttt{open} or \texttt{closed}), then append whatever content we want to it.
+\begin{verbatim}
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    let shadow = this.attachShadow({ mode: 'open' });
+    let div = document.createElement('div');
+    div.textContent = "Some content goes here...";
+    shadow.appendChild(div);
+  }
+}
+\end{verbatim}
+Open Shadow DOM can be accessed via JavaScript using \texttt{element.shadowRoot}. Closed Shadow DOM cannot be accessed externally using \texttt{element.shadowRoot} \cite{MDNWebComponents}.
