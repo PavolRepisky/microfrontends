@@ -154,16 +154,6 @@ J.~James, ``Custom events in javascript: A complete guide.''
   2021.
 \newblock Accessed: 2025-01-15.
 
-\bibitem{Salaheddin}
-N.~Salaheddin and N.~Ahmed, ``Microservices vs. monolithic architectures (the
-  differential structure between two architectures),'' {\em MINAR International
-  Journal of Applied Sciences and Technology}, vol.~4, pp.~484--490, 2022.
-
-\bibitem{Blinowski}
-G.~Blinowski, A.~Ojdowska, and A.~Przybyłek, ``Monolithic vs. microservice
-  architecture: A performance and scalability evaluation,'' {\em IEEE Access},
-  vol.~10, pp.~20357--20374, 2022.
-
 \bibitem{iFrame}
 ``<iframe>: The inline frame element.''
   \url{https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe}, 2024.
@@ -172,5 +162,15 @@ G.~Blinowski, A.~Ojdowska, and A.~Przybyłek, ``Monolithic vs. microservice
 \bibitem{Ajax}
 ``Ajax.'' \url{https://developer.mozilla.org/en-US/docs/Glossary/AJAX}, 2024.
 \newblock Accessed: 2024-11-26.
+
+\bibitem{PostCSS}
+PostCSS, ``Postcss: a tool for transforming css with javascript.''
+  \url{https://postcss.org/}, 2025.
+\newblock Accessed: 2025-02-24.
+
+\bibitem{Taibi}
+D.~Taibi and L.~Mezzalira, ``Micro-frontends: Principles, implementations, and
+  pitfalls,'' {\em ACM SIGSOFT Software Engineering Notes}, vol.~47,
+  pp.~25--29, 09 2022.
 
 \end{thebibliography}

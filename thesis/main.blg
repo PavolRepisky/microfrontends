@@ -8,43 +8,43 @@ Database file #1: literatura.bib
 Warning--I didn't find a database entry for "Oetiker2000"
 You've used 36 entries,
             1876 wiz_defined-function locations,
-            684 strings with 8274 characters,
-and the built_in function-call counts, 5668 in all, are:
-= -- 584
-> -- 165
+            685 strings with 8132 characters,
+and the built_in function-call counts, 5357 in all, are:
+= -- 549
+> -- 158
 < -- 0
-+ -- 77
-- -- 41
-* -- 248
-:= -- 799
-add.period$ -- 67
++ -- 75
+- -- 39
+* -- 226
+:= -- 766
+add.period$ -- 68
 call.type$ -- 36
 change.case$ -- 32
 chr.to.int$ -- 0
 cite$ -- 36
-duplicate$ -- 224
-empty$ -- 695
-format.name$ -- 41
-if$ -- 1461
+duplicate$ -- 204
+empty$ -- 672
+format.name$ -- 39
+if$ -- 1380
 int.to.chr$ -- 0
 int.to.str$ -- 36
-missing$ -- 12
-newline$ -- 143
+missing$ -- 11
+newline$ -- 144
 num.names$ -- 31
-pop$ -- 203
+pop$ -- 206
 preamble$ -- 2
 purify$ -- 0
 quote$ -- 0
-skip$ -- 152
+skip$ -- 133
 stack$ -- 0
-substring$ -- 108
-swap$ -- 46
+substring$ -- 56
+swap$ -- 31
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 39
+while$ -- 37
 width$ -- 38
 write$ -- 352
 (There was 1 warning)

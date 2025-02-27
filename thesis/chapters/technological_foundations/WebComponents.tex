@@ -16,25 +16,6 @@ document.body.appendChild(clone);
 \end{verbatim}
 A \texttt{<slot>} element can be used inside the template as a placeholder for content passed from the outside. If no content is provided, a default fallback value can be specified. Templates and slots can then be used inside a custom element as the basis of its structure \cite{MDNWebComponents}. 
 
-\subsection{Custom elements}
-Custom elements are a set of JavaScript APIs for creating custom HTML elements with specific behavior \cite{MDNWebComponents}. To register a custom elements we use \texttt{customElements} global object and it's method \texttt{define} to which we pass hyphenated tag name and a class which inherit from \texttt{HTMLElement} class \cite{EisenbergWebComponents}.
-\begin{verbatim}
-customElements.define(
-  "my-element", 
-  class MyElement extends HTMLElement {}
-);
-\end{verbatim}
-Lifecycle hooks can then be leverage inside the class to adjust its behavior such as:
-\begin{itemize}
-  \item \texttt{connectedCallback()} - this lifecycle hook is fired when the element is connected to the DOM,
-  \item \texttt{disconnectedCallback()} - this lifecycle hook is fired when the element is disconnected from the DOM,
-  \item \texttt{attributeChangedCallback(name, oldValue, newValue)} - this lifecycle hook is fired whenever one of the observed attributes is changed \cite{EisenbergWebComponents}.
-\end{itemize}
-To define the content of a custom element, we assign an HTML string to its \texttt{innerHTML} property. The element can then be used inside HTML document as any other element.
-\begin{verbatim}
-<my-element attribute="value"><my-element>
-\end{verbatim}
-
 \subsection{Custom Elements}
 Custom elements are a set of JavaScript APIs for creating custom HTML elements with specific behavior \cite{MDNWebComponents}. To register a custom element, we use the \texttt{customElements} global object and its method \texttt{define}, to which we pass a hyphenated tag name and a class that inherits from the \texttt{HTMLElement} class.
 \begin{verbatim}

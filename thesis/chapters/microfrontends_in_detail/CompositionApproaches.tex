@@ -1,0 +1,415 @@
+\section{Composition Approaches}
+There are multiple approaches to implementing microfrontends. Some are as simple as linking between different applications, while others could fill an entire book. However, the important thing to note is that there is no single best approach, the most suitable one depends on the project requirements and the team's knowledge. \\
+
+\noindent
+This section introduces six of the most commonly mentioned approaches in the literature, outlining their advantages, disadvantages, and suitability. In addition, we have rated each approach based on aspects of extensibility, reusability, simplicity, performance, resource sharing, and developer experience, drawing from both the reviewed literature and our own insights.
+
+\subsection{Link-based Composition}
+The simplest approach to a microfrontend architecture in this list is the composition of multiple applications using hyperlinks. In this approach, the application is split into multiple microfrontends, which are developed completely separately by dedicated teams. Each application brings its own HTML, CSS, and JavaScript files and is deployed independently, typically on a different port under the same domain, ensuring it remains fully isolated from other applications in the system \cite{Geers}. To compose the microfrontends, we simply interconnect them across different applications using standard anchor elements.
+\begin{verbatim}
+<a href="https://example.com/mfe2">View</a>
+\end{verbatim}
+The teams must therefore share all URL patterns of their applications, which will be used to link their sites from other teams' applications \cite{Geers}. Examples of such URL patterns might look like the following:
+\begin{itemize}
+\item $\textbf{Team A - Microfrontend 1}$ \newline
+URL pattern: \url{https://example.com/mfe1}
+\item $\textbf{Team B - Microfrontend 2}$ \newline
+URL pattern: \url{https://example.com/mfe2}
+\end{itemize}
+Rather than exchanging these URL patterns verbally, which would require informing all affected teams and potentially redeploying their applications when URLs change, a better solution is to maintain a centralized JSON file containing all URL patterns for each team. Other applications can then read this file at runtime to construct the necessary URLs \cite{Geers}. 
+
+\subsubsection{Advantages}
+This composition method offers a couple of unique advantages. It provides complete isolation between microfrontends like no other approach discussed here. Errors in one microfrontend are contained and do not affect any other parts of the system. The microfrontends can be deployed independently, and the project requires minimal extra configuration. The system can be easily expanded by adding new microfrontends \cite{Geers}.
+
+\subsubsection{Disadvantages}
+As Geers \cite{Geers} mentions, the primary limitation of this approach is that it does not allow for the composition of multiple microfrontends on a single page. Users must click through links and wait for page loads when navigating between different sections, potentially worsening the user experience. Additionally, common elements, such as headers, need to be reimplemented and maintained separately within each microfrontend, leading to code duplication, maintenance overhead, and potential inconsistencies. Resource sharing between microfrontends is also very complex. 
+
+\subsubsection{Suitability}
+While microfrontend composition via links provides a basic integration strategy, it is rarely used as the sole approach in modern web development due to its limitations. It is typically combined with other techniques to create more robust solutions \cite{Geers}. Our evaluation of this approach can be found in the table \ref{table:link-evaluation}.
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|l|}
+    \hline
+      \textbf{Aspect} & \textbf{Rating} \\
+    \hline
+      Extensibility & 4/5 \\
+    \hline
+      Reusability & 3/5 \\
+    \hline
+      Simplicity & 5/5 \\
+    \hline
+      Performance & 2/5 \\
+    \hline
+      Resource sharing & 1/5 \\
+    \hline
+      Developer experience & 4/5 \\
+    \hline
+  \end{tabular}
+  \caption{Evaluation of link-based composition}
+  \label{table:link-evaluation}
+\end{table}
+
+
+\subsection{Composition via Iframes}
+An inline frame (iframe) is an old yet still widely used technique in web development. An iframe is an inline HTML element that represents a nested browsing context, allowing one HTML page to be embedded within another \cite{iFrame}. Each embedded context has its own document and supports independent URL navigation \cite{iFrame}. Compared to link-based composition, iframes allow multiple pages to be combined into a single unified view while maintaining almost the same level of loose coupling and robustness \cite{MezzaliraBuildingMf}. To add an iframe, we simply utilize the \texttt{<iframe>} tag, similar to an anchor \texttt{<a>} tag.
+\begin{verbatim}
+<iframe src="https://example.com/mfe2"></iframe>
+\end{verbatim}
+The iframe can be further restricted via the \texttt{sandbox} attribute as follows:
+\begin{itemize}
+    \item \texttt{<iframe sandbox src="..."></iframe>} - prevents the execution of JavaScript and form submissions.
+    \item \texttt{<iframe sandbox="allow-scripts" src="..."></iframe>} - prevents form submissions but allows JavaScript execution.
+    \item \texttt{<iframe sandbox="allow-forms" src="..."></iframe>} - prevents JavaScript execution but allows form submissions \cite{MezzaliraBuildingMf}.
+\end{itemize}
+Its behavior and appearance can be customized via different attributes \cite{iFrame}, and it can communicate with the host page through the \texttt{window.postMessage()} method.
+
+\subsubsection{Advantages}
+The biggest advantage of iframes is their excellent robustness and isolation, ensuring that styling and scripts do not interfere with each other. Iframes are also very easy to set up and work with. They are fully supported across all browsers and bring a lot of built-in security features \cite{Geers}\cite{Jackson}\cite{MezzaliraBuildingMf}.
+
+\subsubsection{Disadvantages}
+However, the main benefit is also the main drawback. It is impossible to share common dependencies across different iframes, leading to larger file sizes and longer download times \cite{Pavlenko}. It is also difficult to integrate them with each other, making communication, routing, and history management more complicated \cite{Jackson}. The host application must know the height of the iframe in advance to prevent scrollbars and whitespace, which can be fairly complicated in responsive websites \cite{MezzaliraBuildingMf}\cite{Geers}. Every iframe creates a new browsing context, which requires a lot of memory and CPU usage. Numerous iframes on the same page can significantly worsen application performance \cite{Geers}. Lastly, they perform poorly in terms of search engine optimization (SEO) and accessibility \cite{Geers}.
+
+\subsubsection{Suitability}
+Despite the relatively long list of disadvantages, iframes can still be a valid choice for some projects. Iframes shine when there is not much communication between micro-frontends, and the encapsulation of our system using a sandbox for each micro-frontend is crucial. The best use cases for iframes are in desktop, B2B, and internal applications. However, other approaches should be preferred if performance, SEO, accessibility, or responsiveness are crucial factors \cite{Geers}\cite{MezzaliraBuildingMf}. Our evaluation of this approach can be found in table \ref{table:iframe-evaluation}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|p{4cm}|c|}
+    \hline
+      \textbf{Aspect} & \textbf{Score} \\
+    \hline
+      Extensibility & 4/5 \\
+    \hline
+      Reusability & 3/5 \\
+    \hline
+      Simplicity & 4/5 \\
+    \hline
+      Performance & 1/5 \\
+    \hline
+      Resource sharing & 2/5 \\
+    \hline
+      Developer experience & 4/5 \\
+    \hline
+  \end{tabular}
+  \caption{Evaluation of composition via iframes}
+  \label{table:iframe-evaluation}
+\end{table}
+
+
+\subsection{Composition via Ajax}
+Asynchronous JavaScript and XML (AJAX) is a technique that enables fetching content from a server through asynchronous HTTP requests. It then uses the retrieved content to update parts of the website without requiring a full-page reload \cite{Ajax}. To use AJAX as an approach for microfrontends, each team must first expose their microfrontend on a specific endpoint. Next, we create a corresponding empty element in the host application and specify the URL in a data attribute from which the content should be downloaded. Finally, JavaScript code is needed to locate the element, retrieve the URL, fetch the content from the endpoint, and append it to the DOM \cite{Geers}.\
+
+\noindent
+However, this approach introduces additional challenges, such as CSS conflicts in cases where multiple microfrontends use the same class names, leading to unintended overrides. To avoid this, all CSS selectors should be prefixed with the microfrontend name. Alternatively, tools such as SASS, CSS Modules, or PostCSS \cite{PostCSS} can handle this for us. A similar issue can occur with scripts; to avoid it, we can wrap the scripts within Immediately Invoked Function Expressions (IIFE) to limit the scope to the anonymous function and prefix global variables \cite{Geers}. The composition can then be handled as follows.
+\begin{verbatim}
+<div id="mfe2" data-url="https://example.com/mfe2"></div>
+               
+<script>
+  const element = document.getElementById("mfe2");
+  const url = element.getAttribute("data-url");
+
+  window
+    .fetch(url)
+    .then(res => res.text())
+    .then(html => element.innerHTML = html);
+</script>
+\end{verbatim}
+Since all the microfrontends are included in the same DOM, they are no longer treated as separate pages, as was the case with iframes. This eliminates the SEO and accessibility issues associated with iframe-based composition. There are no longer issues with responsiveness, as the microfrontends will be loaded as standard HTML elements, which can be styled as needed. This approach also provides greater flexibility for error handling; if the fetch request fails, for example, a direct link to the standalone page can be provided \cite{Geers}. This approach also reduces initial load time since only essential content is loaded, while other microfrontends are loaded later asynchronously.
+
+\subsubsection{Disadvantages}
+One obvious disadvantage is the delay before the page is fully loaded. Since microfrontends must be downloaded, parts of the page may appear a bit later, which can worsen the user experience. Another significant issue is the lack of isolation between microfrontends, which can result in conflicts and overwriting between them. Lastly, there are no lifecycle methods built-in for the scripts, and these must be implemented from scratch \cite{Geers}.
+
+\subsubsection{Suitability}
+This approach is well-established, robust, and easy to implement. It is particularly well-suited for websites where markup is primarily generated on the server side. However, for pages that require a higher degree of interactivity or rely heavily on managing local state, other client-side approaches may be more suitable \cite{Geers}. Our evaluation of this approach can be found in table \ref{table:ajax-evaluation}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|p{4cm}|c|}
+    \hline
+      \textbf{Aspect} & \textbf{Score} \\
+    \hline
+      Extensibility & 4/5 \\
+    \hline
+      Reusability & 4/5 \\
+    \hline
+      Simplicity & 3/5 \\
+    \hline
+      Performance & 3/5 \\
+    \hline
+      Resource sharing & 3/5 \\
+    \hline
+      Developer experience & 3/5 \\
+    \hline
+  \end{tabular}
+  \caption{Evaluation of composition via Ajax}
+  \label{table:ajax-evaluation}
+\end{table}
+
+
+\subsection{Server-side Composition}
+As Geers explains: ``Server-side composition is typically performed by a service that sits between the browser and the actual application servers.'' After a user requests a page, the initial HTML is generated on the server. The `index.html` file contains common page elements and uses server-side includes (SSI) directives for places where microfrontends should be plugged in \cite{Jackson}. An example page would look as follows:
+
+\begin{verbatim}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example page</title>
+  </head>
+  <body>
+    <p>Common element</p>
+    <!--# include virtual="/mfe2" -->
+  </body>
+</html>
+\end{verbatim}
+We would serve this file using a web server such as Nginx, which replaces directives with the contents of the referenced URL—microfrontends in our case—before passing the markup to the client. The configuration could look as follows \cite{Jackson}:
+
+\begin{verbatim}
+# defines a group of servers that handle requests
+upstream mfe1 { 
+  server team_mfe1:8081;
+}
+upstream mfe2 {
+  server team_mfe2:8082;
+}
+server {
+  listen 8080;
+  ssi on; # enables server-side include feature
+  index index.html; # all locations should render through index.html
+
+  location /mfe2 {
+    proxy_pass http://team_mfe2;
+  }
+  location / {
+    proxy_pass http://team_mfe1;
+  }
+}
+\end{verbatim}
+Microfrontends can be deployed either as static assets or as dynamic assets, where an application server generates the templates for every user's request \cite{MezzaliraBuildingMf}, with each having its own deployment pipeline. Communication is typically handled via APIs since the page must reload on all significant user actions. However, if some communication between microfrontends must happen on the client side, Mezzalira \cite{MezzaliraBuildingMf} suggests adding client-side JavaScript and using event emitters or custom events, keeping the microfrontends loosely coupled. \\
+
+\noindent
+If possible, a CDN layer should be placed in front of the application server to cache as many requests as possible and reduce server load. Several frameworks, such as Podium, Mosaic, Puzzle.js, and Ara Framework, further simplify the implementation.
+
+\subsubsection{Advantages}
+Server-side composition is a proven, robust, and reliable technique. It offers excellent first-load performance, as the page is pre-assembled on the server, positively impacting search engine ranking. Maintenance is straightforward, and interactive functionality can be added via client-side JavaScript. It is also well-tested and well-documented \cite{Geers}\cite{MezzaliraBuildingMf}.
+
+\subsubsection{Disadvantages}
+For larger server-rendered pages, browsers may spend considerable time downloading markup rather than prioritizing essential assets. Additionally, technical isolation is limited, requiring the use of prefixes and namespacing to prevent conflicts. The local development experience is also more complex \cite{Geers}. Furthermore, if web pages are not highly cacheable but are instead personalized per user request, scalability issues may arise due to excessive server load \cite{Peltonen}.
+
+\subsubsection{Suitability}
+This approach is ideal for pages that prioritize performance and search engine ranking, as it remains reliable and fully functional even without JavaScript \cite{Geers}. This architecture is recommended for B2B applications with common modules reused across multiple views and teams consisting of full-stack or backend developers. However, it may not be optimal for pages requiring a high level of interactivity \cite{MezzaliraBuildingMf}. Our evaluation of this approach can be found in table \ref{table:ssi-evaluation}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|p{4cm}|c|}
+     \hline
+        \textbf{Aspect} & \textbf{Score} \\
+     \hline
+        Extensibility & 4/5 \\
+     \hline
+        Reusability & 4/5 \\
+     \hline
+        Simplicity & 2/5 \\
+     \hline
+        Performance & 4/5 \\
+     \hline
+        Resource sharing & 4/5 \\
+     \hline
+        Developer experience & 3/5 \\
+     \hline
+  \end{tabular}
+  \caption{Evaluation of server-side composition}
+  \label{table:ssi-evaluation}
+\end{table}
+
+
+\subsection{Edge-side Composition}
+Edge-side composition is typically performed at the CDN level. As Mezzalira \cite{MezzaliraBuildingMf} explains it: ``Edge-Side Includes (ESI) is a markup language used for assembling different HTML fragments into an HTML page and serving the final result to a client. CDN providers such as Akamai and proxy servers like Varnish, Squid, and Mongrel all support ESI \cite{Geers}.'' An edge-side composition solution is very similar to a server-side one; we swap the Nginx server with, for example, Varnish and use ESI directives instead of SSI. An edge-side include directive looks like the following:  
+\begin{verbatim}
+<esi:include src="https://example.com/mfe2" 
+  alt="https://fallback.example.com/mfe2" />
+\end{verbatim}
+If the fragment from the \texttt{src} URL fails to load, the content from the \texttt{alt} URL will be used instead \cite{Geers}. After the markup language is interpreted, the result is a completely static HTML page renderable by a browser \cite{MezzaliraBuildingMf}.  
+
+\subsubsection{Advantages}
+Since we are composing the pages at the edge, response times are reduced as content is served closer to users. It also avoids the server-side problem of too many requests to servers, handling high loads more efficiently \cite{MezzaliraBuildingMf}.  
+
+\subsubsection{Disadvantages}
+The first drawback of this technique is that ESI is not implemented in the same way by each CDN provider or proxy server. Therefore, a multi-CDN strategy, as well as porting application code from one provider to another, could cause serious issues \cite{Peltonen}. Another problem is that ESI cannot be used for dynamic pages. A potential solution to this problem could be adding client-side JavaScript, but this brings extra complexity \cite{MezzaliraBuildingMf}. Additionally, due to the poor adoption of this approach, the developer experience is not the best, and it lacks documentation and tools compared to other solutions \cite{MezzaliraBuildingMf}.  
+
+\subsubsection{Suitability}
+This approach is typically only used for large static websites that are not personalized for each user. According to Mezzalira \cite{MezzaliraBuildingMf}, the IKEA catalog was implemented in some countries using ESI. Our evaluation of this approach can be found in Table \ref{table:esi-evaluation}.  
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|p{4cm}|c|}
+    \hline
+      \textbf{Aspect} & \textbf{Score} \\
+    \hline
+      Extensibility & 4/5 \\
+    \hline
+      Reusability & 4/5 \\
+    \hline
+      Simplicity & 2/5 \\
+    \hline
+      Performance & 5/5 \\
+    \hline
+      Resource sharing & 3/5 \\
+    \hline
+      Developer experience & 1/5 \\
+    \hline
+  \end{tabular}
+  \caption{Evaluation of edge-side composition}
+  \label{table:esi-evaluation}
+\end{table}
+
+
+\subsection{Composition via Module Federation}
+This is a fairly new approach, made possible by the release of Webpack 5 \cite{Taibi}. Module Federation is Webpack's native plugin, allowing chunks of JavaScript code to load synchronously or asynchronously \cite{MezzaliraBuildingMf}. As Mezzalira \cite{MezzaliraBuildingMf} explains, a Module Federation application consists of two parts:
+\begin{itemize}
+  \item The host – Represents the main application that loads microfrontends and libraries. The Webpack configuration for the host could look as follows:
+  \begin{verbatim}
+    new ModuleFederationPlugin({
+      name: "host",
+      remotes: {
+        mfe1: "https://example.com/mfe1/bundle.js",
+        mfe2: "https://example.com/mfe2/bundle.js",
+      },
+    });
+  \end{verbatim}
+  \item The remote - Represents the microfrontend or library that will be loaded inside a host at runtime. The Webpack configuration for the remote could look as follows:
+  \begin{verbatim}
+    new ModuleFederationPlugin({
+      name: "mfe1",
+      filename: "bundle.js",
+      shared: ["react", "react-dom"],
+    });
+  \end{verbatim}
+\end{itemize}
+The composition takes place at runtime, which can either be on the client side, with the application shell loading different microfrontends, or on the server side, with server-side rendering at the origin \cite{MezzaliraBuildingMf}. With Module Federation, it is very easy to expose different microfrontends. It also supports sharing external libraries across multiple microfrontends, ensuring they are loaded only once. If some microfrontends use different versions of the same libraries, this is handled automatically by wrapping them in different scopes, preventing conflicts \cite{MezzaliraBuildingMf}. It also supports bidirectional code sharing across microfrontends, but this should be avoided as it goes against microfrontend principles. For communication, we could use event emitters or custom events.
+
+\subsubsection{Advantages}
+The biggest advantage of this approach is that it comes with a lot of tooling, solving most of the microfrontend challenges, such as lazy-loading, library sharing (even with different versions), microfrontend loading, and more. It supports both client and server-side rendering. Additionally, it benefits from the Webpack ecosystem, as other plugins can be used to customize the bundles even further. It provides a very high level of abstraction, making the developer experience almost as smooth as in a monolithic application.
+
+\subsubsection{Disadvantages}
+The main disadvantage of this approach is that it requires Webpack expertise. Additionally, the simplicity of code sharing across projects can lead to a very complicated architecture if the team is not disciplined or skilled enough \cite{MezzaliraBuildingMf}.
+
+\subsubsection{Suitability}
+This approach is suitable for most types of projects, as it supports both server- and client-side rendering. However, it is especially well-suited for environments where Webpack is the standard within the organization \cite{Taibi}. Our evaluation of this approach can be found in Table \ref{table:module-federation-evaluation}.  
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|p{4cm}|c|}
+     \hline
+        \textbf{Aspect} & \textbf{Score} \\
+     \hline
+        Extensibility & 4/5 \\
+     \hline
+        Reusability & 4/5 \\
+     \hline
+        Simplicity & 4/5 \\
+     \hline
+        Performance & 5/5 \\
+     \hline
+        Resource sharing & 4/5 \\
+     \hline
+        Developer experience & 5/5 \\
+     \hline
+  \end{tabular}
+  \caption{Evaluation of composition via Module Federation}
+  \label{table:module-federation-evaluation}
+\end{table}
+
+
+\subsection{Composition via Web Components}
+A relatively new approach that is beginning to emerge, thanks to new HTML, JavaScript, and CSS standards, is composition via Web Components. This approach is somewhat of a variation of composition via Ajax. As Web Components were already described in detail in the previous chapter \ref{chap:TechnologicalFoundations}, we will only focus on the implementation part. \\
+
+\noindent
+First, we need to create a custom element, which will represent our microfrontend by extending the \texttt{HTMLElement} class and attaching a Shadow DOM to it. To keep things simple, we will not utilize HTML templates.  
+\begin{verbatim}
+class MFE2 extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+    
+  connectedCallback() {
+    let message = this.getAttribute("message");
+    this.render(message);
+  }
+    
+  render(message) {
+    this.shadowRoot.innerHTML = `
+      <style>p { color: red; }</style>
+      <p>${message}</p>
+    `;
+  }
+}
+\end{verbatim}
+We can utilize the \texttt{getAttribute(name)} method inside the custom element to obtain attribute values provided by the parent, which can further customize the appearance and behavior of the element. Afterwards, we need to register the element.
+\begin{verbatim}
+customElements.define('mfe-2', MFE2);
+\end{verbatim}
+Finally, we can use it anywhere, just like a standard HTML element.
+\begin{verbatim}
+<mfe-2 message="Hello World"></mfe-2>
+\end{verbatim}
+For communication, we typically utilize \texttt{CustomEvents}, which were also discussed in the previous chapter \ref{chap:TechnologicalFoundations}.
+
+\subsubsection{Advantages}
+Web Components are now a widely implemented web standard that offers strong isolation managed by the browser when we use the Shadow DOM. Web Components provide many built-in lifecycle methods and can be used across different frameworks and libraries, such as Angular and React, making them even easier to implement \cite{Geers}. They offer a great level of reusability and flexibility.
+
+\subsubsection{Disadvantages}
+One issue with Web Components is that they are not fully supported in all older browsers. Polyfilling can extend support for custom elements, but integrating the Shadow DOM is notably more challenging, and polyfills significantly increase the bundle size. Additionally, Web Components lack built-in state management mechanisms. Finally, handling SEO and accessibility can also be challenging \cite{Geers}\cite{MezzaliraBuildingMf}.
+
+\subsubsection{Suitability}
+Web Components are an excellent choice for multitenant environments and are well-suited for building interactive, app-like applications. However, for applications that prioritize SEO or require compatibility with legacy browsers, Web Components may not be the most suitable option \cite{Geers}\cite{MezzaliraBuildingMf}. Our evaluation of this approach can be found in table \ref{table:web-compoents-evaluation}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|p{4cm}|c|}
+    \hline
+      \textbf{Aspect} & \textbf{Score} \\
+    \hline
+      Extensibility & 4/5 \\
+    \hline
+      Reusability & 5/5 \\
+    \hline
+      Simplicity & 4/5 \\
+    \hline
+      Performance & 4/5 \\
+    \hline
+      Resource sharing & 3/5 \\
+    \hline
+      Developer experience & 4/5 \\
+    \hline
+  \end{tabular}
+  \caption{Evaluation of composition via Web-components}
+  \label{table:web-compoents-evaluation}
+\end{table}
+
+\subsection{Summary}
+As we can see, all of the approaches have their set of advantages and disadvantages. We have realized that there is no such thing as the best architecture, only the lesser of the worse options, based on the project specifications. Each approach can be a good choice for certain projects. The table \ref{table:composition-comparison} combines all tables into a single, easy-to-read one, allowing for direct comparisons of all the mentioned approaches. The names of the approaches have been shortened so that the table fits well on the page.
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|p{3cm}|c|c|c|c|c|c|c|}
+    \hline
+      \textbf{Aspect} & \textbf{Link} & \textbf{Iframes} & \textbf{Ajax} & \textbf{Server} & \textbf{Edge} & \textbf{MF} & \textbf{WC} \\
+    \hline
+      Extensibility & 4/5 & 4/5 & 4/5 & 4/5 & 4/5 & 4/5 & 4/5 \\
+    \hline
+      Reusability & 3/5 & 3/5 & 4/5 & 4/5 & 4/5 & 4/5 & 5/5 \\
+    \hline
+      Simplicity & 5/5 & 4/5 & 3/5 & 2/5 & 2/5 & 4/5 & 4/5 \\
+    \hline
+      Performance & 2/5 & 1/5 & 3/5 & 4/5 & 5/5 & 5/5 & 4/5 \\
+    \hline
+      Resource sharing & 1/5 & 2/5 & 3/5 & 4/5 & 3/5 & 4/5 & 3/5 \\
+    \hline
+      Developer Experience & 4/5 & 4/5 & 3/5 & 3/5 & 1/5 & 5/5 & 4/5 \\
+    \hline
+  \end{tabular}
+  \caption{Comparison of different composition approaches}
+  \label{table:composition-comparison}
+\end{table}
+
+
