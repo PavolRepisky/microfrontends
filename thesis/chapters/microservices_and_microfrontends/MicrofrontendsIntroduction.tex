@@ -1,0 +1,11 @@
+\section{Microfrontends Introduction}  
+The main idea behind microfrontends is to extend the principles of microservices to the frontend side \cite{Montelius}\cite{Geers}. In microfrontends, the presentation layer is split into smaller, more manageable pieces \cite{Montelius}. Jackson \cite{Jackson} describes microfrontends as: “An architectural style where independently deliverable frontend applications are composed into a greater whole.” Each microfrontend can be developed, tested, and deployed independently while still appearing to customers as a single cohesive product \cite{Jackson}. \\ 
+
+\noindent
+As Geers \cite{Geers} describes, microfrontends are not just an architectural approach but also an organizational one. Microfrontends can be combined with microservices on the backend, resulting in a system divided into a number of full-stack micro-applications \cite{Montelius}, as shown in Figure \ref{fig:mfe-architecture}. Each such micro-application is autonomous, with its own continuous delivery pipeline and serving a specific business domain or feature \cite{Peltonen}. Microfrontends introduce vertical teams instead of horizontal ones. Instead of being grouped by the development technologies they use, teams are grouped by application features \cite{Montelius}. Each team works on a single full-stack micro-application, developing it all the way from the presentation layer to its data layer. The team takes complete ownership of the feature, decentralizing decision-making and determining what technology to use.  
+
+\begin{figure}[h]  
+  \centerline{\includegraphics[width=.5\textwidth]{images/placeholder.png}}  
+  \caption[Architectural overview of microfrontends]{Architectural overview of microfrontends}  
+  \label{fig:mfe-architecture}  
+\end{figure}

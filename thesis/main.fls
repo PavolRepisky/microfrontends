@@ -248,8 +248,16 @@ INPUT chapters\microservices_and_microfrontends\History.tex
 INPUT chapters\microservices_and_microfrontends\MicroservicesPrinciples.tex
 INPUT C:\Users\palo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1440.tfm
 INPUT C:\Users\palo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx1440.tfm
+INPUT chapters\microservices_and_microfrontends\MicrofrontendsIntroduction.tex
+INPUT .\images\placeholder.png
+INPUT .\images\placeholder.png
+INPUT .\images\placeholder.png
+INPUT .\images\placeholder.png
+INPUT .\images\placeholder.png
+INPUT .\images\placeholder.png
+INPUT .\images\placeholder.png
 INPUT chapters\microservices_and_microfrontends\MicrofrontendsChallenges.tex
-INPUT chapters\microservices_and_microfrontends\AdvantagesAndDisadvantages.tex
+INPUT chapters\microservices_and_microfrontends\MicrofrontendsTradeoffs.tex
 INPUT chapters\microservices_and_microfrontends\MicrofrontendsInPractice.tex
 INPUT chapters\technological_foundations\TechnologicalFoundations.tex
 INPUT chapters\technological_foundations\WebComponents.tex
