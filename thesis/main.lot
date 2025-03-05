@@ -1,15 +1,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Evaluation of link-based composition}}{19}{table.4.1}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Evaluation of composition via iframes}}{20}{table.4.2}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Evaluation of composition via Ajax}}{22}{table.4.3}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Evaluation of server-side composition}}{24}{table.4.4}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Evaluation of edge-side composition}}{25}{table.4.5}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Evaluation of composition via Module Federation}}{27}{table.4.6}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Evaluation of composition via Web-components}}{29}{table.4.7}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Comparison of different composition approaches}}{29}{table.4.8}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Evaluation of link-based composition}}{19}{table.3.1}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Evaluation of composition via iframes}}{20}{table.3.2}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Evaluation of composition via Ajax}}{22}{table.3.3}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Evaluation of server-side composition}}{24}{table.3.4}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Evaluation of edge-side composition}}{25}{table.3.5}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Evaluation of composition via Module Federation}}{27}{table.3.6}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Evaluation of composition via Web-components}}{29}{table.3.7}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Comparison of different composition approaches}}{29}{table.3.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
