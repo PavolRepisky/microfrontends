@@ -24,12 +24,6 @@ export class NavigationComponent {
       url: '/',
     },
     {
-      icon: 'bi-briefcase',
-      label: 'navigation.projects',
-      active: false,
-      url: '/projects',
-    },
-    {
       icon: 'bi-check-lg',
       label: 'navigation.tasks',
       active: false,

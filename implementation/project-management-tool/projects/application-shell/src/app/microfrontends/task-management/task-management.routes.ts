@@ -9,6 +9,7 @@ export const TASK_MANAGEMENT_ROUTES: Routes = [
     component: TaskManagementHostComponent,
     data: {
       bundleUrl: 'http://localhost:4202/bundle.js',
+      compact: false,
     },
   },
 ];

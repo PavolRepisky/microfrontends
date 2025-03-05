@@ -1,10 +1,8 @@
 import { Routes } from '@angular/router';
-import { MfePlaceholderComponent } from './components/mfe-placeholder/mfe-placeholder.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'projects', component: MfePlaceholderComponent },
   {
     path: 'tasks',
     loadChildren: () =>

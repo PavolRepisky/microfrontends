@@ -9,6 +9,7 @@ export const USER_MANAGEMENT_ROUTES: Routes = [
     component: UserManagementHostComponent,
     data: {
       bundleUrl: 'http://localhost:4201/bundle.js',
+      compact: false,
     },
   },
 ];
