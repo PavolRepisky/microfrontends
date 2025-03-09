@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1741520514.5271 "main.aux" "main.bbl" "main" 1741520517.61373 0
+["bibtex main"] 1741520622.712 "main.aux" "main.bbl" "main" 1741520625.96621 0
   "./literatura.bib" 1740465638 9105 355ee72f22ae97b15a99c5a20f2344de ""
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main.aux" 1741520516 21203 9488b7172c62df5b76f2e261fc384289 "pdflatex"
+  "main.aux" 1741520625 20978 e951a8d0464e1eeae54f6394b3bdc21e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1741520514.80146 "c:/Users/palo/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1741520517.61474 0
+["pdflatex"] 1741520622.99773 "c:/Users/palo/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1741520625.96692 0
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1728824697 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1728824501 31952 5dfa28c7442e85d234b780e6eac18052 ""
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1728824494 40136 92f44c40ed8bd93d00ac22163eee334b ""
@@ -124,13 +124,11 @@
   "chapters/design/System-Architecture.tex" 1728844604 3531 0ac9f9bcda34b28fdc7976aacc1b0a7c ""
   "chapters/design/Tech-Stack.tex" 1728854110 2783 3c5e0d44ded625e652675818db81e7c3 ""
   "chapters/implementation/Communication.tex" 1733657240 1759 ca6870e807b82804d9c9fd6839f1143b ""
-  "chapters/implementation/Implementation.tex" 1733652667 505 3c08293b21e26dd22f486de66bab0ba9 ""
-  "chapters/implementation/Infrastructure.tex" 1733647439 321 3ef1f33f3ab9ed7bec25bbf50d8a4e0a ""
+  "chapters/implementation/Implementation.tex" 1741520619 410 f9c4b197f5ec452e31e268f7ac83e686 ""
   "chapters/implementation/Overview.tex" 1733653537 4984 5cf197a4f89440081a9879ec43da66d7 ""
   "chapters/implementation/Resource-Sharing.tex" 1733649624 26 9532c7873382b8dfaa4f73e86ddd81af ""
   "chapters/implementation/Routing.tex" 1733658503 1290 0f6d24e8f42379895674704c3c452c91 ""
   "chapters/implementation/Styling.tex" 1733647255 742 4b070274efe54d1bf1a79ee4cd4f6256 ""
-  "chapters/implementation/Testing.tex" 1733647341 216 3f4b549821973a18ce07a49c5ab0c217 ""
   "chapters/introduction/Aim.tex" 1741073535 682 eae9f36b0903a4a3e37e94482feffdf4 ""
   "chapters/introduction/BackgroundAndMotivation.tex" 1741073563 1957 f94ec18b271dde16343a9a57fe03ec60 ""
   "chapters/introduction/Introduction.tex" 1738864142 477 ef35c0c91f1b7547e0138551f123254c ""
@@ -154,13 +152,13 @@
   "images/wireframes/users.png" 1728844847 132824 c0bd1ac20bad1aadd7e1d719e83baae7 ""
   "images/zadanie-en.pdf" 1728824055 324685 9be79f034c5aa2c05683c1624e40680a ""
   "images/zadanie.pdf" 1728824055 345024 0576f76f69abd0960b226200ad534a2a ""
-  "main.aux" 1741520516 21203 9488b7172c62df5b76f2e261fc384289 "pdflatex"
-  "main.bbl" 1741520514 6058 6f00da97d17b1a13ab360271f430c59d "bibtex main"
-  "main.lof" 1741520516 759 fbf03beedc8963f310893552199e73c0 "pdflatex"
-  "main.lot" 1741520516 1020 67a252583ddb5d70501b2e1bd5b471a3 "pdflatex"
-  "main.out" 1741520516 11448 8ed9a7741996aff2e5e9beb148d23495 "pdflatex"
+  "main.aux" 1741520625 20978 e951a8d0464e1eeae54f6394b3bdc21e "pdflatex"
+  "main.bbl" 1741520622 6058 6f00da97d17b1a13ab360271f430c59d "bibtex main"
+  "main.lof" 1741520625 759 fbf03beedc8963f310893552199e73c0 "pdflatex"
+  "main.lot" 1741520625 1020 67a252583ddb5d70501b2e1bd5b471a3 "pdflatex"
+  "main.out" 1741520625 11233 204cb8822eea52bad604ae411b36e255 "pdflatex"
   "main.tex" 1741077094 10253 830c577f3dee0f82be90b3127c68e57f ""
-  "main.toc" 1741520516 7631 00c5f00a24a1849245a66076f773d184 "pdflatex"
+  "main.toc" 1741520625 7488 f1a77e838f466da05ea9548b1bcd8ca5 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
