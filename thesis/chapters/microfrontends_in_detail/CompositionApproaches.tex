@@ -419,6 +419,12 @@ Web Components are an excellent choice for multitenant environments and are well
   \label{table:web-compoents-evaluation}
 \end{table}
 
+\subsection{Decision-Making}
+When choosing a composition approach for the implementation of a prototypical microfrontend application, which will be described in detail in the next chapter \ref{chap:Design}, we had to consider that this thesis focuses on enterprise-level application development. These applications are typically large-scale, highly modularized systems that can be easily scaled. Maintainability is another critical aspect, along with performance. Special emphasis must be placed on security, performance, and reliability. The goal is to rely on well-established, industry-standard technologies, rather than experimenting with new ones.
+
+\noindent
+These requirements best fit server-side, Web Components, and Module Federation composition approaches. Server-side rendering is a traditional, well-established approach that has been in use long before microfrontends existed, with many resources and studies surrounding it. However, it does not excel at highly interactive applications. Module Federation is a relatively new technique, but it has already been widely adopted, with a lot of resources available on it compared to other approaches. But it does not offer much room for research and experimentation. Lastly, Web Components, although they have also been fairly adopted, lack as many studies. They are fully supported by Angular, a standard technology in the enterprise world. Web Components offer a great level of reusability, scalability, and performance. Finally, they are perfect for highly interactive applications, which is exactly what we need for our prototypical application. Therefore, for the implementation of the application, we have decided to go with a Web Components-based approach.
+
 \subsection{Summary}
 As we can see, all of the approaches have their set of advantages and disadvantages. We have realized that there is no such thing as the best architecture, only the lesser of the worse options, based on the project specifications. Each approach can be a good choice for certain projects. The table \ref{table:composition-comparison} combines all tables into a single, easy-to-read one, allowing for direct comparisons of all the mentioned approaches. The names of the approaches have been shortened so that the table fits well on the page.
 \begin{table}[h]
@@ -443,5 +449,3 @@ As we can see, all of the approaches have their set of advantages and disadvanta
   \caption{Comparison of different composition approaches}
   \label{table:composition-comparison}
 \end{table}
-
-
