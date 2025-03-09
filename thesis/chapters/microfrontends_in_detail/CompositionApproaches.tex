@@ -2,7 +2,39 @@
 There are multiple approaches to implementing microfrontends. Some are as simple as linking between different applications, while others could fill an entire book. However, the important thing to note is that there is no single best approach, the most suitable one depends on the project requirements and the team's knowledge. \\
 
 \noindent
-This section introduces six of the most commonly mentioned approaches in the literature, outlining their advantages, disadvantages, and suitability. In addition, we have rated each approach based on aspects of extensibility, reusability, simplicity, performance, resource sharing, and developer experience, drawing from both the reviewed literature and our own insights.
+This section introduces six of the most commonly mentioned approaches in the literature, outlining their advantages, disadvantages, and suitability.  Based on both the reviewed literature and our own insights, each approach is rated on a scale from 1 (lowest) to 5 (highest) across the following aspects.
+\begin{itemize}
+  \item \textbf{Extensibility} 
+    \begin{itemize}
+      \item 1: A tightly coupled, monolithic-like frontend where adding a new microfrontend requires modifying other parts of the codebase.
+      \item 5: A modularized approach where new microfrontend can be easily added without affecting existing ones.
+    \end{itemize}
+  \item \textbf{Reusability} 
+    \begin{itemize}
+      \item 1: Microfrontends have minimal or no customization options
+      \item 5: Each microfrontend is highly customizable to fit different environments.
+    \end{itemize}
+  \item \textbf{Simplicity} 
+    \begin{itemize}
+      \item 1: Complex integration requiring custom solutions and extensive boilerplate code.
+      \item 5: A straightforward, declarative composition approach with minimal extra configuration.
+    \end{itemize}
+  \item \textbf{Performance} 
+    \begin{itemize}
+      \item 1: Adding a new microfrontend significantly impacts performance.
+      \item 5: Performance remains comparable to or better than a SPA.
+    \end{itemize}
+  \item \textbf{Resource Sharing} 
+    \begin{itemize}
+      \item 1: Each microfrontend loads its own separate versions of frameworks, styles, and assets.
+      \item 5: Common dependencies and assets can be efficiently deduplicated.
+    \end{itemize}
+  \item \textbf{Developer Experience} 
+    \begin{itemize}
+      \item 1: A complex and unfamiliar local development setup.
+      \item 5: A streamlined development process similar to established web development techniques such as single-page applications (SPA) or server-side rendering (SSR).
+    \end{itemize}
+\end{itemize}
 
 \subsection{Link-based Composition}
 The simplest approach to a microfrontend architecture in this list is the composition of multiple applications using hyperlinks. In this approach, the application is split into multiple microfrontends, which are developed completely separately by dedicated teams. Each application brings its own HTML, CSS, and JavaScript files and is deployed independently, typically on a different port under the same domain, ensuring it remains fully isolated from other applications in the system \cite{Geers}. To compose the microfrontends, we simply interconnect them across different applications using standard anchor elements.

@@ -31,65 +31,65 @@
 \contentsline {subsubsection}{Shadow DOM}{15}{section*.17}%
 \contentsline {subsection}{\numberline {3.1.2}Custom Events}{16}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Composition Approaches}{17}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Link-based Composition}{17}{subsection.3.2.1}%
-\contentsline {subsubsection}{Advantages}{18}{section*.18}%
-\contentsline {subsubsection}{Disadvantages}{18}{section*.19}%
-\contentsline {subsubsection}{Suitability}{18}{section*.20}%
-\contentsline {subsection}{\numberline {3.2.2}Composition via Iframes}{18}{subsection.3.2.2}%
-\contentsline {subsubsection}{Advantages}{19}{section*.21}%
-\contentsline {subsubsection}{Disadvantages}{19}{section*.22}%
-\contentsline {subsubsection}{Suitability}{20}{section*.23}%
-\contentsline {subsection}{\numberline {3.2.3}Composition via Ajax}{20}{subsection.3.2.3}%
-\contentsline {subsubsection}{Disadvantages}{21}{section*.24}%
-\contentsline {subsubsection}{Suitability}{21}{section*.25}%
+\contentsline {subsection}{\numberline {3.2.1}Link-based Composition}{18}{subsection.3.2.1}%
+\contentsline {subsubsection}{Advantages}{19}{section*.18}%
+\contentsline {subsubsection}{Disadvantages}{19}{section*.19}%
+\contentsline {subsubsection}{Suitability}{19}{section*.20}%
+\contentsline {subsection}{\numberline {3.2.2}Composition via Iframes}{20}{subsection.3.2.2}%
+\contentsline {subsubsection}{Advantages}{20}{section*.21}%
+\contentsline {subsubsection}{Disadvantages}{20}{section*.22}%
+\contentsline {subsubsection}{Suitability}{21}{section*.23}%
+\contentsline {subsection}{\numberline {3.2.3}Composition via Ajax}{21}{subsection.3.2.3}%
+\contentsline {subsubsection}{Disadvantages}{22}{section*.24}%
+\contentsline {subsubsection}{Suitability}{22}{section*.25}%
 \contentsline {subsection}{\numberline {3.2.4}Server-side Composition}{22}{subsection.3.2.4}%
-\contentsline {subsubsection}{Advantages}{23}{section*.26}%
-\contentsline {subsubsection}{Disadvantages}{23}{section*.27}%
+\contentsline {subsubsection}{Advantages}{24}{section*.26}%
+\contentsline {subsubsection}{Disadvantages}{24}{section*.27}%
 \contentsline {subsubsection}{Suitability}{24}{section*.28}%
-\contentsline {subsection}{\numberline {3.2.5}Edge-side Composition}{24}{subsection.3.2.5}%
-\contentsline {subsubsection}{Advantages}{24}{section*.29}%
+\contentsline {subsection}{\numberline {3.2.5}Edge-side Composition}{25}{subsection.3.2.5}%
+\contentsline {subsubsection}{Advantages}{25}{section*.29}%
 \contentsline {subsubsection}{Disadvantages}{25}{section*.30}%
-\contentsline {subsubsection}{Suitability}{25}{section*.31}%
-\contentsline {subsection}{\numberline {3.2.6}Composition via Module Federation}{25}{subsection.3.2.6}%
-\contentsline {subsubsection}{Advantages}{26}{section*.32}%
-\contentsline {subsubsection}{Disadvantages}{26}{section*.33}%
+\contentsline {subsubsection}{Suitability}{26}{section*.31}%
+\contentsline {subsection}{\numberline {3.2.6}Composition via Module Federation}{26}{subsection.3.2.6}%
+\contentsline {subsubsection}{Advantages}{27}{section*.32}%
+\contentsline {subsubsection}{Disadvantages}{27}{section*.33}%
 \contentsline {subsubsection}{Suitability}{27}{section*.34}%
-\contentsline {subsection}{\numberline {3.2.7}Composition via Web Components}{27}{subsection.3.2.7}%
-\contentsline {subsubsection}{Advantages}{28}{section*.35}%
-\contentsline {subsubsection}{Disadvantages}{28}{section*.36}%
-\contentsline {subsubsection}{Suitability}{28}{section*.37}%
+\contentsline {subsection}{\numberline {3.2.7}Composition via Web Components}{28}{subsection.3.2.7}%
+\contentsline {subsubsection}{Advantages}{29}{section*.35}%
+\contentsline {subsubsection}{Disadvantages}{29}{section*.36}%
+\contentsline {subsubsection}{Suitability}{29}{section*.37}%
 \contentsline {subsection}{\numberline {3.2.8}Summary}{29}{subsection.3.2.8}%
-\contentsline {chapter}{\numberline {4}Design}{30}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Application introduction}{30}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Requirements}{30}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Functional Requirements}{31}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Non-functional Requirements}{32}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}System Architecture}{32}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Application Shell}{33}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Users Microfrontend}{33}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Projects Microfrontend}{33}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Tasks Microfrontend}{33}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Dashboard Microfrontend}{34}{subsection.4.3.5}%
-\contentsline {section}{\numberline {4.4}Tech Stack}{34}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Angular}{34}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}TypeScript}{34}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Web Components}{35}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Browser Events}{35}{subsection.4.4.4}%
-\contentsline {section}{\numberline {4.5}Graphical User Interface}{35}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Application Shell}{35}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Users Microfrontend}{36}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Projects Microfrontend}{36}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Tasks Microfrontend}{37}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Dashboard Microfrontend}{38}{subsection.4.5.5}%
-\contentsline {chapter}{\numberline {5}Implementation}{40}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Overview}{40}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Communication}{43}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Routing}{44}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Styling}{45}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Resource sharing}{45}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Infrastructure}{45}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Testing}{45}{section.5.7}%
-\contentsline {chapter}{\numberline {6}Conclusion}{46}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Implementation Results}{46}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Practical Implications}{46}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Recommendations for Future Work}{46}{section.6.3}%
+\contentsline {chapter}{\numberline {4}Design}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Application introduction}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Requirements}{31}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Functional Requirements}{32}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Non-functional Requirements}{33}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}System Architecture}{33}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Application Shell}{34}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Users Microfrontend}{34}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Projects Microfrontend}{34}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Tasks Microfrontend}{34}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Dashboard Microfrontend}{35}{subsection.4.3.5}%
+\contentsline {section}{\numberline {4.4}Tech Stack}{35}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Angular}{35}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}TypeScript}{35}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Web Components}{36}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Browser Events}{36}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}Graphical User Interface}{36}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Application Shell}{36}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Users Microfrontend}{37}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Projects Microfrontend}{37}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Tasks Microfrontend}{38}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Dashboard Microfrontend}{39}{subsection.4.5.5}%
+\contentsline {chapter}{\numberline {5}Implementation}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Overview}{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Communication}{44}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Routing}{45}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Styling}{46}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Resource sharing}{46}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Infrastructure}{46}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Testing}{46}{section.5.7}%
+\contentsline {chapter}{\numberline {6}Conclusion}{47}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Implementation Results}{47}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Practical Implications}{47}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Recommendations for Future Work}{47}{section.6.3}%

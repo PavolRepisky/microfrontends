@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1741077339.66188 "main.aux" "main.bbl" "main" 1741077342.93258 0
+["bibtex main"] 1741511820.06179 "main.aux" "main.bbl" "main" 1741511823.36161 0
   "./literatura.bib" 1740465638 9105 355ee72f22ae97b15a99c5a20f2344de ""
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main.aux" 1741077342 21076 28681d90868a1fa2641cb3ca2b864b4a "pdflatex"
+  "main.aux" 1741511822 21076 a160bb268751263f2af067a2f33c5157 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1741077340.06124 "c:/Users/palo/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1741077342.93331 0
+["pdflatex"] 1741511820.33989 "c:/Users/palo/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1741511823.36235 0
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1728824697 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1728824501 31952 5dfa28c7442e85d234b780e6eac18052 ""
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1728824494 40136 92f44c40ed8bd93d00ac22163eee334b ""
@@ -136,7 +136,7 @@
   "chapters/introduction/Introduction.tex" 1738864142 477 ef35c0c91f1b7547e0138551f123254c ""
   "chapters/introduction/ScopeAndLimitations.tex" 1738789407 726 267bebc7cb9dae2833f9f6ee70fc8af5 ""
   "chapters/microfrontends_in_detail/BasicEnablersOfMicrofrontends.tex" 1741077051 5734 8319ad001215a3d4b8cc2032ec49f3a4 ""
-  "chapters/microfrontends_in_detail/CompositionApproaches.tex" 1741077245 27630 d3417622dbd5687e7f3e9b84e3dbadc3 ""
+  "chapters/microfrontends_in_detail/CompositionApproaches.tex" 1741511817 29221 065c01c3779e70e62209a9521f76a4f8 ""
   "chapters/microfrontends_in_detail/MicrofrontendsInDetail.tex" 1741076938 438 51c00f55846d392839d8141061c9df82 ""
   "chapters/microservices_and_microfrontends/History.tex" 1739825591 2674 7488a54c8c8e11346b3cfdb93a417996 ""
   "chapters/microservices_and_microfrontends/IntroductionToMicrofrontends.tex" 1741077335 1787 d000b757ea3dff64fec75165fac6c248 ""
@@ -154,13 +154,13 @@
   "images/wireframes/users.png" 1728844847 132824 c0bd1ac20bad1aadd7e1d719e83baae7 ""
   "images/zadanie-en.pdf" 1728824055 324685 9be79f034c5aa2c05683c1624e40680a ""
   "images/zadanie.pdf" 1728824055 345024 0576f76f69abd0960b226200ad534a2a ""
-  "main.aux" 1741077342 21076 28681d90868a1fa2641cb3ca2b864b4a "pdflatex"
-  "main.bbl" 1741077339 6058 6f00da97d17b1a13ab360271f430c59d "bibtex main"
-  "main.lof" 1741077342 759 120b239ca02f6d7faec566ec7775bad1 "pdflatex"
-  "main.lot" 1741077342 1020 c06d857f0dbcbd0971cc00b54a6f8dfd "pdflatex"
-  "main.out" 1741077342 11311 26c4f4893cb73c4d6e5ea58d844f0bb6 "pdflatex"
+  "main.aux" 1741511822 21076 a160bb268751263f2af067a2f33c5157 "pdflatex"
+  "main.bbl" 1741511820 6058 6f00da97d17b1a13ab360271f430c59d "bibtex main"
+  "main.lof" 1741511822 759 734d9d98d122a64e8630bffff66c05ee "pdflatex"
+  "main.lot" 1741511822 1020 c6b4b6f19d46e3cec31430ae65c21805 "pdflatex"
+  "main.out" 1741511822 11311 26c4f4893cb73c4d6e5ea58d844f0bb6 "pdflatex"
   "main.tex" 1741077094 10253 830c577f3dee0f82be90b3127c68e57f ""
-  "main.toc" 1741077342 7545 b2bf85fa5bc263c88fa1a5503e90eb40 "pdflatex"
+  "main.toc" 1741511822 7545 e4b3832dbcd90d0e07a53c8f2057c72b "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
