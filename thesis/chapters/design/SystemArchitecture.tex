@@ -1,0 +1,29 @@
+\section{System Architecture}
+In this section, we explore the system architecture of the application, which adopts a microfrontend architecture to separate different business domains into distinct, independently developed, and deployed microfrontends. We will present the various microfrontends and other components that make up the system, explaining the rationale behind these segmentation decisions. Figure \ref{fig:app-architecture} illustrates this architecture through a UML component diagram.
+
+\begin{figure}[h]  
+    \centerline{\includegraphics[width=.5\textwidth]{images/placeholder.png}}  
+    \caption[Application architecture component diagram]{Component diagram of the application architecture}  
+    \label{fig:app-architecture}  
+\end{figure}
+
+\subsection{Application Shell}
+The application shell is the core of the application; it functions as an orchestrator for all microfrontends. Based on the current route, it loads and renders the appropriate microfrontends. It handles all global functionality, such as routing, theme settings, and language switching, in one place for the application. It passes any necessary data down to the microfrontends, such as the current language (English or Slovak) or customization options. Common elements, such as navigation and settings, are also located here. Additionally, it renders the dashboard page by combining multiple microfrontends into a single unified view. \\
+
+\noindent
+The reasoning behind this is quite clear — we wanted to keep all common elements in one place and handle global functionality centrally in a single part of the application. This greatly reduces code redundancy and improves maintainability. The application shell only needs to know the URLs where the microfrontends are hosted and their HTML element names and attributes. Other than that, it can be developed and deployed independently.
+
+\subsection{User Microfrontend}
+This microfrontend is primarily used for user management functionality within the application. It handles user management through CRUD operations (Create, Read, Update, Delete) and displays users in a table format. It is a standalone page within the application, which should be rendered on its own in the application shell. It can receive multiple attributes. The first one is the \texttt{language}, which the microfrontend should use, by default English. The second one is the \texttt{theme}, either light or dark. The last one is a boolean attribute: \texttt{compact}, which defaults to false. If this attribute is set to true, the microfrontend switches to compact mode, displaying only a simple list of new users and monthly users graph for dashboard purposes, allowing it to be displayed alongside other microfrontends. Clicking on a user in the list selects them, and clicking again deselects them. It also triggers an event to notify other microfrontends about this selection. Additionally, it listens for events related to task selection or deselection. In such cases, it only displays users assigned to the selected task.  \\
+
+\noindent
+By following this approach, the user management microfrontend remains completely isolated from the rest of the system. It is easily reusable, customizable, and serves a single business domain. The only information it needs to function correctly is the names of the events it should listen to.
+
+\subsection{Task Microfrontend}
+This microfrontend is primarily used for task management. Similar to the previous microfrontend, it handles task management through CRUD operations (Create, Read, Update, Delete) and displays tasks in a Kanban board. It is also a standalone page within the application, which should be rendered on its own in the application shell. It can receive the same attributes as the user management microfrontend. However, in compact mode, it displays only a list of new tasks and a task completion graph. Clicking on a task selects or deselects it and notifies other microfrontends within the same view about the selection. Additionally, it listens for user selection or deselection events from other microfrontends. In such cases, it filters and displays only the tasks where the selected user is an assignee. \\
+
+\noindent
+The reasoning behind this is the same as in the case of the user management microfrontend.
+
+\subsection{Backend}
+n a true microfrontend project, each microfrontend would ideally have its own microservice and database. However, due to the limitations of this thesis and the extensive research already available on microservices and their implementation, we will focus primarily on the frontend side. For the backend, we will use a simple, lightweight monolithic architecture.

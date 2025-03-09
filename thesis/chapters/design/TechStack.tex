@@ -1,0 +1,17 @@
+\section{Tech Stack}
+This section outlines the technologies used in the implementation of the resulting application.
+
+\subsubsection*{Angular}
+The primary framework for the application development will be Angular 18, the latest version of Angular available at the time of writing. Angular is a powerful, platform-agnostic web development framework created by Google that enables developers to build scalable, maintainable, and performant single-page applications (SPAs). In this project, Angular will be used to develop both the application shell and the microfrontends. The choice of Angular stems from its wide adoption in enterprise applications and built-in support for web components.
+
+\subsubsection*{TypeScript}
+TypeScript will be the primary programming language for the project, as it is the standard language used in Angular development. TypeScript is a superset of JavaScript that adds static types, enabling developers to catch errors at compile time rather than at runtime. This helps reduce bugs and makes the code more reliable and easier to maintain. The additional type safety and tooling support offered by TypeScript make it a popular choice in the enterprise landscape, and this is one of the key reasons why it was chosen for the project.
+
+\subsubsection*{Web Components}
+Web Components will be leveraged in this project to ensure that each microfrontend operates independently and can be integrated seamlessly into the application shell. In this project, each microfrontend will be exposed as a custom element. To avoid CSS conflicts and ensure style encapsulation, the shadow DOM will be used in each microfrontend. 
+
+\subsubsection*{Custom Events}
+To facilitate communication between the various microfrontends and the application shell, standard browser supported custom events will be utilized. Custom events provide a lightweight and efficient way to send and receive messages between different parts of the application, ensuring that microfrontends remain decoupled but can still share essential data when needed. This event-driven approach will serve as the primary method for cross-microfrontend communication, ensuring a flexible and scalable architecture.
+
+\subsubsection*{Node.js}
+For the backend, we will use Node.js, a server-side JavaScript runtime environment built on an asynchronous, event-driven architecture, making it an efficient solution for building networked applications, such as web servers or APIs. In combination with Express.js, a flexible framework for Node.js, which provides a set of features and utilities for handling routing, requests, middleware, and more, this setup allows us to quickly establish the backend and gives us more time to focus on frontend development.

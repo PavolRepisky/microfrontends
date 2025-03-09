@@ -1,0 +1,52 @@
+\section{Application Requirements}
+This section presents functional and non-functional requirements for the application, which will be categorized by priority as follows:
+\begin{itemize}
+   \item (M) Must: Crucial for the system's operation.
+   \item (S) Should: Highly recommended, though not mandatory.
+   \item (C) Could: Optional for implementation.
+\end{itemize}
+
+\subsection{Functional Requirements}
+Here is a comprehensive list of all functional requirements for the application.
+\subsubsection*{User Management}
+For simplicity, we will not implement user registration or logins. The user roles will also be for informational purposes only, as every user will have full access to all functionalities.
+\begin{itemize}
+   \item Users can create, update, and delete other users (M).
+   \item Users are displayed in a table view (M).
+   \item Users can set and update the following attributes for a user: name, email, phone number, role, status, bio (M).
+   \item Users can be filtered by: their roles (S).
+\end{itemize}
+
+\subsubsection*{Task Management}
+A similar approach applies to tasks, everyone will be able to manage anyone's tasks.
+\begin{itemize}
+   \item Users can create, update, and delete tasks (M).
+   \item Tasks are displayed on a Kanban board (M). 
+   \item Users can set and update the following task attributes: title, status, priority, tag, due date, and description (M).
+   \item Users can be linked to tasks as assignees (M).
+\end{itemize}
+
+\subsubsection*{Dashboard}
+\begin{itemize}
+   \item A new users widget are displayed on the dashboard (M).
+   \item A new tasks widget are be displayed on the dashboard (M).
+   \item The widgets communicate with each other in some way (M).
+   \item The dashboard displays a monthly user count graph (C).
+   \item The dashboard displays a monthly task completion graph (C).
+\end{itemize}
+
+\subsubsection*{Settings}
+\begin{itemize}
+   \item Users can switch between light and dark themes (C).
+   \item Users can switch between Slovak and English languages (C).
+\end{itemize}
+
+\subsection{Non-functional Requirements}
+Here is a comprehensive list of all non-functional requirements for the application.
+\begin{itemize}
+   \item The application is divided into several microfrontends (M).
+   \item Each microfrontend is isolated from the others to prevent cascading failures (M).
+   \item The application is easily scalable by adding new microfrontends (M).
+   \item The application is easy to use and intuitive (S).
+   \item The microfrontends are easily customizable (S).
+\end{itemize}

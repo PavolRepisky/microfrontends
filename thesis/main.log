@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.13)  9 MAR 2025 12:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.13)  9 MAR 2025 21:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -421,7 +421,7 @@ Package hyperref Info: Link coloring OFF on input line 66.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<images/FMFI_logo_BP.png, id=287, 284.7438pt x 284.7438pt>
+<images/FMFI_logo_BP.png, id=247, 284.7438pt x 284.7438pt>
 File: images/FMFI_logo_BP.png Graphic file (type png)
 <use images/FMFI_logo_BP.png>
 Package pdftex.def Info: images/FMFI_logo_BP.png  used on input line 81.
@@ -437,7 +437,7 @@ Package pdftex.def Info: images/FMFI_logo_BP.png  used on input line 113.
  [2
 
 ]
-<images/zadanie.pdf, id=302, 597.50731pt x 845.04607pt>
+<images/zadanie.pdf, id=262, 597.50731pt x 845.04607pt>
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf>
 Package pdftex.def Info: images/zadanie.pdf  used on input line 152.
@@ -446,7 +446,7 @@ File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf>
 Package pdftex.def Info: images/zadanie.pdf  used on input line 152.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
-<images/zadanie.pdf, id=305, page=1, 597.50731pt x 845.04607pt>
+<images/zadanie.pdf, id=265, page=1, 597.50731pt x 845.04607pt>
 File: images/zadanie.pdf Graphic file (type pdf)
 <use images/zadanie.pdf, page 1>
 Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 152.
@@ -477,7 +477,7 @@ Package pdftex.def Info: images/zadanie.pdf , page1 used on input line 152.
 
 
  <./images/zadanie.pdf>]
-<images/zadanie-en.pdf, id=342, 597.50731pt x 845.04607pt>
+<images/zadanie-en.pdf, id=302, 597.50731pt x 845.04607pt>
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf>
 Package pdftex.def Info: images/zadanie-en.pdf  used on input line 153.
@@ -486,7 +486,7 @@ File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf>
 Package pdftex.def Info: images/zadanie-en.pdf  used on input line 153.
 (pdftex.def)             Requested size: 597.50584pt x 845.044pt.
-<images/zadanie-en.pdf, id=345, page=1, 597.50731pt x 845.04607pt>
+<images/zadanie-en.pdf, id=305, page=1, 597.50731pt x 845.04607pt>
 File: images/zadanie-en.pdf Graphic file (type pdf)
 <use images/zadanie-en.pdf, page 1>
 Package pdftex.def Info: images/zadanie-en.pdf , page1 used on input line 153.
@@ -532,21 +532,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
 ] (main.toc [7
 
-] [8])
+])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [9] (main.lof)
+ [8] (main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [10
+ [9
 
 ] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [11
+ [10
 
 ] (chapters/introduction/Introduction.tex
 Chapter 1.
@@ -592,11 +592,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-<images/placeholder.png, id=598, 803.0pt x 623.32875pt>
+<images/placeholder.png, id=544, 803.0pt x 623.32875pt>
 File: images/placeholder.png Graphic file (type png)
 <use images/placeholder.png>
 Package pdftex.def Info: images/placeholder.png  used on input line 8.
-(pdftex.def)             Requested size: 220.50887pt x 171.16388pt.
+(pdftex.def)             Requested size: 330.76329pt x 256.75534pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -605,12 +605,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-
+[7 <./images/placeholder.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-[7 <./images/placeholder.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 14--16
 
  []
@@ -625,12 +625,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
 
-
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
-[9]
+
 Underfull \hbox (badness 10000) in paragraph at lines 41--43
 
  []
@@ -714,70 +714,61 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [30] [31]
 Chapter 4.
-(chapters/design/Application-Introduction.tex) (chapters/design/Requirements.tex [32
+(chapters/design/ApplicationIntroduction.tex) (chapters/design/ApplicationRequirements.tex [32
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 10--13
+] [33]) (chapters/design/SystemArchitecture.tex
+File: images/placeholder.png Graphic file (type png)
+<use images/placeholder.png>
+Package pdftex.def Info: images/placeholder.png  used on input line 5.
+(pdftex.def)             Requested size: 220.50887pt x 171.16388pt.
 
- []
-
-[33]) (chapters/design/System-Architecture.tex
-Overfull \hbox (3.04555pt too wide) in paragraph at lines 2--3
-\T1/cmr/m/n/12 pen-dently de-vel-oped, and de-ployed mi-crofron-tends. The ap-pli-ca-tion is en-tirely frontend-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--7
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-[34]) (chapters/design/Tech-Stack.tex [35] [36]) (chapters/design/GUI.tex
-<images/wireframes/shell.png, id=923, 1927.2pt x 1084.05pt>
-File: images/wireframes/shell.png Graphic file (type png)
-<use images/wireframes/shell.png>
-Package pdftex.def Info: images/wireframes/shell.png  used on input line 5.
-(pdftex.def)             Requested size: 441.01773pt x 248.06912pt.
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+[35]) (chapters/design/TechStack.tex [36]) (chapters/design/GUI.tex [37]
+<images/wireframes/application-shell.png, id=883, 1927.2pt x 1003.75pt>
+File: images/wireframes/application-shell.png Graphic file (type png)
+<use images/wireframes/application-shell.png>
+Package pdftex.def Info: images/wireframes/application-shell.png  used on input line 5.
+(pdftex.def)             Requested size: 441.01773pt x 229.69363pt.
+<images/wireframes/user-microfrontend.png, id=885, 1927.2pt x 1003.75pt>
+File: images/wireframes/user-microfrontend.png Graphic file (type png)
+<use images/wireframes/user-microfrontend.png>
+Package pdftex.def Info: images/wireframes/user-microfrontend.png  used on input line 13.
+(pdftex.def)             Requested size: 441.01773pt x 229.69363pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/wireframes/users.png, id=924, 1927.2pt x 1084.05pt>
-File: images/wireframes/users.png Graphic file (type png)
-<use images/wireframes/users.png>
-Package pdftex.def Info: images/wireframes/users.png  used on input line 13.
-(pdftex.def)             Requested size: 441.01773pt x 248.06912pt.
+<images/wireframes/task-microfrontend.png, id=887, 1505.625pt x 1003.75pt>
+File: images/wireframes/task-microfrontend.png Graphic file (type png)
+<use images/wireframes/task-microfrontend.png>
+Package pdftex.def Info: images/wireframes/task-microfrontend.png  used on input line 21.
+(pdftex.def)             Requested size: 441.01773pt x 294.0054pt.
+[38 <./images/wireframes/application-shell.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[37]
-<images/wireframes/projects.png, id=930, 1927.2pt x 1084.05pt>
-File: images/wireframes/projects.png Graphic file (type png)
-<use images/wireframes/projects.png>
-Package pdftex.def Info: images/wireframes/projects.png  used on input line 21.
-(pdftex.def)             Requested size: 441.01773pt x 248.06912pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[38 <./images/wireframes/shell.png>]
-<images/wireframes/tasks.png, id=936, 1927.2pt x 1084.05pt>
-File: images/wireframes/tasks.png Graphic file (type png)
-<use images/wireframes/tasks.png>
-Package pdftex.def Info: images/wireframes/tasks.png  used on input line 29.
-(pdftex.def)             Requested size: 441.01773pt x 248.06912pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<images/wireframes/dashboard.png, id=937, 1927.2pt x 1084.05pt>
+<images/wireframes/dashboard.png, id=897, 1505.625pt x 1003.75pt>
 File: images/wireframes/dashboard.png Graphic file (type png)
 <use images/wireframes/dashboard.png>
-Package pdftex.def Info: images/wireframes/dashboard.png  used on input line 37.
-(pdftex.def)             Requested size: 441.01773pt x 248.06912pt.
+Package pdftex.def Info: images/wireframes/dashboard.png  used on input line 29.
+(pdftex.def)             Requested size: 441.01773pt x 294.0054pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-)) (chapters/implementation/Implementation.tex [39 <./images/wireframes/users.png>] [40 <./images/wireframes/projects.png>] [41 <./images/wireframes/tasks.png> <./images/wireframes/dashboard.png>]
+)) (chapters/implementation/Implementation.tex [39 <./images/wireframes/user-microfrontend.png>] [40 <./images/wireframes/task-microfrontend.png> <./images/wireframes/dashboard.png>]
 Chapter 5.
 (chapters/implementation/Overview.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
@@ -789,9 +780,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[42
+[41
 
-] [43]
+] [42]
 Overfull \hbox (52.86166pt too wide) in paragraph at lines 102--102
 []     \T1/cmtt/m/n/12 path.resolve(__dirname, "../../dist/user-management/browser/polyfills.js"),[] 
  []
@@ -816,7 +807,7 @@ Overfull \hbox (21.9942pt too wide) in paragraph at lines 102--102
 []       \T1/cmtt/m/n/12 path: path.resolve(__dirname, "../../dist/user-management/browser"),[] 
  []
 
-[44]) (chapters/implementation/Communication.tex
+[43]) (chapters/implementation/Communication.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -831,7 +822,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
-[45]) (chapters/implementation/Routing.tex
+[44]) (chapters/implementation/Routing.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -841,19 +832,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-) (chapters/implementation/Styling.tex [46]) (chapters/implementation/Resource-Sharing.tex)) (chapters/Conclusion.tex [47]
+) (chapters/implementation/Styling.tex [45]) (chapters/implementation/Resource-Sharing.tex)) (chapters/Conclusion.tex [46]
 Chapter 6.
 
-LaTeX Warning: Citation `Oetiker2000' on page 48 undefined on input line 17.
+LaTeX Warning: Citation `Oetiker2000' on page 47 undefined on input line 17.
 
-) [48
+) [47
 
 ] (main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
 []\T1/cmr/m/n/12 C. Jack-son, ``Mi-cro fron-tends.'' []$\T1/cmtt/m/n/12 https : / / martinfowler . com / articles /
  []
 
-[49
+[48
 
 
 
@@ -887,7 +878,7 @@ Underfull \hbox (badness 1852) in paragraph at lines 136--139
 []\T1/cmr/m/n/12 ``Web com-po-nents.'' []$\T1/cmtt/m/n/12 https : / / developer . mozilla . org / en-[]US / docs / Web / API /
  []
 
-[50]
+[49]
 Underfull \hbox (badness 4467) in paragraph at lines 152--156
 []\T1/cmr/m/n/12 J. James, ``Cus-tom events in javascript: A com-plete guide.'' []$\T1/cmtt/m/n/12 https :
  []
@@ -902,7 +893,7 @@ Underfull \hbox (badness 1360) in paragraph at lines 158--161
 []\T1/cmr/m/n/12 ``<iframe>: The in-line frame el-e-ment.'' []$\T1/cmtt/m/n/12 https : / / developer . mozilla . org /
  []
 
-) [51] (main.aux)
+) [50] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -912,20 +903,20 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 204CB8822EEA52BAD604AE411B36E255;11233.
+(rerunfilecheck)             Checksum: AD94D60F748F460960D31D2189AB85C9;9724.
  ) 
 Here is how much of TeX's memory you used:
- 13476 strings out of 474486
- 212783 string characters out of 5744226
- 1939542 words of memory out of 5000000
- 35262 multiletter control sequences out of 15000+600000
+ 13460 strings out of 474486
+ 212648 string characters out of 5744226
+ 1937542 words of memory out of 5000000
+ 35245 multiletter control sequences out of 15000+600000
  572895 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,17n,79p,1268b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,17n,79p,1299b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on main.pdf (63 pages, 1523833 bytes).
+Output written on main.pdf (61 pages, 1385998 bytes).
 PDF statistics:
- 1580 PDF objects out of 1728 (max. 8388607)
- 222 named destinations out of 1000 (max. 500000)
- 644 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1539 PDF objects out of 1728 (max. 8388607)
+ 223 named destinations out of 1000 (max. 500000)
+ 559 words of extra memory for PDF output out of 10000 (max. 10000000)
 
