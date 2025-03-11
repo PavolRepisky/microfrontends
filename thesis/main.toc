@@ -78,7 +78,12 @@
 \contentsline {section}{\numberline {5.3}Routing}{45}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Styling}{46}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Resource sharing}{46}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{47}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Implementation Results}{47}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Practical Implications}{47}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Recommendations for Future Work}{47}{section.6.3}%
+\contentsline {chapter}{\numberline {6}Evaluation Results}{47}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Reusability}{47}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Extensibility}{47}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Resource Sharing}{48}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Application State Management}{49}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{50}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Implementation Results}{50}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Practical Implications}{50}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Recommendations for Future Work}{50}{section.7.3}%

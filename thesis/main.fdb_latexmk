@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1741544815.71289 "main.aux" "main.bbl" "main" 1741550403.92106 0
+["bibtex main"] 1741708977.83711 "main.aux" "main.bbl" "main" 1741709369.42118 0
   "./literatura.bib" 1740465638 9105 355ee72f22ae97b15a99c5a20f2344de ""
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main.aux" 1741550403 19717 50306e0d51e9a65392986daadf930336 "pdflatex"
+  "main.aux" 1741709368 20461 eb662b0f0967d52a70339cfc1c0b50a4 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1741550401.27858 "c:/Users/palo/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1741550403.92183 0
+["pdflatex"] 1741709366.60573 "c:/Users/palo/projects/microfrontends/thesis/main.tex" "main.pdf" "main" 1741709369.42188 0
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1728824697 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1728824501 31952 5dfa28c7442e85d234b780e6eac18052 ""
   "C:/Users/palo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1728824494 40136 92f44c40ed8bd93d00ac22163eee334b ""
@@ -115,14 +115,15 @@
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1700599895 10214 547fd4d29642cb7c80bf54b49d447f01 ""
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/palo/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/palo/projects/microfrontends/thesis/main.tex" 1741522996 10253 f31bc5d43e6c9a296807d09c08440944 ""
+  "c:/Users/palo/projects/microfrontends/thesis/main.tex" 1741634648 10311 16330234be05f47442c33a5912c3477f ""
   "chapters/Conclusion.tex" 1728824055 771 02c800700f1ee96740f095c05f02f65c ""
   "chapters/design/ApplicationIntroduction.tex" 1741522974 999 afa4f72e12e8dd6ab60171da902bb35f ""
   "chapters/design/ApplicationRequirements.tex" 1741528349 2600 56aae17b2d22d2e2b6d972b9df1abe73 ""
   "chapters/design/Design.tex" 1741540673 741 62a36b3e884716fb72cf85f10aff0e26 ""
   "chapters/design/GUI.tex" 1741550382 4278 b023ba9ada701eb29f06bf339254516f ""
-  "chapters/design/SystemArchitecture.tex" 1741550400 4701 0f61778a6bf62bbcbf9fb31ca4f606f7 ""
+  "chapters/design/SystemArchitecture.tex" 1741550409 4701 0f61778a6bf62bbcbf9fb31ca4f606f7 ""
   "chapters/design/TechStack.tex" 1741544812 2741 e6d976cb08aaa181ee01bdf8ff8d406f ""
+  "chapters/evaluation_results/EvaluationResults.tex" 1741709365 4792 3ef4cb34a11a727b371fb6dffa71b42a ""
   "chapters/implementation/Communication.tex" 1733657240 1759 ca6870e807b82804d9c9fd6839f1143b ""
   "chapters/implementation/Implementation.tex" 1741520619 410 f9c4b197f5ec452e31e268f7ac83e686 ""
   "chapters/implementation/Overview.tex" 1733653537 4984 5cf197a4f89440081a9879ec43da66d7 ""
@@ -151,13 +152,13 @@
   "images/wireframes/user-microfrontend.png" 1741542335 121916 33b8736045f02fbc0256c9bac001ae2e ""
   "images/zadanie-en.pdf" 1728824055 324685 9be79f034c5aa2c05683c1624e40680a ""
   "images/zadanie.pdf" 1728824055 345024 0576f76f69abd0960b226200ad534a2a ""
-  "main.aux" 1741550403 19717 50306e0d51e9a65392986daadf930336 "pdflatex"
-  "main.bbl" 1741544816 6058 6f00da97d17b1a13ab360271f430c59d "bibtex main"
-  "main.lof" 1741550403 753 3e77e1bce84e8f133449cc0b55184b61 "pdflatex"
-  "main.lot" 1741550403 1020 67a252583ddb5d70501b2e1bd5b471a3 "pdflatex"
-  "main.out" 1741550403 9724 ad94d60f748f460960d31d2189ab85c9 "pdflatex"
-  "main.tex" 1741522996 10253 f31bc5d43e6c9a296807d09c08440944 ""
-  "main.toc" 1741550403 6605 4d9bad77348fc3b435d6d838214198d2 "pdflatex"
+  "main.aux" 1741709368 20461 eb662b0f0967d52a70339cfc1c0b50a4 "pdflatex"
+  "main.bbl" 1741708978 6058 6f00da97d17b1a13ab360271f430c59d "bibtex main"
+  "main.lof" 1741709368 773 5a18f494cb41f14dcba529defb70f938 "pdflatex"
+  "main.lot" 1741709368 1040 4ea5280c12c6cad8ef40876be78c4a77 "pdflatex"
+  "main.out" 1741709368 10430 1e2bea4e1d87a9294aa67d23d0c028ba "pdflatex"
+  "main.tex" 1741634648 10311 16330234be05f47442c33a5912c3477f ""
+  "main.toc" 1741709368 6992 b1f865f7a024299326648f504cc48a37 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
