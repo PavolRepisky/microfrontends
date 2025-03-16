@@ -5,77 +5,51 @@
   <button
     type="button"
     class="btn-close"
-    (click)="activeModal.dismiss(false)"
+    (click)="activeModal.dismiss()"
   ></button>
 </div>
 
 <div class="modal-body">
   <div class="mb-3 border p-3 rounded">
-    <p class="mb-2 fw-semibold">
-      {{ "settings.theme.label" | translate }}
-    </p>
+    <p class="mb-2 fw-semibold">{{ "settings.theme.label" | translate }}</p>
+
+    @for (themeOption of availableThemes; track themeOption) {
     <div class="form-check">
       <input
         class="form-check-input"
         type="radio"
-        name="theme"
-        id="lightTheme"
-        value="light"
-        [checked]="theme === 'light'"
-        (change)="onThemeChange('light')"
+        [id]="themeOption"
+        [name]="'theme'"
+        [value]="themeOption"
+        [(ngModel)]="theme"
+        (ngModelChange)="changeTheme()"
       />
-      <label class="form-check-label" for="lightTheme">
-        {{ "settings.theme.light" | translate }}
+      <label class="form-check-label" [for]="themeOption">
+        {{ "settings.theme." + themeOption | translate }}
       </label>
     </div>
-    <div class="form-check">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="theme"
-        id="darkTheme"
-        value="dark"
-        [checked]="theme === 'dark'"
-        (change)="onThemeChange('dark')"
-      />
-      <label class="form-check-label" for="darkTheme">
-        {{ "settings.theme.dark" | translate }}
-      </label>
-    </div>
+    }
   </div>
 
   <div class="border p-3 rounded">
-    <p class="mb-2 fw-semibold">
-      {{ "settings.language.label" | translate }}
-    </p>
+    <p class="mb-2 fw-semibold">{{ "settings.language.label" | translate }}</p>
+
+    @for (langOption of availableLanguages; track langOption) {
     <div class="form-check">
       <input
         class="form-check-input"
         type="radio"
-        name="language"
-        id="en"
-        value="en"
-        [checked]="language === 'en'"
-        (change)="onLanguageChange('en')"
+        [id]="langOption"
+        [name]="'language'"
+        [value]="langOption"
+        [(ngModel)]="language"
+        (ngModelChange)="changeLanguage()"
       />
-      <label class="form-check-label" for="en">
-        {{ "settings.language.en" | translate }}</label
-      >
-    </div>
-    <div class="form-check">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="language"
-        id="sk"
-        value="sk"
-        [checked]="language === 'sk'"
-        (change)="onLanguageChange('sk')"
-      />
-      <label class="form-check-label" for="sk">
-        {{ "settings.language.sk" | translate }}
+      <label class="form-check-label" [for]="langOption">
+        {{ "settings.language." + langOption | translate }}
       </label>
     </div>
+    }
   </div>
 </div>
 
@@ -83,7 +57,7 @@
   <button
     type="button"
     class="btn btn-secondary"
-    (click)="activeModal.dismiss(false)"
+    (click)="activeModal.dismiss()"
   >
     {{ "globals.cancel" | translate }}
   </button>

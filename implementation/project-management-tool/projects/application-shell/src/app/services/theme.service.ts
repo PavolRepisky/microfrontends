@@ -1,27 +1,36 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../enviroments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  private theme: string;
+  private readonly THEME_KEY = environment.themeKey;
+
+  private themeSubject = new BehaviorSubject<string>(this.getInitialTheme());
+  theme$ = this.themeSubject.asObservable();
 
   constructor() {
-    this.theme = localStorage.getItem('theme') || 'light';
-    this.applyTheme(this.theme);
+    this.applyTheme(this.getInitialTheme());
   }
 
-  getTheme(): string {
-    return this.theme;
+  setTheme(theme: string) {
+    this.themeSubject.next(theme);
+    this.applyTheme(theme);
+    localStorage.setItem(this.THEME_KEY, theme);
   }
 
-  setTheme(newTheme: string) {
-    this.theme = newTheme;
-    this.applyTheme(this.theme);
-    localStorage.setItem('theme', this.theme);
+  getCurrentTheme(): string {
+    return this.themeSubject.value;
+  }
+
+  private getInitialTheme(): string {
+    const storedTheme = localStorage.getItem(this.THEME_KEY);
+    return storedTheme || 'light';
   }
 
   private applyTheme(theme: string) {
-    document.documentElement.setAttribute('data-bs-theme', theme);
+    document.body.setAttribute('data-bs-theme', theme);
   }
 }

@@ -4,19 +4,28 @@ import { MicrofrontendRegistryService } from '../services/microfrontend-registry
 
 @Injectable({ providedIn: 'root' })
 export class LoadMicrofrontendGuard implements CanActivate {
-  constructor(
-    private microfrontendRegistryService: MicrofrontendRegistryService
-  ) {}
+  constructor(private mfeRegistryService: MicrofrontendRegistryService) {}
 
-  canActivate(route: ActivatedRouteSnapshot): Promise<boolean> {
-    const bundleUrl = route.data['bundleUrl'] as unknown;
-    if (!(typeof bundleUrl === 'string')) {
-      console.error(`
-        The LoadMicroFrontendGuard is missing information on which bundle to load.
-        Did you forget to provide a bundleUrl: string as data to the route?
-      `);
-      return Promise.resolve(false);
+  async canActivate(route: ActivatedRouteSnapshot): Promise<boolean> {
+    try {
+      const bundleUrl = this.getBundleUrl(route);
+      await this.mfeRegistryService.loadBundle(bundleUrl);
+      return true;
+    } catch (error) {
+      console.error('Failed to load microfrontend:', error);
+      return false;
     }
-    return this.microfrontendRegistryService.loadBundle(bundleUrl);
+  }
+
+  private getBundleUrl(route: ActivatedRouteSnapshot): string {
+    const bundleUrl = route.data['bundleUrl'];
+    if (typeof bundleUrl !== 'string') {
+      throw new Error(
+        'LoadMicrofrontendGuard requires a bundleUrl string in the route data. ' +
+          'Please add data: { bundleUrl: "http://your-bundle-url" } to your route configuration. ' +
+          'Example: { path: "**", canActivate: [LoadMicrofrontendGuard], data: { bundleUrl: "http://localhost:4201/bundle.js" } }'
+      );
+    }
+    return bundleUrl;
   }
 }

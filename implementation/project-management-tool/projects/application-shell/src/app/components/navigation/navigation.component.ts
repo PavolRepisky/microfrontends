@@ -1,8 +1,16 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { NavItem } from '../../types/nav-item.type';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SettingsModalComponent } from '../settings-modal/settings-modal.component';
+
+interface NavItem {
+  icon: string;
+  label: string;
+  url: string;
+  active: boolean;
+}
 
 @Component({
   selector: 'app-navigation',
@@ -14,7 +22,7 @@ import { NavItem } from '../../types/nav-item.type';
 export class NavigationComponent {
   title = 'Microfrontends';
 
-  @Output() onOpenSettings = new EventEmitter<boolean>();
+  constructor(private modalService: NgbModal) {}
 
   navItems: NavItem[] = [
     {
@@ -36,4 +44,8 @@ export class NavigationComponent {
       url: '/users',
     },
   ];
+
+  openSettings() {
+    this.modalService.open(SettingsModalComponent);
+  }
 }

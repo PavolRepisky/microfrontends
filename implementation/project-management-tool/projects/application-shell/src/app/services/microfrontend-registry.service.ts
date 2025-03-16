@@ -1,68 +1,77 @@
 import { Injectable } from '@angular/core';
 
-function load(url: string): Promise<void> {
+interface BundleLoadError {
+  error: string;
+}
+
+enum LoadingState {
+  UNKNOWN = 'UNKNOWN',
+  LOADING = 'LOADING', 
+  LOADED = 'LOADED',
+  FAILED = 'FAILED'
+}
+
+/**
+ * Loads a JavaScript bundle by injecting a script tag into the document.
+ * Returns a promise that resolves when the bundle loads or rejects if there's an error.
+ */
+function loadBundle(url: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = url;
     script.onload = () => resolve();
-    script.onerror = () =>
-      reject({
-        error: `Bundle ${url} could not be loaded`,
-      });
+    script.onerror = () => reject({
+      error: `Bundle ${url} could not be loaded`
+    } as BundleLoadError);
     document.body.appendChild(script);
   });
 }
 
 /**
- * The loading state of a bundle.
- *
- * UNKNOWN -> It has not been tried to load this bundle.
- * LOADING -> The loading of this bundle is currently happening.
- * LOADED -> The bundle has been successfully loaded.
- * FAILED -> The loading of the bundle failed.
- */
-type LoadingState = 'UNKNOWN' | 'LOADING' | 'LOADED' | 'FAILED';
-
-/**
- * This service loads bundles and keeps track of which bundles have been already loaded.
- * This way, it prevents errors that would occur if a bundle is loaded a second time.
+ * Service responsible for loading and managing microfrontend bundles.
+ * Tracks bundle loading states and prevents duplicate loading.
  */
 @Injectable({ providedIn: 'root' })
 export class MicrofrontendRegistryService {
-  private loadingStates: Record<string, LoadingState> = {};
+  private readonly bundleStates = new Map<string, LoadingState>();
 
   /**
-   * Loads the given bundle if not already loaded, registering its custom elements in the browser.
-   *
-   * @param bundleUrl The url of the bundle, can be absolute or relative to the domain + base href.
+   * Loads a microfrontend bundle if not already loaded.
+   * @param bundleUrl - URL of the bundle to load
+   * @returns Promise resolving to true if bundle loaded successfully, false otherwise
    */
   async loadBundle(bundleUrl: string): Promise<boolean> {
-    if (['LOADING', 'LOADED'].includes(this.getLoadingState(bundleUrl))) {
+    const currentState = this.getLoadingState(bundleUrl);
+    
+    if (currentState === LoadingState.LOADED || currentState === LoadingState.LOADING) {
       return true;
     }
-    this.loadingStates[bundleUrl] = 'LOADING';
-    const isSuccess = await load(bundleUrl)
-      .then(() => true)
-      .catch(() => false);
-    this.loadingStates[bundleUrl] = isSuccess ? 'LOADED' : 'FAILED';
-    return isSuccess;
+
+    this.bundleStates.set(bundleUrl, LoadingState.LOADING);
+
+    try {
+      await loadBundle(bundleUrl);
+      this.bundleStates.set(bundleUrl, LoadingState.LOADED);
+      return true;
+    } catch (error) {
+      this.bundleStates.set(bundleUrl, LoadingState.FAILED);
+      return false;
+    }
   }
 
   /**
-   * Returns the loading state of the bundle.
-   *
-   * @param bundleUrl The url of the bundle.
+   * Gets the current loading state of a bundle.
+   * @param bundleUrl - URL of the bundle to check
    */
   getLoadingState(bundleUrl: string): LoadingState {
-    return this.loadingStates[bundleUrl] || 'UNKNOWN';
+    return this.bundleStates.get(bundleUrl) || LoadingState.UNKNOWN;
   }
 
   /**
-   * Returns if the bundle has already been loaded successfully.
-   *
-   * @param bundleUrl The url of the bundle.
+   * Checks if a bundle has been successfully loaded.
+   * @param bundleUrl - URL of the bundle to check
    */
   isBundleLoaded(bundleUrl: string): boolean {
-    return this.getLoadingState(bundleUrl) === 'LOADED';
+    return this.getLoadingState(bundleUrl) === LoadingState.LOADED;
   }
 }

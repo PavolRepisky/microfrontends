@@ -1,6 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy } from '@angular/core';
 import { MicrofrontendRegistryService } from '../../services/microfrontend-registry.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { ThemeService } from '../../services/theme.service';
+import { LanguageService } from '../../services/language.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,8 +14,31 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './dashboard.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class DashboardComponent {
-  constructor(private mfeRegistry: MicrofrontendRegistryService) {}
+export class DashboardComponent implements OnDestroy {
+  theme: string;
+  language: string;
+  private destroy$ = new Subject<void>();
+
+  constructor(
+    private mfeRegistry: MicrofrontendRegistryService,
+    private themeService: ThemeService,
+    private languageService: LanguageService
+  ) {
+    this.theme = this.themeService.getCurrentTheme();
+    this.language = this.languageService.getCurrentLanguage();
+
+    this.themeService.theme$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((newTheme) => {
+        this.theme = newTheme;
+      });
+
+    this.languageService.language$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((newLanguage) => {
+        this.language = newLanguage;
+      });
+  }
 
   async ngOnInit() {
     const mfeBundles = [
@@ -30,5 +57,10 @@ export class DashboardComponent {
     } catch (error) {
       console.error('Error loading microfrontends:', error);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

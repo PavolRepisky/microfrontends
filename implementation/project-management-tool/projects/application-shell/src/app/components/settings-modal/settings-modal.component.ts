@@ -1,31 +1,39 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { ThemeService } from '../../services/theme.service';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-settings-modal',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, FormsModule],
   templateUrl: './settings-modal.component.html',
   styleUrl: './settings-modal.component.scss',
 })
 export class SettingsModalComponent {
-  activeModal = inject(NgbActiveModal);
+  theme: string;
+  language: string;
 
-  @Input() theme: string = 'light';
-  @Input() language: string = 'en';
-
-  @Output() themeChange = new EventEmitter<string>();
-  @Output() languageChange = new EventEmitter<string>();
-
-  onThemeChange(theme: string) {
-    this.theme = theme;
-    this.themeChange.emit(theme);
+  constructor(
+    public activeModal: NgbActiveModal,
+    private themeService: ThemeService,
+    private languageService: LanguageService
+  ) {
+    this.theme = this.themeService.getCurrentTheme();
+    this.language = this.languageService.getCurrentLanguage();
   }
 
-  onLanguageChange(language: string) {
-    this.language = language;
-    this.languageChange.emit(language);
+  changeTheme() {
+    this.themeService.setTheme(this.theme);
   }
+
+  changeLanguage() {
+    this.languageService.setLanguage(this.language);
+  }
+
+  availableThemes = ['light', 'dark'];
+  availableLanguages = ['en', 'sk'];
 }
