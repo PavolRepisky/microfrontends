@@ -1,0 +1,98 @@
+{
+  "title": "Používatelia",
+  "subtitle": "Spravujte a organizujte všetkých používateľov na jednom mieste",
+  "addUser": "Pridať používateľa",
+  "filters": {
+    "roles": {
+      "all": "Všetci",
+      "admins": "Administrátori",
+      "projectManagers": "Projektoví manažéri",
+      "developers": "Vývojári",
+      "designers": "Dizajnéri",
+      "testers": "Testeri"
+    }
+  },
+  "table": {
+    "empty": "Nenašli sa žiadni používatelia",
+    "columns": {
+      "name": "Celé meno",
+      "phone": "Telefónne číslo",
+      "role": "Rola",
+      "status": "Stav",
+      "bio": "Biografia",
+      "actions": "Akcie"
+    },
+    "actions": {
+      "view": "Zobraziť",
+      "edit": "Upraviť",
+      "delete": "Vymazať"
+    }
+  },
+  "roles": {
+    "admin": "Administrátor",
+    "projectManager": "Projektový manažér",
+    "developer": "Vývojár",
+    "designer": "Dizajnér",
+    "tester": "Tester"
+  },
+  "statuses": {
+    "active": "Aktívny",
+    "inactive": "Neaktívny"
+  },
+  "details": {
+    "title": "Detaily používateľa",
+    "form": {
+      "validation": {
+        "required": "Toto pole je povinné",
+        "invalid": "Prosím, zadajte platnú hodnotu"
+      },
+      "fields": {
+        "firstName": {
+          "label": "Meno",
+          "placeholder": "Zadajte meno"
+        },
+        "lastName": {
+          "label": "Priezvisko",
+          "placeholder": "Zadajte priezvisko"
+        },
+        "email": {
+          "label": "E-mailová adresa",
+          "placeholder": "Zadajte e-mailovú adresu"
+        },
+        "phone": {
+          "label": "Telefónne číslo",
+          "placeholder": "Zadajte telefónne číslo"
+        },
+        "role": {
+          "label": "Rola",
+          "placeholder": "Vyberte rolu"
+        },
+        "status": {
+          "label": "Stav",
+          "placeholder": "Vyberte stav"
+        },
+        "bio": {
+          "label": "Biografia",
+          "placeholder": "Zadajte krátku biografiu"
+        }
+      },
+      "submit": {
+        "create": "Vytvoriť používateľa",
+        "update": "Aktualizovať používateľa"
+      }
+    }
+  },
+  "delete": {
+    "title": "Vymazať používateľa",
+    "message": "Naozaj chcete vymazať tohto používateľa? Túto akciu nie je možné vrátiť späť."
+  },
+  "widgets": {
+    "recentUsers": {
+      "title": "Nedávno pridaní používatelia"
+    }
+  },
+  "common": {
+    "cancel": "Zrušiť",
+    "confirm": "Potvrdiť"
+  }
+}

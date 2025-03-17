@@ -17,7 +17,7 @@ export class ThemeService {
 
   setTheme(theme: string) {
     this.themeSubject.next(theme);
-    this.applyTheme(theme);
+    // this.applyTheme(theme);
     localStorage.setItem(this.THEME_KEY, theme);
   }
 

@@ -1,12 +1,14 @@
-<div class="widget border rounded pb-3 shadow-sm">
+<div class="widget d-flex flex-column border rounded pb-3 shadow-sm">
   <div class="border-bottom">
-    <h4 class="px-3 py-2 mb-0">{{ "newUsersWidget.title" | translate }}</h4>
+    <h4 class="px-3 py-2 mb-0">
+      {{ "widgets.recentUsers.title" | translate }}
+    </h4>
   </div>
 
   <div class="users-container">
     @for (user of filtredUsers(); track user.id) {
     <div
-      class="card px-3 py-1 mb-2"
+      class="user-row card px-3 py-1 mb-2"
       [class]="user.id === selectedUserId() ? 'bg-success-subtle' : ''"
       (click)="onUserToggle(user)"
     >

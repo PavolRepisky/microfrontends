@@ -2,7 +2,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   computed,
   signal,
@@ -11,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { User } from '../../types/user.type';
 import { roles } from '../../types/role.type';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
 const ITEMS_PER_PAGE = 6;
 
@@ -26,12 +27,14 @@ export class UserTableComponent {
     this.allUsers.set(value);
   }
 
-  @Output() onEdit = new EventEmitter<User>();
-  @Output() onView = new EventEmitter<User>();
-  @Output() onDelete = new EventEmitter<User>();
+  @Output() onEditUser = new EventEmitter<User>();
+  @Output() onViewUser = new EventEmitter<User>();
+  @Output() onDeleteUser = new EventEmitter<number>();
 
   private allUsers = signal<User[]>([]);
   currentPage = signal(1);
+
+  constructor(private modalService: NgbModal) {}
 
   readonly paginatedUsers = computed(() => {
     const startIndex = (this.currentPage() - 1) * ITEMS_PER_PAGE;
@@ -56,5 +59,18 @@ export class UserTableComponent {
   getRoleColor(role: string): string | undefined {
     const color = roles.find((r) => r.name === role)?.color;
     return color ? color : 'secondary';
+  }
+
+  openDeleteConfirmation(userId: number): void {
+    const modalRef: NgbModalRef = this.modalService.open(
+      ConfirmationModalComponent,
+      { centered: true, backdrop: 'static' }
+    );
+
+    modalRef.componentInstance.title = 'delete.title';
+    modalRef.componentInstance.message = 'delete.message';
+    modalRef.closed.subscribe((result: boolean) => {
+      if (result) this.onDeleteUser.emit(userId);
+    });
   }
 }

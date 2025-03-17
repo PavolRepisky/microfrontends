@@ -1,7 +1,7 @@
 <div>
   <div class="offcanvas-header d-flex align-items-center">
     <h4 class="offcanvas-title fw-medium">
-      {{ "userOffcanvas.title" | translate }}
+      {{ "details.title" | translate }}
     </h4>
     <button
       (click)="activeOffcanvas.dismiss()"
@@ -14,14 +14,14 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
       <div class="mb-3">
         <label class="form-label">{{
-          "userOffcanvas.form.firstName.label" | translate
+          "details.form.fields.firstName.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('firstName')"
           class="form-control"
           formControlName="firstName"
           placeholder="{{
-            'userOffcanvas.form.firstName.placeholder' | translate
+            'details.form.fields.firstName.placeholder' | translate
           }}"
           type="text"
         />
@@ -34,67 +34,71 @@
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userOffcanvas.form.lastName.label" | translate
+          "details.form.fields.lastName.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('lastName')"
           class="form-control"
           formControlName="lastName"
           placeholder="{{
-            'userOffcanvas.form.lastName.placeholder' | translate
+            'details.form.fields.lastName.placeholder' | translate
           }}"
           type="text"
         />
         @if (userForm.get('lastName')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userOffcanvas.form.field.required" | translate }}
+          {{ "details.form.validation.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userOffcanvas.form.email.label" | translate
+          "details.form.fields.email.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('email')"
           class="form-control"
           formControlName="email"
-          placeholder="{{ 'userOffcanvas.form.email.placeholder' | translate }}"
+          placeholder="{{
+            'details.form.fields.email.placeholder' | translate
+          }}"
           type="email"
         />
         @if (userForm.get('email')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userOffcanvas.form.field.required" | translate }}
+          {{ "details.form.validation.required" | translate }}
         </p>
         } @if (userForm.get('email')?.errors?.['email']) {
         <p class="invalid-feedback">
-          {{ "userOffcanvas.form.field.invalid" | translate }}
+          {{ "details.form.validation.invalid" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userOffcanvas.form.phone.label" | translate
+          "details.form.fields.phone.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('phone')"
           class="form-control"
           formControlName="phone"
-          placeholder="{{ 'userOffcanvas.form.phone.placeholder' | translate }}"
+          placeholder="{{
+            'details.form.fields.phone.placeholder' | translate
+          }}"
           type="tel"
         />
         @if (userForm.get('phone')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userOffcanvas.form.field.required" | translate }}
+          {{ "details.form.validation.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userOffcanvas.form.role.label" | translate
+          "details.form.fields.role.label" | translate
         }}</label>
         <select
           [class.is-invalid]="isFieldInvalid('role')"
@@ -102,24 +106,24 @@
           formControlName="role"
         >
           <option value="" selected>
-            {{ "userOffcanvas.form.role.placeholder" | translate }}
+            {{ "details.form.fields.role.placeholder" | translate }}
           </option>
           @for(role of roles; track $index) {
           <option [value]="role.name">
-            {{ "user.role." + role.name | translate }}
+            {{ "roles." + role.name | translate }}
           </option>
           }
         </select>
         @if (userForm.get('role')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userOffcanvas.form.field.required" | translate }}
+          {{ "details.form.validation.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userOffcanvas.form.status.label" | translate
+          "details.form.fields.status.label" | translate
         }}</label>
         <select
           [class.is-invalid]="isFieldInvalid('status')"
@@ -127,31 +131,31 @@
           formControlName="status"
         >
           <option value="" selected>
-            {{ "userOffcanvas.form.status.placeholder" | translate }}
+            {{ "details.form.fields.status.placeholder" | translate }}
           </option>
           <option value="active">
-            {{ "user.status.active" | translate }}
+            {{ "statuses.active" | translate }}
           </option>
           <option value="inactive">
-            {{ "user.status.inactive" | translate }}
+            {{ "statuses.inactive" | translate }}
           </option>
         </select>
         @if (userForm.get('status')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "userOffcanvas.form.field.required" | translate }}
+          {{ "details.form.validation.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "userOffcanvas.form.bio.label" | translate
+          "details.form.fields.bio.label" | translate
         }}</label>
         <textarea
           [class.is-invalid]="isFieldInvalid('bio')"
           class="form-control"
           formControlName="bio"
-          placeholder="{{ 'userOffcanvas.form.bio.placeholder' | translate }}"
+          placeholder="{{ 'details.form.fields.bio.placeholder' | translate }}"
         ></textarea>
       </div>
 
@@ -163,8 +167,8 @@
         >
           {{
             (isEditing
-              ? "userOffcanvas.form.update"
-              : "userOffcanvas.form.create"
+              ? "details.form.submit.update"
+              : "details.form.submit.create"
             ) | translate
           }}
         </button>

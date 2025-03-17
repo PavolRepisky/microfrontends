@@ -1,3 +1,0 @@
-- Fix user dropdown in embedded view.
-- Utilize Shadow DOM for script and styles.
-- Implement compact mode.

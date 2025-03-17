@@ -24,7 +24,7 @@ export class RoleFilterComponent {
     this.role.set(role);
   }
 
-  @Output() onSelect = new EventEmitter<string | null>();
+  @Output() onRoleSelected = new EventEmitter<string | null>();
   private readonly role = signal<string | null>(null);
 
   roleTabs = computed(() =>
@@ -44,6 +44,6 @@ export class RoleFilterComponent {
 
   selectRole(event: Event, role: string | null): void {
     event.preventDefault();
-    this.onSelect.emit(role);
+    this.onRoleSelected.emit(role);
   }
 }

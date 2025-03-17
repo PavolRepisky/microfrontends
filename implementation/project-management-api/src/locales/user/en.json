@@ -1,26 +1,26 @@
 {
   "title": "Users",
   "subtitle": "Manage and organize all your users in one place",
-  "action": "New User",
-  "roleFilter": {
-    "tabs": {
+  "addUser": "Add User",
+  "filters": {
+    "roles": {
       "all": "All",
-      "admins": "Admins",
+      "admins": "Administrators",
       "projectManagers": "Project Managers",
       "developers": "Developers",
       "designers": "Designers",
       "testers": "Testers"
     }
   },
-  "userTable": {
-    "noUsers": "No Users",
-    "headers": {
-      "name": "Name",
-      "phone": "Phone",
+  "table": {
+    "empty": "No users found",
+    "columns": {
+      "name": "Full Name",
+      "phone": "Phone Number",
       "role": "Role",
       "status": "Status",
-      "bio": "Bio",
-      "action": "Action"
+      "bio": "Biography",
+      "actions": "Actions"
     },
     "actions": {
       "view": "View",
@@ -28,69 +28,71 @@
       "delete": "Delete"
     }
   },
-  "user": {
-    "role": {
-      "admin": "Admin",
-      "projectManager": "Project Manager",
-      "developer": "Developer",
-      "designer": "Designer",
-      "tester": "Tester"
-    },
-    "status": {
-      "active": "Active",
-      "inactive": "Inactive"
-    }
+  "roles": {
+    "admin": "Administrator",
+    "projectManager": "Project Manager",
+    "developer": "Developer",
+    "designer": "Designer",
+    "tester": "Testers"
   },
-
-  "confirmationModal": {
-    "title": "Delete User",
-    "message": "Are you sure, you want to delete this user?"
+  "statuses": {
+    "active": "Active",
+    "inactive": "Inactive"
   },
-  "globals": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "search": "Search"
-  },
-  "userOffcanvas": {
-    "title": "User details",
+  "details": {
+    "title": "User Details",
     "form": {
-      "field": {
-        "required": "The field is required",
-        "invalid": "The field is invalid"
+      "validation": {
+        "required": "This field is required",
+        "invalid": "Please enter a valid value"
       },
-      "firstName": {
-        "label": "First Name",
-        "placeholder": "Enter first name"
+      "fields": {
+        "firstName": {
+          "label": "First Name",
+          "placeholder": "Enter first name"
+        },
+        "lastName": {
+          "label": "Last Name",
+          "placeholder": "Enter last name"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "Enter email address"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Enter phone number"
+        },
+        "role": {
+          "label": "Role",
+          "placeholder": "Select role"
+        },
+        "status": {
+          "label": "Status",
+          "placeholder": "Select status"
+        },
+        "bio": {
+          "label": "Biography",
+          "placeholder": "Enter a brief biography"
+        }
       },
-      "lastName": {
-        "label": "Last Name",
-        "placeholder": "Enter last name"
-      },
-      "email": {
-        "label": "Email",
-        "placeholder": "Enter an e-mail address"
-      },
-      "phone": {
-        "label": "Phone",
-        "placeholder": "Enter a phone number"
-      },
-      "role": {
-        "label": "Role",
-        "placeholder": "Select a role"
-      },
-      "status": {
-        "label": "Status",
-        "placeholder": "Select a status"
-      },
-      "bio": {
-        "label": "Bio",
-        "placeholder": "Enter user bio"
-      },
-      "create": "Create",
-      "update": "Update"
+      "submit": {
+        "create": "Create User",
+        "update": "Update User"
+      }
     }
   },
-  "newUsersWidget": {
-    "title": "New users"
+  "delete": {
+    "title": "Delete User",
+    "message": "Are you sure you want to delete this user? This action cannot be undone."
+  },
+  "widgets": {
+    "recentUsers": {
+      "title": "Recently Added Users"
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm"
   }
 }

@@ -1,7 +1,12 @@
 import { Component, inject, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
-import { User } from '../../types/user.type';
+
+interface ConfirmationModalConfig {
+  title: string;
+  message: string;
+  data?: any;
+}
 
 @Component({
   selector: 'user-confirmation-modal',
@@ -11,8 +16,8 @@ import { User } from '../../types/user.type';
   styleUrl: './confirmation-modal.component.scss',
 })
 export class ConfirmationModalComponent {
-  activeModal = inject(NgbActiveModal);
   message = '';
   title = '';
-  userData?: User;
+
+  constructor(public activeModal: NgbActiveModal) {}
 }

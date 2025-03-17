@@ -4,7 +4,7 @@
 </div>
 } @else {
 <main class="container h-100 py-3">
-  <header class="d-flex justify-content-between align-items-center mb-3">
+  <header class="d-flex justify-content-between align-items-center mb-4">
     <div>
       <h2 class="fw-semibold mb-1">{{ "title" | translate }}</h2>
       <p class="text-muted mb-0">{{ "subtitle" | translate }}</p>
@@ -16,7 +16,7 @@
       (click)="openUserOffcanvas()"
     >
       <i class="bi bi-plus me-2"></i>
-      <span>{{ "action" | translate }}</span>
+      <span>{{ "addUser" | translate }}</span>
     </button>
   </header>
 
@@ -24,16 +24,16 @@
     <user-role-filter
       [users]="users()"
       [selectedRole]="selectedRole()"
-      (onSelect)="selectRole($event)"
+      (onRoleSelected)="selectRole($event)"
     ></user-role-filter>
   </div>
 
   <div class="pb-2">
     <user-table
       [users]="filteredUsers()"
-      (onEdit)="openUserOffcanvas($event)"
-      (onView)="openUserOffcanvas($event)"
-      (onDelete)="openDeleteConfirmation($event)"
+      (onEditUser)="openUserOffcanvas($event)"
+      (onViewUser)="openUserOffcanvas($event)"
+      (onDeleteUser)="deleteUser($event)"
     ></user-table>
   </div>
 </main>

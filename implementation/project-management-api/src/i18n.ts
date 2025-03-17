@@ -9,7 +9,7 @@ export const createI18nInstance = (namespace: string) => {
   const localesPath = path.join(process.cwd(), "src", "locales", namespace);
 
   instance.configure({
-    locales: ["en"],
+    locales: ["en", "sk"],
     directory: localesPath,
     objectNotation: true,
     defaultLocale: "en",

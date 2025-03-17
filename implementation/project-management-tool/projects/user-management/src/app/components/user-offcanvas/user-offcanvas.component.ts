@@ -19,15 +19,15 @@ import { roles } from '../../types/role.type';
   styleUrl: './user-offcanvas.component.scss',
 })
 export class UserOffcanvasComponent {
-  private formBuilder = inject(FormBuilder);
-  activeOffcanvas = inject(NgbActiveOffcanvas);
-
   userForm: FormGroup;
   isEditing = false;
 
   roles = roles;
 
-  constructor() {
+  constructor(
+    private formBuilder: FormBuilder,
+    public activeOffcanvas: NgbActiveOffcanvas
+  ) {
     this.userForm = this.formBuilder.group({
       id: [null],
       firstName: ['', Validators.required],

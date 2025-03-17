@@ -2,12 +2,12 @@
   <table class="table border mb-2 rounded">
     <thead>
       <tr>
-        <th scope="col">{{ "userTable.headers.name" | translate }}</th>
-        <th scope="col">{{ "userTable.headers.phone" | translate }}</th>
-        <th scope="col">{{ "userTable.headers.role" | translate }}</th>
-        <th scope="col">{{ "userTable.headers.status" | translate }}</th>
+        <th scope="col">{{ "table.columns.name" | translate }}</th>
+        <th scope="col">{{ "table.columns.phone" | translate }}</th>
+        <th scope="col">{{ "table.columns.role" | translate }}</th>
+        <th scope="col">{{ "table.columns.status" | translate }}</th>
         <th scope="col" class="text-end">
-          {{ "userTable.headers.action" | translate }}
+          {{ "table.columns.actions" | translate }}
         </th>
       </tr>
     </thead>
@@ -15,7 +15,7 @@
       @if (paginatedUsers().length === 0) {
       <tr>
         <td colspan="6" class="text-center p-4">
-          {{ "userTable.noUsers" | translate }}
+          {{ "table.empty" | translate }}
         </td>
       </tr>
       } @else { @for (user of paginatedUsers(); track user.id) {
@@ -40,14 +40,14 @@
           <span
             class="badge rounded-pill"
             [class]="'text-bg-' + getRoleColor(user.role)"
-            >{{ "user.role." + user.role | translate }}</span
+            >{{ "roles." + user.role | translate }}</span
           >
         </td>
         <td class="align-middle">
           <span
             [ngClass]="{ 'text-body-tertiary': user.status === 'inactive' }"
           >
-            {{ "user.status." + user.status | translate }}
+            {{ "statuses." + user.status | translate }}
           </span>
         </td>
         <td class="align-middle text-end">
@@ -57,7 +57,6 @@
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              [attr.aria-label]="'userTable.actions.menuLabel' | translate"
             >
               <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
             </button>
@@ -66,30 +65,30 @@
                 <button
                   class="dropdown-item"
                   type="button"
-                  (click)="onView.emit(user)"
+                  (click)="onViewUser.emit(user)"
                 >
                   <i class="bi bi-eye me-2" aria-hidden="true"></i>
-                  {{ "userTable.actions.view" | translate }}
+                  {{ "table.actions.view" | translate }}
                 </button>
               </li>
               <li>
                 <button
                   class="dropdown-item"
                   type="button"
-                  (click)="onEdit.emit(user)"
+                  (click)="onEditUser.emit(user)"
                 >
                   <i class="bi bi-pencil me-2" aria-hidden="true"></i>
-                  {{ "userTable.actions.edit" | translate }}
+                  {{ "table.actions.edit" | translate }}
                 </button>
               </li>
               <li>
                 <button
                   class="dropdown-item text-danger"
                   type="button"
-                  (click)="onDelete.emit(user)"
+                  (click)="openDeleteConfirmation(user.id)"
                 >
                   <i class="bi bi-trash me-2" aria-hidden="true"></i>
-                  {{ "userTable.actions.delete" | translate }}
+                  {{ "table.actions.delete" | translate }}
                 </button>
               </li>
             </ul>
@@ -108,7 +107,6 @@
       <a
         class="page-link"
         href="#"
-        [attr.aria-label]="'userTable.pagination.previous' | translate"
         (click)="setPage($event, currentPage() - 1)"
       >
         <i class="bi bi-chevron-left" aria-hidden="true"></i>
@@ -132,7 +130,6 @@
       <a
         class="page-link"
         href="#"
-        [attr.aria-label]="'userTable.pagination.next' | translate"
         (click)="setPage($event, currentPage() + 1)"
       >
         <i class="bi bi-chevron-right" aria-hidden="true"></i>
