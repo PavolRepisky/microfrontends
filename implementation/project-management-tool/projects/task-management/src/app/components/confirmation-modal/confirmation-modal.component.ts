@@ -10,7 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './confirmation-modal.component.scss',
 })
 export class ConfirmationModalComponent {
-  activeModal = inject(NgbActiveModal);
   message = '';
   title = '';
+
+  constructor(public activeModal: NgbActiveModal) {}
 }

@@ -19,13 +19,13 @@ export class KanbanColumnComponent {
   @Input() tasks: Task[] = [];
   @Input() users: User[] = [];
 
-  @Output() onCreate = new EventEmitter<Partial<Task>>();
-  @Output() onView = new EventEmitter<Task>();
-  @Output() onEdit = new EventEmitter<Task>();
-  @Output() onDelete = new EventEmitter<Task>();
-  @Output() onDrop = new EventEmitter<CdkDragDrop<Task[]>>();
+  @Output() onCreateTask = new EventEmitter<Partial<Task>>();
+  @Output() onViewTask = new EventEmitter<Task>();
+  @Output() onEditTask = new EventEmitter<Task>();
+  @Output() onDeleteTask = new EventEmitter<number>();
+  @Output() onDropTask = new EventEmitter<CdkDragDrop<Task[]>>();
 
   onTaskDrop(event: CdkDragDrop<Task[]>) {
-    this.onDrop.emit(event);
+    this.onDropTask.emit(event);
   }
 }

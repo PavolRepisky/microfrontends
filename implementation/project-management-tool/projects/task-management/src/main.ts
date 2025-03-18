@@ -11,9 +11,7 @@ import { environment } from './environments/environment';
 async function initializeApp(): Promise<void> {
   try {
     // Check if the custom element is already defined
-    if (customElements.get(environment.customElementName)) {
-      return;
-    }
+    if (customElements.get(environment.customElementName)) return;
 
     // Use the environment variable to determine the initialization mode
     if (environment.embedded) {

@@ -1,0 +1,95 @@
+{
+  "title": "Úlohy",
+  "subtitle": "Sledujte a organizujte všetky svoje úlohy na jednom mieste",
+  "addTask": "Nová úloha",
+  "kanban": {
+    "headers": {
+      "backlog": "Backlog",
+      "inProgress": "Prebieha",
+      "toReview": "Na kontrole",
+      "done": "Hotovo"
+    },
+    "actions": {
+      "view": "Zobraziť",
+      "edit": "Upraviť",
+      "delete": "Vymazať"
+    },
+    "empty": "Neboli nájdené žiadne úlohy"
+  },
+  "statuses": {
+    "backlog": "Backlog",
+    "inProgress": "Prebieha",
+    "toReview": "Na kontrole",
+    "done": "Hotovo"
+  },
+  "priorities": {
+    "low": "Nízka",
+    "medium": "Stredná",
+    "high": "Vysoká"
+  },
+  "tags": {
+    "feature": "Funkcia",
+    "bug": "Chyba",
+    "test": "Test",
+    "research": "Výskum",
+    "enhancement": "Vylepšenie"
+  },
+  "details": {
+    "title": "Detaily úlohy",
+    "form": {
+      "validation": {
+        "required": "Toto pole je povinné"
+      },
+      "fields": {
+        "title": {
+          "label": "Názov",
+          "placeholder": "Zadajte názov"
+        },
+        "status": {
+          "label": "Stav",
+          "placeholder": "Vyberte stav"
+        },
+        "priority": {
+          "label": "Priorita",
+          "placeholder": "Vyberte prioritu"
+        },
+        "tag": {
+          "label": "Tag",
+          "placeholder": "Vyberte tag"
+        },
+        "dueDate": {
+          "label": "Dátum splnenia",
+          "placeholder": "Vyberte dátum splnenia"
+        },
+        "description": {
+          "label": "Popis",
+          "placeholder": "Zadajte popis"
+        },
+        "assignees": {
+          "label": "Priradení používatelia",
+          "placeholder": "Vyberte priradených používateľov"
+        }
+      },
+      "submit": {
+        "create": "Vytvoriť úlohu",
+        "update": "Aktualizovať úlohu"
+      }
+    }
+  },
+  "delete": {
+    "title": "Vymazať úlohu",
+    "message": "Ste si istí, že chcete vymazať túto úlohu? Táto akcia sa nedá vrátiť späť."
+  },
+  "widgets": {
+    "newTasks": {
+      "title": "Nové úlohy"
+    },
+    "tasksChart": {
+      "title": "Dokončenie úloh"
+    }
+  },
+  "common": {
+    "cancel": "Zrušiť",
+    "confirm": "Potvrdiť"
+  }
+}

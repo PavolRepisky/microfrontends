@@ -1,17 +1,11 @@
-import { Component, inject, Input, OnInit, signal } from '@angular/core';
+import { Component, Input, OnInit, signal } from '@angular/core';
 import { Task } from './types/task.type';
 import { TranslateModule } from '@ngx-translate/core';
 import { KanbanComponent } from './components/kanban/kanban.component';
-import {
-  NgbModal,
-  NgbModalRef,
-  NgbOffcanvas,
-  NgbOffcanvasRef,
-} from '@ng-bootstrap/ng-bootstrap';
+import { NgbOffcanvas, NgbOffcanvasRef } from '@ng-bootstrap/ng-bootstrap';
 import { TaskOffcanvasComponent } from './components/task-offcanvas/task-offcanvas.component';
 import { TaskService } from './services/task.service';
 import { UserService } from './services/user.service';
-import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { User } from './types/user.type';
 import { NewTasksWidgetComponent } from './components/new-tasks-widget/new-tasks-widget.component';
 import { environment } from '../environments/environment';
@@ -30,16 +24,17 @@ import { TasksChartWidgetComponent } from './components/tasks-chart-widget/tasks
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  private readonly taskService = inject(TaskService);
-  private readonly userService = inject(UserService);
-  private readonly modalService = inject(NgbModal);
-  private readonly offcanvasService = inject(NgbOffcanvas);
-
-  @Input() compact = true;
+  @Input() compact = false;
 
   tasks = signal<Task[]>([]);
   users = signal<User[]>([]);
   embedded = environment.embedded;
+
+  constructor(
+    private taskService: TaskService,
+    private userService: UserService,
+    private offcanvasService: NgbOffcanvas
+  ) {}
 
   ngOnInit(): void {
     this.getTasks();
@@ -61,21 +56,6 @@ export class AppComponent implements OnInit {
       formData.id ? this.updateTask(formData) : this.createTask(formData);
 
       offcanvasRef.dismiss();
-    });
-  }
-
-  openDeleteConfirmation(task: Task): void {
-    const modalRef: NgbModalRef = this.modalService.open(
-      ConfirmationModalComponent,
-      { centered: true, backdrop: 'static' }
-    );
-
-    modalRef.componentInstance.title = 'taskDeleteModal.title';
-    modalRef.componentInstance.message = 'taskDeleteModal.message';
-    modalRef.componentInstance.taskData = task;
-
-    modalRef.closed.subscribe((result: boolean) => {
-      if (result) this.deleteTask(task.id);
     });
   }
 

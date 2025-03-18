@@ -5,7 +5,7 @@
     <button
       type="button"
       class="btn w-100 ps-3 pt-2 text-start"
-      (click)="onCreate.emit({ status: this.column.id })"
+      (click)="onCreateTask.emit({ status: this.column.id })"
     >
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center gap-2">
@@ -30,15 +30,15 @@
   >
     @if (tasks.length === 0) {
     <div class="empty-column text-center py-4 text-muted">
-      <p class="mb-0">{{ "kanban.noTasks" | translate }}</p>
+      <p class="mb-0">{{ "kanban.empty" | translate }}</p>
     </div>
     } @for (task of tasks; track task.id) {
     <task-kanban-task
       [task]="task"
       [users]="users"
-      (onView)="onView.emit($event)"
-      (onEdit)="onEdit.emit($event)"
-      (onDelete)="onDelete.emit($event)"
+      (onViewTask)="onViewTask.emit($event)"
+      (onEditTask)="onEditTask.emit($event)"
+      (onDeleteTask)="onDeleteTask.emit($event)"
     />
     }
   </div>

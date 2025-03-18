@@ -1,12 +1,12 @@
 <div class="widget border rounded pb-3 shadow-sm">
   <div class="border-bottom">
-    <h4 class="px-3 py-2 mb-0">{{ "newTasksWidget.title" | translate }}</h4>
+    <h4 class="px-3 py-2 mb-0">{{ "widgets.newTasks.title" | translate }}</h4>
   </div>
 
   <div class="tasks-container">
     @for (task of filtredTasks(); track task.id) {
     <div
-      class="card px-3 py-2"
+      class="task-row card px-3 py-2"
       [class]="task.id === selectedTaskId() ? 'bg-success-subtle' : ''"
       (click)="onTaskToggle(task)"
     >

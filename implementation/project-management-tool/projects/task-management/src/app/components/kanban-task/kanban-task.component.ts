@@ -2,9 +2,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CdkDrag, DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDropdownModule,
+  NgbModal,
+  NgbModalRef,
+} from '@ng-bootstrap/ng-bootstrap';
 import { priorities, tags, Task } from '../../types/task.type';
 import { User } from '../../types/user.type';
+import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'task-kanban-task',
@@ -23,9 +28,11 @@ export class KanbanTaskComponent {
   @Input({ required: true }) task!: Task;
   @Input() users: User[] = [];
 
-  @Output() onEdit = new EventEmitter<Task>();
-  @Output() onView = new EventEmitter<Task>();
-  @Output() onDelete = new EventEmitter<Task>();
+  @Output() onEditTask = new EventEmitter<Task>();
+  @Output() onViewTask = new EventEmitter<Task>();
+  @Output() onDeleteTask = new EventEmitter<number>();
+
+  constructor(private modalService: NgbModal) {}
 
   get priorityColor(): string {
     return (
@@ -54,5 +61,19 @@ export class KanbanTaskComponent {
       x: rect.width / 2,
       y: rect.height / 2,
     };
+  }
+
+  openDeleteConfirmation(taskId: number): void {
+    const modalRef: NgbModalRef = this.modalService.open(
+      ConfirmationModalComponent,
+      { centered: true, backdrop: 'static' }
+    );
+
+    modalRef.componentInstance.title = 'delete.title';
+    modalRef.componentInstance.message = 'delete.message';
+
+    modalRef.closed.subscribe((result: boolean) => {
+      if (result) this.onDeleteTask.emit(taskId);
+    });
   }
 }

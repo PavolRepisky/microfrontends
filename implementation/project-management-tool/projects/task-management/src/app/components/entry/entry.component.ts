@@ -1,5 +1,12 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { AppComponent } from '../../app.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'task-entry',
@@ -7,6 +14,19 @@ import { AppComponent } from '../../app.component';
   imports: [AppComponent],
   template: '<task-root [compact]="compact"></task-root>',
 })
-export class EntryComponent {
-  @Input() compact: boolean = false;
+export class EntryComponent implements OnInit, OnChanges {
+  @Input() compact = false;
+  @Input() language = 'en';
+
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit(): void {
+    this.translate.use(this.language);  
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['language']) {
+      this.translate.use(this.language);
+    }
+  }
 }

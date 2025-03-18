@@ -23,15 +23,23 @@
         </button>
         <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end p-0">
           <li>
-            <button ngbDropdownItem type="button" (click)="onView.emit(task)">
+            <button
+              ngbDropdownItem
+              type="button"
+              (click)="onViewTask.emit(task)"
+            >
               <i class="bi bi-eye me-2" aria-hidden="true"></i>
-              {{ "task.action.view" | translate }}
+              {{ "kanban.actions.view" | translate }}
             </button>
           </li>
           <li>
-            <button ngbDropdownItem type="button" (click)="onEdit.emit(task)">
+            <button
+              ngbDropdownItem
+              type="button"
+              (click)="onEditTask.emit(task)"
+            >
               <i class="bi bi-pencil me-2" aria-hidden="true"></i>
-              {{ "task.action.edit" | translate }}
+              {{ "kanban.actions.edit" | translate }}
             </button>
           </li>
           <li>
@@ -39,10 +47,10 @@
               ngbDropdownItem
               class="text-danger"
               type="button"
-              (click)="onDelete.emit(task)"
+              (click)="openDeleteConfirmation(task.id)"
             >
               <i class="bi bi-trash me-2" aria-hidden="true"></i>
-              {{ "task.action.delete" | translate }}
+              {{ "kanban.actions.delete" | translate }}
             </button>
           </li>
         </ul>
@@ -54,11 +62,11 @@
     @if (task.tag) {
     <span [class]="'badge bg-' + tagColor"
       ><i class="bi bi-tag-fill"></i>
-      {{ "task.tag." + task.tag | translate }}
+      {{ "tags." + task.tag | translate }}
     </span>
     } @if (task.priority) {
     <span [class]="'badge bg-' + priorityColor">
-      {{ "task.priority." + task.priority | translate }}
+      {{ "priorities." + task.priority | translate }}
     </span>
     }
   </div>

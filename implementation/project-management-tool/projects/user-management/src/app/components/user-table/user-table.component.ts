@@ -73,6 +73,7 @@ export class UserTableComponent {
 
     modalRef.componentInstance.title = 'delete.title';
     modalRef.componentInstance.message = 'delete.message';
+    
     modalRef.closed.subscribe((result: boolean) => {
       if (result) this.onDeleteUser.emit(userId);
     });

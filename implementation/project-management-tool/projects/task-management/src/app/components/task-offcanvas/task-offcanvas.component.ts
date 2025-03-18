@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -14,16 +14,14 @@ import { User } from '../../types/user.type';
 @Component({
   selector: 'task-offcanvas',
   standalone: true,
-  imports: [TranslateModule, CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './task-offcanvas.component.html',
   styleUrl: './task-offcanvas.component.scss',
 })
 export class TaskOffcanvasComponent {
-  private formBuilder = inject(FormBuilder);
-  activeOffcanvas = inject(NgbActiveOffcanvas);
-
   taskForm: FormGroup;
   isEditing = false;
+
   users: User[] = [];
   selectedAssignees: User[] = [];
 
@@ -31,7 +29,10 @@ export class TaskOffcanvasComponent {
   priorities = priorities;
   statuses = statuses;
 
-  constructor() {
+  constructor(
+    private formBuilder: FormBuilder,
+    public activeOffcanvas: NgbActiveOffcanvas
+  ) {
     this.taskForm = this.formBuilder.group({
       id: [null],
       title: ['', Validators.required],

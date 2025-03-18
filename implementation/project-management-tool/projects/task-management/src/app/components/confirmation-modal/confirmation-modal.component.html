@@ -7,22 +7,24 @@
     (click)="activeModal.dismiss(false)"
   ></button>
 </div>
+
 <div class="modal-body">
   <p>{{ message | translate }}</p>
 </div>
+
 <div class="modal-footer">
   <button
     type="button"
     class="btn btn-primary"
     (click)="activeModal.close(true)"
   >
-    {{ "globals.confirm" | translate }}
+    {{ "common.confirm" | translate }}
   </button>
   <button
     type="button"
     class="btn btn-secondary"
     (click)="activeModal.dismiss(false)"
   >
-    {{ "globals.cancel" | translate }}
+    {{ "common.cancel" | translate }}
   </button>
 </div>

@@ -1,7 +1,7 @@
 <div>
   <div class="offcanvas-header d-flex align-items-center">
     <h4 class="offcanvas-title fw-medium">
-      {{ "taskOffcanvas.title" | translate }}
+      {{ "details.title" | translate }}
     </h4>
     <button
       (click)="activeOffcanvas.dismiss()"
@@ -14,25 +14,27 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="taskForm">
       <div class="mb-3">
         <label class="form-label">{{
-          "taskOffcanvas.form.title.label" | translate
+          "details.form.fields.title.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('title')"
           class="form-control"
           formControlName="title"
-          placeholder="{{ 'taskOffcanvas.form.title.placeholder' | translate }}"
+          placeholder="{{
+            'details.form.fields.title.placeholder' | translate
+          }}"
           type="text"
         />
         @if (taskForm.get('title')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "taskOffcanvas.form.field.required" | translate }}
+          {{ "details.form.validation.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "taskOffcanvas.form.status.label" | translate
+          "details.form.fields.status.label" | translate
         }}</label>
         <select
           [class.is-invalid]="isFieldInvalid('status')"
@@ -40,24 +42,24 @@
           formControlName="status"
         >
           <option value="">
-            {{ "taskOffcanvas.form.status.placeholder" | translate }}
+            {{ "details.form.fields.status.placeholder" | translate }}
           </option>
           @for(status of statuses; track $index) {
           <option [value]="status.name">
-            {{ "task.status." + status.name | translate }}
+            {{ "statuses." + status.name | translate }}
           </option>
           }
         </select>
         @if (taskForm.get('status')?.errors?.['required']) {
         <p class="invalid-feedback">
-          {{ "taskOffcanvas.form.field.required" | translate }}
+          {{ "details.form.validation.required" | translate }}
         </p>
         }
       </div>
 
       <div class="mb-3">
         <label class="form-label">{{
-          "taskOffcanvas.form.priority.label" | translate
+          "details.form.fields.priority.label" | translate
         }}</label>
         <select
           [class.is-invalid]="isFieldInvalid('priority')"
@@ -65,11 +67,11 @@
           formControlName="priority"
         >
           <option value="">
-            {{ "taskOffcanvas.form.priority.placeholder" | translate }}
+            {{ "details.form.fields.priority.placeholder" | translate }}
           </option>
           @for (priority of priorities; track priority.name) {
           <option [value]="priority.name">
-            {{ "task.priority." + priority.name | translate }}
+            {{ "priorities." + priority.name | translate }}
           </option>
           }
         </select>
@@ -77,7 +79,7 @@
 
       <div class="mb-3">
         <label class="form-label">{{
-          "taskOffcanvas.form.tag.label" | translate
+          "details.form.fields.tag.label" | translate
         }}</label>
         <select
           [class.is-invalid]="isFieldInvalid('tag')"
@@ -85,11 +87,11 @@
           formControlName="tag"
         >
           <option value="">
-            {{ "taskOffcanvas.form.tag.placeholder" | translate }}
+            {{ "details.form.fields.tag.placeholder" | translate }}
           </option>
           @for(tag of tags; track tag.name){
           <option [value]="tag.name">
-            {{ "task.tag." + tag.name | translate }}
+            {{ "tags." + tag.name | translate }}
           </option>
           }
         </select>
@@ -97,7 +99,7 @@
 
       <div class="mb-3">
         <label class="form-label">{{
-          "taskOffcanvas.form.dueDate.label" | translate
+          "details.form.fields.dueDate.label" | translate
         }}</label>
         <input
           [class.is-invalid]="isFieldInvalid('dueDate')"
@@ -126,7 +128,7 @@
           (change)="addAssignee($event)"
         >
           <option value="">
-            {{ "taskOffcanvas.form.assignees.placeholder" | translate }}
+            {{ "details.form.fields.assignees.placeholder" | translate }}
           </option>
           @for (user of availableUsers(); track user.id) {
           <option [value]="user.id">
@@ -138,14 +140,14 @@
 
       <div class="mb-3">
         <label class="form-label">{{
-          "taskOffcanvas.form.description.label" | translate
+          "details.form.fields.description.label" | translate
         }}</label>
         <textarea
           [class.is-invalid]="isFieldInvalid('description')"
           class="form-control"
           formControlName="description"
           placeholder="{{
-            'taskOffcanvas.form.description.placeholder' | translate
+            'details.form.fields.description.placeholder' | translate
           }}"
           rows="3"
         ></textarea>
@@ -159,8 +161,8 @@
         >
           {{
             (isEditing
-              ? "taskOffcanvas.form.update"
-              : "taskOffcanvas.form.create"
+              ? "details.form.submit.update"
+              : "details.form.submit.create"
             ) | translate
           }}
         </button>

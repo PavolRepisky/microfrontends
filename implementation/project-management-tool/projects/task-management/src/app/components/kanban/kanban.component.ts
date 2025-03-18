@@ -33,31 +33,31 @@ export class KanbanComponent {
   }
   @Input() users: User[] = [];
 
-  @Output() onCreate = new EventEmitter<Partial<Task>>();
-  @Output() onEdit = new EventEmitter<Task>();
-  @Output() onView = new EventEmitter<Task>();
-  @Output() onDelete = new EventEmitter<Task>();
-  @Output() onDrop = new EventEmitter<Task>();
+  @Output() onCreateTask = new EventEmitter<Partial<Task>>();
+  @Output() onEditTask = new EventEmitter<Task>();
+  @Output() onViewTask = new EventEmitter<Task>();
+  @Output() onDeleteTask = new EventEmitter<number>();
+  @Output() onDropTask = new EventEmitter<Task>();
 
   columns: KanbanColumn[] = [
     {
       id: 'backlog',
-      title: 'task.status.backlog',
+      title: 'statuses.backlog',
       icon: 'bi-collection-fill',
     },
     {
       id: 'inProgress',
-      title: 'task.status.inProgress',
+      title: 'statuses.inProgress',
       icon: 'bi-hourglass-split',
     },
     {
       id: 'toReview',
-      title: 'task.status.toReview',
+      title: 'statuses.toReview',
       icon: 'bi-eye-fill',
     },
     {
       id: 'done',
-      title: 'task.status.done',
+      title: 'statuses.done',
       icon: 'bi-check-circle-fill',
     },
   ];
@@ -82,7 +82,6 @@ export class KanbanComponent {
   onTaskDrop(event: CdkDragDrop<Task[]>) {
     const { container, previousContainer, currentIndex, previousIndex } = event;
     const newStatus = container.id as KanbanStatus;
-    const previousStatus = previousContainer.id as KanbanStatus;
 
     if (previousContainer === container) {
       moveItemInArray(container.data, previousIndex, currentIndex);
@@ -98,14 +97,7 @@ export class KanbanComponent {
 
       task.status = newStatus;
 
-      this.onDrop.emit(task);
-
-      // this.onStatusChange.emit({
-      //   task,
-      //   previousStatus,
-      //   newStatus,
-      //   newIndex: currentIndex,
-      // });
+      this.onDropTask.emit(task);
     }
   }
 
