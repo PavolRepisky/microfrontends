@@ -1,7 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy } from '@angular/core';
 import { MicrofrontendRegistryService } from '../../services/microfrontend-registry.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { ThemeService } from '../../services/theme.service';
 import { LanguageService } from '../../services/language.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -15,23 +14,14 @@ import { takeUntil } from 'rxjs/operators';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardComponent implements OnDestroy {
-  theme: string;
   language: string;
   private destroy$ = new Subject<void>();
 
   constructor(
     private mfeRegistry: MicrofrontendRegistryService,
-    private themeService: ThemeService,
     private languageService: LanguageService
   ) {
-    this.theme = this.themeService.getCurrentTheme();
     this.language = this.languageService.getCurrentLanguage();
-
-    this.themeService.theme$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((newTheme) => {
-        this.theme = newTheme;
-      });
 
     this.languageService.language$
       .pipe(takeUntil(this.destroy$))

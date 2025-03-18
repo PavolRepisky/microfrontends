@@ -3,11 +3,14 @@
   <new-users-widget [users]="users()"></new-users-widget>
 </div>
 } @else {
+
 <main class="container h-100 py-3">
   <header class="d-flex justify-content-between align-items-center mb-4">
     <div>
-      <h2 class="fw-semibold mb-1">{{ "title" | translate }}</h2>
-      <p class="text-muted mb-0">{{ "subtitle" | translate }}</p>
+      <h2 class="fw-semibold mb-1">
+        {{ "title" | translate }}
+      </h2>
+      <h6 class="text-muted mb-0">{{ "subtitle" | translate }}</h6>
     </div>
 
     <button
@@ -19,6 +22,11 @@
       <span>{{ "addUser" | translate }}</span>
     </button>
   </header>
+
+  <h5 class="shadow-dom-alert mb-4">
+    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+    <span>Error: Shadow DOM is not set up correctly.</span>
+  </h5>
 
   <div class="mb-2">
     <user-role-filter

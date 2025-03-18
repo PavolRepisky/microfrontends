@@ -10,7 +10,11 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { User } from '../../types/user.type';
 import { roles } from '../../types/role.type';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbModal,
+  NgbModalRef,
+  NgbDropdownModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
 const ITEMS_PER_PAGE = 6;
@@ -18,7 +22,7 @@ const ITEMS_PER_PAGE = 6;
 @Component({
   selector: 'user-table',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, NgbDropdownModule],
   templateUrl: './user-table.component.html',
   styleUrl: './user-table.component.scss',
 })

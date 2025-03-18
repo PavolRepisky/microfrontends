@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { environment } from '../enviroments/environment';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +9,6 @@ import { environment } from '../enviroments/environment';
   imports: [RouterOutlet, NavigationComponent, TranslateModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {}

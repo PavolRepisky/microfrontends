@@ -51,47 +51,41 @@
           </span>
         </td>
         <td class="align-middle text-end">
-          <div class="dropdown">
+          <div ngbDropdown class="d-inline-block">
             <button
               class="btn btn-link text-reset text-decoration-none"
               type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+              ngbDropdownToggle
             >
               <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end p-0">
-              <li>
-                <button
-                  class="dropdown-item"
-                  type="button"
-                  (click)="onViewUser.emit(user)"
-                >
-                  <i class="bi bi-eye me-2" aria-hidden="true"></i>
-                  {{ "table.actions.view" | translate }}
-                </button>
-              </li>
-              <li>
-                <button
-                  class="dropdown-item"
-                  type="button"
-                  (click)="onEditUser.emit(user)"
-                >
-                  <i class="bi bi-pencil me-2" aria-hidden="true"></i>
-                  {{ "table.actions.edit" | translate }}
-                </button>
-              </li>
-              <li>
-                <button
-                  class="dropdown-item text-danger"
-                  type="button"
-                  (click)="openDeleteConfirmation(user.id)"
-                >
-                  <i class="bi bi-trash me-2" aria-hidden="true"></i>
-                  {{ "table.actions.delete" | translate }}
-                </button>
-              </li>
-            </ul>
+            <div ngbDropdownMenu class="dropdown-menu-end p-0">
+              <button
+                ngbDropdownItem
+                type="button"
+                (click)="onViewUser.emit(user)"
+              >
+                <i class="bi bi-eye me-2" aria-hidden="true"></i>
+                {{ "table.actions.view" | translate }}
+              </button>
+              <button
+                ngbDropdownItem
+                type="button"
+                (click)="onEditUser.emit(user)"
+              >
+                <i class="bi bi-pencil me-2" aria-hidden="true"></i>
+                {{ "table.actions.edit" | translate }}
+              </button>
+              <button
+                ngbDropdownItem
+                class="text-danger"
+                type="button"
+                (click)="openDeleteConfirmation(user.id)"
+              >
+                <i class="bi bi-trash me-2" aria-hidden="true"></i>
+                {{ "table.actions.delete" | translate }}
+              </button>
+            </div>
           </div>
         </td>
       </tr>

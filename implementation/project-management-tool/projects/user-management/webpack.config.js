@@ -19,7 +19,6 @@ const inputFiles = [
   path.resolve(__dirname, "../../dist/user-management/browser/polyfills.js"),
   path.resolve(__dirname, "../../dist/user-management/browser/styles.css"),
   path.resolve(__dirname, "../../dist/user-management/browser/main.js"),
-  path.resolve(__dirname, "../../dist/user-management/browser/scripts.js"),
 ];
 
 module.exports = {

@@ -1,9 +1,10 @@
 import {
   Component,
-  ElementRef,
   Input,
   OnChanges,
+  OnInit,
   SimpleChanges,
+  ViewEncapsulation,
 } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,18 +14,22 @@ import { TranslateService } from '@ngx-translate/core';
   standalone: true,
   imports: [AppComponent],
   template: '<user-root [compact]="compact"></user-root>',
+  styleUrl: '../../../styles.scss',
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class EntryComponent implements OnChanges {
+export class EntryComponent implements OnInit, OnChanges {
   @Input() compact = false;
   @Input() language = 'en';
 
   constructor(private translate: TranslateService) {}
 
+  ngOnInit(): void {
+    this.translate.use(this.language);
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes');
     if (changes['language']) {
       this.translate.use(this.language);
-      console.log('User MFE language changed:', this.language);
     }
   }
 }
