@@ -19,6 +19,7 @@ export class ThemeService {
     this.themeSubject.next(theme);
     this.applyTheme(theme);
     localStorage.setItem(this.THEME_KEY, theme);
+    console.log('theme set');
   }
 
   getCurrentTheme(): string {
@@ -27,6 +28,7 @@ export class ThemeService {
 
   private getInitialTheme(): string {
     const storedTheme = localStorage.getItem(this.THEME_KEY);
+    console.log('storedTheme', storedTheme);
     return storedTheme || 'light';
   }
 
