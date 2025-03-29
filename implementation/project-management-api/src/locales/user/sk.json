@@ -86,10 +86,11 @@
     "title": "Vymazať používateľa",
     "message": "Naozaj chcete vymazať tohto používateľa? Túto akciu nie je možné vrátiť späť."
   },
-  "widgets": {
-    "recentUsers": {
-      "title": "Nedávno pridaní používatelia"
-    }
+  "userWidget": {
+    "title": "Nový Používatelia"
+  },
+  "userChart": {
+    "title": "Počet Používateľov"
   },
   "common": {
     "cancel": "Zrušiť",

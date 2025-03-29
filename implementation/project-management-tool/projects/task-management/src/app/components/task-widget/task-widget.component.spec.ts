@@ -1,17 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TaskWidgetComponent } from './task-widget.component';
 
-import { NewUsersWidgetComponent } from './new-users-widget.component';
-
-describe('NewUsersWidgetComponent', () => {
-  let component: NewUsersWidgetComponent;
-  let fixture: ComponentFixture<NewUsersWidgetComponent>;
+describe('TaskWidgetComponent', () => {
+  let component: TaskWidgetComponent;
+  let fixture: ComponentFixture<TaskWidgetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NewUsersWidgetComponent],
+      imports: [TaskWidgetComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NewUsersWidgetComponent);
+    fixture = TestBed.createComponent(TaskWidgetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

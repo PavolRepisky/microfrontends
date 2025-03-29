@@ -80,13 +80,11 @@
     "title": "Vymazať úlohu",
     "message": "Ste si istí, že chcete vymazať túto úlohu? Táto akcia sa nedá vrátiť späť."
   },
-  "widgets": {
-    "newTasks": {
-      "title": "Nové úlohy"
-    },
-    "tasksChart": {
-      "title": "Dokončenie úloh"
-    }
+  "taskWidget": {
+    "title": "Nové Úlohy"
+  },
+  "taskChart": {
+    "title": "Počet Úloh"
   },
   "common": {
     "cancel": "Zrušiť",

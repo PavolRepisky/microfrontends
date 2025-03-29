@@ -1,6 +1,11 @@
 @if (compact) {
-<div [class]="!embeded ? 'p-3' : ''" class="h-100">
-  <new-users-widget [users]="users()"></new-users-widget>
+<div [class]="!embeded ? 'p-3' : ''" class="row g-3">
+  <div class="col-md-6">
+    <user-chart />
+  </div>
+  <div class="col-md-6">
+    <user-widget [users]="users()" />
+  </div>
 </div>
 } @else {
 

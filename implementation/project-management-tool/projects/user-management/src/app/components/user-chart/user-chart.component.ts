@@ -3,13 +3,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Chart, registerables } from 'chart.js';
 
 @Component({
-  selector: 'tasks-chart-widget',
+  selector: 'user-chart',
   standalone: true,
   imports: [TranslateModule],
-  templateUrl: './tasks-chart-widget.component.html',
-  styleUrl: './tasks-chart-widget.component.scss',
+  templateUrl: './user-chart.component.html',
+  styleUrl: './user-chart.component.scss',
 })
-export class TasksChartWidgetComponent {
+export class UserChartComponent {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;
   private chart!: Chart;
 
@@ -25,23 +25,9 @@ export class TasksChartWidgetComponent {
     const ctx = this.chartCanvas.nativeElement.getContext('2d');
     if (!ctx) return;
 
-    const now = new Date();
-    const currentMonth = now.toLocaleString('default', { month: 'short' });
-    const daysInMonth = new Date(
-      now.getFullYear(),
-      now.getMonth() + 1,
-      0
-    ).getDate();
+    const labels = this.getLastMonths(12);
 
-    const labels = Array.from(
-      { length: daysInMonth },
-      (_, i) => `${currentMonth} ${i + 1}`
-    );
-
-    const dataPoints = [
-      12, 13, 15, 18, 20, 21, 20, 18, 16, 16, 17, 19, 21, 22, 22, 20, 19, 19,
-      20, 22, 24, 25, 26, 27, 28, 29, 30, 31, 32, 31, 30,
-    ];
+    const dataPoints = [22, 24, 25, 23, 27, 30, 28, 29, 31, 34, 36, 32];
 
     const data = {
       labels: labels,
@@ -83,6 +69,8 @@ export class TasksChartWidgetComponent {
               font: {
                 size: 11,
               },
+              maxRotation: 45,
+              minRotation: 45,
             },
           },
           y: {
@@ -99,9 +87,23 @@ export class TasksChartWidgetComponent {
         },
         interaction: {
           intersect: false,
-          mode: 'index',
+          mode: 'nearest',
+          axis: 'x',
         },
       },
     });
+  }
+
+  private getLastMonths(count: number): string[] {
+    const months = [];
+    const now = new Date();
+
+    for (let i = count - 1; i >= 0; i--) {
+      const monthDate = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      const monthStr = monthDate.toLocaleString('default', { month: 'short' });
+      months.push(`${monthStr}`);
+    }
+
+    return months;
   }
 }

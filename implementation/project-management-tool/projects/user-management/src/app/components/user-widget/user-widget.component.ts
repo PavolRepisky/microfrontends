@@ -4,13 +4,13 @@ import { EventService } from '../../services/event.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'new-users-widget',
+  selector: 'user-widget',
   standalone: true,
   imports: [TranslateModule],
-  templateUrl: './new-users-widget.component.html',
-  styleUrl: './new-users-widget.component.scss',
+  templateUrl: './user-widget.component.html',
+  styleUrl: './user-widget.component.scss',
 })
-export class NewUsersWidgetComponent {
+export class UserWidgetComponent {
   @Input() set users(value: User[]) {
     this.allUsers.set(value);
   }

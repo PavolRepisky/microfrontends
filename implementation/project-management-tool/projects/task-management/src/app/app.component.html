@@ -1,10 +1,10 @@
 @if (compact) {
 <div [class]="!embedded ? 'p-3' : ''" class="row g-3">
   <div class="col-md-6">
-    <tasks-chart-widget></tasks-chart-widget>
+    <task-chart />
   </div>
   <div class="col-md-6">
-    <new-tasks-widget [tasks]="tasks()"></new-tasks-widget>
+    <task-widget [tasks]="tasks()" />
   </div>
 </div>
 

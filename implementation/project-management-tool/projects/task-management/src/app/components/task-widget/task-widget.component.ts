@@ -4,13 +4,13 @@ import { EventService } from '../../services/event.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'new-tasks-widget',
+  selector: 'task-widget',
   standalone: true,
   imports: [TranslateModule],
-  templateUrl: './new-tasks-widget.component.html',
-  styleUrl: './new-tasks-widget.component.scss',
+  templateUrl: './task-widget.component.html',
+  styleUrl: './task-widget.component.scss',
 })
-export class NewTasksWidgetComponent implements OnInit {
+export class TaskWidgetComponent implements OnInit {
   @Input() set tasks(value: Task[]) {
     this.allTasks.set(value);
   }

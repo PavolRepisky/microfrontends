@@ -7,9 +7,9 @@ import { TaskOffcanvasComponent } from './components/task-offcanvas/task-offcanv
 import { TaskService } from './services/task.service';
 import { UserService } from './services/user.service';
 import { User } from './types/user.type';
-import { NewTasksWidgetComponent } from './components/new-tasks-widget/new-tasks-widget.component';
+import { TaskWidgetComponent } from './components/task-widget/task-widget.component';
 import { environment } from '../environments/environment';
-import { TasksChartWidgetComponent } from './components/tasks-chart-widget/tasks-chart-widget.component';
+import { TaskChartComponent } from './components/task-chart/task-chart.component';
 
 @Component({
   selector: 'task-root',
@@ -17,14 +17,14 @@ import { TasksChartWidgetComponent } from './components/tasks-chart-widget/tasks
   imports: [
     TranslateModule,
     KanbanComponent,
-    NewTasksWidgetComponent,
-    TasksChartWidgetComponent,
+    TaskWidgetComponent,
+    TaskChartComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  @Input() compact = false;
+  @Input() compact: boolean = false;
 
   tasks = signal<Task[]>([]);
   users = signal<User[]>([]);

@@ -8,8 +8,9 @@ import { UserTableComponent } from './components/user-table/user-table.component
 import { RoleFilterComponent } from './components/role-filter/role-filter.component';
 import { UserOffcanvasComponent } from './components/user-offcanvas/user-offcanvas.component';
 import { CommonModule } from '@angular/common';
-import { NewUsersWidgetComponent } from './components/new-users-widget/new-users-widget.component';
+import { UserWidgetComponent } from './components/user-widget/user-widget.component';
 import { environment } from '../environments/environment';
+import { UserChartComponent } from './components/user-chart/user-chart.component';
 
 @Component({
   selector: 'user-root',
@@ -20,13 +21,14 @@ import { environment } from '../environments/environment';
     RoleFilterComponent,
     FormsModule,
     CommonModule,
-    NewUsersWidgetComponent,
+    UserWidgetComponent,
+    UserChartComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  @Input() compact = false;
+  @Input() compact: boolean = false;
 
   private readonly userService = inject(UserService);
   private readonly offcanvasService = inject(NgbOffcanvas);
