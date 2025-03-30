@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.13)  11 MAR 2025 17:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.13)  30 MAR 2025 17:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -771,89 +771,99 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 )) (chapters/implementation/Implementation.tex [39 <./images/wireframes/user-microfrontend.png>] [40 <./images/wireframes/task-microfrontend.png> <./images/wireframes/dashboard.png>]
 Chapter 5.
 (chapters/implementation/Overview.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
+Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
 [41
 
-] [42]
-Overfull \hbox (52.86166pt too wide) in paragraph at lines 102--102
-[]     \T1/cmtt/m/n/12 path.resolve(__dirname, "../../dist/user-management/browser/polyfills.js"),[] 
+]
+Overfull \hbox (19.08664pt too wide) in paragraph at lines 20--21
+\T1/cmr/m/n/12 The de-vel-op-ment of mi-crofron-tends fol-lowed a sim-i-lar ap-proach to the \T1/cmtt/m/n/12 application-shell\T1/cmr/m/n/12 ,
  []
 
 
-Overfull \hbox (40.51468pt too wide) in paragraph at lines 102--102
-[]     \T1/cmtt/m/n/12 path.resolve(__dirname, "../../dist/user-management/browser/styles.css"),[] 
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
  []
 
-
-Overfull \hbox (21.9942pt too wide) in paragraph at lines 102--102
-[]     \T1/cmtt/m/n/12 path.resolve(__dirname, "../../dist/user-management/browser/main.js"),[] 
- []
-
-
-Overfull \hbox (40.51468pt too wide) in paragraph at lines 102--102
-[]     \T1/cmtt/m/n/12 path.resolve(__dirname, "../../dist/user-management/browser/scripts.js"),[] 
- []
-
-
-Overfull \hbox (21.9942pt too wide) in paragraph at lines 102--102
-[]       \T1/cmtt/m/n/12 path: path.resolve(__dirname, "../../dist/user-management/browser"),[] 
- []
-
-[43]) (chapters/implementation/Communication.tex
+) (chapters/implementation/Composition.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--8
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-[44]) (chapters/implementation/Routing.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--3
-
+) (chapters/implementation/Communication.tex [43]
+Overfull \hbox (28.1677pt too wide) in paragraph at lines 45--45
+[]  \T1/cmtt/m/n/12 export class MicrofrontendLanguageDirective implements OnInit, OnDestroy {[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--6
+Overfull \hbox (65.20865pt too wide) in paragraph at lines 45--45
+[]            \T1/cmtt/m/n/12 this.translateService.currentLang ?? this.translateService.defaultLang[] 
+ []
+
+[44] [45]
+Overfull \hbox (15.82071pt too wide) in paragraph at lines 82--82
+[]    \T1/cmtt/m/n/12 const windowListener = (event: CustomEvent) => callback(event.detail);[] 
+ []
+
+
+Overfull \hbox (3.47372pt too wide) in paragraph at lines 82--82
+[]    \T1/cmtt/m/n/12 window.addEventListener(eventName, windowListener as EventListener);[] 
+ []
+
+
+Overfull \hbox (34.34119pt too wide) in paragraph at lines 82--82
+[]      \T1/cmtt/m/n/12 window.removeEventListener(eventName, windowListener as EventListener);[] 
+ []
+
+) (chapters/implementation/Routing.tex [46]
+Overfull \hbox (15.82071pt too wide) in paragraph at lines 26--26
+[]    \T1/cmtt/m/n/12 template: `<user-management microfrontendLanguage></user-management>`,[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
-) (chapters/implementation/Styling.tex [45]) (chapters/implementation/Resource-Sharing.tex)) (chapters/evaluation_results/EvaluationResults.tex [46]
+) (chapters/implementation/Styling.tex)) (chapters/evaluation_results/EvaluationResults.tex
+Overfull \hbox (2.48242pt too wide) in paragraph at lines 11--1
+\T1/cmr/m/n/12 strap is im-ported. In-stead of im-port-ing Boot-strap in the styles sec-tion of \T1/cmtt/m/n/12 angular.json\T1/cmr/m/n/12 ,
+ []
+
+[47] [48]
 Chapter 6.
 
 Overfull \hbox (3.90273pt too wide) in paragraph at lines 6--7
 \T1/cmr/m/n/12 Reusability refers to the abil-ity of soft-ware com-po-nents^^Vin our case, mi-crofron-tends^^Vto
  []
 
-[47
+[49
 
-] [48]) (chapters/Conclusion.tex [49]
+] [50]) (chapters/Conclusion.tex [51]
 Chapter 7.
 
-LaTeX Warning: Citation `Oetiker2000' on page 50 undefined on input line 17.
+LaTeX Warning: Citation `Oetiker2000' on page 52 undefined on input line 17.
 
-) [50
+) [52
 
 ] (main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
 []\T1/cmr/m/n/12 C. Jack-son, ``Mi-cro fron-tends.'' []$\T1/cmtt/m/n/12 https : / / martinfowler . com / articles /
  []
 
-[51
+[53
 
 
 
@@ -887,7 +897,7 @@ Underfull \hbox (badness 1852) in paragraph at lines 136--139
 []\T1/cmr/m/n/12 ``Web com-po-nents.'' []$\T1/cmtt/m/n/12 https : / / developer . mozilla . org / en-[]US / docs / Web / API /
  []
 
-[52]
+[54]
 Underfull \hbox (badness 4467) in paragraph at lines 152--156
 []\T1/cmr/m/n/12 J. James, ``Cus-tom events in javascript: A com-plete guide.'' []$\T1/cmtt/m/n/12 https :
  []
@@ -902,7 +912,7 @@ Underfull \hbox (badness 1360) in paragraph at lines 158--161
 []\T1/cmr/m/n/12 ``<iframe>: The in-line frame el-e-ment.'' []$\T1/cmtt/m/n/12 https : / / developer . mozilla . org /
  []
 
-) [53] (main.aux)
+) [55] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -912,20 +922,20 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1E2BEA4E1D87A9294AA67D23D0C028BA;10430.
+(rerunfilecheck)             Checksum: 86C2D62C0781239CC88F8E89A25BC5D0;10402.
  ) 
 Here is how much of TeX's memory you used:
- 13480 strings out of 474486
- 213077 string characters out of 5744226
+ 13484 strings out of 474486
+ 213098 string characters out of 5744226
  1939542 words of memory out of 5000000
  35251 multiletter control sequences out of 15000+600000
  572895 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,79p,1299b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\palo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on main.pdf (65 pages, 1398795 bytes).
+Output written on main.pdf (67 pages, 1405119 bytes).
 PDF statistics:
- 1588 PDF objects out of 1728 (max. 8388607)
- 232 named destinations out of 1000 (max. 500000)
+ 1601 PDF objects out of 1728 (max. 8388607)
+ 236 named destinations out of 1000 (max. 500000)
  599 words of extra memory for PDF output out of 10000 (max. 10000000)
 

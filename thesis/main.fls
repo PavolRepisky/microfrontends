@@ -311,10 +311,10 @@ INPUT .\images\wireframes\dashboard.png
 INPUT .\images\wireframes\dashboard.png
 INPUT chapters\implementation\Implementation.tex
 INPUT chapters\implementation\Overview.tex
+INPUT chapters\implementation\Composition.tex
 INPUT chapters\implementation\Communication.tex
 INPUT chapters\implementation\Routing.tex
 INPUT chapters\implementation\Styling.tex
-INPUT chapters\implementation\Resource-Sharing.tex
 INPUT chapters\evaluation_results\EvaluationResults.tex
 INPUT chapters\Conclusion.tex
 INPUT .\main.bbl

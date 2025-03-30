@@ -1,8 +1,30 @@
 \section{Routing}
-Routing is primarily handled in the application shell, for the most part using the standard approach via @angular/router. When a route for a component inside the application shell is requested, we simply load the component in the standard way. If a route for a microfrontend is requested, we first check if the microfrontend can be loaded via a route guard. If it can, we then lazy load the microfrontend by appending a script that points to the correct URL. This script subsequently renders the microfrontend. \\
+Routing is completely handled in the \texttt{application-shell}, using the standard approach via \texttt{@angular/router}. When a route for a component inside the application shell is requested, we simply load the component in the standard way. If a route for a microfrontend is requested, we first check if the microfrontend can be loaded via a route guard. If it can, we then lazy-load the microfrontend by injecting a script tag with the provided \texttt{bundleUrl}, as already explained in the previous section. Each microfrontend that should be rendered as a separate page has its own route definition, which looks, for example, like following.
+\begin{verbatim}
+  export const USER_MANAGEMENT_ROUTES: Routes = [
+    {
+      path: '**',
+      canActivate: [LoadMicrofrontendGuard],
+      component: UserManagementHostComponent,
+      data: {
+        bundleUrl: 'http://localhost:4201/bundle.js',
+        compact: false,
+      },
+    },
+  ];
+\end{verbatim}
+And the host component would then look like the following.
+\begin{verbatim}
+  @Component({
+    selector: 'user-management-host',
+    standalone: true,
+    imports: [MicrofrontendLanguageDirective],
+    template: `<user-management microfrontendLanguage></user-management>`,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  })
+  export class UserManagementHostComponent {}
+\end{verbatim}
+In the case of multiple microfrontends on the same page, we define the page and the route in the \texttt{application-shell} like any other page and load the microfrontends directly using the \texttt{MicrofrontendRegistryService}. \\
 
 \noindent
-If a microfrontend has multiple routes of its own, this requires specific handling. In such cases, a route change listener in the application shell will detect route changes. When a route is changed, the application shell will pass an updated attribute for the route to the microfrontend, causing it to re-render. The microfrontend will have its own router, which uses the route information from the application shell to load the correct page. \\
-
-\noindent
-The microfrontend itself must also listen for its own route changes. If the route is changed within the microfrontend, it will inform the application shell via CustomEvents. The application shell will then handle the routing accordingly and pass the new route to the microfrontend. 
+In our case, we do not have a microfrontend with multiple pages. However, if that were the case, we would propagate the full route from the shell down to the microfrontend via an attribute. The microfrontend would then have its own router and handle the route internally. In the case of a route change triggered within the microfrontend (not the application-shell), we would propagate the new route to the shell, which would handle it as necessary, pass it back to the microfrontend, and only then would the route change in the microfrontend.
