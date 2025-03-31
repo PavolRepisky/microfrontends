@@ -2,30 +2,7 @@
 \label{chap:EvaluationResults}
 This chapter analyzes and evaluates the implemented prototypical application in terms of reusability, extensibility, resource sharing, and application state management, with each aspect discussed in its own section.
 
-\section{Reusability}
-Reusability refers to the ability of software components—in our case, microfrontends—to be used across multiple applications or within different parts of the same application with minimal modifications. Our application achieves a high degree of reusability due to three key factors.
-
-First, it leverages Web Components, a browser standard that allows components to be reused in any environment or framework. Second, well-designed boundaries and domains for the microfrontends enable their reuse across different applications. For example, the user microfrontend can be used in almost any application that supports user roles, as user management is an essential part of most systems. Lastly, the microfrontends are already being reused within the application dashboard through the compact mode attribute. 
-
-However, our implementation also introduces a challenge to reusability, as microfrontends cannot be easily styled externally. This is due to two factors. First, they come with their own dependencies and do not share any with the parent application. Second, they utilize the Shadow DOM, which isolates their DOM tree, making it inaccessible from the outside.
-
-\section{Extensibility}
-Extensibility refers to the ability of a system to be enhanced with new functionality or modifications without requiring significant changes to existing components. Our microfrontend architecture is designed with extensibility in mind. 
-
-For small modifications, changes typically affect only a single microfrontend due to the logical separation by domains. At most, new event handlers may need to be added to surrounding microfrontends. Compared to monolithic frontends, modifying a single microfrontend is significantly easier, as each has a smaller, more manageable codebase with little to no coupling.
-
-For major changes, new functionality usually falls into its own domain and is added as a completely new microfrontend. Adding a new microfrontend is straightforward—since they are developed as standard Angular applications for most part and transformed into custom elements only at build time. Existing microfrontends remain unchanged, with only the application shell needing to register the new route and microfrontend.
-
-However, one challenge with our current implementation is that each microfrontend comes with its own dependencies. A large number of microfrontends could lead to performance issues due to redundant dependencies. To address this, some form of dependency sharing would need to be implemented.
-
-\section{Resource Sharing}
-Resource sharing in our context refers to the ability of microfrontends to efficiently utilize and share common assets, dependencies, and services to minimize redundancy and improve performance. This is an area where our implementation faces the most challenges.
-
-Although each microfrontend and the application shell use the same version of most dependencies, such as Bootstrap, each microfrontend brings its own version. This is a tradeoff we've accepted for the strong isolation provided by Web Components. Currently, our microfrontends do not share any assets besides translations, which are fetched from the backend at runtime.
-
-In the event that we need to share other assets across microfrontends, we could implement a solution by setting an environment variable URL that points to a shared cloud storage location. This would allow all microfrontends to fetch assets from a centralized location. However generally, this area of our application requires further research and improvements to ensure optimal performance and efficient resource sharing.
-
-\section{Application State Management}
-Application state management refers to the synchronization of data across different parts of the application. In a microfrontend architecture, managing application state becomes more complex due to the independent nature of each microfrontend. In our application, there is not much state to manage, aside from the current language and theme. To handle these, we use a combination of local storage and attributes, which can be passed from the shell to the microfrontends. Both of these states are managed centrally in the application shell. User preferences are stored in local storage, and upon initialization or any change, they are passed as attributes down to the microfrontends.
-
-For more complex state management, a more robust solution would need to be implemented to avoid overusing attributes and causing unnecessary re-renders of microfrontends.
+\input chapters/evaluation_results/Reusability.tex
+\input chapters/evaluation_results/Extensibility.tex
+\input chapters/evaluation_results/ResourceSharing.tex
+\input chapters/evaluation_results/ApplicationStateManagement.tex

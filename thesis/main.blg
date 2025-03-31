@@ -5,10 +5,9 @@ Reallocating 'name_of_file' (item size: 1) to 7 items.
 The style file: ieeetr.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: literatura.bib
-Warning--I didn't find a database entry for "Oetiker2000"
 You've used 36 entries,
             1876 wiz_defined-function locations,
-            685 strings with 8132 characters,
+            683 strings with 8110 characters,
 and the built_in function-call counts, 5357 in all, are:
 = -- 549
 > -- 158
@@ -47,4 +46,3 @@ warning$ -- 0
 while$ -- 37
 width$ -- 38
 write$ -- 352
-(There was 1 warning)

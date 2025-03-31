@@ -80,10 +80,10 @@
 \contentsline {section}{\numberline {5.5}Styling}{47}{section.5.5}%
 \contentsline {chapter}{\numberline {6}Evaluation Results}{49}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Reusability}{49}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Extensibility}{49}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Resource Sharing}{50}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Application State Management}{51}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclusion}{52}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Implementation Results}{52}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Practical Implications}{52}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Recommendations for Future Work}{52}{section.7.3}%
+\contentsline {section}{\numberline {6.2}Extensibility}{50}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Resource Sharing}{51}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Application State Management}{52}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{54}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Results}{54}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Practical Implications}{55}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Recommendations for Future Work}{55}{section.7.3}%

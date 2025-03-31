@@ -1,0 +1,49 @@
+\section{Extensibility}
+Extensibility refers to the ability of a system to be enhanced with new functionality or modifications without requiring significant changes to existing components. Our microfrontend architecture is designed with extensibility in mind. \\
+
+\noindent
+Modifications typically fall into two categories. The first includes small modifications that affect only a single microfrontend due to the logical separation by domains. Compared to monolithic frontends, modifying a single microfrontend is significantly easier, as each has a smaller, more manageable codebase with little to no coupling. The second category involves major changes, where new functionality usually falls into its own domain and is added as a completely new microfrontend. Adding a new microfrontend is straightforward—since they are developed as standard Angular applications for the most part and transformed into custom elements only at build time. \\
+
+\noindent
+One of the key advancements in this aspect of our approach is the ability to run multiple Angular applications within the same browser environment, which was previously not possible. Even though we could theoretically add as many microfrontends as we want, we need to consider performance and application size.\\
+
+\noindent
+In our case, the total bundled size of the \texttt{user-management} microfrontend is about 1.19 MB, of which:  
+\begin{itemize}
+    \item \texttt{styles.css} takes 264 KB (22.2\%) (mostly consisting of Bootstrap styles),
+    \item \texttt{polyfills.js} takes 35 KB (2.9\%) (adding support for older browsers),
+    \item \texttt{main.js} takes 894 KB (75.1\%) (containing the actual application code).
+\end{itemize}  
+Similarly, for the \texttt{task-management} microfrontend, the total bundled size is 1.23 MB, with:  
+\begin{itemize}
+    \item \texttt{styles.css} taking 252 KB (20.5\%),
+    \item \texttt{polyfills.js} taking 35 KB (2.8\%),
+    \item \texttt{main.js} taking 943 KB (76.7\%).
+\end{itemize}  
+On average, a microfrontend has a size of about 1.21 MB. Table \ref{table:app-scaling} shows how the total application size scales with different numbers of microfrontends, excluding the \texttt{application-shell} itself. Of course, this scenario applies only to our simple prototypical application. In a real-world application, the size of microfrontends would likely be significantly larger. The most important consideration is that since each microfrontend comes with its own dependencies, the total application size grows exponentially with the number of microfrontends.
+\begin{table}[h]  
+    \centering  
+    \begin{tabular}{|c|c|}  
+        \hline  
+        \textbf{Number of Microfrontends} & \textbf{Total Size (MB)} \\  
+        \hline  
+        1 & 1.21 \\  
+        \hline  
+        2 & 2.42 \\  
+        \hline  
+        4 & 4.84 \\  
+        \hline  
+        8 & 9.68 \\  
+        \hline  
+        16 & 19.36 \\  
+        \hline  
+        32 & 38.72 \\  
+        \hline  
+        64 & 77.44 \\  
+        \hline  
+        128 & 154.88 \\  
+        \hline  
+    \end{tabular}  
+    \caption{Application scaling with multiple microfrontends}  
+    \label{table:app-scaling}  
+\end{table}

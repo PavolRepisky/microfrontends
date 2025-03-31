@@ -1,0 +1,8 @@
+\section{Reusability}
+Reusability refers to the ability of software components — in our case, microfrontends — to be used across multiple applications or within different parts of the same application with minimal modifications. \\
+
+\noindent
+Our application achieves a high degree of reusability due to three key factors. First it leverages Web Components, that allows components to be reused in any environment or framework. Second, well-designed boundaries and domains for the microfrontends enable their reuse across different applications. For example, the user microfrontend can be used in almost any application that supports user roles, as user management is an essential part of most systems. Lastly, the microfrontends are already being reused within the application dashboard through the compact mode attribute. \\
+
+\noindent
+However, our implementation also introduces a challenge to reusability, as microfrontends cannot be easily styled externally. This is due to two factors. First, they come with their own dependencies and do not share any with the parent application. Second, they utilize the Shadow DOM, which isolates their DOM tree, making it inaccessible from the outside.
