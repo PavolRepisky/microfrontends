@@ -1,17 +1,19 @@
 \section{Communication}
-There are two types of intra-application communication occurring in our application.
+Two types of communication occur within our application; this section presents both of them.
 
-\subsection*{Applicaition-Shell to Microfrontend}
-The first type of communication is from the \texttt{application-shell} down to a microfrontend. This occurs when we need to pass attributes to the microfrontend, such as the current language or whether it should be rendered in compact mode. It also happens when an attribute changes to a new value and the microfrontend needs to be informed about it. Since microfrontends are built as custom elements, we can pass any number of attributes as needed. However, proper handling must be implemented in the microfrontend. Therefore, the corresponding teams must define a contract beforehand, specifying which attributes can be passed between them. To pass an attribute, we simply specify it in the HTML as follows.
-\begin{verbatim}
+\subsection*{Applicaition Shell to Microfrontend}
+The first type of communication is from the Application Shell down to a microfrontend. This occurs when we need to pass attributes to the microfrontend, such as the current language or whether it should be rendered in compact mode. It also occurs when an attribute changes to a new value and the microfrontend needs to be informed of it. Since microfrontends are built as custom elements, we can pass any number of attributes as needed. However, proper handling must be implemented within the microfrontend. Therefore, the corresponding teams must define a contract beforehand, specifying which attributes can be passed between them. 
+
+To pass an attribute, we simply specify it in the HTML as follows:
+\begin{lstlisting}
   <user-management compact='true'></user-management>
-\end{verbatim}
-In the microfrontend's entry component, we would then write the following.
-\begin{verbatim}
-   @Input() compact: boolean = false;
-\end{verbatim}
-For attributes that can change over time, such as language, we can create a directive to avoid repeatedly writing subscriptions to observables for each microfrontend. The language directive is defined in the shell like this:
-\begin{verbatim}
+\end{lstlisting}
+In the microfrontend's entry component, we would then write the following:
+\begin{lstlisting}
+  @Input() compact: boolean = false;
+\end{lstlisting}
+For attributes that can change over time, such as the language, we can create a directive to avoid repeatedly writing subscriptions to observables for each microfrontend. The language directive is defined in the Application Shell, as shown in the code below.
+\begin{lstlisting}[caption={Angular directive for synchronizing language changes with microfrontends}]
   @Directive({
     standalone: true,
     selector: '[microfrontendLanguage]',
@@ -42,25 +44,16 @@ For attributes that can change over time, such as language, we can create a dire
       this.destroy$.next();
     }
   }
-\end{verbatim}
+\end{lstlisting}
 And it is used on the microfrontend elements like this:
-\begin{verbatim}
+\begin{lstlisting}
   <user-management microfrontendLanguage></user-management>
-\end{verbatim}
-It is important to note that for attributes which can change over time, we need to define an \texttt{onChange} listener in the microfrontend entry component, as shown below:
-\begin{verbatim}
-  @Input() language?: 'en' | 'sk';
+\end{lstlisting}
+It is important to note that for attributes that can change over time, we need to define an \texttt{onChange} listener in the microfrontend's entry component.
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['language'] && this.language) {
-      this.translateService.use(this.language);
-    }
-  }
-\end{verbatim}
-
-\subsection*{Microfrontend-to-Microfrontend}
-The second type of communication primarily involves communication between microfrontends, but it can also be used to communicate from the shell to a microfrontend or vice versa. This type of communication is handled via browser Custom Events. In each microfrontend, we create an event service with methods to listen for and emit events, as shown below:
-\begin{verbatim}
+\subsection*{Microfrontend to Microfrontend}
+The second type of communication primarily involves communication between microfrontends, but it can also be used to communicate from the shell to a microfrontend or vice versa. This type of communication is handled via the browser CustomEvents. In each microfrontend, we create an event service with methods to listen for and emit events, as shown in the code below.
+\begin{lstlisting}[caption={Event service implementation for microfrontend communication using CustomEvents}]
   private emit(eventName: string, data: any) {
     const customEvent = new CustomEvent(eventName, {
       detail: data,
@@ -79,5 +72,5 @@ The second type of communication primarily involves communication between microf
       window.removeEventListener(eventName, windowListener as EventListener);
     };
   }
-\end{verbatim}
-The microfrontend teams must define a contract beforehand, describing what types of events their microfrontend will listen to and emit, as well as what type of data will be passed through those events. We can then define those listeners and emitters in whichever components are needed.
+\end{lstlisting}
+The microfrontend teams must define a contract beforehand, describing what types of events their microfrontend will listen to and emit, as well as what types of data will be passed through those events. We can then define those listeners and emitters in whichever components are needed.

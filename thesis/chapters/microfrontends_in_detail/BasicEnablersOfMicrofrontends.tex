@@ -1,82 +1,86 @@
 \section{Basic Enablers of Microfrontends}
-In this section, we introduce key technologies that may be unfamiliar to the reader but will be used for implementing microfrontends and will be referenced frequently throughout the thesis.
+In this section, we introduce key technologies that may be unfamiliar to the reader but are essential for implementing microfrontends and will be referenced frequently throughout the thesis.
 
 \subsection{Web Components}
 Web Components are a set of web platform APIs that allow developers to create reusable, encapsulated, and customizable HTML elements \cite{MDNWebComponents}. They are now supported by most major browsers and work across different frameworks and libraries \cite{EisenbergWebComponents}. We will now discuss the three main technologies that make up Web Components.
 
 \subsubsection{HTML Templates}
-HTML templates are a new addition to the HTML language. They allow us to define reusable HTML structures that are not immediately rendered in the document. Instead, they remain inactive until they are cloned via JavaScript \cite{MDNWebComponents}. To create such a structure, we utilize the \texttt{<template>} element.
-\begin{verbatim}
-<template id="my-template">
-  <p>Some content goes here...</p>
-</template>
-\end{verbatim}
-Then, we can clone the template and add it to the DOM via JavaScript.
-\begin{verbatim}
-let template = document.getElementById("my-template");
-let clone = template.content.cloneNode(true);
-document.body.appendChild(clone);
-\end{verbatim}
+HTML templates are a new addition to the HTML language. They allow us to define reusable HTML structures that are not immediately rendered in the document. Instead, they remain inactive until they are cloned via JavaScript \cite{MDNWebComponents}. To create such a structure, we utilize the \texttt{<template>} element, which we can then clone and add to the DOM via JavaScript.
+\begin{lstlisting}[caption={Example of using HTML template element}]
+  <template id="my-template">
+    <p>Some content goes here...</p>
+  </template>
+
+  let template = document.getElementById("my-template");
+  let clone = template.content.cloneNode(true);
+  document.body.appendChild(clone);
+\end{lstlisting}
 A \texttt{<slot>} element can be used inside the template as a placeholder for content passed from the outside. If no content is provided, a default fallback value can be specified. Templates and slots can then be used inside a custom element as the basis of its structure \cite{MDNWebComponents}. 
 
 \subsubsection{Custom Elements}
-Custom elements are a set of JavaScript APIs for creating custom HTML elements with specific behavior \cite{MDNWebComponents}. To register a custom element, we use the \texttt{customElements} global object and its method \texttt{define}, to which we pass a hyphenated tag name and a class that inherits from the \texttt{HTMLElement} class.
-\begin{verbatim}
-customElements.define(
-  "my-element", 
-  class MyElement extends HTMLElement {}
-);
-\end{verbatim}
-Lifecycle hooks can then be leveraged inside the class to adjust its behavior, such as:
+Custom elements are a set of JavaScript APIs for creating custom HTML elements with specific behavior \cite{MDNWebComponents}. To register a custom element, we use the \texttt{customElements} global object and its \texttt{define} method, to which we pass a hyphenated tag name and a class that inherits from the \texttt{HTMLElement} class. Lifecycle hooks can then be leveraged inside the class to adjust its behavior, such as:
 \begin{itemize}
   \item \texttt{connectedCallback()} - this lifecycle hook is fired when the element is connected to the DOM,
   \item \texttt{disconnectedCallback()} - this lifecycle hook is fired when the element is disconnected from the DOM,
   \item \texttt{attributeChangedCallback(name, oldValue, newValue)} - this lifecycle hook is fired whenever one of the observed attributes is changed.
 \end{itemize}
 To define the content of a custom element, we assign an HTML string to its \texttt{innerHTML} property. The element can then be used inside an HTML document like any other element.
-\begin{verbatim}
-<my-element attribute="value"></my-element>
-\end{verbatim}
+\begin{lstlisting}[caption={Example of creating and using a custom element}]
+  class MyElement extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      console.log("Element connected to the DOM")
+    }
+  }
+
+  customElements.define(
+    "my-element", 
+    class MyElement extends HTMLElement {}
+  );
+
+  ...
+  <my-element attribute="value"></my-element>
+\end{lstlisting}
 
 \subsubsection{Shadow DOM}
-Lastly Shadow DOM is a set of JavaScript APIs that enables us to attach an encapsulated ``shadow'' DOM subtree to an element, which is then rendered separately from the main document DOM \cite{MDNWebComponents}. The styles and scripts placed inside it do not leak out and affect the surrounding DOM, nor do outside styles and scripts leak into it. This way, we do not have to worry about collisions with other parts of the document \cite{EisenbergWebComponents}. To use Shadow DOM inside a custom element, we must first attach it by calling \texttt{attachShadow(options)} and specifying the mode (\texttt{open} or \texttt{closed}), then append whatever content we want to it.
-\begin{verbatim}
-class MyElement extends HTMLElement {
-  constructor() {
-    super();
-    let shadow = this.attachShadow({ mode: 'open' });
-    let div = document.createElement('div');
-    div.textContent = "Some content goes here...";
-    shadow.appendChild(div);
+Lastly, Shadow DOM is a set of JavaScript APIs that enable us to attach an encapsulated ``shadow'' DOM subtree to an element, which is then rendered separately from the main document DOM \cite{MDNWebComponents}. The styles and scripts placed inside it do not leak out and affect the surrounding DOM, nor do outside styles and scripts leak into it. This way, we do not have to worry about collisions with other parts of the document \cite{EisenbergWebComponents}. To use Shadow DOM inside a custom element, we must first attach it by calling \texttt{attachShadow(options)} and specifying the mode (\texttt{open} or \texttt{closed}), then append whatever content we want to it.
+\begin{lstlisting}[caption={Example of using Shadow DOM in a custom element}]
+  class MyElement extends HTMLElement {
+    constructor() {
+      super();
+      let shadow = this.attachShadow({ mode: 'open' });
+      let div = document.createElement('div');
+      div.textContent = "Some content goes here...";
+      shadow.appendChild(div);
+    }
   }
-}
-\end{verbatim}
+\end{lstlisting}
 Open Shadow DOM can be accessed via JavaScript using \texttt{element.shadowRoot}. Closed Shadow DOM cannot be accessed externally using \texttt{element.shadowRoot} \cite{MDNWebComponents}.
 
-
 \subsection{Custom Events}
-Unlike built-in events like \texttt{click} or \texttt{keydown}, custom events do not natively exist in the browser but are created and dispatched manually via JavaScript. Custom events allow developers to define their own event names and pass any custom data \cite{MDNCustomEvent}. The \texttt{CustomEvent} constructor is used to create such events, to which we pass an event name and an optional object where we can specify the data we want to send and the properties of the event, such as following.
+Unlike built-in events like \texttt{click} or \texttt{keydown}, custom events do not natively exist in the browser but are created and dispatched manually via JavaScript. Custom events allow developers to define their own event names and pass any custom data \cite{MDNCustomEvent}. The \texttt{CustomEvent} constructor is used to create such events, to which we pass an event name and an optional object where we can specify the data we want to send and the properties of the event, such as the following:
 \begin{itemize}
-    \item \texttt{bubbles: true} - Allows the event to propagate upward to the parent element. This is set to \texttt{false} in custom events by default. The propagation can be stopped using \texttt{stopPropagation()} method.
-    \item \texttt{cancelable: true} - Allows the event to be canceled via \texttt{preventDefault()} method.
-    \item \texttt{composed: true} - Allows the event to propagate from the shadow DOM to the real DOM. In this case, the \texttt{bubbles} property must be set to \texttt{true} \cite{JamesCustomEvent}.
+    \item \texttt{bubbles: true} - Allows the event to propagate upward to the parent element. This is set to \texttt{false} in custom events by default. Propagation can be stopped using the \texttt{stopPropagation()} method.
+    \item \texttt{cancelable: true} - Allows the event to be canceled via the \texttt{preventDefault()} method.
+    \item \texttt{composed: true} - Allows the event to propagate from the shadow DOM to the real DOM. In this case, the \texttt{bubbles} property must also be set to \texttt{true} \cite{JamesCustomEvent}.
 \end{itemize}
-Putting it all together, we would create a custom event as follows.
-\begin{verbatim}
-let myEvent = new CustomEvent("my-event", {
-  detail: {key: "value"},
-  bubbles: true,
-  cancelable: true,
-  composed: false,
-});
-\end{verbatim}
-The event can then be dispatched on a specific element using \texttt{dispatchEvent()} method.
-\begin{verbatim}
-document.dispatchEvent(myEvent);
-\end{verbatim}
-We can listen for the event using \texttt{addEventListener()} method.
-\begin{verbatim}
-document.addEventListener("my-event", function (e) {
-  console.log("My event value:", e.detail.key);
-});
-\end{verbatim}
+The event can then be dispatched on a specific element using the \texttt{dispatchEvent()} method and listened to using the \texttt{addEventListener()} method. Putting it all together, we would create a custom event as show in the example bellow.
+\begin{lstlisting}[caption={Example of creating and handling custom events}]
+  let myEvent = new CustomEvent("my-event", {
+    detail: {key: "value"},
+    bubbles: true,
+    cancelable: true,
+    composed: false,
+  });
+
+  ...
+  document.dispatchEvent(myEvent);
+
+  ...
+  document.addEventListener("my-event", function (e) {
+    console.log("My event value:", e.detail.key);
+  });
+\end{lstlisting}

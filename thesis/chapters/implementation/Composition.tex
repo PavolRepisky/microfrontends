@@ -1,27 +1,16 @@
 \section{Composition}
-For the application composition to work correctly, we had to utilize a couple of special techniques. First, we had to modify how the microfrontends would be built. There are two types of environments in which the microfrontends can operate. The first one is the local development environment, in which the microfrontend is built as a standard Angular application for easier debugging and development. The second one is the embedded environment, in which the microfrontend must be built as a custom element. \\
+For the application composition to work correctly, we had to utilize a few special techniques. First, we modified how the microfrontends are built. There are two types of environments in which the microfrontends can operate. The first is the local development environment, where the microfrontend is built as a standard Angular application for easier debugging and development. The second is the embedded environment, where the microfrontend must be built as a custom element.
 
-\noindent
-To build an Angular application as a custom element, we used the following piece of code.
-\begin{verbatim}
+To build an Angular application as a custom element, we used the following piece of code that demonstrates the custom element bootstrapping process:
+\begin{lstlisting}[caption={Custom element bootstrapping process in Angular}]
   const app = await createApplication(appConfig);
   const customElement = createCustomElement(EntryComponent, {
     injector: app.injector,
   });
   customElements.define(environment.customElementName, customElement);
-\end{verbatim}
-Instead of specifying the \texttt{AppComponent} as the component we want to build, we create a special component called \texttt{EntryComponent}. This component handles all inputs from the \texttt{application-shell} and renders the \texttt{AppComponent}. The \texttt{EntryComponent}, in the case of a microfrontend with no inputs, could look like the following.
-\begin{verbatim}
-  @Component({
-    selector: 'user-entry',
-    standalone: true,
-    imports: [AppComponent],
-    template: '<user-root></user-root>',
-    styleUrl: '../../../styles.scss',
-  })
-  export class EntryComponent {}
-\end{verbatim}
-However, when we build the application this way, we end up with two JavaScript files (\texttt{polyfills.js}, \texttt{main.js}) and a CSS file (\texttt{style.css}). Multiple files complicate the loading of the microfrontends in the \texttt{application-shell}. To avoid this, we use Webpack to bundle the scripts and styles into a single file. Finally, we statically serve this file for the \texttt{application-shell}, as explained in the previous section. \\
+\end{lstlisting}
+Instead of specifying the \texttt{AppComponent} as the component we want to build, we create a special component called \texttt{EntryComponent}. This component handles all inputs from the Application Shell and renders the \texttt{AppComponent}. 
 
-\noindent
-Now, we need to look into how microfrontends are loaded in the \texttt{application-shell}. When a user navigates to a microfrontend route, the \texttt{LoadMicrofrontendGuard} ensures that the required JavaScript bundle is loaded before route activation. It first extracts the \texttt{bundleUrl} from the route data and then uses the \texttt{MicrofrontendRegistryService} to load the microfrontend. The service first checks if the microfrontend is already loaded; if not, it injects a script tag into the document with the provided \texttt{bundleUrl} to load it. In the case of a unified microfrontends view, we do not use the guard. Instead, we directly call the registry service for each microfrontend. If a microfrontend fails to load, we do not render it and simply move to the next one.
+However, when we build the application this way, we end up with two JavaScript files (\texttt{polyfills.js}, \texttt{main.js}) and a CSS file (\texttt{style.css}). Having multiple files complicates the loading of microfrontends in the Application Shell. To avoid this, we use Webpack to bundle the scripts and styles into a single file. Finally, we statically serve this file, as explained in the previous section.
+
+Now, let's look at how microfrontends are loaded in the Application Shell. When a user navigates to a microfrontend route, the \texttt{LoadMicrofrontendGuard} ensures that the required JavaScript bundle is loaded before route activation. It first extracts the \texttt{bundleUrl} from the route data and then uses the \texttt{MicrofrontendRegistryService} to load the microfrontend. The service checks if the microfrontend is already loaded; if not, it injects a script tag into the document with the provided \texttt{bundleUrl} to load it. In the case of a unified microfrontends view, we do not use the guard. Instead, we directly call the registry service for each microfrontend. If a microfrontend fails to load, we skip rendering it and simply move on to the next one.

@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{array}
+\usepackage{xcolor}
 
 %zapnutie slovenskeho delenia slov
 %a automatickych nadpisov ako Obsah, Obrázok a pod. v slovencine
@@ -21,12 +22,35 @@
 \usepackage{listings}
 % ukazky kodu su cislovane ako Listing 1,2,...
 % tu je Listing zmenene na Algoritmus 1,2,...
-\renewcommand{\lstlistingname}{Algorithm}
+\renewcommand{\lstlistingname}{Listing}
 % nastavenia balicka listings
-% mozete pridat aj language=...
-% na nastavenie najcastejsie pouzivaneho prog. jazyka
-% takisto sa da zapnut cislovanie riadkov
-\lstset{frame=lines}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  sensitive=true
+}
+
+\lstset{
+  language=JavaScript,
+  frame=none,
+  backgroundcolor=\color{gray!7},
+  basicstyle=\small\ttfamily,
+  showstringspaces=false,
+  showspaces=false,
+  numbers=left,
+  numberstyle=\small\ttfamily\color{gray},
+  numbersep=9pt,
+  tabsize=2,
+  breaklines=true,
+  showtabs=false,
+  captionpos=b,
+  xleftmargin=15pt,
+  xrightmargin=15pt
+}
 
 % balicek na vkladanie obrazkov
 \usepackage{graphicx}
@@ -94,7 +118,6 @@
 % --- koniec obalky ----
 
 
-
 % -------------------
 % --- Titulný list
 % -------------------
@@ -149,10 +172,24 @@ Consultant: & \mfkonzultant \\
 
 \newpage
 \setcounter{page}{2}
-\includepdf{images/zadanie.pdf}
-\includepdf{images/zadanie-en.pdf}
+\includepdf[pages=-]{images/zadanie.pdf}
+\includepdf[pages=-]{images/zadanie-en.pdf}
 % --- Koniec zadania
 
+
+% -------------------
+%   Declaration
+% -------------------
+\newpage
+\thispagestyle{empty}
+\chapter*{Declaration}\label{chap:declaration}
+I hereby declare that I have completed this thesis independently, without any assistance from third parties, and without using any sources or aids other than those explicitly cited.
+
+\vfill
+
+\hfill \makebox[5cm]{\dotfill} \newline
+Bratislava, \mfrok \hfill \mfauthor \hspace{0.8cm}
+% --- Koniec vyhlásenia
 
 % -------------------
 %   Poďakovanie - nepovinné
@@ -160,7 +197,7 @@ Consultant: & \mfkonzultant \\
 \newpage
 \thispagestyle{empty}
 \chapter*{Acknowledgement}\label{chap:thank_you}
-I would like to thank RNDr. Ľubor Šešera, PhD., for his supervision, willingness, and valuable advice. I am also very thankful to Ing. Juraj Marák for his patience, guidance, and all the time he dedicated to me during the preparation of my thesis.
+I want to thank RNDr. Ľubor Šešera, PhD., for his supervision, willingness, and valuable advice. I am also very grateful to Ing. Juraj Marák for his patience, guidance, and the time he devoted to me during the preparation of my thesis.
 
 \vfill\eject 
 % --- Koniec poďakovania
@@ -171,12 +208,9 @@ I would like to thank RNDr. Ľubor Šešera, PhD., for his supervision, willingn
 \newpage 
 \thispagestyle{empty}
 \chapter*{Abstrakt}\label{chap:abstract_sk}
-Táto práca podrobne analyzuje niekoľko najpoužívanejších prístupov k mikrofrontendom a porovnáva ich na základe aspektov, ako sú rozšíriteľnosť, opätovná použiteľnosť, jednoduchosť, výkon, zdieľanie zdrojov a skúsenosti vývojárov. Každý z týchto prístupov je dôkladne posúdený z hľadiska jeho výhod, nevýhod a použiteľnosti. Jeden z týchto prístupov, konkrétne web-compoents, bol zvolený na implementáciu proof-of-concept aplikácie pre manažovanie projektov vo frameworku Angular. Počas jej vývoju sme narazili na niekoľko bežných problémov, ako sú kompozícia, zdieľanie zdrojov, smerovanie a izolácia, ktoré sme vyriešili a riešenia uvádzame priamo v práci. \\
+Táto práca sa zaoberá mikrofrontendmi vo viacvrstvových podnikových webových aplikáciách. Najskôr sa venuje prehľadu súčasnej literatúry o architektúre mikrofrontendov a porovnáva sedem najčastejšie používaných prístupov k mikrofrontendom z viacerých hľadísk, ako sú rozšíriteľnosť, znovupoužiteľnosť, jednoduchosť, výkonosť, zdieľanie zdrojov, používateľská skúsenosť vývojára a samotné využitie. Ďalej identifikuje tri prístupy, ktoré sú vhodné pre podnikové aplikácie. Z týchto prístupov vyberá ten najperspektívnejší, konkrétne Web Components, pre implementáciu prototypovej aplikácie. Vybraná aplikácia predstavuje zjednodušenú verziu nástroja na správu projektov. Práca opisuje návrh a implementáciu tejto prototypovej aplikácie. Na implementáciu sme zvolili framework Angular \cite{Angular}, ktorý patrí medzi najpoužívanejšie frameworky na vývoj moderných frontendov v podnikových webových aplikáciách. Na záver bola implementovaná aplikácia vyhodnotená z viacerých hľadísk, vrátane rozšíriteľnosti, znovupoužiteľnosti, zdieľania zdrojov a správy aplikačného stavu.
 
-\noindent
-Výsledky implementácie naznačujú, že webové komponenty sú v efektívnym a dobrým prístupom k implementácii mikrofrontendovej architektúry. Prinášajú však niekoľko výziev, z ktorých hlavnými sú riešenie spoločných závislostí a komunikácia medzi mikroaplikáciami. Úspešné adoptovanie tejto architektúry si preto vyžaduje dôkladné plánovanie. Zistenia tejto práce poskytujú cenné poznatky o týchto výzvach a ich riešeniach. Okrem toho zjednodušujú rozhodovanie vývojárom a organizáciám, ktoré zvažujú túto architektúru pre svoje projekty.
-
-\paragraph*{Kľúčové slová:} Microfrontends, Web-components, architektúry webových aplikácií, Angular
+\paragraph*{Kľúčové slová:} Microfrontends, Web Components, architektúry webových aplikácií, Angular
 % --- Koniec Abstrakt - Slovensky
 
 
@@ -186,12 +220,9 @@ Výsledky implementácie naznačujú, že webové komponenty sú v efektívnym a
 \newpage 
 \thispagestyle{empty}
 \chapter*{Abstract}\label{chap:abstract_en}
-This paper analyzes in detail several of the most widely used approaches to micro-frontends and compares them based on aspects such as extensibility, reusability, simplicity, performance, resource sharing, and developer experience. Each of these approaches is thoroughly assessed in terms of its advantages, disadvantages and usability. One of these approaches, namely web-compoints, was chosen to implement a proof-of-concept project management application in the Angular framework. During its development, we encountered several common issues such as composition, resource sharing, routing, and isolation, which we solved and will present solutions directly in the thesis. \\
+This thesis addresses microfrontends in multi-tier enterprise web applications. First, it reviews the current literature on microfrontend architecture and compares the seven most commonly used approaches to microfrontends from several aspects, such as extensibility, reusability, simplicity, performance, resource sharing, developer experience, and usage. It identifies three approaches that are suitable for enterprise applications. From these, it selects the most promising one—namely, Web Components, for the implementation of a prototypical application. The chosen application is a simplified version of a project management tool. The thesis describes the design and implementation of this prototypical application. For the implementation, we chose the Angular \cite{Angular} framework, which is one of the most widely used frameworks for developing modern frontends in enterprise web applications. Finally, we evaluated the implemented application from several aspects, including extensibility, reusability, resource sharing, and application state management.
 
-\noindent
-The implementation results suggest that web components are an efficient and good approach to implement a micro-frontend architecture. However, they present several challenges, the main ones being the sharing of common dependencies and communication between micro-applications. Successful adoption of this architecture therefore requires careful planning. The findings of this work provide valuable insights into these challenges and their solutions. In addition, they simplify decision making for developers and organizations considering this architecture for their projects.
-
-\paragraph*{Keywords:} Microfrontends, Web-components, web application architectures, Angular
+\paragraph*{Keywords:} Microfrontends, Web Components, web application architectures, Angular
 % --- Koniec Abstrakt - Anglicky
 
 % -------------------
@@ -229,6 +260,7 @@ The implementation results suggest that web components are an efficient and good
 
 \listoffigures
 \listoftables
+\lstlistoflistings
 
 % ---  Koniec Zoznamov
 
@@ -242,8 +274,6 @@ The implementation results suggest that web components are an efficient and good
 \input chapters/implementation/Implementation.tex
 \input chapters/evaluation_results/EvaluationResults.tex
 \input chapters/conclusion/Conclusion.tex
-
-%\input zaver.tex
 
 % -------------------
 % --- Bibliografia
@@ -260,21 +290,6 @@ The implementation results suggest that web components are an efficient and good
 \bibliographystyle{ieeetr}
 \bibliography{literatura} 
 
-%Prípadne môžete napísať literatúru priamo tu
-%\begin{thebibliography}{5}
- 
-%\bibitem{br1} MOLINA H. G. - ULLMAN J. D. - WIDOM J., 2002, Database Systems, Upper Saddle River : Prentice-Hall, 2002, 1119 s., Pearson International edition, 0-13-098043-9
-
-%\bibitem{br2} MOLINA H. G. - ULLMAN J. D. - WIDOM J., 2000 , Databasse System implementation, New Jersey : Prentice-Hall, 2000, 653s., ???
-
-%\bibitem{br3} ULLMAN J. D. - WIDOM J., 1997, A First Course in Database Systems, New Jersey : Prentice-Hall, 1997, 470s., 
-
-%\bibitem{br4} PREFUSE, 2007, The Prefuse visualization toolkit,  [online] Dostupné na internete: <http://prefuse.org/>
-
-%\bibitem{br5} PREFUSE Forum, Sourceforge - Prefuse Forum,  [online] Dostupné na internete: <http://sourceforge.net/projects/prefuse/>
-
-%\end{thebibliography}
-
 %---koniec Referencii
 
 % -------------------
@@ -285,7 +300,6 @@ The implementation results suggest that web components are an efficient and good
 %Zoznam príloh je súčasťou obsahu.
 %
 %\input appendixA.tex
-
 %\input appendixB.tex
 
 \end{document}

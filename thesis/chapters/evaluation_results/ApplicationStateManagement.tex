@@ -1,5 +1,4 @@
 \section{Application State Management}
-Application state management refers to the synchronization of data across different parts of the application. In a microfrontend architecture, managing application state becomes more complex due to the independent nature of each microfrontend. \\
+Application state management refers to the synchronization of data across different parts of the application. In a microfrontend architecture, managing the application state becomes more complex due to the independent nature of each microfrontend.
 
-\noindent
-In our application, there is not much state to manage, aside from the current language and theme. To handle these, we use a combination of local storage and attributes, which can be passed from the shell to the microfrontends. Both of these states are managed centrally in the application shell leveraging \texttt{BehaviorSubjects}. User preferences are stored in local storage, and upon initialization or any change, they are passed as attributes down to the microfrontends.
+In our application, there is not much state to manage aside from the current language and theme. To handle these, we use a combination of local storage and attributes, which are passed from the Application Shell to the microfrontends. Both states are managed centrally in the Application Shell using \texttt{BehaviorSubjects}. User preferences are stored in local storage, and upon initialization or any change, the language is passed as attributes to the microfrontends. The theme is managed globally in the Application Shell.

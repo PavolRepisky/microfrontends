@@ -1,49 +1,49 @@
 \section{Extensibility}
-Extensibility refers to the ability of a system to be enhanced with new functionality or modifications without requiring significant changes to existing components. Our microfrontend architecture is designed with extensibility in mind. \\
+Extensibility refers to the ability of a system to be enhanced with new functionality or modifications without requiring significant changes to existing components. Our microfrontend architecture is designed with extensibility in mind.
 
-\noindent
-Modifications typically fall into two categories. The first includes small modifications that affect only a single microfrontend due to the logical separation by domains. Compared to monolithic frontends, modifying a single microfrontend is significantly easier, as each has a smaller, more manageable codebase with little to no coupling. The second category involves major changes, where new functionality usually falls into its own domain and is added as a completely new microfrontend. Adding a new microfrontend is straightforward—since they are developed as standard Angular applications for the most part and transformed into custom elements only at build time. \\
+In our application, extensibility is achieved mainly through microfrontend architecture that supports both internal evolution and external expansion. New features can be added, or existing ones modified, with minimal impact on the rest of the system.
 
-\noindent
-One of the key advancements in this aspect of our approach is the ability to run multiple Angular applications within the same browser environment, which was previously not possible. Even though we could theoretically add as many microfrontends as we want, we need to consider performance and application size.\\
+This extensibility takes several forms. First, changes within a single microfrontend are well-isolated due to their strong encapsulation. Internal modifications—such as updating business logic or UI elements—do not affect other parts of the application. Even interface-level changes, such as introducing new input properties or emitting additional events, remain manageable as long as communication contracts are respected. These changes typically require only the addition of new listeners in the corresponding microfrontends or the passing of additional attributes from the application shell.
 
-\noindent
-In our case, the total bundled size of the \texttt{user-management} microfrontend is about 1.19 MB, of which:  
+Second, our architecture is designed to make the addition of entirely new features straightforward. New functionality is typically introduced as a separate microfrontend, allowing teams to develop and deploy independently. Since microfrontends are standard Angular applications that are wrapped into custom elements only at build time, development remains familiar and efficient. New microfrontends can be easily added to the Application Shell by declaring their routes and defining their host components. One of the technical achievements of our approach is the ability to run multiple Angular applications concurrently within the same browser environment—something that was traditionally considered infeasible.
+
+However, extensibility comes with trade-offs. The most critical issue is application size. Each microfrontend includes its own dependencies, which leads to linear growth in the total bundle size. For example, the bundled size of the User Microfrontend is about 1.19MB, consisting of:
 \begin{itemize}
-    \item \texttt{styles.css} takes 264 KB (22.2\%) (mostly consisting of Bootstrap styles),
-    \item \texttt{polyfills.js} takes 35 KB (2.9\%) (adding support for older browsers),
-    \item \texttt{main.js} takes 894 KB (75.1\%) (containing the actual application code).
-\end{itemize}  
-Similarly, for the \texttt{task-management} microfrontend, the total bundled size is 1.23 MB, with:  
+    \item \texttt{styles.css} - 264KB (22.2\%) - primarily Bootstrap styles,
+    \item \texttt{polyfills.js} - 35KB (2.9\%) - for legacy browser support,
+    \item \texttt{main.js} - 894KB (75.1\%) - actual application logic.
+\end{itemize}
+Similarly, the Task Microfrontend is 1.23MB in total, with:
 \begin{itemize}
-    \item \texttt{styles.css} taking 252 KB (20.5\%),
-    \item \texttt{polyfills.js} taking 35 KB (2.8\%),
-    \item \texttt{main.js} taking 943 KB (76.7\%).
-\end{itemize}  
-On average, a microfrontend has a size of about 1.21 MB. Table \ref{table:app-scaling} shows how the total application size scales with different numbers of microfrontends, excluding the \texttt{application-shell} itself. Of course, this scenario applies only to our simple prototypical application. In a real-world application, the size of microfrontends would likely be significantly larger. The most important consideration is that since each microfrontend comes with its own dependencies, the total application size grows exponentially with the number of microfrontends.
-\begin{table}[h]  
-    \centering  
-    \begin{tabular}{|c|c|}  
-        \hline  
-        \textbf{Number of Microfrontends} & \textbf{Total Size (MB)} \\  
-        \hline  
-        1 & 1.21 \\  
-        \hline  
-        2 & 2.42 \\  
-        \hline  
-        4 & 4.84 \\  
-        \hline  
-        8 & 9.68 \\  
-        \hline  
-        16 & 19.36 \\  
-        \hline  
-        32 & 38.72 \\  
-        \hline  
-        64 & 77.44 \\  
-        \hline  
-        128 & 154.88 \\  
-        \hline  
-    \end{tabular}  
-    \caption{Application scaling with multiple microfrontends}  
-    \label{table:app-scaling}  
+    \item \texttt{styles.css} - 252KB (20.5\%),
+    \item \texttt{polyfills.js} - 35KB (2.8\%),
+    \item \texttt{main.js} - 943KB (76.7\%).
+\end{itemize}
+
+On average, each microfrontend in our application contributes approximately 1.21MB. Table \ref{table:app-scaling} shows how the total application size scales linearly with the number of microfrontends (excluding the Application Shell). This highlights a key constraint: while extensibility is architecturally straightforward, it must be balanced with performance and size considerations. For example, assuming a typical system with 8GB of RAM and average browser resource allocation, it is practical to support approximately 20-30 Angular-based microfrontends before noticeable performance degradation occurs.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Number of Microfrontends} & \textbf{Total Size (MB)} \\
+        \hline
+        1 & 1.21 \\
+        \hline
+        2 & 2.42 \\
+        \hline
+        4 & 4.84 \\
+        \hline
+        8 & 9.68 \\
+        \hline
+        16 & 19.36 \\
+        \hline
+        32 & 38.72 \\
+        \hline
+        64 & 77.44 \\
+        \hline
+        128 & 154.88 \\
+        \hline
+    \end{tabular}
+    \caption{Application scaling with multiple microfrontends}
+    \label{table:app-scaling}
 \end{table}

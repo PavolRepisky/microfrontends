@@ -1,11 +1,28 @@
 \section{Styling}
-To keep the user interface consistent across the application-shell and microfrontends, we use Bootstrap for styling in each of them. This way, each part of the application looks the same style-wise, unless we modify the Bootstrap classes significantly. Another issue we had to solve is styling isolation, so that if we use the same class name in two microfrontends, they do not override each other. To avoid this, we utilize the Shadow DOM. This is very simple in Angular; we set the encapsulation to ViewEncapsulation in the microfrontend entry component, as shown below.
-\begin{verbatim}
+To keep the user interface consistent across the Application Shell and microfrontends, we use Bootstrap for styling in each of them. This ensures that each part of the application has a uniform appearance, unless we significantly modify the Bootstrap classes.
+
+Another issue we had to address is style isolation, to prevent class name collisions between microfrontends. For example, if the same class name is used in two different microfrontends, one should not override the other. To avoid this, we utilize the Shadow DOM. This is very straightforward in Angular — we simply set the encapsulation to \texttt{ViewEncapsulation.ShadowDom} in the microfrontend's entry component.
+
+However, for this to work properly with Bootstrap, we also had to change how Bootstrap is imported. Instead of importing Bootstrap in the styles section of \texttt{angular.json}, we imported it directly in the global styles file. We then link this global styles file in the \texttt{styleUrls} property of the microfrontend's entry component, allowing each microfrontend to have its own isolated, separate DOM tree. When we put all the information for this and previous sections together, the entry component for the User Microfrontend would look like the following:
+\begin{lstlisting}[caption={Entry component implementation with Shadow DOM encapsulation and language support for the User Microfrontend}]
   @Component({
-    ...,
+    selector: 'user-entry',
+    standalone: true,
+    imports: [AppComponent],
+    template: '<user-root [compact]="compact"></user-root>',
     styleUrl: '../../../styles.scss',
     encapsulation: ViewEncapsulation.ShadowDom,
   })
-  export class EntryComponent implements {...}
-\end{verbatim}
-However, for this to work properly with Bootstrap, we also had to change how Bootstrap is imported. Instead of importing Bootstrap in the styles section of \texttt{angular.json}, we imported it directly in the global styles file. We then link this global styles file in the \texttt{styleUrls} property of the microfrontend entry component. And that was it—each microfrontend has had its own isolated, separate DOM tree since then.
+  export class EntryComponent implements OnChanges {
+    @Input() compact = false;
+    @Input() language?: 'en' | 'sk';
+  
+    constructor(private translateService: TranslateService) {}
+  
+    ngOnChanges(changes: SimpleChanges): void {
+      if (changes['language'] && this.language) {
+        this.translateService.use(this.language);
+      }
+    }
+  }
+\end{lstlisting}

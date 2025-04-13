@@ -1,27 +1,24 @@
 \section{Overview}
-The application was developed using Angular 18 and consists of three separate Angular projects. The first one is the \texttt{application-shell}, which acts as a container for all microfrontends. The second one is \texttt{user-management}, representing the user microfrontend, and the last one is \texttt{task-management}, representing the task microfrontend.\\
+The application was developed using Angular 18 and is composed of three separate Angular projects. The first project is the \texttt{application-shell}, which serves as the container for all microfrontends. The second project, \texttt{user-management}, represents the user microfrontend, and the third project, \texttt{task-management}, represents the task microfrontend.
 
-\noindent
-All these projects were generated under the same Angular workspace. This was done purely for practical reasons, as there are no distinct teams working on the projects. In a real-world application, each microfrontend should be developed as a separate Angular project. The workspace was generated in the standard way using the following command.
-\begin{verbatim}
+For practical purposes, all these projects were generated within the same Angular workspace. This approach was chosen due to the absence of distinct teams working on the individual projects. In a real-world scenario, each microfrontend would be developed as a separate Angular project to facilitate independent development and deployment. The workspace was created using the standard Angular CLI command as follows.
+\begin{lstlisting}
   ng new project-management-tool --create-application=false
-\end{verbatim}
+\end{lstlisting}
 Afterward, the application-shell project was generated using the standard method.
-\begin{verbatim}
+\begin{lstlisting}
   ng generate application application-shell
-\end{verbatim}
-After generating the application, Bootstrap and \texttt{@ng-bootstrap/ng-bootstrap} were installed and configured in the standard way, along with \texttt{@ngx-translate}, a library for internationalization support. Interfaces were then designed using placeholder components for microfrontends. Support for theme switching (light/dark) and language switching (Slovak/English) was added, with preferences saved in local storage. The \texttt{application-shell} was developed as a standard Angular application. \\
+\end{lstlisting}
+After generating the application, Bootstrap and \texttt{@ng-bootstrap/ng-bootstrap} were installed and configured in the standard way, along with \texttt{@ngx-translate}, a library for internationalization support. Interfaces were then designed using placeholder components for the microfrontends. Support for theme switching (light/dark) and language switching (Slovak/English) was added, with preferences saved in local storage.
 
-\noindent
-Microfrontends were generated in the same way but with the use of the --prefix option, such as following.
-\begin{verbatim}
+Microfrontends were generated in the same way, but with the use of the \texttt{--prefix} option, as follows.
+\begin{lstlisting}
   ng generate application user-management --prefix=user
-\end{verbatim}
-The development of microfrontends followed a similar approach to the \texttt{application-shell}, with one key difference: the way the application is bootstrapped. Depending on the environment, the bootstrapping process varies. The microfrontends were then built and statically served using \text{http-server} package, each on a different port via the command line:
-\begin{verbatim}
+\end{lstlisting}
+The development of microfrontends followed a similar approach to the Application Shell, with one key difference: the way the application is bootstrapped. Depending on the environment, the bootstrapping process varies. The microfrontends were then built and statically served using the \texttt{http-server} package, each on a different port via the command line:
+\begin{lstlisting}
   npx http-server dist/user-management/browser -p 4201
-\end{verbatim}
-To avoid repeatedly typing these commands, they were added as script commands in \texttt{package.json}. The composition and loading of microfrontends will be further explained in the next section. \\
+\end{lstlisting}
+To avoid repeatedly typing these commands, they were added as script commands in \texttt{package.json}. The composition and loading of microfrontends will be further explained in the next section.
 
-\noindent
-The microfrontends communicate with a backend, which is a standard Node.js server with Express.js. Each microfrontend has been assigned its own URL prefix, such as \texttt{/users} for the user microfrontend and \texttt{/tasks} for the task microfrontend. The microfrontends interact with the backend using Angular \texttt{HttpClient} for CRUD operations. We are not using any database; instead, data is stored only at runtime. In a real-world application, each microfrontend requiring a backend should ideally have its own microservice and dedicated database. However, due to the scope of this thesis and the focus on the frontend aspects of microfrontends, we chose a simplified approach to avoid unnecessary complexity.
+The microfrontends communicate with a backend, which is a standard Node.js server using Express.js. Each microfrontend has been assigned its own URL prefix, such as \texttt{/users} for the User Microfrontend and \texttt{/tasks} for the Task Microfrontend. The microfrontends interact with the shared backend using Angular's \texttt{HttpClient} for CRUD operations. We are not using a database; instead, data is stored only at runtime. In a real-world application, each microfrontend that requires a backend would ideally have its own microservice and dedicated database. However, due to the scope of this thesis and its focus on the frontend aspects of microfrontends, we chose a simplified approach to avoid unnecessary complexity.

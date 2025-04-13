@@ -1,5 +1,5 @@
 \section{Application Requirements}
-This section presents functional and non-functional requirements for the application, which will be categorized by priority as follows:
+This section presents the functional and non-functional requirements for the application, categorized by priority as follows:
 \begin{itemize}
    \item (M) Must: Crucial for the system's operation.
    \item (S) Should: Highly recommended, though not mandatory.
@@ -7,32 +7,33 @@ This section presents functional and non-functional requirements for the applica
 \end{itemize}
 
 \subsection{Functional Requirements}
-Here is a comprehensive list of all functional requirements for the application.
+This subsection provides a comprehensive list of all functional requirements for the application.
+
 \subsubsection*{User Management}
-For simplicity, we will not implement user registration or logins. The user roles will also be for informational purposes only, as every user will have full access to all functionalities.
+For simplicity, user registration and login will not be implemented. User roles will serve informational purposes only, as every user will have full access to all functionalities.
 \begin{itemize}
    \item Users can create, update, and delete other users (M).
    \item Users are displayed in a table view (M).
-   \item Users can set and update the following attributes for a user: name, email, phone number, role, status, bio (M).
-   \item Users can be filtered by: their roles (S).
+   \item Users can set and update the following attributes: name, email, phone number, role, status, and bio (M).
+   \item Users can be filtered by role (S).
 \end{itemize}
 
 \subsubsection*{Task Management}
-A similar approach applies to tasks, everyone will be able to manage anyone's tasks.
+A similar approach applies to tasks: all users will be able to manage any task.
 \begin{itemize}
    \item Users can create, update, and delete tasks (M).
-   \item Tasks are displayed on a Kanban board (M). 
+   \item Tasks are displayed on a Kanban board (M).
    \item Users can set and update the following task attributes: title, status, priority, tag, due date, and description (M).
-   \item Users can be linked to tasks as assignees (M).
+   \item Tasks can be assigned to users (M).
 \end{itemize}
 
 \subsubsection*{Dashboard}
 \begin{itemize}
-   \item A new users widget are displayed on the dashboard (M).
-   \item A new tasks widget are be displayed on the dashboard (M).
-   \item The widgets communicate with each other in some way (M).
+   \item A new users widget is displayed on the dashboard (M).
+   \item A new tasks widget is displayed on the dashboard (M).
+   \item The widgets must communicate with each other (M).
    \item The dashboard displays a monthly user count graph (C).
-   \item The dashboard displays a monthly task completion graph (C).
+   \item The dashboard displays a monthly task count graph (C).
 \end{itemize}
 
 \subsubsection*{Settings}
@@ -42,11 +43,11 @@ A similar approach applies to tasks, everyone will be able to manage anyone's ta
 \end{itemize}
 
 \subsection{Non-functional Requirements}
-Here is a comprehensive list of all non-functional requirements for the application.
+This subsection presents a comprehensive list of all non-functional requirements for the application.
 \begin{itemize}
    \item The application is divided into several microfrontends (M).
-   \item Each microfrontend is isolated from the others to prevent cascading failures (M).
-   \item The application is easily scalable by adding new microfrontends (M).
-   \item The application is easy to use and intuitive (S).
+   \item Each microfrontend is isolated to prevent cascading failures (M).
+   \item The application can be easily scaled by adding new microfrontends (M).
+   \item The application is intuitive and easy to use (S).
    \item The microfrontends are easily customizable (S).
 \end{itemize}

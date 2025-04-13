@@ -1,33 +1,38 @@
 \section{Graphical User Interface}
-In this section, we will present and describe the wireframes of the application. These wireframes illustrate the layout and structure of the user interface across different parts of the system, providing a visual representation of how users will interact with the application. Each wireframe focuses on a specific microfrontend or application shell, showcasing its core functionality and design elements.
+This section presents and explains the wireframes of the application. These wireframes provide a visual overview of the layout and user interface design across various parts of the system, highlighting how users will interact with the application. Each wireframe corresponds to a specific microfrontend or the Application Shell and illustrates its core functionalities and structural components.
+
 \subsubsection*{Application Shell}
 \begin{figure}[h]
     \centerline{\includegraphics[width=1\textwidth]{images/wireframes/application-shell.png}}
-    \caption[Application shell wireframe]{Wireframe of the application shell interface}
+    \caption[Application Shell wireframe]{Wireframe of the Application Shell interface}
     \label{fig:shell-wireframe} 
 \end{figure}
-As shown in the figure \ref{fig:shell-wireframe}, the application shell consists of a side panel with a logo and navigation links for each microfrontend and a dashboard page. At the bottom of the side panel is a button to open the settings modal, which contains radio buttons for switching the language and application theme. The main content area, next to the side panel, is where all pages will be rendered. This could be either a single microfrontend or the dashboard page.
+As illustrated in Figure \ref{fig:shell-wireframe}, the Application Shell features a side panel that includes the application logo and navigation links for accessing each microfrontend, as well as the dashboard page. A settings button is located at the bottom of the side panel; when clicked, it opens a modal containing radio buttons for toggling the application's language (English/Slovak) and theme (light/dark). The main content area, positioned adjacent to the side panel, dynamically renders the active page—either a single microfrontend or the composed dashboard view.
 
 \subsubsection*{User Microfrontend}
 \begin{figure}[h]
 \centerline{\includegraphics[width=1\textwidth]{images/wireframes/user-microfrontend.png}}
-\caption[User microfrontend wireframe]{Wireframe of the user microfrontend interface}
+\caption[User Microfrontend wireframe]{Wireframe of the User Microfrontend interface}
 \label{fig:user-wireframe}
 \end{figure}
-The user microfrontend interface \ref{fig:user-wireframe} consists of a table where each row represents a user, displaying key details such as name, email, phone, role, and status. The last column of the table is dedicated to an action button, which opens a dropdown menu with options to view, edit, or delete a user. Upon selecting any of these actions, a modal window appears, allowing the user to execute the desired operation. Directly above the table is a set of tabs for quick filtering of users based on their roles (e.g., admin, developer, tester, etc.). At the very top, the topbar includes the page title, a brief subtitle, and a button to add a new user. Clicking this button opens a modal for user creation.
+As illustrated in Figure \ref{fig:user-wireframe}, the User Microfrontend interface features a table in which each row represents a user. Key user details such as name, email, phone number, role, and status are displayed in respective columns. The final column contains an action button that opens a dropdown menu with options to view, edit, or delete the user. Upon selecting any of these actions, a modal window is triggered to perform the desired operation.
+
+Above the table, a set of filter tabs allows users to quickly view subsets of users based on predefined roles (admins, project managers, developers, designers and testers). At the very top of the page is a top bar, which includes the page title, a subtitle, and a button labeled ``Add User''. Clicking this button opens a modal window for creating a new user.
 
 \subsubsection*{Task Microfrontend}
 \begin{figure}[h]
     \centerline{\includegraphics[width=1\textwidth]{images/wireframes/task-microfrontend.png}}
-    \caption[Task microfrontend wireframe]{Wireframe of the task microfrontend interface}
+    \caption[Task Microfrontend wireframe]{Wireframe of the Task Microfrontend interface}
     \label{fig:task-wireframe}
 \end{figure}
-The task microfrontend \ref{fig:task-wireframe} is slightly different from the other sections, as its main component is a kanban board that organizes tasks into various stages, such as ``Backlog'', ``In-Progress'', ``In-Review'' and ``Done''. Each task is represented by a card displaying essential details such as the title, tag, assignees, and more. In the upper-right corner of each task card, there is a three-dot button that opens a dropdown menu with options to view, edit, or delete the task. Upon selecting any of these actions, a modal window appears, allowing the user to execute the desired operation. Each stage on the kanban board includes a button for creating new tasks directly within that stage. At the top of the page is a topbar containing the page title, a brief subtitle, and a button to add a new task. Clicking this button opens a modal designed for task creation.
+Figure \ref{fig:task-wireframe} illustrates the Task Microfrontend, which centers around a Kanban board. This board categorizes tasks into distinct stages such as \textit{Backlog}, \textit{In-Progress}, \textit{In-Review}, and \textit{Done}. Each task is visualized as a card that displays key metadata including the title, tag, assignees, and more. A three-dot menu in the top-right corner of each card allows users to view, edit, or delete the task via modal dialogs.
+
+Each stage column features a button for creating tasks directly within that category. At the top of the interface is a top bar containing the page title, a subtitle, and a ``New Tas'' button that opens a dedicated modal for task creation.
 
 \subsubsection*{Dashboard}
 \begin{figure}[h]
     \centerline{\includegraphics[width=1\textwidth]{images/wireframes/dashboard.png}}
-    \caption[Dashboard wireframe]{Wireframe of the dashboard interface}
+    \caption[Dashboard wireframe]{Wireframe of the Dashboard interface}
     \label{fig:dashboard-wireframe}
 \end{figure}
-The dashboard \ref{fig:dashboard-wireframe} is a combination of the user microfrontend and task microfrontend, both in compact mode, along with application shell elements. At the top of the page is a topbar, which is located in the application shell codebase. Underneath it is the user microfrontend in compact mode, displaying the monthly users graph and the new users widget. At the bottom is the task microfrontend, also in compact mode, displaying the task completion graph and the new tasks widget. These two microfrontends communicate and interact with each other, as already described in the ``System Architecture'' section.
+Figure \ref{fig:dashboard-wireframe} shows the Dashboard, which combines the User and Task Microfrontends in compact modes, along with components from the Application Shell. Positioned at the top of the layout is the global top bar, rendered by the Application Shell. Below the top bar, the Task Microfrontend displays the monthly task count graph and a widget listing new tasks. The lower portion of the dashboard features the User Microfrontend, which displays a monthly user count graph and a widget for new users. These microfrontends are rendered in compact mode and interact with each other as discussed in the section \ref{sec:SystemArchitecture}.

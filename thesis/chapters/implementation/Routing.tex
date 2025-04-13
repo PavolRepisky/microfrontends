@@ -1,6 +1,8 @@
 \section{Routing}
-Routing is completely handled in the \texttt{application-shell}, using the standard approach via \texttt{@angular/router}. When a route for a component inside the application shell is requested, we simply load the component in the standard way. If a route for a microfrontend is requested, we first check if the microfrontend can be loaded via a route guard. If it can, we then lazy-load the microfrontend by injecting a script tag with the provided \texttt{bundleUrl}, as already explained in the previous section. Each microfrontend that should be rendered as a separate page has its own route definition, which looks, for example, like following.
-\begin{verbatim}
+Routing is completely handled in the Application Shell, using the standard approach via \texttt{@angular/router}. When a route for a component inside the Application Shell is requested, we simply load the component in the standard way. If a route for a microfrontend is requested, we first check whether the microfrontend can be loaded via a route guard. If it can, we then lazy-load the microfrontend by injecting a script tag with the provided \texttt{bundleUrl}, as explained in the previous section. 
+
+Each microfrontend that should be rendered as a separate page has its own route definition, which looks, for example, like the following:
+\begin{lstlisting}[caption={Route configuration for the User Microfrontend}]
   export const USER_MANAGEMENT_ROUTES: Routes = [
     {
       path: '**',
@@ -12,9 +14,9 @@ Routing is completely handled in the \texttt{application-shell}, using the stand
       },
     },
   ];
-\end{verbatim}
-And the host component would then look like the following.
-\begin{verbatim}
+\end{lstlisting}
+And the host component, which is used in the route definition, would then look like the following:
+\begin{lstlisting}[caption={Host component for the User Microfrontend}]
   @Component({
     selector: 'user-management-host',
     standalone: true,
@@ -23,8 +25,7 @@ And the host component would then look like the following.
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
   })
   export class UserManagementHostComponent {}
-\end{verbatim}
-In the case of multiple microfrontends on the same page, we define the page and the route in the \texttt{application-shell} like any other page and load the microfrontends directly using the \texttt{MicrofrontendRegistryService}. \\
+\end{lstlisting}
+In the case of multiple microfrontends on the same page, we define the page and the route in the Application Shell like any other page and load the microfrontends directly using the \texttt{MicrofrontendRegistryService}.
 
-\noindent
-In our case, we do not have a microfrontend with multiple pages. However, if that were the case, we would propagate the full route from the shell down to the microfrontend via an attribute. The microfrontend would then have its own router and handle the route internally. In the case of a route change triggered within the microfrontend (not the application-shell), we would propagate the new route to the shell, which would handle it as necessary, pass it back to the microfrontend, and only then would the route change in the microfrontend.
+In our case, we do not have a microfrontend with multiple pages. However, if that were the case, we would propagate the full route from the Application Shell down to the microfrontend via an attribute. The microfrontend would then have its own router and handle the route internally. In the event of a route change triggered within the microfrontend (rather than the application shell), we would propagate the new route to the Application Shell, which would handle it as necessary, pass it back to the microfrontend, and only then would the route change within the microfrontend.
