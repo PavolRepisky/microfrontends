@@ -20,7 +20,7 @@ Similarly, the Task Microfrontend is 1.23MB in total, with:
     \item \texttt{main.js} - 943KB (76.7\%).
 \end{itemize}
 
-On average, each microfrontend in our application contributes approximately 1.21MB. Table \ref{table:app-scaling} shows how the total application size scales linearly with the number of microfrontends (excluding the Application Shell). This highlights a key constraint: while extensibility is architecturally straightforward, it must be balanced with performance and size considerations. For example, assuming a typical system with 8GB of RAM and average browser resource allocation, it is practical to support approximately 20-30 Angular-based microfrontends before noticeable performance degradation occurs.
+On average, each microfrontend in our application contributes approximately 1.21MB. Table \ref{table:app-scaling} shows how the total application size scales linearly with the number of microfrontends (excluding the Application Shell). This highlights a key constraint: while extensibility is architecturally straightforward, it must be balanced with performance and size considerations. With the increasing number of microfrontends, it is important to place the highest possible demands on reusability and asset sharing in order to minimize duplicate dependencies and code.
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|}
@@ -44,6 +44,6 @@ On average, each microfrontend in our application contributes approximately 1.21
         128 & 154.88 \\
         \hline
     \end{tabular}
-    \caption{Application scaling with multiple microfrontends}
+    \caption{Application size scaling with multiple microfrontends}
     \label{table:app-scaling}
 \end{table}

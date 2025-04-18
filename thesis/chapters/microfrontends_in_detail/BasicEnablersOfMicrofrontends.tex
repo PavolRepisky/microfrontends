@@ -5,7 +5,7 @@ In this section, we introduce key technologies that may be unfamiliar to the rea
 Web Components are a set of web platform APIs that allow developers to create reusable, encapsulated, and customizable HTML elements \cite{MDNWebComponents}. They are now supported by most major browsers and work across different frameworks and libraries \cite{EisenbergWebComponents}. We will now discuss the three main technologies that make up Web Components.
 
 \subsubsection{HTML Templates}
-HTML templates are a new addition to the HTML language. They allow us to define reusable HTML structures that are not immediately rendered in the document. Instead, they remain inactive until they are cloned via JavaScript \cite{MDNWebComponents}. To create such a structure, we utilize the \texttt{<template>} element, which we can then clone and add to the DOM via JavaScript.
+HTML templates are an addition to the HTML language. They allow us to define reusable HTML structures that are not immediately rendered in the document. Instead, they remain inactive until they are cloned via JavaScript \cite{MDNWebComponents}. To create such a structure, we utilize the \texttt{<template>} element, which we can then clone and add to the DOM via JavaScript.
 \begin{lstlisting}[caption={Example of using HTML template element}]
   <template id="my-template">
     <p>Some content goes here...</p>

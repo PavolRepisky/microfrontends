@@ -5,37 +5,36 @@ Reallocating 'name_of_file' (item size: 1) to 7 items.
 The style file: ieeetr.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: literatura.bib
-Warning--I didn't find a database entry for "MaterialDesign"
-You've used 41 entries,
+You've used 42 entries,
             1876 wiz_defined-function locations,
-            682 strings with 8802 characters,
-and the built_in function-call counts, 5575 in all, are:
-= -- 500
-> -- 175
+            684 strings with 8872 characters,
+and the built_in function-call counts, 5696 in all, are:
+= -- 510
+> -- 179
 < -- 0
-+ -- 84
-- -- 43
-* -- 226
-:= -- 771
-add.period$ -- 46
-call.type$ -- 41
-change.case$ -- 37
++ -- 86
+- -- 44
+* -- 230
+:= -- 788
+add.period$ -- 47
+call.type$ -- 42
+change.case$ -- 38
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 224
-empty$ -- 762
-format.name$ -- 43
-if$ -- 1435
+cite$ -- 42
+duplicate$ -- 228
+empty$ -- 780
+format.name$ -- 44
+if$ -- 1466
 int.to.chr$ -- 0
-int.to.str$ -- 41
+int.to.str$ -- 42
 missing$ -- 11
-newline$ -- 132
-num.names$ -- 35
-pop$ -- 216
+newline$ -- 135
+num.names$ -- 36
+pop$ -- 221
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 226
+skip$ -- 232
 stack$ -- 0
 substring$ -- 56
 swap$ -- 31
@@ -44,7 +43,6 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 41
-width$ -- 43
-write$ -- 314
-(There was 1 warning)
+while$ -- 42
+width$ -- 44
+write$ -- 321

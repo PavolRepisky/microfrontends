@@ -174,6 +174,7 @@ This approach is well-established, robust, and easy to implement. It is particul
 
 
 \subsection{Server-Side Composition}
+\label{subsec:ServerSide}
 As Geers explains: ``Server-side composition is typically performed by a service that sits between the browser and the actual application servers.'' After a user requests a page, the initial HTML is generated on the server. The \texttt{index.html} file contains common page elements and uses server-side includes (SSI) directives for places where microfrontends should be plugged in \cite{Jackson}. An example page would look as follows:
 \begin{lstlisting}[caption={Example of server-side composition using SSI}]
   <html>
@@ -246,6 +247,7 @@ This approach is ideal for pages that prioritize performance and search engine r
 
 
 \subsection{Edge-Side Composition}
+\label{subsec:EdgeSide}
 Edge-side composition is typically performed at the CDN level. As Mezzalira \cite{MezzaliraBuildingMf} explains: ``Edge-Side Includes (ESI) is a markup language used for assembling different HTML fragments into an HTML page and serving the final result to a client''. CDN providers such as Akamai and proxy servers like Varnish, Squid, and Mongrel all support ESI \cite{Geers}. An edge-side composition solution is very similar to a server-side one; we swap the Nginx server with, for example, Varnish and use ESI directives instead of SSI. An edge-side include directive looks like the following:
 \begin{lstlisting}[caption={Example of edge-side composition using ESI}]
   <esi:include 
@@ -410,14 +412,14 @@ Web Components are an excellent choice for multitenant environments and are well
 \end{table}
 
 \subsection{Summary}
-All of the approaches have their set of advantages and disadvantages. We have realized that there is no such thing as the best architecture, only less bad options, based on the project specifications. However, there are some conclusions we can draw based on our analysis.
+All of the approaches have their set of advantages and disadvantages. We have realized that there is no such thing as the best architecture, a suitable approach should always be selected based on the project specifications. However, there are some conclusions we can draw based on our analysis.
 
-Table \ref{table:composition-comparison} combines all evaluations into a single, easy-to-read table, allowing for direct comparisons of all the mentioned approaches. Some of the names of the approaches have been shortened so that the table fits well on the page: "Link" refers to Link-Based composition, "Server" to Server-side, "Edge" to Edge-side, "MF" to Module Federation, and "WC" to Web Components. What we can generally conclude from the table is that the performance ratings of Link-Based and Iframe compositions are very low, so if performance is a concern for a project, they should be avoided. Ajax offers midrange ratings for most of the aspects. Server-side and edge-side compositions offer good values in terms of extensibility, reusability, and performance, but they are more complex to implement and do not offer the best developer experience, especially edge-side composition. Compositions via Module Federation and Web Components offer both great results, with the former excelling in resource sharing and developer experience, and the latter in reusability and simplicity. In the case of Web Components, resource sharing is more difficult.\\
+Table \ref{table:composition-comparison} combines all evaluations into a single, easy-to-read table, allowing for direct comparisons of all the mentioned approaches. Some of the names of the approaches have been shortened so that the table fits well on the page: "LBC" refers to Link-Based composition, "SSI" to Server-side composition, "ESI" to Edge-side composition, "MF" to Module Federation composition, and "WC" to Web Components composition. 
 \begin{table}[h]
   \centering
   \begin{tabular}{|p{3cm}|c|c|c|c|c|c|c|}
     \hline
-      \textbf{Aspect} & \textbf{Link} & \textbf{Iframes} & \textbf{Ajax} & \textbf{Server} & \textbf{Edge} & \textbf{MF} & \textbf{WC} \\
+      \textbf{Aspect} & \textbf{LBC} & \textbf{Iframes} & \textbf{Ajax} & \textbf{SSI} & \textbf{ESI} & \textbf{MF} & \textbf{WC} \\
     \hline
       Extensibility & 3/5 & 4/5 & 4/5 & 4/5 & 4/5 & 4/5 & 4/5 \\
     \hline
@@ -435,6 +437,9 @@ Table \ref{table:composition-comparison} combines all evaluations into a single,
   \caption{Comparison of different composition approaches}
   \label{table:composition-comparison}
 \end{table}
+
+What we can generally conclude from the table is that the performance ratings of Link-Based and Iframe compositions are very low, so if performance is a concern for a project, they should be avoided. Ajax offers midrange ratings for most of the aspects. Server-side and edge-side compositions offer good values in terms of extensibility, reusability, and performance, but they are more complex to implement and do not offer the best developer experience, especially edge-side composition. Compositions via Module Federation and Web Components offer both great results, with the former excelling in resource sharing and developer experience, and the latter in reusability and simplicity. In the case of Web Components, resource sharing is more difficult.
+
 Enterprise-level application development typically involves building large-scale, complex systems that demand scalability, maintainability, strong security, and seamless integration across teams and technologies. Among the available microfrontend composition approaches, server-side rendering, Web Components, and Module Federation stand out as the best fit for enterprise environments. Server-side composition supports SEO and performance optimization, which are critical for enterprise applications. Web Components offer a framework-agnostic, standardized way to encapsulate and isolate features, enabling reusable, decoupled micro-application across teams. Module Federation allows dynamic loading and sharing of code across independently deployed applications, promoting team autonomy and reducing duplication. These approaches align well with the requirements of enterprise-level development.
 
 \subsection{Decision-Making}
