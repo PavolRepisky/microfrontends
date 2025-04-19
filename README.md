@@ -12,15 +12,10 @@ This thesis aims to comprehensively review existing literature on designing and 
 
 ### Contents
 
-- [Resources](./resources)
 - [Thesis](./thesis/main.pdf)
 - [Implementation](./implementation)
 
-### Website:
+### Presentations:
 
-[microfrontends.framer.website](https://microfrontends.framer.website)
-
-### Presentation:
-
-[First](https://docs.google.com/presentation/d/17PqF-2-_JIHKzUQ-9nOnO_eVL6FtfDSjbbfeHa9YEEk/edit?usp=sharing)
-[Second](https://docs.google.com/presentation/d/1Zr6qpq_4xL5q16ROCNrIRpS9aOeNBkXAXev2ota6Qsg/edit?usp=sharing)
+[First Presentation](https://docs.google.com/presentation/d/17PqF-2-_JIHKzUQ-9nOnO_eVL6FtfDSjbbfeHa9YEEk/edit?usp=sharing)
+[Second Presentation](https://docs.google.com/presentation/d/1Zr6qpq_4xL5q16ROCNrIRpS9aOeNBkXAXev2ota6Qsg/edit?usp=sharing)

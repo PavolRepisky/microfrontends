@@ -29,7 +29,7 @@ export const appConfig: ApplicationConfig = {
           useFactory: createTranslateLoader,
           deps: [HttpClient],
         },
-        defaultLanguage: 'sk',
+        defaultLanguage: 'en',
       }),
     ]),
     provideRouter(routes),

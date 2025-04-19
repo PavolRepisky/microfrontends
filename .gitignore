@@ -1,0 +1,8 @@
+# Ignore all files in ./thesis that start with 'main.'
+thesis/main.*
+
+# Exclude main.pdf 
+!thesis/main.pdf
+
+# Exclude main.tex 
+!thesis/main.pdf

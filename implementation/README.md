@@ -1,13 +1,10 @@
-### Implementation
+# Implementation
 
-##### [Example App](example-app)
+As part of this thesis, a prototype project management application was developed using a microfrontend architecture. The application is built with Web Components and Angular.
 
-A simple proof-of-concept application demonstrating the seamless integration of two microfrontends developed as web components. This app serves as an example of how different microfrontends can work together within a single interface.
+The system is divided into two main parts: the backend and the frontend. The frontend itself is further decomposed into multiple microfrontends, each handling a specific feature or domain of the application.
 
-##### [Project Management API](project-management-api)
+To learn more about the application and how to run it, refer to the following directories:
 
-A lightweight Node.js backend designed to support the functionality of the [Project Management Tool](project-management-tool). This API provides essential endpoints for managing projects, tasks, and associated data.
-
-##### [Project Management Tool](project-management-tool)
-
-Project management application built with Angular. This tool leverages microfrontend architecture, incorporating web components to provide a modular and extensible design.
+- [`project-management-tool`](./project-management-tool): Contains the frontend codebase.
+- [`project-management-api`](./project-management-api): Contains the backend API implementation.
