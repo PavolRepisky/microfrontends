@@ -1,6 +1,6 @@
 # Project Management API
 
-The Project Management API is a lightweight Node.js backend built with Express.js. It provides basic CRUD operations and serves translation files. All data is stored in memory, so no database setup is required.
+The Project Management API is a lightweight Node.js backend built with Express.js. It provides basic CRUD operations and serves translation files for the microfrontends. All data is stored in memory, so no database setup is required.
 
 ## Prerequisites
 
@@ -31,4 +31,4 @@ Follow these steps to get the server up and running:
    npm run dev
    ```
 
-   The API will be available at: `http://localhost:3000`.
+   The server will be available at: `http://localhost:3000`.

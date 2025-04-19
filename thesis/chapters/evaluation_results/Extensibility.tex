@@ -7,43 +7,17 @@ This extensibility takes several forms. First, changes within a single microfron
 
 Second, our architecture is designed to make the addition of entirely new features straightforward. New functionality is typically introduced as a separate microfrontend, allowing teams to develop and deploy independently. Since microfrontends are standard Angular applications that are wrapped into custom elements only at build time, development remains familiar and efficient. New microfrontends can be easily added to the Application Shell by declaring their routes and defining their host components. One of the technical achievements of our approach is the ability to run multiple Angular applications concurrently within the same browser environment—something that was traditionally considered infeasible.
 
-However, extensibility comes with trade-offs. The most critical issue is application size. Each microfrontend includes its own dependencies, which leads to linear growth in the total bundle size. For example, the bundled size of the User Microfrontend is about 1.19MB, consisting of:
+However, extensibility comes with trade-offs. The most critical issue is application size. Each microfrontend includes its own dependencies, which leads to linear growth in the total bundle size. For example, the bundled size of the User Microfrontend is about 1.21MB, consisting of:
 \begin{itemize}
-    \item \texttt{styles.css} - 264KB (22.2\%) - primarily Bootstrap styles,
+    \item \texttt{styles.css} - 272KB (22.5\%) - primarily Bootstrap styles,
     \item \texttt{polyfills.js} - 35KB (2.9\%) - for legacy browser support,
-    \item \texttt{main.js} - 894KB (75.1\%) - actual application logic.
+    \item \texttt{main.js} - 904KB (74.6\%) - actual application logic.
 \end{itemize}
-Similarly, the Task Microfrontend is 1.23MB in total, with:
+Similarly, the Task Microfrontend is about 1.25MB in total, with:
 \begin{itemize}
-    \item \texttt{styles.css} - 252KB (20.5\%),
+    \item \texttt{styles.css} - 260KB (20.9\%),
     \item \texttt{polyfills.js} - 35KB (2.8\%),
-    \item \texttt{main.js} - 943KB (76.7\%).
+    \item \texttt{main.js} - 952KB (76.3\%).
 \end{itemize}
 
-On average, each microfrontend in our application contributes approximately 1.21MB. Table \ref{table:app-scaling} shows how the total application size scales linearly with the number of microfrontends (excluding the Application Shell). This highlights a key constraint: while extensibility is architecturally straightforward, it must be balanced with performance and size considerations. With the increasing number of microfrontends, it is important to place the highest possible demands on reusability and asset sharing in order to minimize duplicate dependencies and code.
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|c|c|}
-        \hline
-        \textbf{Number of Microfrontends} & \textbf{Total Size (MB)} \\
-        \hline
-        1 & 1.21 \\
-        \hline
-        2 & 2.42 \\
-        \hline
-        4 & 4.84 \\
-        \hline
-        8 & 9.68 \\
-        \hline
-        16 & 19.36 \\
-        \hline
-        32 & 38.72 \\
-        \hline
-        64 & 77.44 \\
-        \hline
-        128 & 154.88 \\
-        \hline
-    \end{tabular}
-    \caption{Application size scaling with multiple microfrontends}
-    \label{table:app-scaling}
-\end{table}
+On average, a microfrontend in our application contributes approximately 1.21MB. With this size, when using the Angular framework, it would be possible to build a real-world application consisting of roughly 15 to 30 microfrontends. The theoretical number could be even higher, since Chromium-based browsers have a per-tab limit of up to 500MB, which—given the size of our microfrontends—translates to around 400 microfrontends. The real limitation, however, would be performance. Based on our experience, at around 20-30MB total (which corresponds to 15-30 of our microfrontends), we have not observed a significant drop in performance yet. However, the initial load time would already be quite long, and it would require the use of optimization techniques such as lazy loading and asset sharing.

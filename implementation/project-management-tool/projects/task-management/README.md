@@ -26,7 +26,7 @@ Make sure the following are installed before proceeding:
 - **npm** (v10.2.4 or higher): Included with Node.js.
 - **Angular CLI** (v18): Install globally with `npm install -g @angular/cli@18`.
 - **http-server**: To serve the built bundle locally. Install globally with: `npm install -g http-server`.
-- **Backend Server**: Ensure `project-management-api` is running at: `http://localhost:3000`.
+- **Running Server**: Ensure `project-management-api` is running at: `http://localhost:3000`.
 
 ## Setup and Installation
 
@@ -46,9 +46,9 @@ To run the microfrontend locally in development mode:
    npm install --force
    ```
 
-3. **Verify Backend Server**:
+3. **Verify the Server**:
 
-   Ensure the backend server is running at: `http://localhost:3000`.
+   Ensure the the server is running at: `http://localhost:3000`.
 
 4. **Start the Application**:
 

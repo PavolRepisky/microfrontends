@@ -4,7 +4,7 @@ The Application Shell is an Angular-based orchestrator for the User Management a
 
 - Application routing
 - Rendering of microfrontends
-- Shared configuration management
+- Settings management
 - Display of common UI elements
 
 ## Prerequisites
@@ -16,6 +16,7 @@ Make sure the following are installed before proceeding:
 - **Angular CLI** (v18): Install globally with `npm install -g @angular/cli@18`.
 - **User Management**: microfrontend running at: `http://localhost:4201`.
 - **Task Management**: microfrontend running at: `http://localhost:4202`.
+- **Running Server**: Ensure `project-management-api` is running at: `http://localhost:3000`.
 
 ## Setup and Installation
 
@@ -33,14 +34,18 @@ To set up and run the Application Shell:
    npm install --force
    ```
 
-3. **Run the Microfrontends:**:
+3. **Verify the Server**:
+
+   Ensure the server is running at: `http://localhost:3000`.
+
+4. **Run the Microfrontends:**:
 
    Make sure the dependent microfrontends are running. Refer to their setup instructions:
 
    - [`user-management`](../user-management)
    - [`task-management`](../task-management)
 
-4. **Start the Application**:
+5. **Start the Application**:
 
    ```bash
    ng serve
