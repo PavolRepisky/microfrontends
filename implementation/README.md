@@ -8,3 +8,5 @@ To learn more about the application and how to run it, refer to the following di
 
 - [`project-management-tool`](./project-management-tool): Contains the frontend codebase.
 - [`project-management-api`](./project-management-api): Contains the backend API implementation.
+
+The full source code is available on GitHub: [https://github.com/PavolRepisky/microfrontends/](https://github.com/PavolRepisky/microfrontends/)
