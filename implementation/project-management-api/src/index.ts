@@ -19,9 +19,12 @@ app.use(
 app.use(bodyParser.json());
 app.use(i18n.init);
 
+app.get("/", (req: Request, res: Response) => {
+  res.send("Server is up and running!");
+});
 app.use("/users", userRoutes);
 app.use("/tasks", taskRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });

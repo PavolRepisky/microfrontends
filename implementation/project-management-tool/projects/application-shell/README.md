@@ -14,9 +14,9 @@ Make sure the following are installed before proceeding:
 - **Node.js** (v18.19.1 or higher): Download and install from https://nodejs.org.
 - **npm** (v10.2.4 or higher): Included with Node.js.
 - **Angular CLI** (v18): Install globally with `npm install -g @angular/cli@18`.
-- **User Management**: microfrontend running at: `http://localhost:4201`.
-- **Task Management**: microfrontend running at: `http://localhost:4202`.
-- **Running Server**: Ensure `project-management-api` is running at: `http://localhost:3000`.
+- **User Management**: Microfrontend running at: `http://localhost:4201`.
+- **Task Management**: Microfrontend running at: `http://localhost:4202`.
+- **running server**: Ensure `project-management-api` is running at: `http://localhost:3000`.
 
 ## Setup and Installation
 
@@ -40,7 +40,7 @@ To set up and run the Application Shell:
 
 4. **Run the Microfrontends:**:
 
-   Make sure the dependent microfrontends are running. Refer to their setup instructions:
+   Make sure the dependent microfrontends are running in embedded mode. Refer to their setup instructions:
 
    - [`user-management`](../user-management)
    - [`task-management`](../task-management)

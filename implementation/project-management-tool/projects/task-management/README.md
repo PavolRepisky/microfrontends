@@ -25,8 +25,9 @@ Make sure the following are installed before proceeding:
 - **Node.js** (v18.19.1 or higher): Download and install from https://nodejs.org.
 - **npm** (v10.2.4 or higher): Included with Node.js.
 - **Angular CLI** (v18): Install globally with `npm install -g @angular/cli@18`.
+- **webpack and webpack-cli**: To create a single bundle file. Install globally with: `npm install -g webpack webpack-cli`.
 - **http-server**: To serve the built bundle locally. Install globally with: `npm install -g http-server`.
-- **Running Server**: Ensure `project-management-api` is running at: `http://localhost:3000`.
+- **running server**: Ensure `project-management-api` is running at: `http://localhost:3000`.
 
 ## Setup and Installation
 
